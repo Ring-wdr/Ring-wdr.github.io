@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>pandas - DataFrame 예제</title>
+  <meta name="description" content="목차">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="목차" />
+  <meta property="og:url" content="http://localhost:4000/python/2020/09/27/python-df3.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="pandas - DataFrame 예제" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="pandas - DataFrame 예제">
+  <meta name="twitter:description" content="목차">
+  <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
+  <meta name="twitter:url" content="http://localhost:4000/python/2020/09/27/python-df3.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/python/2020/09/27/python-df3.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">pandas - DataFrame 예제</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">September 27, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/python">Python</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h2 id="목차">목차</h2>
+
+<ul>
+  <li><a href="#dfq1">문제 1 (색인 및 적용함수)</a></li>
+  <li><a href="#dfq2">문제 2 (사용자 정의 함수 및 정렬 등)</a></li>
+  <li><a href="#dfq3">문제 3 (멀티 인덱스)</a></li>
+  <li><a href="#dfq4">문제 4 (멀티 인덱스 2)</a></li>
+</ul>
+
+<p><br /></p>
+
+<p>이번 글에서는 앞에 다룬 내용을 베이스로 하는 예제 문제들을 다룰 것입니다. 글로만 이해해서는 완벽하게 익히기 어렵습니다. 정확히는 본인이 무엇을 모르는지 모르는 경우가 대부분입니다. 대부분의 공부가 그렇듯이 실제로 데이터를 다루면서 습득하는 것이 빠르고 정확한 방법이라고 생각합니다.</p>
+
+<p>문제 난이도가 그렇게 쉽지는 않습니다. 왜냐하면 데이터를 전처리하는 과정은 생각보다 까다롭기 때문입니다. 적용함수를 통해서 예외가 되는 값들을 다 처리하려고 하면 이상한 데이터 몇몇 때문에 오류출력이 되는 경우가 태반입니다. 그래도 다행인것은 예제로 다루는 파일은 현장에서 구하는 데이터들보다는 깔끔하게 정리가 되어있는 편입니다. <code class="highlighter-rouge">원본 데이터(raw data)</code>에 익숙해지면서 이런 형식의 데이터를 어떻게 해야 분석하기 편하게 바꿀 수 있는 지 고민해보는 좋은 문제가 되기를 바랍니다.</p>
+<hr />
+
+<h3 id="dfq1">문제 1 (총 10개)</h3>
+
+<p>다음 내용을 담은 데이터 프레임 생성 후 아래 문제들을 순서대로 풀어보시오. 데이터 프레임의 이름은 data1로 하시오.</p>
+
+<fieldset>
+<p>name = ['apple','mango','banana','cherry']</p>
+
+<p>price = [2000, 1500, 500, 400]</p>
+
+<p>qty = [5,4,10,NA]</p>
+</fieldset>
+
+<details>
+<summary>데이터 프레임 생성</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">data1</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">({</span><span class="s">'name'</span> <span class="p">:</span> <span class="p">[</span><span class="s">'apple'</span><span class="p">,</span><span class="s">'mango'</span><span class="p">,</span><span class="s">'banana'</span><span class="p">,</span><span class="s">'cherry'</span><span class="p">],</span>
+                   <span class="s">'price'</span> <span class="p">:</span> <span class="p">[</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">400</span><span class="p">],</span>
+                   <span class="s">'qty'</span> <span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">NA</span><span class="p">]})</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<p>1) mango의 price와 qty 선택</p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># 위치 색인
+</span><span class="n">df1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># 조건 색인
+</span><span class="n">data1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data1</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s">'mango'</span><span class="p">,:]</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<p>2) mango와 cherry 의 price 선택</p>
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># 위치 색인, 차원 축소, Series 출력
+</span><span class="n">data1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="mi">1</span><span class="p">]</span> 
+
+<span class="c1"># 위치 색인, 차원 축소 방지, DataFrame 출력
+</span><span class="n">data1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># 조건 색인(모듈 numpy의 in 연산자)
+</span><span class="n">data1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data1</span><span class="o">.</span><span class="n">name</span><span class="p">),[</span><span class="s">'mango'</span><span class="p">,</span><span class="s">'cherry'</span><span class="p">]),</span><span class="s">'price'</span><span class="p">]</span>
+	
+<span class="c1"># 조건 색인(모듈 pandas in 연산자)
+</span><span class="n">data1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data1</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s">'mango'</span><span class="p">,</span><span class="s">'cherry'</span><span class="p">]),</span><span class="s">'price'</span><span class="p">]</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<p>3) 전체 과일의 price만 선택 (조건 색인)</p>
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">data1</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s">'price'</span><span class="p">]</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<p>4) qty의 평균 구하기</p>
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># pandas 기반/ 3개 평균
+</span><span class="n">data1</span><span class="o">.</span><span class="n">qty</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">data1</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s">'qty'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># numpy 기반
+# 3개 평균
+</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data1</span><span class="o">.</span><span class="n">qty</span><span class="p">)</span> 
+<span class="c1"># 4개 평균
+</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data1</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s">'qty'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">,</span><span class="n">data1</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s">'qty'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span></code></pre></figure>
+
+
+전처리 시 평균을 구할 때 NaN는 보통 무시합니다. 그래서 1명의 NaN를 포함한 4명의 평균을 구할 때 4로 나눌지 3으로 나눌지에 따라서 사용하는 코드가 달라집니다.
+</details>
+
+<p><br /></p>
+
+<p>5) price가 1000 이상인 과일 이름 출력</p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">data1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data1</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;=</span><span class="mi">1000</span><span class="p">,</span> <span class="s">'name'</span><span class="p">]</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<p>6) cherry, banana, mango, apple 순 출력</p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1">#위치 색인을 통한 출력
+</span><span class="n">data1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],:]</span>
+
+<span class="c1"># 정렬을 이용한 출력
+</span><span class="n">data1</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s">'price'</span><span class="p">)</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<p>7) 행 qty의 행이름을 QTY로 수정</p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># 오류
+</span><span class="n">data1</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">'QTY'</span>
+
+<span class="c1"># 권장 방식
+</span><span class="n">a1</span> <span class="o">=</span> <span class="n">data1</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<span class="n">a1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">'QTY'</span> <span class="c1"># 바꿀 원소만 수정
+</span><span class="n">data1</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">a1</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<p>8) name에 ‘a’를 포함하는 행 출력 (난이도 중)</p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># lambda를 이용한 풀이
+</span><span class="n">f1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="s">'a'</span> <span class="ow">in</span> <span class="n">x</span>
+<span class="n">vbool</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span><span class="n">data1</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+<span class="err">​</span><span class="n">data1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">vbool</span><span class="p">,</span> <span class="p">:]</span>
+
+<span class="c1"># 리스트 내포 표현식을 이용한 풀이
+</span><span class="n">data1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="k">if</span> <span class="n">data1</span><span class="o">.</span><span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'a'</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">],:]</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<p>9) name값을 행 이름(인덱스 이름)으로 설정 후 name 컬럼 제외</p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># 순서대로 진행
+</span><span class="n">data1</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">data1</span><span class="o">.</span><span class="n">name</span>
+<span class="n">data1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s">'name'</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># 한번에 진행
+</span><span class="n">data1</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">'name'</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<p>10) apple과 cherry 행 삭제</p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># 색인 이용
+</span><span class="n">data1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">data1</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s">'apple'</span><span class="p">,</span><span class="s">'cherry'</span><span class="p">]),:]</span>
+
+<span class="c1"># drop 메소드 이용
+</span><span class="n">data1</span> <span class="o">=</span> <span class="n">data1</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s">'apple'</span><span class="p">,</span><span class="s">'cherry'</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></code></pre></figure>
+
+</details>
+<p>​</p>
+<hr />
+
+<h3 id="dfq2">문제 2. 파일 불러온 후 전처리</h3>
+
+<p>아래 <code class="highlighter-rouge">subway2.csv</code> 파일을 받아서 기본 디렉토리에 넣고 python으로 불러오시오.</p>
+
+<p><a class="btn" href="/assets/python/subway2.csv" download="">subway2.csv</a></p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">data2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'subway2.csv'</span><span class="p">,</span> <span class="n">engine</span> <span class="o">=</span> <span class="s">'python'</span><span class="p">,</span> <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span></code></pre></figure>
+
+</details>
+
+<p><br />
+그리고 나서 아래 형식으로 변경하시오.</p>
+
+<fieldset>
+<pre>전체    구분   5시    6시    7시 ...</pre>
+<pre>서울역  승차 17465  18434  50313 ...</pre>
+<pre>서울역  하차 ....</pre>
+</fieldset>
+
+<ol>
+  <li><code class="highlighter-rouge">전체</code> 컬럼의 빈 칸에 윗 칸의 역 이름 입력</li>
+  <li>컬럼명을 다음 형식으로 변경 =&gt; <code class="highlighter-rouge">01~02</code>를 <code class="highlighter-rouge">1시</code>로 변경</li>
+  <li>숫자에 있는 <code class="highlighter-rouge">콤마(,)</code>를 삭제 후 정수로 변환</li>
+</ol>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># 전체 컬럼 수정
+# 1. NaN을 이전 행의 자료로 붙이기
+</span><span class="n">data2</span><span class="o">.</span><span class="err">전체</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="err">전체</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s">'ffill'</span><span class="p">)</span>
+<span class="c1"># 2. 괄호 지우기
+</span><span class="n">data2</span><span class="o">.</span><span class="err">전체</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="err">전체</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="p">[:</span><span class="n">x</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'('</span><span class="p">)]</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'('</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="k">else</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># 컬럼의 시간대 부분 수정
+# lambda를 이용
+</span><span class="n">a2</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span>
+<span class="n">a2</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">f</span><span class="s">'{int(x[:2]):#d}시'</span><span class="p">,</span> <span class="n">a2</span><span class="p">[</span><span class="mi">2</span><span class="p">:]))</span>
+<span class="n">data2</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">a2</span>
+
+<span class="c1"># Value 부분 수정
+# 적용함수 이용
+</span><span class="n">data2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:]</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span><span class="s">''</span><span class="p">)))</span></code></pre></figure>
+
+
+</details>
+
+<p><br /></p>
+
+<p>2) 각 역별 하차의 총 합</p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># 색인 이용
+</span><span class="n">data2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">'하차'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="nb">sum</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span></code></pre></figure>
+
+
+<br />
+<br />
+<a href="#errpt">오류시 해결 코드 참고</a>
+</details>
+
+<p><br /></p>
+
+<p>3) 승차의 시간대별 총 합</p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">data2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data2</span><span class="o">.</span><span class="err">구분</span> <span class="o">==</span> <span class="s">'승차'</span><span class="p">,]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<p>4) top(data,n=5) 함수 생성, 각 역별 승차가 많은 top 5 시간대 출력​</p>
+
+<p>(난이도 상)</p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">top</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[[</span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)[:</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+
+<span class="n">top</span><span class="p">(</span><span class="n">data2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data2</span><span class="o">.</span><span class="err">구분</span> <span class="o">==</span> <span class="s">'승차'</span><span class="p">,])</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<p>5) 하차 인원의 시간대별 각 역의 차지 비율 출력</p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># 예전 풀이
+</span><span class="n">data2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">'하차'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">data2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">'하차'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="nb">sum</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># 역 이름을 인덱스로 변경
+</span><span class="n">data3</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data2</span><span class="o">.</span><span class="err">구분</span> <span class="o">==</span> <span class="s">'하차'</span><span class="p">,]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">'전체'</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span>
+
+<span class="n">data3</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">/</span><span class="n">data3</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<h3 id="dfq3">문제 3</h3>
+
+<p>employment.csv 파일을 불러오고 아래 문제를 푸시오</p>
+
+<p><a class="btn" href="/assets/python/employment.csv" download="">employment.csv</a></p>
+
+<p>1) 년도와 각 항목(총근로일수, 총근로시간…)을 멀티 컬럼(열의 멀티 인덱스)으로 설정</p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># csv 파일 불러오기
+</span><span class="n">emp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'employment.csv'</span><span class="p">,</span> <span class="n">engine</span> <span class="o">=</span> <span class="s">'python'</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
+<span class="c1"># 인덱스로 변경
+</span><span class="n">emp</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">emp</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="c1">#전처리 후 멀티 컬럼으로 설정 후 원본 행 제거
+</span><span class="n">emp</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]),[</span><span class="n">x</span><span class="p">[:</span><span class="n">x</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">' '</span><span class="p">)]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">emp</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]]]</span>
+<span class="n">emp</span> <span class="o">=</span> <span class="n">emp</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:,:]</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<p>2) 정규근로자의 월급여액을 년도별로 출력</p>
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">emp</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">emp</span><span class="o">.</span><span class="n">index</span> <span class="o">==</span> <span class="s">'정규근로자'</span><span class="p">]</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s">'월급여액'</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<p>3) 각 년도별 근로자의 총근로일수의 평균 출력</p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># 천 단위 구분기호 (,) 삭제, 하이픈(-)을 NaN으로 변경, float으로 변경
+</span><span class="n">emp</span> <span class="o">=</span> <span class="n">emp</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span><span class="s">''</span><span class="p">))</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'-'</span><span class="p">,</span><span class="n">NA</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="c1"># 문제 풀이
+</span><span class="n">emp</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s">'총근로일수'</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<p>4) 각 년도별 정규근로자와 비정규근로자의 월급여액의 차이 계산</p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">emp</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s">'월급여액'</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,:]</span> <span class="o">-</span> <span class="n">emp</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s">'월급여액'</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">,:]</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<h3 id="dfq4">문제 4</h3>
+
+<p>1) hospital.csv 파일을 읽고 다음과 같은 데이터프레임으로 만들어라</p>
+
+<p><a class="btn" href="/assets/python/hospital.csv" download="">hospital</a></p>
+
+<fieldset>
+<pre>               2013    2012</pre>
+<pre>             1 2 3 4 1 2 3 4 ....</pre>
+<pre>내과 강남구</pre>
+<pre>      강동구</pre>
+<pre>....</pre>
+</fieldset>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># 멀티 인덱스
+# hospital.csv 불러오기
+</span><span class="n">hos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'hospital.csv'</span><span class="p">,</span> <span class="n">engine</span> <span class="o">=</span> <span class="s">'python'</span><span class="p">,</span> <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1"># 필요없는 열 제거 후 2개 열을 인덱스로 전환
+</span><span class="n">hos</span> <span class="o">=</span> <span class="n">hos</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">hos</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]]</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s">'표시과목'</span><span class="p">,</span><span class="s">'시군구명칭'</span><span class="p">])</span>
+<span class="c1"># 멀티 인덱스 이름 제거
+</span><span class="n">hos</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span>
+
+<span class="c1"># 멀티 컬럼
+</span><span class="n">hos</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">hos</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">hos</span><span class="o">.</span><span class="n">columns</span><span class="p">]]</span></code></pre></figure>
+
+
+# 계(total) 행 제거
+hos = hos.iloc[1:,:]
+</details>
+
+<p><br /></p>
+
+<p>2) 성형외과의 각 구별 총 합을 출력</p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">hos</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s">'성형외과'</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<p>3) 강남구의 각 표시과목별 총 합 출력</p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">hos</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s">'강남구'</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<p>4) 년도별 총 병원수의 합 출력</p>
+
+<details>
+<summary>정답</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">hos</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span></code></pre></figure>
+
+</details>
+
+<p><br /></p>
+
+<hr />
+
+<p>이 부분까지 교육을 받고서 문제를 풀었던 기억이 아직도 생생합니다. 직접 엑셀 파일을 살펴보고, 문제를 어떻게 이해해야 할지, 오류가 발생하면 왜 발생하는지 찾아보고 … 수 차례 복습하면서 전처리를 하는 과정은 익숙해졌지만 새로운 데이터를 살펴볼 때마다 새로운 문제에 직면하는 것은 저만의 일이 아니라고 생각합니다. 현업에서는 각 나라별로 사용하는 날짜 형식의 차이로 인해 파일 자체가 쓰레기가 되는 경우도 있다고 합니다. 열 하나에 여러 포맷이 섞여버리면 컴퓨터에 익숙하고를 떠나서 분류 자체가 어려우니까요.</p>
+
+<p>문제를 하나하나 풀면서 동시에 풀이를 옮기는 작업을 진행하였습니다. 오랜만에 문제를 풀어보면서 과거의 풀이와 비교하는 것도 재밌었습니다. 다 풀어보신 분들은 아시겠지만 데이터 전처리는 노가다의 연속이라는 것을 알 수 있습니다. 데이터 수집에 대한 메뉴얼이 없는 곳에서는 매번 코드를 만들어야 할 것 같다는 느낌이 듭니다. 필요한 변수가 없으면 외부 데이터를 가져오거나 기존 데이터를 이용해서 새로운 변수를 만들고, 배운대로 코드를 짜봤지만 오류가 발생하는 경우도 많고. 분석 모델에 넣는 과정은 아직 시작도 안했는데 험난하기만 합니다.</p>
+
+<p>사실 분석 모델에 잘 정리된 데이터를 넣는 것은 굉장히 간단합니다. 구글링을 하면 분석 모델별로 어떻게 코드를 입력해야하는지 다 나와있기 때문에 분석가의 시간을 가장 많이 잡아먹는 과정은 모델 분석 이전까지의 과정입니다.</p>
+
+<p>다음 글에서는 전처리에 필요한 추가적인 내용을 알아보도록 하겠습니다. <code class="highlighter-rouge">R의 reshape2 패키지</code>처럼 long data와 wide data를 다루는 함수, <code class="highlighter-rouge">그룹 함수</code>, <code class="highlighter-rouge">구간 분할</code> 등 … 이후에 <code class="highlighter-rouge">시각화 과정</code>, <code class="highlighter-rouge">분석 모델을 사용</code>하는 법까지 나갈 예정입니다.</p>
+
+<hr />
+
+<details>
+<summary>문제 2 오류시</summary>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># replace(',','')까지 했는데 컬럼들의 데이터 타입이 object 일때
+</span><span class="n">data2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="mi">2</span><span class="p">],</span>
+         <span class="n">data2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">'int'</span><span class="p">),</span>
+         <span class="n">left_index</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
+         <span class="n">right_index</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span></code></pre></figure>
+
+</details>
+
+<p><a id="errpt"></a></p>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=pandas+-+DataFrame+%EC%98%88%EC%A0%9C&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F27%2Fpython-df3.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=pandas+-+DataFrame+%EC%98%88%EC%A0%9C&u=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F27%2Fpython-df3.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F27%2Fpython-df3.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=pandas+-+DataFrame+%EC%98%88%EC%A0%9C&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F27%2Fpython-df3.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=pandas+-+DataFrame+%EC%98%88%EC%A0%9C&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F27%2Fpython-df3.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/python/2020/09/27/python-df3.html') + '&title=pandas - DataFrame 예제'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

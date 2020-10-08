@@ -1,0 +1,203 @@
+[
+    
+     {
+       "title"    : "자료 구조 in R (2)",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/r/2020/10/07/r-structure-2.html",
+       "date"     : "2020-10-07 11:22:52 +0900"
+     } ,
+    
+     {
+       "title"    : "자료 구조 in R (1)",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/r/2020/10/07/r-structure-1.html",
+       "date"     : "2020-10-07 11:22:52 +0900"
+     } ,
+    
+     {
+       "title"    : "beautifulsoup을 이용한 웹 크롤링",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/python/2020/10/06/crawling.html",
+       "date"     : "2020-10-06 12:20:54 +0900"
+     } ,
+    
+     {
+       "title"    : "변수(Variables)",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/r/2020/10/06/r-variable.html",
+       "date"     : "2020-10-06 11:22:52 +0900"
+     } ,
+    
+     {
+       "title"    : "도커(Docker)",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/docker/2020/10/05/docker.html",
+       "date"     : "2020-10-05 16:22:52 +0900"
+     } ,
+    
+     {
+       "title"    : "R 설치",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/r/2020/10/05/r-setup.html",
+       "date"     : "2020-10-05 11:22:52 +0900"
+     } ,
+    
+     {
+       "title"    : "정규 표현식, 더미 변수, 샘플링",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/python/2020/10/04/python-regexp.html",
+       "date"     : "2020-10-04 11:10:52 +0900"
+     } ,
+    
+     {
+       "title"    : "pandas - 전처리 추가 내용 (2)",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/python/2020/10/03/python-df5.html",
+       "date"     : "2020-10-03 09:10:52 +0900"
+     } ,
+    
+     {
+       "title"    : "pandas - 전처리 추가 내용",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/python/2020/09/28/python-df4.html",
+       "date"     : "2020-09-28 09:20:54 +0900"
+     } ,
+    
+     {
+       "title"    : "pandas - DataFrame 예제",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/python/2020/09/27/python-df3.html",
+       "date"     : "2020-09-27 09:20:54 +0900"
+     } ,
+    
+     {
+       "title"    : "pandas - DataFrame (2)",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/python/2020/09/24/python-df2.html",
+       "date"     : "2020-09-24 18:30:54 +0900"
+     } ,
+    
+     {
+       "title"    : "pandas - DataFrame",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/python/2020/09/24/python-7.html",
+       "date"     : "2020-09-24 12:30:54 +0900"
+     } ,
+    
+     {
+       "title"    : "pandas - Series",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/python/2020/09/22/python-6.html",
+       "date"     : "2020-09-22 05:30:54 +0900"
+     } ,
+    
+     {
+       "title"    : "numpy",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/python/2020/09/21/python-5.html",
+       "date"     : "2020-09-21 05:30:54 +0900"
+     } ,
+    
+     {
+       "title"    : "Python 자료 구조 (2)",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/python/2020/09/20/python-4.html",
+       "date"     : "2020-09-20 21:30:54 +0900"
+     } ,
+    
+     {
+       "title"    : "Python 자료 구조 (1)",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/python/2020/09/19/python-3.html",
+       "date"     : "2020-09-19 21:30:54 +0900"
+     } ,
+    
+     {
+       "title"    : "Python 기본적인 개념",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/python/2020/09/19/python-2.html",
+       "date"     : "2020-09-19 11:30:54 +0900"
+     } ,
+    
+     {
+       "title"    : "Python 설치 &amp; Colab",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/python/2020/09/18/python.html",
+       "date"     : "2020-09-18 04:30:54 +0900"
+     } ,
+    
+     {
+       "title"    : "SQL - 기본 문법 (4) [작성중]",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/sql/2020/09/16/sql-6.html",
+       "date"     : "2020-09-16 21:30:54 +0900"
+     } ,
+    
+     {
+       "title"    : "SQL - 기본 문법 (3) [작성중]",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/sql/2020/09/16/sql-5.html",
+       "date"     : "2020-09-16 11:30:54 +0900"
+     } ,
+    
+     {
+       "title"    : "SQL - 기본 문법 (2)",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/sql/2020/09/16/sql-4.html",
+       "date"     : "2020-09-16 07:30:54 +0900"
+     } ,
+    
+     {
+       "title"    : "SQL - 기본 문법",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/sql/2020/09/16/sql-3.html",
+       "date"     : "2020-09-16 07:26:54 +0900"
+     } ,
+    
+     {
+       "title"    : "SQL - Orange (2)",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/sql/2020/09/15/sql-2.html",
+       "date"     : "2020-09-15 11:26:52 +0900"
+     } ,
+    
+     {
+       "title"    : "SQL - Orange (1)",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/sql/2020/09/15/sql.html",
+       "date"     : "2020-09-15 05:25:52 +0900"
+     } ,
+    
+     {
+       "title"    : "첫 글!",
+       "category" : "",
+       "tags"     : "jekyll, welcome",
+       "url"      : "/jekyll/2020/09/15/first.html",
+       "date"     : "2020-09-15 04:25:52 +0900"
+     } 
+    
+]

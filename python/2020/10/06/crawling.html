@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>beautifulsoup을 이용한 웹 크롤링</title>
+  <meta name="description" content="  웹 스크레이핑과 크롤링  urllib 이해하기  서울시 홈페이지 메인 가져오기  beautifulsoup 이해하기  네이버에서 가져오기  다음 뉴스 내용 가져오기  안티 크롤링 방지">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="  웹 스크레이핑과 크롤링  urllib 이해하기  서울시 홈페이지 메인 가져오기  beautifulsoup 이해하기  네이버에서 가져오기  다음 뉴스 내용 가져오기  안티 크롤링 방지" />
+  <meta property="og:url" content="http://localhost:4000/python/2020/10/06/crawling.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="beautifulsoup을 이용한 웹 크롤링" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="beautifulsoup을 이용한 웹 크롤링">
+  <meta name="twitter:description" content="  웹 스크레이핑과 크롤링  urllib 이해하기  서울시 홈페이지 메인 가져오기  beautifulsoup 이해하기  네이버에서 가져오기  다음 뉴스 내용 가져오기  안티 크롤링 방지">
+  <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
+  <meta name="twitter:url" content="http://localhost:4000/python/2020/10/06/crawling.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/python/2020/10/06/crawling.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">beautifulsoup을 이용한 웹 크롤링</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">October 6, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/python">Python</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <ul>
+  <li><a href="#scrap">웹 스크레이핑과 크롤링</a></li>
+  <li><a href="#urllib">urllib 이해하기</a></li>
+  <li><a href="#allscr">서울시 홈페이지 메인 가져오기</a></li>
+  <li><a href="#bs4">beautifulsoup 이해하기</a></li>
+  <li><a href="#navscr">네이버에서 가져오기</a></li>
+  <li><a href="#daumns">다음 뉴스 내용 가져오기</a></li>
+  <li><a href="#prevatc">안티 크롤링 방지</a></li>
+</ul>
+
+<hr />
+
+<h2 id="scrap">웹 스크레이핑과 크롤링</h2>
+
+<p>웹 스크레이핑(scraping)은 html, css기반의 웹 페이지에서 파싱으로 필요한 정보만을 가져오는 것을 말합니다. 이런 활동을 정기적으로 하는 것을 웹 크롤링이라고 합니다. Python으로 하는 스크레이핑의 장점은 일일히 사이트 뒤져가면서 복사하는 것을 코드가 대신 자동으로 해주기 때문입니다.</p>
+
+<p>웹 페이지의 구조는 언제 변할지 모르는 것이기 때문에 예전에 되었던 코드도 나중에 무용지물이 되는 경우가 많습니다. 따라서 스크레이핑 작업을 할 때는 기존의 코드를 그대로 복사하기보다는 어떤 과정으로 진행되는지 알아둬야할 필요가 있습니다.</p>
+
+<hr />
+
+<h2 id="urllib">urllib 이해하기</h2>
+
+<p>url library(urllib)은 입력한 링크(url)의 페이지 내용을 저장합니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># import 라이브러리 등록
+</span><span class="kn">import</span> <span class="nn">urllib.request</span>
+
+<span class="c1"># 변수 선언
+</span><span class="n">url</span> <span class="o">=</span> <span class="s">"접속할 URL"</span>
+<span class="n">Savefile</span> <span class="o">=</span> <span class="s">"저장할 파일명"</span>
+<span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">savefile</span><span class="p">)</span></code></pre></figure>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="allscr">서울시 홈페이지 가져오기</h2>
+
+<p>아래 코드는 서울시 홈페이지 메인을 가져와 파일 형태로 만드는 코드입니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">urllib.request</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://www.seoul.go.kr/main/index.jsp"</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span>
+
+<span class="n">mem</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># euc-kr, utf-8
+</span><span class="n">decodeMem</span> <span class="o">=</span> <span class="n">mem</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">)</span>
+
+<span class="c1"># 파일로 만들기
+</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"seoul.html"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">mem</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"파일 다운 완료"</span><span class="p">)</span></code></pre></figure>
+
+<p>utf-8은 유니코드로 바꿔주는 인코딩 코드로 주로 한글을 인코딩할 때 쓰입니다. 그대로 가져오면 한 줄 띄우기, 한글 등의 글자들이 보기 편한 방식으로 불러올 수 없기 때문에 decode 메소드로 불러옵니다.</p>
+
+<p>아래는 서울시 검색창에 뉴딜일자리를 검색한 페이지를 가져오는 코드입니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">urllib.request</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="s">"https://newsearch.seoul.go.kr/ksearch/search.do"</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="s">"kwd"</span><span class="p">:</span><span class="s">"뉴딜일자리"</span><span class="p">}</span>
+<span class="n">dataEncode</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="n">uri</span> <span class="o">+</span> <span class="s">"?"</span> <span class="o">+</span> <span class="n">dataEncode</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"seoul_quiz2.html"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"파일 다운 완료"</span><span class="p">)</span></code></pre></figure>
+
+<p>아래 칸에 웹 페이지 주소(url)의 형식이 어떻게 되어 있는지 간단하게 나눴습니다.</p>
+
+<fieldset>
+<p>프로토콜 : https://</p>
+<p>호스트 이름 : newsearch.seoul.go.kr</p>
+<p>경로 : ksearch/search.do</p>
+<p>?</p>
+<p>데이터 : kwd=%EB%89%B4%EB%94%9C%EC%9D%BC%EC%9E%90%EB%A6%AC</p>
+</fieldset>
+
+<p>물음표(?) 앞까지는 기본 식별자(uri)이며, 뒤 내용부터 하위 옵션이라고 볼 수 있습니다. 즉 검색어가 바뀌면 앞의 uri는 그대로고 ? 뒤에만 바뀝니다.</p>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="bs4">BeautifulSoup 이해하기</h2>
+
+<p>뷰티풀 수프(BeautifulSoup)는 html 및 XML 파일에서 원하는 데이터를 가져올 수 있게하는 Python 라이브러리입니다. 짧은 예제를 통해서 살펴보도록 합시다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="n">html</span> <span class="o">=</span> <span class="s">"""
+&lt;html&gt;&lt;body&gt;
+ &lt;h1&gt;스크래핑이란?&lt;/h1&gt;
+ &lt;p&gt;웹 페이지를 분석하는 것&lt;/p&gt;
+ &lt;p&gt;원하는 부분을 추출하는 것&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+"""</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">"html.parser"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">h1</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">h1</span><span class="o">.</span><span class="n">string</span><span class="p">)</span></code></pre></figure>
+
+<p>html이라는 이름의 변수의 내용을 html방식으로 파싱을 한 후 soup라는 변수에 입력하였습니다. 그리고나서 soup에서 body 안의 h1 부분만 프린트를 하였습니다.</p>
+
+<p>웹 페이지 소스는 html로 되어 있기 때문에 이런 방식으로 진행을 해보았습니다. 이번에는 네이버의 웹페이지 코드를 이용하여 필요한 정보를 가져옵시다.</p>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="navscr">네이버에서 가져오기</h2>
+
+<p><a href="https://finance.naver.com/marketindex/">네이버 시장지표</a>에서 미국 환율을 긁어오겠습니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/btxmlL/btqKjcuTQab/CPERyWWFEqVJInKvihVcY1/img.png" alt="시장지표 메인" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span> <span class="k">as</span> <span class="n">req</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="s">"https://finance.naver.com/marketindex/"</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">"html.parser"</span><span class="p">)</span>
+
+<span class="c1"># Value 추출
+</span><span class="n">value</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s">"span.value"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s">":"</span><span class="p">,</span> <span class="n">value</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
+
+<span class="c1"># p 태그 추출 : select  여러개 데이터 추출
+</span><span class="n">values</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">"span.value"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="s">":"</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">string</span><span class="p">)</span></code></pre></figure>
+
+<p>html형식의 파일에서 요소를 추출하는 메소드는 두 가지가 있습니다. select_one은 요소 하나만 추출하고 select는 여러 개의 리스트를 추출합니다. 조심해야할 사항이 있는데 select로 불러올 때는 하나의 값을 추출해도 리스트로 가져오기 때문에 변수 사용시 자료 구조의 문제로 원하는 코드가 실행이 안 될 수도 있습니다. 아래 <a href="#daumns">다음 뉴스 내용 가져오기</a>에서 이런 문제를 해결하는 방법을 명시해두었습니다.</p>
+
+<p>다음에는 국제 시장 환율에서 상승하는 환율만 가져오는 실습을 해봅시다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span> <span class="k">as</span> <span class="n">req</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://finance.naver.com/marketindex/"</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">"html.parser"</span><span class="p">)</span>
+
+<span class="c1"># id가 worldExchangeList인 값 추출 후 li가 a
+</span><span class="n">values</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">"#worldExchangeList li a"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+    <span class="n">div</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">"div"</span><span class="p">,</span><span class="s">"head_info point_up"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">div</span> <span class="ow">is</span> <span class="bp">None</span> <span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="n">moneyName</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">h3</span><span class="o">.</span><span class="n">span</span><span class="o">.</span><span class="n">string</span>
+    <span class="n">money</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">"div"</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">"span"</span><span class="p">,</span><span class="s">"value"</span><span class="p">)</span><span class="o">.</span><span class="n">string</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="n">moneyName</span> <span class="o">+</span> <span class="n">money</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="https://blog.kakaocdn.net/dn/c1UiCl/btqKibbWNxV/5cWKfPFn4DAlXiEzKkvCPk/img.png" alt="이미지" /></p>
+
+<p>국제 시장 환율을 담는 부분의 id가 worldExchangeList인 부분 내에서 li-a 부분만 가져왔습니다. 이들을 values에 넣고 하나 하나씩 살펴보면서 div 들을 살펴본 후 <code class="highlighter-rouge">head_info point_up</code>(네이버 시장지표에서 지수 증가시 부여되는 id)에 해당하지 않으면 for 문을 넘기는 방식으로 진행하였습니다. 지표의 이름은 h3안에 span에서 가져와 moneyName라는 변수로 생성하고 현재 환율은 div 안에 span이 value인 부분을 money로 가져와 만들었습니다.</p>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="daumns">다음 뉴스 내용 가져오기</h2>
+
+<p>이번에는 <a href="https://news.daum.net/">다음 뉴스</a>에서 열독률 높은 뉴스 5개의 기사 내용을 스크레이핑 해보겠습니다.</p>
+
+<p>1. 열독률 높은 뉴스 5개의 기사들의 주소만 가져오기</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/oK07J/btqJ8euNBS3/RcVJ3b7iFPY2HBifxNOl6k/img.png" alt="다음 뉴스" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span> <span class="k">as</span> <span class="n">req</span>
+
+<span class="k">def</span> <span class="nf">getURLInfo</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">"html.parser"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://news.daum.net/"</span>
+<span class="n">tag</span> <span class="o">=</span> <span class="s">"div.box_peruse div.pop_news.pop_cmt ol.list_popcmt li"</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">getURLInfo</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">tag</span><span class="p">)</span>
+
+<span class="c1"># a 안의 href 특성 읽기
+</span><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s">"href"</span><span class="p">])</span>
+
+<span class="n">Out</span><span class="p">:</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">news</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">daum</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">v</span><span class="o">/</span><span class="c1">## #(기사 번호 마스킹)
+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">news</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">daum</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">v</span><span class="o">/</span><span class="c1">##
+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">news</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">daum</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">v</span><span class="o">/</span><span class="c1">##
+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">news</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">daum</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">v</span><span class="o">/</span><span class="c1">##
+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">news</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">daum</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">v</span><span class="o">/</span><span class="c1">##</span></code></pre></figure>
+
+<p><br /></p>
+
+<p>2.기사 내용 가져오기</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/kMXFV/btqKjcoc6Ai/ehoflbZNk5KCSLViRaj711/img.png" alt="기사 페이지 소스" /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span> <span class="k">as</span> <span class="n">req</span>
+<span class="kn">import</span> <span class="nn">time</span> <span class="c1"># 주소 입력에 대한 시간 제한을 위해 불러옴
+</span>
+<span class="c1"># 함수 생성 : 입력한 url의 정보를 태그에 맞춰서 파싱 
+</span><span class="k">def</span> <span class="nf">getURLInfo</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">"html.parser"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://news.daum.net/"</span>
+<span class="n">tag</span> <span class="o">=</span> <span class="s">"div.box_peruse div.pop_news.pop_cmt ol.list_popcmt li"</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">getURLInfo</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">tag</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+    <span class="n">articleUrl</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s">"href"</span><span class="p">]</span>
+    <span class="n">articleTag</span> <span class="o">=</span> <span class="s">"section"</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">getURLInfo</span><span class="p">(</span><span class="n">articleUrl</span><span class="p">,</span><span class="n">articleTag</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="c1"># [0] : 리스트 형식으로 되어 있어 괄호 제거
+</span>    <span class="c1"># text : 괄호 제거 후 후 내용만 출력
+</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># 3초 딜레이</span></code></pre></figure>
+
+<p>다음 뉴스 메인 url에서 열독률 높은 기사의 링크 5개를 추출하고, 각 링크에서 본문 내용만 가져오는 코드입니다. 페이지 내용을 파싱하는 과정이 두 번 이상이기 때문에 이런 작업을 사용자 정의 함수로 정의하여 구문을 단순하게 만들었습니다.</p>
+
+<p>이번에 사용한 코드는 단지 5개의 기사를 불러오기 때문에 큰 문제가 없지만 수 백, 수 천건의 대량의 웹 페이지 정보를 가져오는 경우 디도스와 같은 서버에 대한 공격으로 받아들일 수 있습니다. 따라서 time을 불러와서 기사 하나의 내용을 불러온 후 3초의 딜레이를 주었습니다.</p>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="prevatc">우회 접속(안티 크롤링 방지)</h2>
+
+<p>광고 수입으로 돈을 버는 사이트의 경우 웹 브라우저를 이용하지 않는 웹 접속을 막는 경우가 있습니다. 네이버 뉴스같은 경우 이전까지 배운 내용으로 크롤링을 시도하면 접속을 차단하기도 합니다. 그렇기 때문에 우회 접속을 도와주는 requests를 이용하여 웹 페이지를 크롤링 해보도록 하겠습니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">getURLInfo</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">tag</span><span class="p">):</span>
+    <span class="n">urlHeader</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'User-Agent'</span><span class="p">:</span><span class="s">'Mozilla/5.0'</span><span class="p">})</span>
+    <span class="n">html</span><span class="o">=</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">urlHeader</span><span class="o">.</span><span class="n">text</span><span class="p">,</span><span class="s">"html.parser"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">html</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+
+<span class="c1"># 네이버 경제 쪽 헤드라인 기사들 가져오기
+</span><span class="n">url</span><span class="o">=</span><span class="s">"https://news.naver.com/main/main.nhn?mode=LSD&amp;mid=shm&amp;sid1=101"</span>
+<span class="n">tag</span><span class="o">=</span><span class="s">"div.cluster div.cluster_group._cluster_content div.cluster_body ul li div.cluster_text a"</span>
+<span class="n">headline</span><span class="o">=</span><span class="n">getURLInfo</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">tag</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">news</span> <span class="ow">in</span> <span class="n">headline</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">news</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">articleURL</span><span class="o">=</span><span class="n">news</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s">"href"</span><span class="p">]</span>
+    <span class="n">articleTag</span><span class="o">=</span><span class="s">"#articleBodyContents"</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">getURLInfo</span><span class="p">(</span><span class="n">articleURL</span><span class="p">,</span><span class="n">articleTag</span><span class="p">)</span>
+    <span class="c1">#data가 리스트 형식이라 직접적으로 .text를 사용할 수 없음
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"------------------------"</span><span class="p">)</span>
+    <span class="c1">#break (첫 번째 테스트 후 주석 처리)
+</span>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code></pre></figure>
+
+<p>웹 이용시에 크롬, 파이어폭스같은 브라우저를 포함한 모든 소프트웨어는 User-agent를 갖습니다. User-agent의 정보를 통해 “나는 이 프로그램을 이용하여 웹에 접속하였다”를 증명합니다. 그래서 이 코드는 일반 웹 브라우저의 정보를 User-agent에 넣고 웹 브라우저를 이용해 접속한 것처럼 보이는 우회 방식을 이용한 크롤링입니다. 우회하여 가져온 html 문서에서 이전에 파싱을 했듯이 원하는 부분을 추출하면 됩니다.</p>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=beautifulsoup%EC%9D%84+%EC%9D%B4%EC%9A%A9%ED%95%9C+%EC%9B%B9+%ED%81%AC%EB%A1%A4%EB%A7%81&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F10%2F06%2Fcrawling.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=beautifulsoup%EC%9D%84+%EC%9D%B4%EC%9A%A9%ED%95%9C+%EC%9B%B9+%ED%81%AC%EB%A1%A4%EB%A7%81&u=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F10%2F06%2Fcrawling.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F10%2F06%2Fcrawling.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=beautifulsoup%EC%9D%84+%EC%9D%B4%EC%9A%A9%ED%95%9C+%EC%9B%B9+%ED%81%AC%EB%A1%A4%EB%A7%81&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F10%2F06%2Fcrawling.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=beautifulsoup%EC%9D%84+%EC%9D%B4%EC%9A%A9%ED%95%9C+%EC%9B%B9+%ED%81%AC%EB%A1%A4%EB%A7%81&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F10%2F06%2Fcrawling.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/python/2020/10/06/crawling.html') + '&title=beautifulsoup을 이용한 웹 크롤링'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

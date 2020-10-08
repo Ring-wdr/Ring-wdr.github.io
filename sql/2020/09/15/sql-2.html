@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SQL - Orange (2)</title>
+  <meta name="description" content="Orange 실행">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="Orange 실행" />
+  <meta property="og:url" content="http://localhost:4000/sql/2020/09/15/sql-2.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="SQL - Orange (2)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/orange.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SQL - Orange (2)">
+  <meta name="twitter:description" content="Orange 실행">
+  <meta name="twitter:image" content="http://localhost:4000/assets/orange.png">
+  <meta name="twitter:url" content="http://localhost:4000/sql/2020/09/15/sql-2.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/sql/2020/09/15/sql-2.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/orange.png);">
+  <div class="scrim has-cover">
+    <header class="post-header">
+      <h1 class="title">SQL - Orange (2)</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">September 15, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/sql">Sql</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h3 id="orange-실행">Orange 실행</h3>
+
+<p><a href="sql.html">(1)</a>에서의 설치 절차를 마치면 프로그램을 실행합니다.</p>
+
+<p><a href="/assets/sql/oracle_18.png" data-lightbox="login">
+   <img src="/assets/sql/oracle_18.png" title="로그인 방법" />
+</a></p>
+
+<p>TNS Name은 설치시에 등록한 이름인 ORCL을 선택하고 하단에 Oracle Home에서는 11g를 선택하신 후 TNS Name 밑에 있는 Username과 Password창에서 사용하고 싶은 계정의 정보를 입력하신 후에 로그인하시면 됩니다.</p>
+
+<p>사진에는 system 계정과 <code class="highlighter-rouge">SCOTT</code> 계정으로 로그인하는 과정을 다 표현이 되어있는데 실습에 사용할 계정은 위에서 말씀드렸다시피 SCOTT이기 때문에 Username에 SCOTT을 입력하시고 비밀번호는 oracle을 입력하시면 됩니다.</p>
+
+<p><code class="highlighter-rouge">system</code> 계정 로그인은 설치 과정에서 비밀번호 관리를 하지 않아 SCOTT계정이 잠겨있는 분들을 위해 적어두었습니다. SCOTT계정이 잠겨있어 로그인이 불가능하신 분은 system 계정으로 로그인 하시고 아래의 쿼리를 입력하신 후 창을 닫으시면 됩니다.</p>
+
+<p><br />
+<br /></p>
+
+<p><code class="highlighter-rouge">계정 잠금 해제</code></p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">alter</span> <span class="k">user</span> <span class="n">scott</span> <span class="n">account</span> <span class="n">unlock</span><span class="p">;</span>
+<span class="k">alter</span> <span class="k">user</span> <span class="n">hr</span> <span class="n">account</span> <span class="n">unlock</span><span class="p">;</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">계정 비밀번호 변경</code></p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">alter</span> <span class="k">user</span> <span class="n">scott</span> <span class="n">identified</span> <span class="k">by</span> <span class="n">oracle</span><span class="p">;</span>
+<span class="k">alter</span> <span class="k">user</span> <span class="n">HR</span> <span class="n">identified</span> <span class="k">by</span> <span class="n">oracle</span><span class="p">;</span></code></pre></figure>
+
+<hr />
+
+<p>이번 글에서는 Orange 툴에서 자주 사용하는 단축키를 설명드리고 마치겠습니다. 다음 포스트부터는 기본 문법부터 시작해서 SQL에 대한 본격적인 설명을 하도록 하겠습니다.</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<h3 id="orange-단축키">Orange 단축키</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>단축키</th>
+      <th style="text-align: right">의미</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">ctrl + enter</code></td>
+      <td style="text-align: right">라인 단위로 실행</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">F5</code></td>
+      <td style="text-align: right">전체 실행</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ctrl + n</code></td>
+      <td style="text-align: right">새로운 접속화면</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ctrl + s</code></td>
+      <td style="text-align: right">저장</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ctrl + o</code></td>
+      <td style="text-align: right">불러오기</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ctrl + t</code></td>
+      <td style="text-align: right">새로운 탭 생성</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ctrl + -</code></td>
+      <td style="text-align: right">주석 생성</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ctrl + shift</code></td>
+      <td style="text-align: right">주석 해제</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ctrl + u</code></td>
+      <td style="text-align: right">소문자 변경</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ctrl + shift + u</code></td>
+      <td style="text-align: right">대문자 변경</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ctrl + shift + f</code></td>
+      <td style="text-align: right">쿼리를 깔끔하게 정렬</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+<br /></p>
+
+<h3 id="유용한-메뉴">유용한 메뉴</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">file save workspace AS ...</code></td>
+      <td>열려있는 모든 탭 저장</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">open workspace</code></td>
+      <td>저장한 탭 모두 열기</td>
+    </tr>
+  </tbody>
+</table>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=SQL+-+Orange+%282%29&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F15%2Fsql-2.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=SQL+-+Orange+%282%29&u=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F15%2Fsql-2.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F15%2Fsql-2.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=SQL+-+Orange+%282%29&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F15%2Fsql-2.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=SQL+-+Orange+%282%29&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F15%2Fsql-2.html&media=http://localhost:4000/assets/orange.png"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/sql/2020/09/15/sql-2.html') + '&title=SQL - Orange (2)'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

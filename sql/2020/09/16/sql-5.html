@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SQL - 기본 문법 (3) [작성중]</title>
+  <meta name="description" content="목차">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="목차" />
+  <meta property="og:url" content="http://localhost:4000/sql/2020/09/16/sql-5.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="SQL - 기본 문법 (3) [작성중]" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SQL - 기본 문법 (3) [작성중]">
+  <meta name="twitter:description" content="목차">
+  <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
+  <meta name="twitter:url" content="http://localhost:4000/sql/2020/09/16/sql-5.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/sql/2020/09/16/sql-5.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">SQL - 기본 문법 (3) [작성중]</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">September 16, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/sql">Sql</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h2 id="목차">목차</h2>
+
+<ul>
+  <li><a href="#group-by">GROUP BY</a></li>
+  <li><a href="#having">HAVING</a> (vs WHERE)</li>
+  <li><a href="#테이블-결합">테이블 결합</a>
+    <ul>
+      <li><a href="#집합-연산자">집합 연산자</a></li>
+      <li><a href="#JOIN">JOIN</a></li>
+    </ul>
+  </li>
+  <li><a href="#서브쿼리(Subqeury)">서브쿼리</a>
+    <ul>
+      <li>스칼라 서브쿼리</li>
+      <li>인라인 뷰</li>
+      <li>상호연관 서브쿼리</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<hr />
+
+<h3 id="group-by">GROUP BY</h3>
+
+<p><br /></p>
+
+<h4 id="그룹-함수-복수행함수">그룹 함수 (복수행함수)</h4>
+
+<p>: 여러 행을 이용하여 한 건을 출력하는 함수입니다. <code class="highlighter-rouge">GROUP BY</code>절을 배우기 전에 반드시 알야아 할 함수입니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">함수명</th>
+      <th style="text-align: left">기능</th>
+      <th style="text-align: left">문법</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">COUNT</td>
+      <td style="text-align: left">갯수를 센다</td>
+      <td style="text-align: left">COUNT(컬럼)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">SUM</td>
+      <td style="text-align: left">숫자를 모두 더한다</td>
+      <td style="text-align: left">SUM(컬럼)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">AVG</td>
+      <td style="text-align: left">평균을 구한다(NULL 여부 확인)</td>
+      <td style="text-align: left">AVG(컬럼)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">MIN</td>
+      <td style="text-align: left">최솟값을 구한다</td>
+      <td style="text-align: left">MIN(컬럼)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">MAX</td>
+      <td style="text-align: left">최댓값을 구한다</td>
+      <td style="text-align: left">MAX(컬럼)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="group-by-1">GROUP BY</h4>
+
+<p>: 특정 속성을 기준으로 그룹화하는 절입니다. 모든 데이터에 대한 결과값이 아닌 특정 대상에 대한 결과만을 원할 때 사용합니다. 예를 들어 <code class="highlighter-rouge">GROUP BY</code>절 없이 <code class="highlighter-rouge">SUM</code>함수를 사용한다면 <code class="highlighter-rouge">모든 값의 합</code>을 구하지만 테이블 <code class="highlighter-rouge">EMP</code>에서 <code class="highlighter-rouge">JOB</code>기준으로 <code class="highlighter-rouge">GROUP BY</code>절을 추가 후 <code class="highlighter-rouge">SUM</code>함수를 사용한다면 <code class="highlighter-rouge">JOB별 값의 합</code>을 구할 수 있게 됩니다.</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="n">SAL</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">EMP</span><span class="p">;</span></code></pre></figure>
+
+<table>
+  <thead>
+    <tr>
+      <th>SUM(SAL)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>29025</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">JOB</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">SAL</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">EMP</span>
+ <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">JOB</span><span class="p">;</span></code></pre></figure>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">JOB</th>
+      <th style="text-align: left">SUM(SAL)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ANALYST</td>
+      <td style="text-align: left">6000</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CLERK</td>
+      <td style="text-align: left">4150</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SALESMAN</td>
+      <td style="text-align: left">5600</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">…</td>
+      <td style="text-align: left">…</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>여기서 문법적으로 반드시 지켜주셔야 할 것이 있는데 <code class="highlighter-rouge">GROUP BY</code>에 입력한 컬럼은 <code class="highlighter-rouge">SELECT</code>절에도 반드시 입력해야합니다.</p>
+
+<p>추가로, <code class="highlighter-rouge">GROUP BY</code>에는 여러 속성을 기준으로 삼을 수 있습니다. 위 예시에서는 <code class="highlighter-rouge">JOB</code>에 대해서만 그룹화를 설정했지만 <code class="highlighter-rouge">JOB</code>과 <code class="highlighter-rouge">DEPTNO</code> 두 속성에 대해서 동시에 그룹화하여 그룹 함수를 사용할 수도 있습니다.</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">DEPTNO</span><span class="p">,</span> <span class="n">JOB</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">SAL</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">EMP</span>
+ <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">DEPTNO</span><span class="p">,</span> <span class="n">JOB</span><span class="p">;</span></code></pre></figure>
+
+<p><a href="https://blog.kakaocdn.net/dn/bUWIP8/btqITty6nSK/zUAaakBoNcCuP68WkXATRK/img.png" data-lightbox="setup">
+   <img src="https://blog.kakaocdn.net/dn/bUWIP8/btqITty6nSK/zUAaakBoNcCuP68WkXATRK/img.png" title="쿼리 결과" />
+</a></p>
+
+<p><br />
+<br /></p>
+
+<h3 id="having">HAVING</h3>
+
+<p>: 그룹함수를 사용할 때 조건으로 제한할 때 사용하는 절입니다. WHERE과 비슷한 기능을 가지고 있지만 WHERE과는 다르게 GROUP BY가 사용된 시점 이후의 결과를 사용할 수 있습니다.</p>
+
+<p><a href="https://postfiles.pstatic.net/MjAyMDAyMTNfMjU3/MDAxNTgxNTY1MTEwNTMy.pzBqjVaH4ew4yBvEPEor4qQew7RzuN-m-YqGNIR564sg.dtLqeg1_osJMLNlng9VAHvonJ1iUodOUXhhjrf-P2vAg.PNG.enne123/image.png?type=w966" data-lightbox="setup">
+   <img src="https://postfiles.pstatic.net/MjAyMDAyMTNfMjU3/MDAxNTgxNTY1MTEwNTMy.pzBqjVaH4ew4yBvEPEor4qQew7RzuN-m-YqGNIR564sg.dtLqeg1_osJMLNlng9VAHvonJ1iUodOUXhhjrf-P2vAg.PNG.enne123/image.png?type=w966" title="쿼리 결과" />
+</a></p>
+
+<center>GROUP BY 이후 where절 사용불가</center>
+
+<p><br /></p>
+
+<p>다음 이미지에서 볼 수 있다시피 부서별 그룹함수를 적용한 이후에는 WHERE 사용에 제한이 있기 때문에 HAVING을 사용합니다.</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">DEPTNO</span><span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">SAL</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">EMP</span>
+ <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">DEPTNO</span>
+ <span class="k">HAVING</span> <span class="k">AVG</span><span class="p">(</span><span class="n">SAL</span><span class="p">)</span><span class="o">&gt;=</span><span class="mi">2500</span><span class="p">;</span></code></pre></figure>
+
+<p><a href="https://blog.kakaocdn.net/dn/b9JBME/btqIX4SV4Rb/4rIJk9iHH3dOSRr0v3bKnK/img.png" data-lightbox="setup">
+   <img src="https://blog.kakaocdn.net/dn/b9JBME/btqIX4SV4Rb/4rIJk9iHH3dOSRr0v3bKnK/img.png" title="쿼리 결과(2)" />
+</a></p>
+
+<p><br />
+<br /></p>
+
+<p>HAVING은 WHERE의 기능도 그대로 사용할 수 있습니다만, 그러면 기능이 많은 HAVING을 사용해도 되지 않을까 싶은 분들도 있을 것입니다. 하지만 WHERE로 가능한 쿼리는 되도록이면 WHERE로 하시는게 좋습니다. 왜냐하면 WHERE절을 사용하면 GROUP BY 절이 실행되기 전에 처리하는 행의 갯수가 줄어들기 때문에 속도 측면에서 더 이득을 볼 수 있습니다. 그림을 통해 설명드리도록 하겠습니다.</p>
+
+<p><a href="https://blogfiles.pstatic.net/MjAyMDAzMjFfNDUg/MDAxNTg0Nzk4ODYzNzcy.ajw0F_pOjtjKTQ5XR-AxvZwIxH0ZYhrMnJKsvA3zOWgg.RmDTgBayt1HeWMuYf7RnNl-5GRXYDR1SmuZIJ0akf8Ag.PNG.enne123/image.png" data-lightbox="setup">
+   <img src="https://blogfiles.pstatic.net/MjAyMDAzMjFfNDUg/MDAxNTg0Nzk4ODYzNzcy.ajw0F_pOjtjKTQ5XR-AxvZwIxH0ZYhrMnJKsvA3zOWgg.RmDTgBayt1HeWMuYf7RnNl-5GRXYDR1SmuZIJ0akf8Ag.PNG.enne123/image.png" title="WHERE VS HAVING" />
+</a></p>
+
+<p>그러므로 HAVING절은 짧게 두 줄로 요약할 수 있겠습니다.</p>
+
+<ol>
+  <li>GROUP BY 이후의 결과에 대해서도 조건을 걸 수 있습니다.</li>
+  <li>WHERE로도 가능한 경우 WHERE을 사용합시다.</li>
+</ol>
+
+<p><br /></p>
+<hr />
+
+<h3 id="테이블-결합">테이블 결합</h3>
+
+<p>여태까지는 한 테이블 내에서의 데이터를 조회했습니다. 이제부터는 각각 다른 테이블의 데이터들을 묶는 기능들에 대해서 알아보려고 합니다.</p>
+
+<p><br />
+<br /></p>
+
+<h3 id="집합-연산자">집합 연산자</h3>
+
+<p>집합 연산자는 조회 결과들에 대한 집합 연산을 하는 기능을 가지고 있습니다. 집합 연산에는 합집합, 교집합, 차집합이 있습니다.</p>
+
+<ol>
+  <li>
+    <p>합집합</p>
+
+    <p><code class="highlighter-rouge">UNION</code> : 중복 제거를 위해 내부 정렬 후 두 조회 결과 합치기를 수행합니다.</p>
+
+    <p><code class="highlighter-rouge">UNION ALL</code> : 중복 제거 없이 조회 결과를 합칩니다.</p>
+
+    <p>그래서 중복이 없을때는 UNION의 악성 쿼리가 됩니다. 중복이 없는데도 굳이 조회 결과간 중복되는 데이터가 있는지 확인 절차가 있기 때문입니다. 즉, UNION / UNION ALL의 결과가 같은 경우는 UNION ALL 사용하는 것이 속도면에서 좋습니다.</p>
+
+    <p>그리고 하나 더 주의할 게 있습니다. 컬럼의 형태가 다른 경우에는 집합 연산이 되지 않습니다.</p>
+  </li>
+</ol>
+
+<p><a href="https://blog.kakaocdn.net/dn/GPusp/btqIPRnoREh/tfuAj0YjOH3AgQPDT8phAk/img.png" data-lightbox="setup">
+   <img src="https://blog.kakaocdn.net/dn/GPusp/btqIPRnoREh/tfuAj0YjOH3AgQPDT8phAk/img.png" title="WHERE VS HAVING" />
+</a></p>
+
+<p><br /></p>
+
+<ol>
+  <li>
+    <p>교집합</p>
+
+    <p><code class="highlighter-rouge">INTERSECT</code> : 중복되는 조회 결과만 출력합니다.</p>
+  </li>
+  <li>
+    <p>차집합</p>
+
+    <p><code class="highlighter-rouge">MINUS</code> : 기준이 되는 데이터에서 중복되는 결과를 제외하고 출력합니다.</p>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<hr />
+
+<h3 id="join">JOIN</h3>
+
+<p>드디어 대망의 <code class="highlighter-rouge">JOIN</code>에 도착했습니다. 집합 연산자와는 달리 서로 다른 테이블의 정보를 같은 조건의 데이터에 하나로 합치는 기능입니다. 모든 데이터들이 한 테이블에 있는 경우는 드물고 보통은 여러 테이블에 나눠져서 보관되기 때문에 JOIN기능을 잘 활용하면 원하는 결과를 빨리 찾아볼 수 있습니다.</p>
+
+<p>바로 JOIN을 이용한 간단한 쿼리를 작성해보겠습니다. EMP 테이블에는 부서번호(DEPTNO)는 있지만 부서명(DNAME)은 없습니다. DEPT 테이블에 부서명 데이터가 있기 때문에 EMP의 사원정보에 부서이름을 붙이기 위해서 두 테이블을 JOIN해보도록 하겠습니다.</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">E</span><span class="p">.</span><span class="n">EMPNO</span><span class="p">,</span> <span class="n">E</span><span class="p">.</span><span class="n">ENAME</span><span class="p">,</span> <span class="n">D</span><span class="p">.</span><span class="n">DNAME</span>
+  <span class="k">FROM</span> <span class="n">EMP</span> <span class="n">E</span><span class="p">,</span> <span class="n">DEPT</span> <span class="n">D</span>
+ <span class="k">WHERE</span> <span class="n">D</span><span class="p">.</span><span class="n">DEPTNO</span> <span class="o">=</span> <span class="n">E</span><span class="p">.</span><span class="n">DEPTNO</span><span class="p">;</span></code></pre></figure>
+
+<p><a href="https://blog.kakaocdn.net/dn/b8ev4w/btqIWR0WYAz/VJYoheWiBmfUWAZoRnpEd1/img.png " data-lightbox="setup">
+   <img src="https://blog.kakaocdn.net/dn/b8ev4w/btqIWR0WYAz/VJYoheWiBmfUWAZoRnpEd1/img.png " title="JOIN" />
+</a></p>
+
+<p>JOIN 문법에 대해 설명하도록 하겠습니다. 기존에 작성하던 쿼리들과 큰 차이점이 하나 있습니다. 바로 테이블 이름 옆에 문자가 하나 추가가 된 것인데요. 이는 <code class="highlighter-rouge">Alias</code>로 부르며 SELECT에서 쓰던 그 Alias와 비슷합니다. 사용 목적은 가독성도 있지만 쿼리 작성을 편하게 해주는데 있습니다.</p>
+
+<p>그리고 SELECT절에 테이블 옆에 있는 <code class="highlighter-rouge">Alias</code>가 왼쪽에 컬럼에 붙어있는 것을 볼 수 있습니다. <code class="highlighter-rouge">E.EMPNO</code>는 E 라는 Alias를 가진 테이블의 EMPNO라는 뜻입니다. 즉, EMP 테이블의 EMPNO를 의미합니다. 이런 식으로 붙이는 이유는 뭘까요? 바로 JOIN하려는 서로 다른 테이블끼리 같은 이름을 가진 컬럼을 구분하기 위해서인데요 Alias를 컬럼명에 붙이지 않으면 SQL 문법에서는 해당 컬럼이 어떤 테이블의 데이터인지 알 수 없습니다. 철수와 영희가 모두 사과를 가지고 있는데 그냥 사과만 얘기하면 철수가 가지고 있는 사과인지 영희가 가지고 있는 사과인지 모르는 것을 생각하시면 됩니다.</p>
+
+<p>WHERE절에는 테이블이 붙을 조건을 적어두면 됩니다. 위 쿼리에서는 <code class="highlighter-rouge">DEPTNO가 같은 데이터끼리 묶어라</code>를 의미합니다. 여기서도 <code class="highlighter-rouge">Alias</code>는 잊으시면 안됩니다.</p>
+
+<p><br />
+<br /></p>
+
+<p>다음으로는 JOIN의 종류에 대해 설명하도록 하겠습니다. JOIN은 크게 두 종류로 나뉘는데요. EQUAL 연산자를 사용하는지 아닌지에 따라 갈립니다.</p>
+
+<ol>
+  <li>
+    <p>EQUI JOIN : 테이블을 연결지을 때 묶는 컬럼에 대한 조건이 <code class="highlighter-rouge">= (EQUAL)</code>인 경우를 말합니다.</p>
+  </li>
+  <li>
+    <p>NON EQUI JOIN : EQUI JOIN이 아닌 것. 즉, <code class="highlighter-rouge">BETWEEN</code>, <code class="highlighter-rouge">&gt;</code>혹은 <code class="highlighter-rouge">&lt;</code> 같이 <code class="highlighter-rouge">=</code>가 아닌 조건으로 JOIN하는 경우를 말합니다.</p>
+  </li>
+</ol>
+
+<p>그리고 출력 범위에 대해서도 종류가 나뉩니다.</p>
+
+<ol>
+  <li>
+    <p>INNER JOIN : 일반적으로 사용하며 테이블 중 하나라도 NULL이 존재하는 데이터는 출력하지 않음</p>
+  </li>
+  <li>
+    <p>OUTER JOIN : 어느 한쪽의 데이터가 NULL 이더라도 출력하는데, WHERE 절 컬럼에 (+)를 붙임으로서 사용이 가능합니다.</p>
+
+    <p>크게는 NULL값이 있는 방향을 기준으로 LEFT OUTER JOIN, RIGHT OUTER JOIN, FULL OUTER JOIN으로 구분합니다.</p>
+
+    <p>[OUTER JOIN 주의 사항]</p>
+
+    <p>1) 두 테이블의 조인 조건이 여러개인 경우 기준이 되는 반대쪽 테이블의 컬럼 옆에 모두 (+)를 적어야합니다.</p>
+
+    <ul>
+      <li>
+        <p>예시) 테이블 s1이 기준이고 s2를 OUTER JOIN하는 경우</p>
+
+        <p><code class="highlighter-rouge">WHERE s1.grade  = s2.grade(+)</code></p>
+
+        <p><code class="highlighter-rouge">  AND s1.height &lt; s2.height(+)</code></p>
+      </li>
+    </ul>
+
+    <p>2) 기준이 되는 테이블 상대쪽 테이블이 여러 개인 경우, 모든 상대 테이블 컬럼에 (+)를 붙여야합니다.</p>
+
+    <ul>
+      <li>
+        <p>예시) s - p(+) - d(+) : 테이블 s가 기준이고 p, d를 OUTER JOIN하는 경우</p>
+
+        <p><code class="highlighter-rouge">WHERE s.profno = p.profno(+)</code></p>
+
+        <p><code class="highlighter-rouge">  AND p.deptno = d.deptno(+)</code></p>
+      </li>
+    </ul>
+
+    <p>3) 순환구조를 갖는 테이블일 경우 OUTER JOIN이 불가능하기 때문에 <a href="#서브쿼리(subquery)">서브쿼리</a> 등을 이용하여 테이블 구조 변경이 필요합니다.</p>
+  </li>
+</ol>
+
+<p>마지막으로 자기 자신에 대해서 JOIN을 실행하는 경우도 있습니다.​</p>
+
+<ol>
+  <li>SELF JOIN : 하나의 테이블이 자기 자신에 JOIN되는 경우를 말합니다.</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">E1</span><span class="p">.</span><span class="n">ENAME</span> <span class="nv">"EMP"</span><span class="p">,</span> <span class="n">E2</span><span class="p">.</span><span class="n">ENAME</span> <span class="k">AS</span> <span class="nv">"MGR"</span>
+  <span class="k">FROM</span> <span class="n">EMP</span> <span class="n">E1</span><span class="p">,</span> <span class="n">EMP</span> <span class="n">E2</span>
+ <span class="k">WHERE</span> <span class="n">E1</span><span class="p">.</span><span class="n">MGR</span> <span class="o">=</span> <span class="n">E2</span><span class="p">.</span><span class="n">EMPNO</span><span class="p">;</span></code></pre></figure>
+
+<p><a href="https://blog.kakaocdn.net/dn/pVVNj/btqI08ghJOF/liasRKhMR6ONOOHQOcrbqk/img.png" data-lightbox="setup">
+   <img src="https://blog.kakaocdn.net/dn/pVVNj/btqI08ghJOF/liasRKhMR6ONOOHQOcrbqk/img.png" title="SELF JOIN" />
+</a></p>
+
+<p>위 쿼리는 <code class="highlighter-rouge">SELF JOIN</code>을 이용한 사원과 그 사원의 상사를 출력하는 쿼리입니다. 쿼리 결과를 보면 사원 이름에 KING이 빠진 것을 확인할 수 있는데요. KING은 상사가 없기 때문입니다. KING도 출력하기 위해서는 위에서 다룬 <code class="highlighter-rouge">OUTER JOIN</code>을 이용하면 됩니다. 다음과 같이요.</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">E1</span><span class="p">.</span><span class="n">ENAME</span> <span class="nv">"EMP"</span><span class="p">,</span> <span class="n">E2</span><span class="p">.</span><span class="n">ENAME</span> <span class="k">AS</span> <span class="nv">"MGR"</span>
+  <span class="k">FROM</span> <span class="n">EMP</span> <span class="n">E1</span><span class="p">,</span> <span class="n">EMP</span> <span class="n">E2</span>
+ <span class="k">WHERE</span> <span class="n">E1</span><span class="p">.</span><span class="n">MGR</span> <span class="o">=</span> <span class="n">E2</span><span class="p">.</span><span class="n">EMPNO</span><span class="p">(</span><span class="o">+</span><span class="p">);</span></code></pre></figure>
+
+<p><a href="https://blog.kakaocdn.net/dn/Xk9iI/btqIRNkMMrp/YjbiurK1gb7ZkkoZA0QYW0/img.png" data-lightbox="setup">
+   <img src="https://blog.kakaocdn.net/dn/Xk9iI/btqIRNkMMrp/YjbiurK1gb7ZkkoZA0QYW0/img.png" title="SELF&amp;OUTER JOIN" />
+</a></p>
+
+<p><br />
+<br /></p>
+
+<hr />
+
+<h3 id="서브쿼리subquery">서브쿼리(Subquery)</h3>
+
+<p>: 쿼리문 안에 있는 쿼리문을 의미합니다.</p>
+
+<p>​
+서브쿼리 종류 및 목적</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">형식</th>
+      <th>이름</th>
+      <th style="text-align: left">목적</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">SELECT (SELECT …)</td>
+      <td>스칼라 서브쿼리(Scalar Subquery)</td>
+      <td style="text-align: left">컬럼 대체</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FROM   (SELECT …)</td>
+      <td>인라인 뷰 (Inline View)</td>
+      <td style="text-align: left"><strong>테이블 대체</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">WHERE (SELECT …)</td>
+      <td>상호연관 서브쿼리(Correlated Subquery)</td>
+      <td style="text-align: left">상수 대체</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<ol>
+  <li>
+    <p>스칼라 서브쿼리(Scalar Subquery) :</p>
+
+    <p>SELECT 절에 서브쿼리를 사용하는 것을 말하며 하나의 결과만 리턴이 가능하며, 두 개 이상의 결과는 리턴할 수 없습니다. 일치하는 데이터가 없을 때는 NULL값을 리턴할 수 있습니다.</p>
+  </li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">DEPTNO</span><span class="p">,</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="n">SAL</span><span class="p">)</span>
+                  <span class="k">FROM</span> <span class="n">EMP</span>
+                 <span class="k">WHERE</span> <span class="n">DEPTNO</span> <span class="o">=</span> <span class="n">D</span><span class="p">.</span><span class="n">DEPTNO</span><span class="p">)</span> <span class="k">AS</span> <span class="n">MIN_SAL</span>
+  <span class="k">FROM</span> <span class="n">DEPT</span> <span class="n">D</span><span class="p">;</span></code></pre></figure>
+
+<p><a href="https://blog.kakaocdn.net/dn/c3L2Oq/btqISvqw2Ru/MyFt2kpLYF79VFm0GcBZ8K/img.png" data-lightbox="setup">
+   <img src="https://blog.kakaocdn.net/dn/c3L2Oq/btqISvqw2Ru/MyFt2kpLYF79VFm0GcBZ8K/img.png" title="SELF&amp;OUTER JOIN" />
+</a></p>
+
+<p><br />
+<br /></p>
+
+<ol>
+  <li>
+    <p>인라인 뷰(Inline View) :</p>
+
+    <p>FROM 절에 서브쿼리를 사용하는 것을 말하며, 서브쿼리의 결과를 하나의 테이블처럼 사용할 수 있습니다.</p>
+  </li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span>
+  <span class="k">FROM</span> <span class="n">EMP</span> <span class="n">E</span><span class="p">,</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">DEPTNO</span><span class="p">,</span> <span class="k">MAX</span><span class="p">(</span><span class="n">SAL</span><span class="p">)</span> <span class="k">AS</span> <span class="n">MAX_SAL</span>
+                 <span class="k">FROM</span> <span class="n">EMP</span>
+                <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">DEPTNO</span><span class="p">)</span> <span class="n">I</span>
+ <span class="k">WHERE</span> <span class="n">E</span><span class="p">.</span><span class="n">DEPTNO</span> <span class="o">=</span> <span class="n">I</span><span class="p">.</span><span class="n">DEPTNO</span>
+   <span class="k">AND</span> <span class="n">E</span><span class="p">.</span><span class="n">SAL</span> <span class="o">=</span> <span class="n">I</span><span class="p">.</span><span class="n">MAX_SAL</span><span class="p">;</span></code></pre></figure>
+
+<p><a href="https://blog.kakaocdn.net/dn/8Xv9A/btqI08Oouup/KpObie9vdJXwK34BqdqTYK/img.png" data-lightbox="setup">
+   <img src="https://blog.kakaocdn.net/dn/8Xv9A/btqI08Oouup/KpObie9vdJXwK34BqdqTYK/img.png" title="SELF&amp;OUTER JOIN" />
+</a></p>
+
+<ol>
+  <li>
+    <p>상호연관 서브쿼리(Corelated Subquery) :</p>
+
+    <p>SELECT, FROM 절 외에 다른 절에 붙으며 그룹 간의 컬럼 동시 비교 가능. 그룹에 대한 비교가 서브쿼리절에서 수행, GROUP BY 절 생략이 가능합니다.</p>
+  </li>
+</ol>
+
+<h3 id="다음-내용">다음 내용</h3>
+
+<ul>
+  <li>DDL</li>
+  <li>DML</li>
+  <li>TCL</li>
+  <li>Data Dictionary</li>
+  <li>Constraint</li>
+  <li>Sequence</li>
+  <li>권한 부여</li>
+</ul>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=SQL+-+%EA%B8%B0%EB%B3%B8+%EB%AC%B8%EB%B2%95+%283%29+%5B%EC%9E%91%EC%84%B1%EC%A4%91%5D&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F16%2Fsql-5.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=SQL+-+%EA%B8%B0%EB%B3%B8+%EB%AC%B8%EB%B2%95+%283%29+%5B%EC%9E%91%EC%84%B1%EC%A4%91%5D&u=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F16%2Fsql-5.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F16%2Fsql-5.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=SQL+-+%EA%B8%B0%EB%B3%B8+%EB%AC%B8%EB%B2%95+%283%29+%5B%EC%9E%91%EC%84%B1%EC%A4%91%5D&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F16%2Fsql-5.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=SQL+-+%EA%B8%B0%EB%B3%B8+%EB%AC%B8%EB%B2%95+%283%29+%5B%EC%9E%91%EC%84%B1%EC%A4%91%5D&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F16%2Fsql-5.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/sql/2020/09/16/sql-5.html') + '&title=SQL - 기본 문법 (3) [작성중]'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

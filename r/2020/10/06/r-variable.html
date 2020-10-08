@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>변수(Variables)</title>
+  <meta name="description" content="  변수?? 객체??  변수 생성  형 변환 함수  변수 연속 생성  변수 확인 및 제거  NA와 NULL  사칙 연산">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="  변수?? 객체??  변수 생성  형 변환 함수  변수 연속 생성  변수 확인 및 제거  NA와 NULL  사칙 연산" />
+  <meta property="og:url" content="http://localhost:4000/r/2020/10/06/r-variable.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="변수(Variables)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000https://d33wubrfki0l68.cloudfront.net/62bcc8535a06077094ca3c29c383e37ad7334311/a263f/assets/img/logo.svg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="변수(Variables)">
+  <meta name="twitter:description" content="  변수?? 객체??  변수 생성  형 변환 함수  변수 연속 생성  변수 확인 및 제거  NA와 NULL  사칙 연산">
+  <meta name="twitter:image" content="http://localhost:4000https://d33wubrfki0l68.cloudfront.net/62bcc8535a06077094ca3c29c383e37ad7334311/a263f/assets/img/logo.svg">
+  <meta name="twitter:url" content="http://localhost:4000/r/2020/10/06/r-variable.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/r/2020/10/06/r-variable.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(https://d33wubrfki0l68.cloudfront.net/62bcc8535a06077094ca3c29c383e37ad7334311/a263f/assets/img/logo.svg);">
+  <div class="scrim has-cover">
+    <header class="post-header">
+      <h1 class="title">변수(Variables)</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">October 6, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/r">R</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <ul>
+  <li><a href="#varobj">변수?? 객체??</a></li>
+  <li><a href="#varallow">변수 생성</a></li>
+  <li><a href="#varch">형 변환 함수</a></li>
+  <li><a href="#varser">변수 연속 생성</a></li>
+  <li><a href="#varsnd">변수 확인 및 제거</a></li>
+  <li><a href="#nanull">NA와 NULL</a></li>
+  <li><a href="#pmmd">사칙 연산</a></li>
+</ul>
+
+<hr />
+
+<h2 id="varobj"> 변수?? 객체??</h2>
+
+<p>다른 언어에서 보통은 숫자, 문자 등을 담는 것을 변수라고 이야기하는데 R에서는 객체(Object)라고 합니다. 그런데 변수와 객체를 혼용해서 사용하는 경우가 많기 때문에 편의상 변수라고 하겠습니다.</p>
+
+<p>변수를 만들고 값을 지정하는 과정에서 주의해야할 점이 있습니다.</p>
+
+<p>1. 변수 생성시 이름에 문자, 숫자, 밑줄(_), 마침표(.)는 사용이 가능합니다. Python에서 마침표 사용이 불가능한 점과 차이가 있습니다. 띄어쓰기나 하이픈<code class="highlighter-rouge">-</code>은 사용할 수 없으며 첫 글자는 알파벳 또는 마침표(‘.’)으로 시작해야 합니다.</p>
+
+<p>2. c는 combine으로 한 변수에 여러 개의 자료를 넣을 때 사용합니다. ex) c(1,2)</p>
+
+<p>3. 오류 방지를 위해 함수 이름을 변수 이름으로 사용하지 않는 것을 추천합니다.</p>
+
+<p><br /></p>
+<hr />
+
+<h3 id="varallow">변수 생성</h3>
+
+<p>Python과 달리 R에서는 변수에 값을 입력할 때 <code class="highlighter-rouge">등호(=)</code> 대신에 <code class="highlighter-rouge">화살표(&lt;-)</code>를 사용합니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">a</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">3</span></code></pre></figure>
+
+<p>다른 데이터 형의 변수를 생성해보고 연산을 실행해봅시다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># 숫자형 변수</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">&lt;</span><span class="m">-1</span><span class="w"> 
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="o">&lt;</span><span class="m">-2</span><span class="w">
+
+</span><span class="c1"># 문자형 변수</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s1">'10'</span><span class="w">
+
+</span><span class="c1"># 날짜형 변수</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">d1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Sys.Date</span><span class="p">()</span><span class="w">
+
+</span><span class="c1"># 숫자 + 숫자</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i2</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">3</span><span class="w">
+
+</span><span class="c1"># 숫자 + 문자</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c1</span><span class="w">
+</span><span class="n">Error</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">이항연산자에</span><span class="w"> </span><span class="n">수치가</span><span class="w"> </span><span class="n">아닌</span><span class="w"> </span><span class="n">인수입니다</span><span class="w">
+
+</span><span class="c1"># 날짜 +  숫자</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d1</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"2020-10-05"</span></code></pre></figure>
+
+<p>여기서 알 수 있는 점은 R은 SQL처럼 묵시적 형 변환이 일어나지 않는다는 것입니다. SQL에서는 <code class="highlighter-rouge">1 + '10'</code>은 묵시적 형 변환에 의해 11으로 계산이 되는데 R에서는 이를 허용하지 않습니다. 사실 묵시적 형 변환은 대부분의 프로그래밍 언어에서 쓰지 않습니다. 묵시적 형 변환이 일어나지 않기 때문에 형 변환 함수가 필요합니다.</p>
+
+<h3 id="varch">형 변환 함수</h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="nf">as.numeric</span><span class="p">()</span><span class="w">   </span><span class="c1">#to_number</span><span class="w">
+
+</span><span class="nf">as.character</span><span class="p">()</span><span class="w"> </span><span class="c1">#to_char</span><span class="w">
+
+</span><span class="n">as.Date</span><span class="p">()</span><span class="w">      </span><span class="c1">#to_date</span></code></pre></figure>
+
+<p>형 변환 함수를 실행했다고 해서 변수가 바로 변하는 것은 아니기 때문에 화살표로 변수 할당을 해주어야 해당 변수의 형이 바뀝니다.</p>
+
+<hr />
+
+<h3 id="varser">변수 연속 생성</h3>
+
+<p>다음으로는 변수를 연속적으로 생성해보겠습니다. 1에서 10까지를 연속적으로 예로 만들어보겠습니다. 아래 스크립트에서 볼 수 있듯이 문자는 콜론(:)기호로 연속으로 생성이 불가능합니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="o">&gt;</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="w">
+ </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">  </span><span class="m">1</span><span class="w">  </span><span class="m">2</span><span class="w">  </span><span class="m">3</span><span class="w">  </span><span class="m">4</span><span class="w">  </span><span class="m">5</span><span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">7</span><span class="w">  </span><span class="m">8</span><span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">10</span><span class="w">
+</span><span class="c1"># c(1,2,3,4,5,6,7,8,9,10) 와 동일</span><span class="w">
+
+</span><span class="o">&gt;</span><span class="w"> </span><span class="s1">'a'</span><span class="o">:</span><span class="s1">'f'</span><span class="w">
+</span><span class="n">Error</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"a"</span><span class="o">:</span><span class="s2">"f"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">인자의</span><span class="w"> </span><span class="n">값이</span><span class="w"> </span><span class="kc">NA</span><span class="o">/</span><span class="kc">NaN</span><span class="w"> </span><span class="n">입니다.</span><span class="w">
+</span><span class="n">추가정보</span><span class="o">:</span><span class="w"> </span><span class="n">경고메시지</span><span class="p">(</span><span class="n">들</span><span class="p">)</span><span class="o">:</span><span class="w"> 
+</span><span class="m">1</span><span class="o">:</span><span class="w"> </span><span class="n">강제형변환에</span><span class="w"> </span><span class="n">의해</span><span class="w"> </span><span class="n">생성된</span><span class="w"> </span><span class="kc">NA</span><span class="w"> </span><span class="n">입니다</span><span class="w"> 
+</span><span class="m">2</span><span class="o">:</span><span class="w"> </span><span class="n">강제형변환에</span><span class="w"> </span><span class="n">의해</span><span class="w"> </span><span class="n">생성된</span><span class="w"> </span><span class="kc">NA</span><span class="w"> </span><span class="n">입니다</span><span class="w"> </span></code></pre></figure>
+
+<p><br /></p>
+
+<hr />
+
+<h3 id="varsnd">변수 확인 및 제거</h3>
+
+<p>현재 어떤 변수가 생성되어 있는지 확인하는 함수도 살펴봅시다. 그리고 변수를 제거하는 함수도 실행해봅시다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># 변수 확인 (두 함수 모두 같은 함수)</span><span class="w">
+</span><span class="n">objects</span><span class="p">()</span><span class="w">
+</span><span class="n">ls</span><span class="p">()</span><span class="w">
+
+</span><span class="c1"># 변수 지우기 </span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rm</span><span class="p">(</span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'i1'</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">i1</span><span class="w">
+</span><span class="n">에러</span><span class="o">:</span><span class="w"> </span><span class="n">객체</span><span class="w"> </span><span class="s1">'i1'</span><span class="n">를</span><span class="w"> </span><span class="n">찾을</span><span class="w"> </span><span class="n">수</span><span class="w"> </span><span class="n">없습니다</span><span class="w">
+
+</span><span class="c1"># 변수 전체 지우기 </span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rm</span><span class="p">(</span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ls</span><span class="p">())</span></code></pre></figure>
+
+<h3 id="nanull">NA와 NULL</h3>
+
+<p>R에서의 NA와 NULL은 다른 프로그래밍에서의 동일 단어와 뜻이 다릅니다. SQL에서는 NULL입력시 빈 칸이 남아있는 반면에 R에서는 빈 칸조차 없는, 즉, 아무 것도 할당하지 않습니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># NA 할당시</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="kc">NA</span><span class="p">,</span><span class="m">2</span><span class="p">)</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">  </span><span class="m">1</span><span class="w"> </span><span class="kc">NA</span><span class="w">  </span><span class="m">2</span><span class="w">
+
+</span><span class="c1"># NULL 할당시</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="kc">NULL</span><span class="p">,</span><span class="m">2</span><span class="p">)</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span></code></pre></figure>
+
+<h3 id="pmmd">사칙 연산자</h3>
+
+<p>연산 기호는 아래 표에서 확인할 수 있습니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">기호</th>
+      <th style="text-align: left">의미</th>
+      <th style="text-align: left">사용 예시<br />-&gt;결과</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">+</td>
+      <td style="text-align: left">더하기</td>
+      <td style="text-align: left">5 + 6 = 11</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">-</td>
+      <td style="text-align: left">빼기</td>
+      <td style="text-align: left">5 - 4 = 1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">*</td>
+      <td style="text-align: left">곱하기</td>
+      <td style="text-align: left">2 * 3 = 6</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">/</td>
+      <td style="text-align: left">나누기</td>
+      <td style="text-align: left">4 / 2 = 2</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">%/%</td>
+      <td style="text-align: left">정수 나누기</td>
+      <td style="text-align: left">’’</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">%%</td>
+      <td style="text-align: left">나머지 구하기</td>
+      <td style="text-align: left">5 %% 2 = 1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">^, **</td>
+      <td style="text-align: left">승수 구하기</td>
+      <td style="text-align: left">3^2 = 9</td>
+    </tr>
+  </tbody>
+</table>
+
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=%EB%B3%80%EC%88%98%28Variables%29&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F06%2Fr-variable.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=%EB%B3%80%EC%88%98%28Variables%29&u=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F06%2Fr-variable.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F06%2Fr-variable.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=%EB%B3%80%EC%88%98%28Variables%29&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F06%2Fr-variable.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=%EB%B3%80%EC%88%98%28Variables%29&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F06%2Fr-variable.html&media=http://localhost:4000https://d33wubrfki0l68.cloudfront.net/62bcc8535a06077094ca3c29c383e37ad7334311/a263f/assets/img/logo.svg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/r/2020/10/06/r-variable.html') + '&title=변수(Variables)'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

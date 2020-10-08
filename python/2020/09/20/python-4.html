@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Python 자료 구조 (2)</title>
+  <meta name="description" content="목차">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="목차" />
+  <meta property="og:url" content="http://localhost:4000/python/2020/09/20/python-4.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="Python 자료 구조 (2)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Python 자료 구조 (2)">
+  <meta name="twitter:description" content="목차">
+  <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
+  <meta name="twitter:url" content="http://localhost:4000/python/2020/09/20/python-4.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/python/2020/09/20/python-4.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">Python 자료 구조 (2)</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">September 20, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/python">Python</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h2 id="목차">목차</h2>
+
+<ul>
+  <li><a href="#딥-카피">딥 카피(Deep Copy)</a></li>
+  <li><a href="#localnglobal">지역 변수 및 전역 변수</a></li>
+  <li><a href="#매개변수-전달방식">매개변수 전달방식</a></li>
+  <li><a href="#모듈-생성-및-패키지">모듈 생성 및 패키지</a></li>
+  <li><a href="#fileonc">파일 입출력</a></li>
+</ul>
+
+<p><br /></p>
+
+<p>내용이 많아 두 글에 나눠서 작성하게 되었습니다. 복사본 생성시 모르면 자칫 혼란이 올 수 있는 딥 카피부터 시작해서 파일 입/출력하는 방법까지 다루고 자료 구조에 대한 글을 마치도록 하겠습니다. 다음 글 부터는 numpy와 pandas 등 데이터 분석 모델에 직접 넣을 데이터 셋을 다루는 파트입니다.</p>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="딥-카피">딥 카피</h2>
+
+<p>Python의 기본적인 사상 중 메모리 누수 방지를 이유로 일반적으로는 특정 데이터에 대한 복사본을 만들어도 서로 분리되지 않고 메모리를 공유하는 성질이 있습니다. 즉, 저장되는 공간은 똑같고 이름만 다르게(Alias) 되는 것입니다. 그렇기 때문에 백업시에 이를 주의하지 않으면 복사본을 만드는 의미가 없어집니다. 하나를 수정하게 되면 복사본이라고 생각했던 변수도 같이 수정이 되어버리기 때문입니다.</p>
+
+<p><code class="highlighter-rouge">딥 카피(deep copy)</code>는 저런 기본 사상을 따르지 않고 복사본 생성시 저장할 메모리를 분리하는 것을 의미합니다. 즉, 위에서처럼 단순 복사를 하는 경우는 딥 카피가 발생하지 않았다고 볼 수가 있습니다.</p>
+
+<p>감이 안 잡힌다면 예시를 통해 자세히 살펴봅시다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># L1 = [1, 2, 3]를 복사
+</span>
+<span class="c1"># 단순 복사
+</span><span class="n">L2</span> <span class="o">=</span> <span class="n">L1</span> <span class="c1"># 메모리 공유
+</span>
+<span class="c1"># 딥 카피
+</span><span class="n">L3</span> <span class="o">=</span> <span class="n">L1</span><span class="p">[:]</span> <span class="c1"># 메모리 분리
+</span>
+<span class="c1"># L1의 첫 번째 원소를 10으로 수정
+</span><span class="n">L1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">L1</span>
+<span class="n">Out</span> <span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># 단순 복사
+</span><span class="n">L2</span>
+<span class="n">Out</span> <span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="c1"># 메모리를 공유하기 때문에 L1과 L2의 내용물이 같음
+</span>
+<span class="n">L3</span>
+<span class="n">Out</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="c1"># 메모리를 공유하지 않아 L1과 내용물이 다름</span></code></pre></figure>
+
+<p><br /></p>
+
+<p>[참고] - 객체의 메모리주소를 확인하는 함수 : id</p>
+
+<p>객체들은 각각 메모리주소라는 것을 가지고 있는데 메모리주소가 같은 객체는 이름만 다른 같은 객체라고 볼 수 있습니다. 메모리주소를 확인하는 함수 <code class="highlighter-rouge">id</code>가 있는데 문법은 <code class="highlighter-rouge">id(변수 이름)</code> 입니다.</p>
+
+<p>​위 예시의 L1, L2, L3를 예로 들면, id(L1)이 3226141541832 일경우 단순복사한 변수인 L2의 경우에도 id(L2)가 3226141541832이지만 딥 카피로 복사한 L3의 경우에는 id(L3)는 다른 숫자를 불러오게 됩니다. 즉, 두 변수에 대한 함수 실행 후 서로 같은 값을 출력하게 되면 메모리 공유를 하고 있다는 것을 말합니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="nb">id</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">43</span><span class="p">]:</span> <span class="mi">3226141541832</span>
+
+<span class="nb">id</span><span class="p">(</span><span class="n">L2</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">44</span><span class="p">]:</span> <span class="mi">3226141541832</span>
+
+<span class="nb">id</span><span class="p">(</span><span class="n">L3</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">45</span><span class="p">]:</span> <span class="mi">3226141718088</span></code></pre></figure>
+
+<center>딥 카피가 실행된 L3만 메모리주소가 다른 것을 알 수 있습니다.</center>
+
+<p><br /></p>
+
+<hr />
+
+<p><br /></p>
+
+<h2 id="localnglobal"> 지역 변수 &amp; 전역 변수</h2>
+
+<ol>
+  <li>
+    <p>지역 변수(Local Variable) : 함수 내부에서만 사용할 수 있는 변수로 함수 외부에서는 사용이 불가능한 변수입니다.</p>
+  </li>
+  <li>
+    <p>전역 변수(Global Variable) : 변수 선언 이후 어디서든 사용할 수 있는 변수입니다.</p>
+  </li>
+</ol>
+
+<p>함수 내에는 함수 내의 코드에서 사용되는 변수의 이름이 정해져 있습니다. 그렇다면 함수 내의 변수 이름과 사용자가 임의로 생성한 변수의 이름이 겹치면 함수를 실행할 때 오류가 발생할 것입니다. 그렇기 때문에 지역 변수와 전역 변수가 구분되어 있으며, 전역 변수와 지역 변수의 이름이 동일한 경우 함수 내에서는 반드시 지역 변수를 사용합니다. 아래 예시를 통해 각각 어떻게 실행되는지 확인해봅시다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># v1 지역변수 설정한 함수 생성
+</span><span class="k">def</span> <span class="nf">f1</span><span class="p">():</span>
+    <span class="n">v1</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+<span class="c1"># 지역변수 없는 함수 생성
+</span><span class="k">def</span> <span class="nf">f2</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+
+<span class="c1"># 전역변수 생성
+</span><span class="n">v1</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># 위에서 만든 함수들의 출력 값
+</span><span class="n">f1</span><span class="p">();</span>
+<span class="n">Out</span> <span class="p">:</span> <span class="mi">1</span>
+
+<span class="n">f2</span><span class="p">();</span>
+<span class="n">Out</span> <span class="p">:</span> <span class="mi">10</span></code></pre></figure>
+
+<p><br /></p>
+
+<p>이처럼 v1가 지역변수로 존재하는 함수 f1에서는 전역변수 v1(=10)을 무시하고 함수 내 지역변수를 출력하는데 반면 지역변수가 없는 함수 f2에서는 전역변수를 출력합니다.</p>
+
+<p>그러면 함수 내에서 설정한 변수는 함수 외부에서는 사용하지 못할까요? 그렇지는 않습니다. 함수 내에서 선언한 변수를 전역변수 선언하여 함수 밖에서도 사용하게 할 수 있습니다. 변수 생성 전에 ‘global 변수이름’을 붙이면 함수 밖에서도 호출 할 수 있습니다.</p>
+
+<p>1. 전역 변수 선언(global) 하지 않은 경우</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># v2 지역변수 설정한 함수 생성
+</span><span class="k">def</span> <span class="nf">f1</span><span class="p">():</span>
+    <span class="n">v2</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+<span class="c1"># 지역변수 없는 함수 생성
+</span><span class="k">def</span> <span class="nf">f2</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+
+<span class="c1"># 위에서 만든 함수들의 출력 값
+</span><span class="n">f1</span><span class="p">();</span>
+<span class="mi">1</span>
+
+<span class="n">f2</span><span class="p">();</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+
+  <span class="n">File</span> <span class="s">"&lt;ipython-input-53-55649989190d&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">f2</span><span class="p">()</span>
+
+  <span class="n">File</span> <span class="s">"&lt;ipython-input-51-0872c36d0cb9&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">6</span><span class="p">,</span> <span class="ow">in</span> <span class="n">f2</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+
+<span class="nb">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s">'v2'</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span></code></pre></figure>
+
+<p>2. 전역 변수 선언(global)한 경우</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># v2 지역변수 설정한 함수 생성
+</span><span class="k">def</span> <span class="nf">f1</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">v2</span>
+    <span class="n">v2</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+<span class="c1"># 지역변수 없는 함수 생성
+</span><span class="k">def</span> <span class="nf">f2</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+
+<span class="c1"># 위에서 만든 함수들의 출력 값
+</span><span class="n">f1</span><span class="p">();</span>
+<span class="mi">1</span>
+
+<span class="n">f2</span><span class="p">();</span>
+<span class="mi">1</span></code></pre></figure>
+
+<p><br />
+이처럼 함수 내의 변수도 전역변수로 사용할 수 있습니다.</p>
+
+<hr />
+
+<p><br /></p>
+
+<h2 id="매개변수-전달방식">매개변수 전달방식</h2>
+
+<p>다음은 함수 생성시 변수를 지정하는 방식에 대해 설명하도록 하겠습니다. 이전에 배운 <code class="highlighter-rouge">def function(...):</code> 방식 외에 다른 방법입니다.</p>
+
+<p>1) * : 가변형 인자 전달 방식으로 함수에 넣는 변수의 갯수에 제한이 없습니다. 내부 반복문이 필요합니다.
+​</p>
+
+<p>[예제] 함수에 입력된 모든 값의 곱을 출력하는 함수 생성</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># *를 이용한 함수 생성
+</span><span class="k">def</span> <span class="nf">all_product</span><span class="p">(</span><span class="o">*</span><span class="n">para</span><span class="p">):</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">para</span> <span class="p">:</span>
+       <span class="n">val</span> <span class="o">*=</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">val</span>
+
+<span class="n">all_product</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">Out</span> <span class="p">:</span> <span class="mi">120</span></code></pre></figure>
+
+<p>​</p>
+
+<p>2) ** : KEY-VALUE 인자 전달 방식으로, 마찬가지로 내부 반복문이 필요합니다.</p>
+
+<p>[예제] 함수에 입력된 모든 값의 키를 이용한 print 함수</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># **를 이용한 함수 생성
+</span><span class="k">def</span> <span class="nf">printer</span><span class="p">(</span><span class="o">**</span><span class="n">para</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">para</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="p">:</span>
+       <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">'{i}는 {para[i]}입니다.'</span><span class="p">)</span>
+
+<span class="n">printer</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">a</span><span class="err">는</span> <span class="mi">1</span><span class="err">입니다</span><span class="o">.</span>
+<span class="n">b</span><span class="err">는</span> <span class="mi">2</span><span class="err">입니다</span><span class="o">.</span>
+<span class="n">c</span><span class="err">는</span> <span class="mi">3</span><span class="err">입니다</span><span class="o">.</span></code></pre></figure>
+
+<p>​
+​
+3) zip : 동시에 변수를 묶어서 전달 시 필요</p>
+
+<p>[예제] 길이가 같은 두 리스트의 같은 위치끼리 더하는 함수 생성
+​</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># zip을 이용한 함수 생성
+</span><span class="k">def</span> <span class="nf">fsum</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">))</span> <span class="p">:</span>
+       <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">fsum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">11</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">33</span><span class="p">])</span>
+<span class="n">Out</span> <span class="p">:</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">36</span><span class="p">]</span></code></pre></figure>
+
+<p><br /></p>
+<hr />
+
+<p><br /></p>
+
+<h2 id="모듈-생성-및-패키지">모듈 생성 및 패키지</h2>
+
+<h3 id="모듈-생성">모듈 생성</h3>
+
+<p>Python을 재시작 하거나 기타 이유로 세션이 만료되면 기존에 불러왔던 모듈과 만들어둔 함수가 초기화되기 때문에 다시 불러와야합니다. 그런데 분석 작업을 하다보면 모듈 한 두개만 사용하는 것이 아닌데 일일이 코드로 친다면 초기 실행 시 시간이 오래 걸립니다.
+그렇기 때문에 원하는 함수를 파일에 담아 <code class="highlighter-rouge">기본 디렉토리</code>에 저장하면 모듈 생성을 할 수 있습니다. 기본 디렉토리는 Python에서 기본적으로 사용하는 폴더라고 생각하시면 되는데 파일을 불러올 때 기본 디렉토리에 있는 파일은 파일명과 확장자만 입력하여 불러올 수 있습니다. 기본 디렉토리는 아래 코드로 확인해볼 수 있습니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1"># 기본 디렉토리 확인
+</span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="n">Out</span> <span class="p">:</span> <span class="s">'C:</span><span class="se">\\</span><span class="s">Users</span><span class="se">\\</span><span class="s">본인_컴퓨터_이름'</span></code></pre></figure>
+
+<p>원하는 함수들을 파일에 다 입력했으면 기본 디렉토리를 확인하고 해당 위치에 파일을 저장합니다. 불러오는 방법은 기본 모듈을 불러오듯이 <code class="highlighter-rouge">import 파일이름</code>을 사용하시면 됩니다.</p>
+
+<p><br /></p>
+
+<details>
+<summary>참고 : profile 만들기</summary>
+
+<p>Python 실행시 기본적으로 사용하는 모듈들이 많기 때문에 모듈별로 일일히 불러오면 초기 기동시에 시간이 오래 걸립니다. 그렇기 때문에 불러와야할 모듈들을 한 파일에 묶어서 .py로 생성 후 그 파일을 호출하는 것만으로 기본적으로 사용할 모듈들을 모두 호출할 수 있습니다.</p>
+
+<p>[실행 순서]</p>
+
+<p>1) 파일명.py의 형식으로 디렉토리 폴더에 저장합니다.</p>
+
+<p>2) 이후 'run 파일명'을 실행시키면 모듈을 동시호출할 수 있습니다.</p>
+
+</details>
+
+<p><br /></p>
+
+<h3 id="패키지">패키지</h3>
+
+<p>여러 개의 모듈을 저장한 폴더라고 생각하시면 됩니다. 현재 작성 예정인 데이터 분석 글에서는 패키지까지 생성하여 여러 모듈을 관리하는 것까지는 계획에 없기 때문에 다음 내용으로 넘어가도록 하겠습니다.</p>
+
+<hr />
+
+<p><br /></p>
+
+<h2 id="fileonc">파일 입/출력</h2>
+
+<p>다음으로는 기본적인 파일 입출력에 대해 알아보도록 합시다.</p>
+
+<h3 id="파일-입력">파일 입력</h3>
+
+<ol>
+  <li>
+    <p>open : 파일을 열어서 메모리상으로 불러오는 작업입니다. (cursor 선언)</p>
+  </li>
+  <li>
+    <p>fetch : 선언된 cursor(임시 메모리 공간)에 저장된 data를 한 건씩 불러옵니다.</p>
+  </li>
+  <li>
+    <p>close : 객체 선언 완료 후 cursor에 할당된 메모리영역 close. cursor를 닫지 않으면 메모리 누수 현상이 발생할 수 있습니다.</p>
+  </li>
+</ol>
+
+<p>​
+1단계 : open</p>
+
+<p><code class="highlighter-rouge">open</code>이라는 함수를 사용하며 디렉토리 내의 해당하는 이름의 파일을 불러옵니다.</p>
+
+<p>직접 과정을 보여드리기 위해 아래 이미지의 내용을 입력한 <code class="highlighter-rouge">read_test1.txt</code>라는 텍스트 파일을 만들었으며 변수 이름은 임의로 c1로 했습니다만 원하는 이름으로 하셔도 상관없습니다.</p>
+
+<p><a href="https://blog.kakaocdn.net/dn/G2ue5/btqI5z0OnHc/gdKQpWgAH3IkDnezrckEv1/img.png" data-lightbox="data_st">
+ <img src="https://blog.kakaocdn.net/dn/G2ue5/btqI5z0OnHc/gdKQpWgAH3IkDnezrckEv1/img.png" title="read_test1.txt" />
+</a>
+​</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">c1</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'read_test1.txt'</span><span class="p">)</span></code></pre></figure>
+
+<p><br /></p>
+
+<p>2단계 : fetch</p>
+
+<p>불러온 파일을 열어보는 과정으로 함수로는 <code class="highlighter-rouge">readline</code>, <code class="highlighter-rouge">readlines</code>가 있습니다.</p>
+
+<p>1. readline : open으로 불러온 파일을 한 번 실행시마다 한 줄씩만 불러옵니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">v1</span> <span class="o">=</span> <span class="n">c1</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+<span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">c1</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+<span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span></code></pre></figure>
+
+<p>2. readlines : open으로 불러온 파일을 한 줄 단위로 리스트에 넣습니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">v2</span> <span class="o">=</span> <span class="n">c1</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+<span class="p">[</span><span class="s">'1 2 3 4</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span><span class="s">'5 6 7 8'</span><span class="p">]</span></code></pre></figure>
+<p>​</p>
+
+<p>3단계 : close</p>
+
+<p><code class="highlighter-rouge">close</code>라는 함수를 사용하며 open에서 불러온 파일을 닫는다.​</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">c1</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="파일-출력">파일 출력</h3>
+
+<p>이번에는 외부 파일을 불러오는 입력 대신 Python에서 외부로 파일을 출력하는 법에 대해 알아봅시다.</p>
+
+<p>1단계 : open</p>
+
+<p>읽기에서도 open이라는 함수를 썼지만 입력이 아닌 출력을 하기 때문에 옵션에 <code class="highlighter-rouge">'w'</code>를 추가하여 쓰기모드를 선언합니다.</p>
+
+<p>예시로 <code class="highlighter-rouge">L1 = [[1,2,3,4],[5,6,7,8]]</code>이라는 리스트를 생성하여 이 리스트를 파일 형태로 출력해봅시다. 입력 부분의 코드와 구분하기 위해 c2로 했지만 큰 상관은 없습니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">L1</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]]</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'write_text.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span></code></pre></figure>
+
+<p><br /></p>
+
+<p>2단계 : fetch</p>
+
+<p>fetch과정에 주의할 점이 있는데 문자만 입력할 수 있기 때문에 리스트 형태로는 바로 입력할 수 없습니다. str을 씌우면 입력은 되지만 리스트가 통째로 입력됩니다. for문을 사용하여 리스트 원소 하나하나씩 삽입해야하며, ‘\n’을 통해 한 줄 띄우기도 가능합니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">c2</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+
+  <span class="n">File</span> <span class="s">"&lt;ipython-input-66-1567a9427b2a&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">c2</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span>
+
+<span class="nb">TypeError</span><span class="p">:</span> <span class="n">write</span><span class="p">()</span> <span class="n">argument</span> <span class="n">must</span> <span class="n">be</span> <span class="nb">str</span><span class="p">,</span> <span class="ow">not</span> <span class="nb">list</span></code></pre></figure>
+
+<center>리스트는 바로 출력이 불가능합니다</center>
+
+<p>3단계 : close</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">c1</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></figure>
+
+<p><a href="https://blog.kakaocdn.net/dn/JFUDI/btqI7xuu28W/2Mu6fevgFKgy7dQqTkQrS1/img.png" data-lightbox="data_st">
+    <img src="https://blog.kakaocdn.net/dn/JFUDI/btqI7xuu28W/2Mu6fevgFKgy7dQqTkQrS1/img.png" title="3examples" />
+</a></p>
+
+<center>fetch 과정의 예시</center>
+
+<p><br /></p>
+<hr />
+
+<p><br /></p>
+
+<p><code class="highlighter-rouge">Python Part 1</code>이 끝났습니다. Python을 이용한 데이터 분석에 필요한 자료 구조의 개념과 가장 기본적인 지식들을 다뤄보았습니다. 현재 글을 작성하는 목적이 데이터 분석에 필요한 기초적인 지식을 혼란스럽지 않게 전달하는 것이기 때문에 사용했던 것만 설명드렸습니다만, 프론트엔드/백엔드를 공부하거나 코딩 테스트를 준비하시는 분들은 보다 많은 자료 구조를 공부하셔야 합니다.</p>
+
+<p><code class="highlighter-rouge">Part 2</code>에서는 <code class="highlighter-rouge">numpy</code>와 <code class="highlighter-rouge">pandas</code> 모듈을 불러와서 <code class="highlighter-rouge">배열(array)</code>와 <code class="highlighter-rouge">데이터 프레임(DataFrame)</code>을 다룹니다. Python에 엑셀 파일을 불러와서 데이터의 정렬은 어떻게 하며 그룹 함수는 어떻게 지정하는지, 서로 다른 데이터끼리는 어떻게 합치는지 등등 <code class="highlighter-rouge">MS 엑셀</code>이나 <code class="highlighter-rouge">SQL</code>에서 하던 작업을 해보는 것입니다.</p>
+
+<p>엑셀에서 할 수 있는 작업을 굳이 Python에서 하는 이유는 다양한데요. 우선 데이터를 처리하는 속도가 보다 빠릅니다. 물론 적은 양의 데이터를 처리하는데는 엑셀 프로그램으로도 충분히 기초적인 통계 분석이 가능합니다만, 몇 백만 개의 행을 처리하는 경우에는 엑셀로 작업하려면 엄청난 잔렉과 씨름해야합니다. 게다가 <code class="highlighter-rouge">머신러닝/딥러닝(ML/DL)</code>을 돌리기 위해서는 어차피 Python으로 데이터를 불러와야 합니다. 간단하게 요약하자면, <code class="highlighter-rouge">빠른 전처리</code>와 <code class="highlighter-rouge">다양한 모델 분석</code>이 Python을 사용하는 목적이라고 할 수 있습니다.</p>
+
+<p><br /></p>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=Python+%EC%9E%90%EB%A3%8C+%EA%B5%AC%EC%A1%B0+%282%29&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F20%2Fpython-4.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=Python+%EC%9E%90%EB%A3%8C+%EA%B5%AC%EC%A1%B0+%282%29&u=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F20%2Fpython-4.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F20%2Fpython-4.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=Python+%EC%9E%90%EB%A3%8C+%EA%B5%AC%EC%A1%B0+%282%29&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F20%2Fpython-4.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=Python+%EC%9E%90%EB%A3%8C+%EA%B5%AC%EC%A1%B0+%282%29&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F20%2Fpython-4.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/python/2020/09/20/python-4.html') + '&title=Python 자료 구조 (2)'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

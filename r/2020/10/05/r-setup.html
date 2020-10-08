@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>R 설치</title>
+  <meta name="description" content="">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="" />
+  <meta property="og:url" content="http://localhost:4000/r/2020/10/05/r-setup.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="R 설치" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000https://d33wubrfki0l68.cloudfront.net/62bcc8535a06077094ca3c29c383e37ad7334311/a263f/assets/img/logo.svg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="R 설치">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="http://localhost:4000https://d33wubrfki0l68.cloudfront.net/62bcc8535a06077094ca3c29c383e37ad7334311/a263f/assets/img/logo.svg">
+  <meta name="twitter:url" content="http://localhost:4000/r/2020/10/05/r-setup.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/r/2020/10/05/r-setup.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(https://d33wubrfki0l68.cloudfront.net/62bcc8535a06077094ca3c29c383e37ad7334311/a263f/assets/img/logo.svg);">
+  <div class="scrim has-cover">
+    <header class="post-header">
+      <h1 class="title">R 설치</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">October 5, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/r">R</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <p><img src="https://www.r-project.org/Rlogo.png" /></p>
+
+<p>R은 컴퓨터에서 통계적인 작업을 하거나 시각화를 도와주는 프로그램입니다. 비싼 유료 프로그램인 SAS와 다르게 오픈소스이기 때문에 접근성과 교류 측면에서 좋습니다. SAS가 사기업에서의 사용량이 많기 때문에 무조건 특정 프로그램만 고집하기보다는 본인이 사용하는 목적에 맞춰서 프로그램을 선택하면 될 것 같습니다.</p>
+
+<p>이 블로그에서는 R 설치 후 바로 Rstudio를 설치 한 다음 Rstudio에서만 실습을 진행합니다.</p>
+
+<p><br /></p>
+
+<ul>
+  <li><a href="#r-설치">R 설치</a></li>
+  <li><a href="#rstudio-설치">R Studio 설치</a></li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="r-설치">R 설치</h2>
+
+<p>먼저 R을 실행시키기 위해 설치 과정이 필요합니다. <a href="https://www.r-project.org/">R 홈페이지</a>에 들어가서 <code class="highlighter-rouge">Download - CRAN</code>를 누릅니다. 누르게 되면 여러 나라의 이름과 나라 이름 아래에 여러 사이트들이 있는데 저는 한국에서 다운로드를 하기 때문에 Korea에서 서울 빅데이터 캠퍼스의 cran 사이트로 들어갔습니다. 접속 환경에 맞지않는 cran 서버 선택시 다운로드가 느려질 수 있습니다.</p>
+
+<p><a href="https://blog.kakaocdn.net/dn/bw957x/btqJ93LFc8d/RrDkk9d7LoU3hHeZUAmoDK/img.png" data-lightbox="rsetup">
+   <img src="https://blog.kakaocdn.net/dn/bw957x/btqJ93LFc8d/RrDkk9d7LoU3hHeZUAmoDK/img.png" title="홈페이지 메인" />
+</a></p>
+
+<center>본인 접속환경에 맞는 cran서버를 선택</center>
+
+<p><br /></p>
+
+<p>다음으로는 본인의 운영 체제 환경에 맞는 링크를 누릅시다. 저는 윈도우 노트북으로 작업할 예정이기 때문에 windows를 선택했습니다.</p>
+
+<p><a href="https://blog.kakaocdn.net/dn/7fmAY/btqJ3iwj3q2/zBTeyjvYDkcp23mTm9KhE1/img.png" data-lightbox="rsetup">
+   <img src="https://blog.kakaocdn.net/dn/7fmAY/btqJ3iwj3q2/zBTeyjvYDkcp23mTm9KhE1/img.png" title="os" />
+</a></p>
+
+<center>본인 컴퓨터의 운영체제 선택</center>
+
+<p><br /></p>
+
+<p>운영체제를 선택한 이후 base를 누르고 다운로드 링크를 누르면 파일 다운로드가 시작됩니다.</p>
+
+<p><a href="https://blog.kakaocdn.net/dn/bRUATV/btqJXWuigW7/2RUdHTjqK3wuHSG5BW9VuK/img.png" data-lightbox="rsetup">
+   <img src="https://blog.kakaocdn.net/dn/bRUATV/btqJXWuigW7/2RUdHTjqK3wuHSG5BW9VuK/img.png" title="download" />
+</a></p>
+
+<p><br /></p>
+
+<p>파일 다운로드가 완료되었으면 설치를 진행하시면 됩니다. 크게 건드려야할 옵션은 없습니다.</p>
+
+<p><a href="https://blog.kakaocdn.net/dn/zcw6U/btqJ1LMjtqQ/KqncmNH7Q6ku3nDqp8LlAk/img.png" data-lightbox="rsetup">
+   <img src="https://blog.kakaocdn.net/dn/zcw6U/btqJ1LMjtqQ/KqncmNH7Q6ku3nDqp8LlAk/img.png" title="설치 중" />
+</a></p>
+
+<center>설치 중...</center>
+
+<p><br /></p>
+
+<p>R 설치가 완료되었으면 이상이 있는지 없는지 체크하기 위해 실행해봅시다.</p>
+
+<p><a href="https://blog.kakaocdn.net/dn/XW1lU/btqJ1Leucs8/HgiF0rcoxnJqj1lRfCUQF1/img.png" data-lightbox="rsetup">
+   <img src="https://blog.kakaocdn.net/dn/XW1lU/btqJ1Leucs8/HgiF0rcoxnJqj1lRfCUQF1/img.png" title="설치 완료" />
+</a></p>
+
+<p><br /></p>
+
+<p><a href="https://blog.kakaocdn.net/dn/bMeVuj/btqJ0ow5x2T/zTEJVFZeb1MmFZkQ4nm6nk/img.png" data-lightbox="rsetup">
+   <img src="https://blog.kakaocdn.net/dn/bMeVuj/btqJ0ow5x2T/zTEJVFZeb1MmFZkQ4nm6nk/img.png" title="성능 확실하구만" />
+</a></p>
+
+<p>이제 프로그램을 닫아주시고 Rstudio를 마저 설치하겠습니다.</p>
+
+<p><br /></p>
+
+<h2 id="rstudio-설치">Rstudio 설치</h2>
+
+<p><a href="https://d33wubrfki0l68.cloudfront.net/62bcc8535a06077094ca3c29c383e37ad7334311/a263f/assets/img/logo.svg" data-lightbox="rsetup">
+   <img src="https://d33wubrfki0l68.cloudfront.net/62bcc8535a06077094ca3c29c383e37ad7334311/a263f/assets/img/logo.svg" title="R Studio" />
+</a></p>
+
+<p>이번에는 R Studio를 설치해봅시다. R의 개발 환경을 도와주는 프로그램입니다. <a href="#https://rstudio.com/products/rstudio/download/">다운로드 페이지</a>에 가셔서 RStudio Desktop 아래 다운로드 버튼을 누르셔서 받으시면 됩니다.</p>
+
+<p><a href="https://blog.kakaocdn.net/dn/IKhGI/btqJZnZtUIG/bOql6vebIVtcTExpaf8sn1/img.png" data-lightbox="rsetup">
+   <img src="https://blog.kakaocdn.net/dn/IKhGI/btqJZnZtUIG/bOql6vebIVtcTExpaf8sn1/img.png" title="R Studio 다운" />
+</a></p>
+
+<p>다운로드 버튼을 누르고 나서 뜨는 페이지에서는 본인의 운영체제에 맞는 버전을 받으면 되는데 윈도우 환경이기 때문에 저는 윈도우 버전을 다운로드하였습니다. 예전에는 32bit인지 64bit인지 선택하는 것도 있었던 것 같은데 현재는 64bit만 지원하는 것 같습니다.</p>
+
+<p><a href="https://blog.kakaocdn.net/dn/bzPwK3/btqJ91UC6QK/JNdkDdeuh7nG9eGWIRIe20/img.png" data-lightbox="rsetup">
+   <img src="https://blog.kakaocdn.net/dn/bzPwK3/btqJ91UC6QK/JNdkDdeuh7nG9eGWIRIe20/img.png" title="R Studio 다운 (2)" />
+</a></p>
+
+<p><br /></p>
+
+<p><a href="https://blog.kakaocdn.net/dn/oDNgP/btqJ1K0Ww0G/iGuBZIEDTcoKdTrFkiyQq0/img.png" data-lightbox="rsetup">
+   <img src="https://blog.kakaocdn.net/dn/oDNgP/btqJ1K0Ww0G/iGuBZIEDTcoKdTrFkiyQq0/img.png" title="R Studio 다운 (3)" />
+</a></p>
+
+<center>설치 중...</center>
+<p><br /></p>
+
+<p><a href="https://blog.kakaocdn.net/dn/MdWDH/btqJ6dBiY81/yajuf1Y7U1RrkxjqajpWhK/img.png" data-lightbox="rsetup">
+   <img src="https://blog.kakaocdn.net/dn/MdWDH/btqJ6dBiY81/yajuf1Y7U1RrkxjqajpWhK/img.png" title="R Studio 다운 (4)" />
+</a></p>
+
+<center>설치 완료</center>
+<p><br /></p>
+
+<p>설치가 완료되었으면 R Studio를 실행시켜봅시다. 아래 이미지처럼 나온다면 정상적으로 실행이 된 겁니다.</p>
+
+<p><a href="https://blog.kakaocdn.net/dn/JByqx/btqJ3gZBh7Z/I9FHibCzD6heHI21iscxl1/img.png" data-lightbox="rsetup">
+   <img src="https://blog.kakaocdn.net/dn/JByqx/btqJ3gZBh7Z/I9FHibCzD6heHI21iscxl1/img.png" title="R Studio 실행" />
+</a></p>
+
+<p>마지막으로 파일 입출력 관련하여 기본 디렉토리 설정을 변경해봅시다. 상단 메뉴에서 <code class="highlighter-rouge">Tools - Global Options</code>로 이동하고</p>
+
+<p><a href="https://blog.kakaocdn.net/dn/dbpeIZ/btqJ1K7G8DL/KFhaWsKZXcIb6YXvJVsKh1/img.png" data-lightbox="rsetup">
+   <img src="https://blog.kakaocdn.net/dn/dbpeIZ/btqJ1K7G8DL/KFhaWsKZXcIb6YXvJVsKh1/img.png" title="global option" />
+</a></p>
+
+<p><br /></p>
+
+<p>기본 디렉토리로 사용하고 싶은 폴더의 경로를 적으면 됩니다.</p>
+
+<p><a href="https://blog.kakaocdn.net/dn/8PT9R/btqKbWZQTAj/d9LREd4H0CbeNxD06FU7KK/img.png" data-lightbox="rsetup">
+   <img src="https://blog.kakaocdn.net/dn/8PT9R/btqKbWZQTAj/d9LREd4H0CbeNxD06FU7KK/img.png" title="working directory" />
+</a></p>
+
+<hr />
+
+<p>R을 사용하기 위한 기본적인 환경 설정이 끝났습니다.</p>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=R+%EC%84%A4%EC%B9%98&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F05%2Fr-setup.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=R+%EC%84%A4%EC%B9%98&u=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F05%2Fr-setup.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F05%2Fr-setup.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=R+%EC%84%A4%EC%B9%98&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F05%2Fr-setup.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=R+%EC%84%A4%EC%B9%98&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F05%2Fr-setup.html&media=http://localhost:4000https://d33wubrfki0l68.cloudfront.net/62bcc8535a06077094ca3c29c383e37ad7334311/a263f/assets/img/logo.svg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/r/2020/10/05/r-setup.html') + '&title=R 설치'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

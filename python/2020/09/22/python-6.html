@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>pandas - Series</title>
+  <meta name="description" content="목차">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="목차" />
+  <meta property="og:url" content="http://localhost:4000/python/2020/09/22/python-6.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="pandas - Series" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="pandas - Series">
+  <meta name="twitter:description" content="목차">
+  <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
+  <meta name="twitter:url" content="http://localhost:4000/python/2020/09/22/python-6.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/python/2020/09/22/python-6.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">pandas - Series</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">September 22, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/python">Python</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h2 id="목차">목차</h2>
+
+<ul>
+  <li><a href="#pandas">pandas</a></li>
+  <li><a href="#series">시리즈 (Series)</a>
+    <ul>
+      <li><a href="#seriesmk"> 1. 생성</a></li>
+      <li><a href="#seriescc"> 2. 연산</a></li>
+      <li><a href="#seriessc"> 3. 색인</a></li>
+      <li><a href="#seriesmtd"> 4. 기타 메소드</a></li>
+      <li><a href="#seriesidx"> 5. 인덱스</a></li>
+      <li><a href="#seriesna"> 6. NA 찾기 </a></li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="pandas">pandas</h2>
+
+<p><code class="highlighter-rouge">pandas</code>는 <code class="highlighter-rouge">시리즈(Series)</code>와 <code class="highlighter-rouge">데이터프레임(DataFrame)</code> 같은 자료 구조를 내장하고 있으며 이들에 대한 생성 및 전처리에 필요한 기본 함수들이 내장된 모듈입니다. NA에 대한 연산이 쉽고 빠르게 되어 있으며 산술연산에 대해도 벡터연산이 가능합니다. 하지만, 문자열 처리하는 경우에는 벡터연산 불가하기 때문에 map, apply, applymap 등의 함수로 mapping 처리가 필요합니다. 모듈 불러올 때 보통 약자를 <code class="highlighter-rouge">pd</code>로 지정하여 불러옵니다.</p>
+
+<p>​</p>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span></code></pre></figure>
+
+<p><br />
+<br /></p>
+
+<h2 id="series">시리즈 (Series)</h2>
+
+<p>시리즈(Series)는 데이터프레임(DataFrame)을 구성하는 <code class="highlighter-rouge">1차원 자료 구조</code>로, <code class="highlighter-rouge">하나의 데이터 형(Data type)만 허용</code>합니다. <code class="highlighter-rouge">Key-Value</code> 형식의 자료구조를 가지고 있는데 Key는 <code class="highlighter-rouge">인덱스(index/행 번호)</code>를 의미를 합니다.​</p>
+
+<p>우선 시리즈를 불러올 때마다 옆에 <code class="highlighter-rouge">pd.</code>를 붙이지 않고 편하게 불러오도록 시리즈만 따로 불러옵시다.</p>
+
+<p>​</p>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">Series</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="seriesmk">1. 생성</h3>
+
+<p>시리즈를 생성하는 방법은 다음 코드에서 볼 수 있습니다. Series() 함수 내에 리스트로 전달하는 내용이 <code class="highlighter-rouge">값(Value)</code>가 되고 함수 내에 <code class="highlighter-rouge">index = []</code>로 전달하는 내용이 <code class="highlighter-rouge">Index(key)</code>가 됩니다.</p>
+
+<p>​</p>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">s1</span> <span class="o">=</span> <span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="n">s2</span> <span class="o">=</span> <span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s">'5'</span><span class="p">])</span>
+<span class="n">s2</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="n">Out</span><span class="p">:</span> <span class="n">dtype</span><span class="p">(</span><span class="s">'O'</span><span class="p">)</span>
+<span class="c1">#문자 '5' 하나로 인해 시리즈의 데이터 형이 문자로 바뀌었습니다.
+</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>     <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span><span class="s">'b'</span><span class="p">,</span><span class="s">'c'</span><span class="p">,</span><span class="s">'d'</span><span class="p">])</span>
+
+<span class="n">s5</span> <span class="o">=</span> <span class="n">Series</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s">'A'</span><span class="p">,</span><span class="s">'b'</span><span class="p">,</span><span class="s">'c'</span><span class="p">,</span><span class="s">'d'</span><span class="p">])</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="seriescc">2. 연산</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>입력</th>
+      <th>출력(key - values)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s1 + 1</td>
+      <td>0 2<br />1 3<br />2 4<br />3 5</td>
+    </tr>
+    <tr>
+      <td>s1 + s1<br />(같은 인덱스를 갖는 경우<br />같은 인덱스끼리 값 연산)</td>
+      <td>0 2<br />1 4<br />2 6<br />3 8</td>
+    </tr>
+    <tr>
+      <td>s3 + s5<br />(다른 인덱스를 갖는 경우<br /> Outer Join으로 연산)</td>
+      <td>A NaN<br />a NaN<br />b 22.0<br />c 33.0<br />d 44.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h3 id="seriessc">3. 색인</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>입력</th>
+      <th>출력(key - values)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s1[0]</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>s1[0:3]</td>
+      <td>0 1<br />1 2<br />2 3</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h3 id="seriesmtd">4. 기타 메소드</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>메소드</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s1.dtype</td>
+      <td>시리즈를 구성하는 데이터 타입</td>
+    </tr>
+    <tr>
+      <td>s2.dtypes</td>
+      <td>복수형 가능</td>
+    </tr>
+    <tr>
+      <td>s1.index</td>
+      <td>시리즈의 인덱스 부분</td>
+    </tr>
+    <tr>
+      <td>s1.values</td>
+      <td>시리즈의 값 부분</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h3 id="seriesidx">5. 인덱스 </h3>
+
+<p>인덱스값이 따로 지정되어 있지 않은 경우 index값을 부여하며, index값을 가지고 있을때는 해당 index값으로 색인을 진행합니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>입력</th>
+      <th>출력(key - values)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>s1 = Series([1,2,3,4],<br />        index = [‘a’,’b’,’c’,’d’]);<br />s1</td>
+      <td>a 1<br />b 2<br />c 3<br />d 4</td>
+    </tr>
+    <tr>
+      <td>s2 = Series(s1,<br />        index=[‘d’,’c’,’a’,’b’]);<br />s2</td>
+      <td>d 4<br />c 3<br />a 1<br />b 2</td>
+    </tr>
+    <tr>
+      <td>s3 = Series(s1,<br />        index=[‘A’,’B’,’C’,’D’]);<br />s3<br />(‘A’ … 에 해당하는 index가 없기 때문에<br />불러올 값이 없을때 NaN을 출력)</td>
+      <td>A NaN<br />B NaN<br />C NaN<br />D NaN</td>
+    </tr>
+    <tr>
+      <td>s1.index = [‘A’,’B’,’C’,’D’];<br />s1<br />인덱스 변경reindex)</td>
+      <td>A 1<br />B 2<br />C 3<br />D 4</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>※ index 개별 수정 주의사항</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1">#Python에서는 index 개체 직접 수정을 막아놓았습니다.
+</span><span class="n">s1</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">'AA'</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+
+  <span class="n">File</span> <span class="s">"&lt;ipython-input-10-8a7bea728eab&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">s1</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">'AA'</span>
+
+  <span class="n">File</span> <span class="s">"C:</span><span class="err">\</span><span class="s">Users</span><span class="err">\</span><span class="s">kmj</span><span class="err">\</span><span class="s">Anaconda3</span><span class="err">\</span><span class="s">lib</span><span class="err">\</span><span class="s">site-packages</span><span class="err">\</span><span class="s">pandas</span><span class="err">\</span><span class="s">core</span><span class="err">\</span><span class="s">indexes</span><span class="se">\b</span><span class="s">ase.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3910</span><span class="p">,</span> <span class="ow">in</span> <span class="n">__setitem__</span>
+    <span class="k">raise</span> <span class="nb">TypeError</span><span class="p">(</span><span class="s">"Index does not support mutable operations"</span><span class="p">)</span>
+
+<span class="nb">TypeError</span><span class="p">:</span> <span class="n">Index</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">mutable</span> <span class="n">operations</span>
+
+
+<span class="c1">#하지만 뒤에 .values를 사용한뒤 실행하면 수정가능합니다.
+</span><span class="n">s1</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">'AA'</span><span class="p">;</span> <span class="n">s1</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">12</span><span class="p">]:</span> 
+<span class="n">AA</span>    <span class="mi">1</span>
+<span class="n">b</span>     <span class="mi">2</span>
+<span class="n">c</span>     <span class="mi">3</span>
+<span class="n">d</span>     <span class="mi">4</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="seriesna">6. 시리즈 내의 NaN 찾기 </h3>
+
+<p>s2 = Series([NA,2,3,4], index = [‘a’,’b’,’c’,’d’])</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>설명 \ 형식</th>
+      <th>메서드 형식</th>
+      <th>함수 형식</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>null 찾기</td>
+      <td>s2.isnull()</td>
+      <td>pd.isnull(s2)</td>
+    </tr>
+    <tr>
+      <td>null 아닌 값 찾기</td>
+      <td>s2.notnull()</td>
+      <td>pd.notnull(s2)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>물론 NaN은 모듈 numpy에 있기 때문에 모듈 불러오는 것을 잊지 말자.</p>
+
+<p><br /></p>
+
+<hr />
+
+<p>이번에는 시리즈에 대한 적어보았습니다. 적당한 타이밍에 글을 끊느라 짧은 글이 되었네요. 다음 포스팅에는 데이터 프레임을 다룰 예정인데 데이터 프레임에 대한 내용은 상당히 분량이 많아서 두 글에 나누어서 작성하게 될 것 같습니다.</p>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=pandas+-+Series&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F22%2Fpython-6.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=pandas+-+Series&u=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F22%2Fpython-6.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F22%2Fpython-6.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=pandas+-+Series&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F22%2Fpython-6.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=pandas+-+Series&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F22%2Fpython-6.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/python/2020/09/22/python-6.html') + '&title=pandas - Series'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

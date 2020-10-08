@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SQL - Orange (1)</title>
+  <meta name="description" content="설치 프로그램 : Oracle 11g &amp; Orange">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="설치 프로그램 : Oracle 11g &amp; Orange" />
+  <meta property="og:url" content="http://localhost:4000/sql/2020/09/15/sql.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="SQL - Orange (1)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/orange.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SQL - Orange (1)">
+  <meta name="twitter:description" content="설치 프로그램 : Oracle 11g &amp; Orange">
+  <meta name="twitter:image" content="http://localhost:4000/assets/orange.png">
+  <meta name="twitter:url" content="http://localhost:4000/sql/2020/09/15/sql.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/sql/2020/09/15/sql.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/orange.png);">
+  <div class="scrim has-cover">
+    <header class="post-header">
+      <h1 class="title">SQL - Orange (1)</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">September 15, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/sql">Sql</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h4 id="headings">설치 프로그램 : Oracle 11g &amp; Orange</h4>
+
+<p>SQL은 크게 MySQL과 Oracle로 나뉘는데 본문에서는 Oracle을 사용했습니다. MySQL이 오픈소스 프로그램이기 때문에 비용 측면에서 유리한 점이 있지만 국내 대기업들은 대용량 데이터베이스 가용성 문제로 Oracle을 많이 사용하는 것으로 알고 있습니다. 문법에 있어서도 차이가 있는데 둘 다 사용해본 경험으로는 Oracle이 MySQL에 비해 사용이 편리했습니다.</p>
+
+<p><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSLCkg_3I_pduhsWMcInVLxiqi-OThKdN_HeQ&amp;usqp=CAU" data-lightbox="setup" data-title="Oracle">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSLCkg_3I_pduhsWMcInVLxiqi-OThKdN_HeQ&amp;usqp=CAU" title="Oracle" />
+</a></p>
+
+<p><br /></p>
+
+<p>ORACLE 관리 툴로는 Orange를 사용했습니다. 무료 프로그램이 아니기 때문에 데모 버전을 사용했는데 굳이 무료 관리 툴을 사용하지 않고 Orange를 사용한 이유는 현업에서 많이 사용하는 프로그램이기 때문이라고 들었습니다. 국산 프로그램인 만큼 현업의 기준이 국내인것 같습니다.</p>
+
+<p><a href="/assets/orange.png" data-lightbox="setup" data-title="ORANGE">
+  <img src="/assets/orange.png" title="ORANGE" />
+</a></p>
+
+<hr />
+
+<h3 id="oracle-11g-설치">Oracle 11g 설치</h3>
+
+<p><a href="https://www.oracle.com/kr/downloads/">오라클 홈페이지</a>에서 <code class="highlighter-rouge">Database 11g Enterprise/Standard Editions</code>을 클릭해서 다운로드 버튼을 누르면 되는데 여기서 주의할 점이 있습니다. x64에 맞춰서 설치하면 Orange 툴과 호환이 잘 안되기 때문에 부득이하게 32비트 버전(32-bit)으로 설치했습니다. 파일 두개 모두 받아줍시다.
+2020년 상반기 기준으로 작성된 내용이기 때문에 읽는 시점에 따라 어느정도 변동사항이 있을 수 있습니다.</p>
+
+<p>설치 프로그램 첫 실행시에 메모리 문제 관련 오류가 출력되는데 ‘예’ 버튼을 누르고 계속 진행하시면 됩니다.</p>
+
+<p><a href="/assets/sql/oracle_1.png" data-lightbox="setup">
+   <img src="/assets/sql/oracle_1.png" title="ORANGE" />
+</a></p>
+
+<p>예를 누르고 나면 다음과 같은 창이 나오는데 스크린샷을 참고하시면서 필요한 옵션들 확인 후 다음으로 넘어가시면 됩니다.</p>
+
+<p><a href="/assets/sql/oracle_2.png" rel="lightbox" data-lightbox="setup">
+   <img src="/assets/sql/oracle_2.png" title="ORANGE" />
+</a></p>
+
+<p><a href="/assets/sql/oracle_3.png" rel="lightbox" data-lightbox="setup">
+   <img src="/assets/sql/oracle_3.png" title="ORANGE" />
+</a></p>
+
+<p><a href="/assets/sql/oracle_4.png" data-lightbox="setup" data-title="cluster">
+   <img src="/assets/sql/oracle_4.png" title="기업에서는 cluster 구현" />
+</a></p>
+
+<p><a href="/assets/sql/oracle_5.png" data-lightbox="setup">
+   <img src="/assets/sql/oracle_5.png" title="ORANGE" />
+</a></p>
+
+<p><a href="/assets/sql/oracle_6.png" data-lightbox="setup">
+   <img src="/assets/sql/oracle_6.png" title="ORANGE" />
+</a></p>
+
+<p><a href="/assets/sql/oracle_7.png" data-lightbox="setup">
+   <img src="/assets/sql/oracle_7.png" title="설치 용량을 줄이기 위해 전체 선택 해제" />
+</a></p>
+
+<p>용량 문제로 인해 필요하지 않은 구성 요소는 따로 설치하지 않았습니다.</p>
+
+<p><a href="/assets/sql/oracle_8.png" data-lightbox="setup">
+   <img src="/assets/sql/oracle_8.png" title="설치 위치" />
+</a></p>
+
+<p>Oracle 파일이 설치되는 경로를 지정하는 항목입니다. 반드시 기억하셔야 합니다.</p>
+
+<p><a href="/assets/sql/oracle_9.png" data-lightbox="setup">
+   <img src="/assets/sql/oracle_9.png" title="ORANGE" />
+</a></p>
+
+<p><a href="/assets/sql/oracle_10.png" data-lightbox="setup">
+   <img src="/assets/sql/oracle_10.png" title="현업에서는 여러 개의 DB를 사용하기 때문에 이름 지정이 필요합니다." />
+</a></p>
+
+<p><a href="/assets/sql/oracle_11.png" data-lightbox="sample schema">
+   <img src="/assets/sql/oracle_11.png" title="Oracle에서 교육 목적으로 제공하는 샘플 스키마" />
+</a></p>
+
+<p>Oracle에서 교육 목적으로 제공하는 샘플 스키마를 생성할지 말지 여부를 선택하는 항목입니다.
+실습에 사용할 데이터가 이 안에 있으니 반드시 체크하시길 바랍니다.</p>
+
+<p><a href="/assets/sql/oracle_12.png" data-lightbox="setup">
+   <img src="/assets/sql/oracle_12.png" title="ORANGE" />
+</a></p>
+
+<p>저는 편의상 비밀번호를 oracle로 하였습니다.</p>
+
+<p><a href="/assets/sql/oracle_13.png" data-lightbox="setup">
+   <img src="/assets/sql/oracle_13.png" title="오류가 아니니 엑세스 허용을 눌러줍시다" />
+</a></p>
+
+<p>계속 진행하다보면 다음과 같은 창이 뜨는데 오류가 아니기 떄문에 엑세스 허용을 눌러주고 넘어가시면 됩니다.</p>
+
+<p><a href="/assets/sql/oracle_14.png" data-lightbox="DB 생성중">
+   <img src="/assets/sql/oracle_14.png" title="오류가 거의 없는게 일반적" />
+</a></p>
+
+<p>여기까지 오셨으면 대부분의 경우에는 오류가 일어나지 않습니다.</p>
+
+<p><a href="/assets/sql/oracle_15.png" data-lightbox="안 보면 힘들어짐">
+   <img src="/assets/sql/oracle_15.png" title="ORANGE" />
+</a></p>
+
+<p>여기서 비밀번호 관리를 하면서 추가적으로 관리 툴에서 사용자들의 계정 잠금/잠금 헤제 및 비밀번호 설정을 건드려주지 않으셔도 됩니다. 아래 스크린샷을 참고하셔서 본인의 목적에 맞는 사용자 계정의 설정을 변경해주시면 됩니다.</p>
+
+<p>비밀번호 설정을 하지 않아 실습에 사용할 SCOTT계정을 사용하지 못하시는 분들을 위해 다음 포스트에 해결 방법을 적어두었습니다.</p>
+
+<p><a href="/assets/sql/oracle_16.png" data-lightbox="setup">
+   <img src="/assets/sql/oracle_16.png" title="ORANGE" />
+</a></p>
+
+<p>이번에도 편의상 oracle로 비밀번호를 설정했습니다. 설정을 마치고 나면 확인을 눌러주시면 되겠습니다.</p>
+
+<p><a href="/assets/sql/oracle_17.png" data-lightbox="setup">
+   <img src="/assets/sql/oracle_17.png" title="ORANGE" />
+</a></p>
+
+<p>명령 프롬프트에서 해당 사용자에 대한 로그인이 잘 되는지 확인해보는 절차입니다.
+이로서 oracle 11g 설치를 마쳤습니다.</p>
+
+<hr />
+
+<h3 id="orange-설치법">Orange 설치법</h3>
+
+<p><a href="https://www.warevalley.com/support/download_list.asp">웨어밸리</a>에 들어가셔서 Trial &amp; Manual에서 Orange for Oracle 이라는 제목의 글을 찾으신 후에 다운로드 하시면 됩니다. 로그인이 필요하기 때문에 회원가입은 필수입니다. 8주정도 사용이 가능하기 때문에 개인 실습용으로 오랫동안 사용하기는 힘들 것 같습니다.</p>
+
+<p>따로 변경해야할 옵션이 없었기 때문에 스크린샷은 따로 찍지 않았습니다.</p>
+
+<p><br /></p>
+
+<h3 id="다음-내용">다음 내용</h3>
+
+<ul>
+  <li>orange 실행 및 로그인</li>
+  <li>orange 단축키</li>
+</ul>
+
+<p><a href="sql-2.html">다음 글</a></p>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=SQL+-+Orange+%281%29&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F15%2Fsql.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=SQL+-+Orange+%281%29&u=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F15%2Fsql.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F15%2Fsql.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=SQL+-+Orange+%281%29&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F15%2Fsql.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=SQL+-+Orange+%281%29&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F15%2Fsql.html&media=http://localhost:4000/assets/orange.png"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/sql/2020/09/15/sql.html') + '&title=SQL - Orange (1)'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Python 자료 구조 (1)</title>
+  <meta name="description" content="목차">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="목차" />
+  <meta property="og:url" content="http://localhost:4000/python/2020/09/19/python-3.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="Python 자료 구조 (1)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Python 자료 구조 (1)">
+  <meta name="twitter:description" content="목차">
+  <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
+  <meta name="twitter:url" content="http://localhost:4000/python/2020/09/19/python-3.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/python/2020/09/19/python-3.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">Python 자료 구조 (1)</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">September 19, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/python">Python</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h2 id="목차">목차</h2>
+
+<ul>
+  <li><a href="#자료-구조">자료 구조</a>
+    <ul>
+      <li><a href="#리스트">list</a></li>
+      <li><a href="#맵">map</a>
+        <ul>
+          <li><a href="#함수-만들기">함수 만들기</a></li>
+        </ul>
+      </li>
+      <li><a href="#시리즈">Series</a></li>
+      <li><a href="#튜플(tuple)">tuple</a></li>
+      <li><a href="#딕셔너리">dictionary</a></li>
+    </ul>
+  </li>
+  <li><a href="#반복문">반복(제어)문</a>
+    <ul>
+      <li><a href="#for문">for</a></li>
+      <li><a href="#while문">while</a></li>
+      <li><a href="#if문">if</a></li>
+      <li><a href="#제어문">제어문</a>
+        <ul>
+          <li><a href="#break">break</a></li>
+          <li><a href="#continue">continue</a></li>
+          <li><a href="#pass">pass</a></li>
+        </ul>
+      </li>
+      <li><a href="#리스트-내포-표현식">리스트 내포 표현식(List Comprehension)</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p>이번 장에서 다루는 자료 구조는 굉장히 중요한 내용입니다. 자료 구조에 따라 쓸 수 있는 메서드와 함수가 다르기 때문에 후에 진행할 데이터 전처리 하는데 있어서 자료 구조에 대해 지식이 부족한 것은 설계도나 기초 공사 없이 건물을 짓는 것과도 같습니다.</p>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="자료-구조">자료 구조</h2>
+
+<p><br /></p>
+
+<blockquote>
+  <p>자료 구조는 컴퓨터 과학에서 효율적인 접근 및 수정을 가능케 하는 자료의 조직, 관리, 저장을 의미한다. 더 정확히 말해, 자료 구조는 데이터 값의 모임, 또 데이터 간의 관계, 그리고 데이터에 적용할 수 있는 함수나 명령을 의미한다.</p>
+
+  <p><cite>Wegner, Peter; Reilly, Edwin D. (2003/08/29). 《Encyclopedia of Computer Science》. Chichester, UK: John Wiley and Sons.</cite></p>
+</blockquote>
+
+<p><br /></p>
+
+<p>자료 구조(Data Structure)는 자료 형(Data Type)과는 다른 개념으로 보통 데이터 값의 모임을 말합니다. Python의 자료 구조 중에서 가장 기본적인 <code class="highlighter-rouge">리스트(list)</code>부터 시작하겠습니다.</p>
+
+<p><br /></p>
+
+<h2 id="리스트">리스트</h2>
+
+<fieldset>
+   <p>1. R에서의 벡터와 개념이 유사.</p>
+   <p>2. 여러 개 원소를 담을 수 있는 1차원 형식 자료</p>
+   <p>3. 리스트 안에 리스트 삽입 가능</p>
+   <p>4. 서로 다른 데이터 타입 입력가능</p>
+   <p>&nbsp;&nbsp;&nbsp;&nbsp;(R의 벡터와의 차이점)</p>
+</fieldset>
+
+<p><br /></p>
+
+<p>​1) 생성</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="n">L2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s">'2'</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>    <span class="o">-</span> <span class="mi">4</span><span class="err">번</span> <span class="err">특성</span>
+
+<span class="n">L3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span>  <span class="o">-</span> <span class="mi">3</span><span class="err">번</span> <span class="err">특성</span>
+<span class="err">​</span></code></pre></figure>
+
+<p>​</p>
+
+<p>2) 색인</p>
+
+<p>위 변수 L1을 이용하여 리스트 색인을 진행해보겠습니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">예제</th>
+      <th style="text-align: left">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">L1[0]</td>
+      <td style="text-align: left">정수(위치) 색인가능</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">L1[0:2]</td>
+      <td style="text-align: left">슬라이스 색인 가능</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">L1[[0,2]]</td>
+      <td style="text-align: left"><em>리스트 색인시 여러 개 묶어서 출력 불가</em></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">L1[1:]</td>
+      <td style="text-align: left">2부터 ~ 끝까지 색인</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">L1[:2]</td>
+      <td style="text-align: left">[1,2]</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">L1[::2]</td>
+      <td style="text-align: left">start : end : by, 왼쪽처럼 by값만 전달하는 것도 가능</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>​</p>
+<ul>
+  <li>
+    <p>리버스(reverse) 색인 : R과는 다르게 음수 위치값 사용시 끝에서부터 역순으로 색인 시도</p>
+
+    <p>L1[-1] = 3 = L[2]</p>
+  </li>
+</ul>
+
+<p>​</p>
+
+<p>​</p>
+
+<p>3) 수정</p>
+
+<p>리스트 안의 원소를 원하는 값으로 수정하는 방법입니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">L1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="n">L1</span>
+<span class="n">Out</span> <span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="err">​</span></code></pre></figure>
+
+<p>​</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">L1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span> <span class="p">;</span>
+
+<span class="n">L1</span>
+<span class="n">Out</span> <span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="mi">3</span><span class="p">]</span>
+<span class="err">​​</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">L1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span> <span class="p">;</span>
+
+<span class="n">L1</span>
+<span class="n">Out</span> <span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="err">​​</span></code></pre></figure>
+
+<p>​</p>
+
+<p>4) 확장 (append 메소드 사용)</p>
+
+<ol>
+  <li>append 메소드 사용</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">L1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span> <span class="p">;</span>
+
+<span class="n">L1</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">31</span><span class="p">]:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+
+<span class="err">​​</span></code></pre></figure>
+
+<p>R에서는 c(L1, 40) / append(L1, 40)</p>
+
+<ol>
+  <li>산술 연산자 이용한 원소 추가</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">L1</span> <span class="o">+</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">-</span>  <span class="err">리스트</span> <span class="err">원소</span> <span class="err">추가</span>
+<span class="err">​​</span></code></pre></figure>
+
+<ol>
+  <li>extend 메소드 사용</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">L1</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">5</span><span class="p">])</span> <span class="o">-</span> <span class="err">원소</span> <span class="err">추가</span><span class="p">(</span><span class="err">즉시</span> <span class="err">반영</span><span class="p">)</span>
+<span class="err">​​</span></code></pre></figure>
+
+<p><u>※ 주의 : 기존 리스트의 범위를 벗어나는 경우 값 할당 불가(out of range)</u></p>
+
+<p>​</p>
+
+<p>​</p>
+
+<p>4-2) 확장(+)</p>
+
+<p>L1 = [1,2,3]</p>
+
+<p>L2 = [4,5,6]</p>
+
+<p>​</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">L1</span> <span class="o">+</span> <span class="n">L2</span> 
+<span class="n">Out</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="err">​​</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">L1</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="n">Out</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="err">​​</span></code></pre></figure>
+
+<p>​</p>
+
+<p>​</p>
+
+<p>​</p>
+
+<p>​</p>
+
+<p>​</p>
+
+<p>5) 삭제</p>
+
+<ol>
+  <li>
+    <p>특정 위치 원소 제거</p>
+
+    <p>R에서는 중간의 원소를 삭제할 수 없었던 것이 python에서는 가능합니다.</p>
+
+    <p><code class="highlighter-rouge">del(L1[3])</code> : 4번째 원소 삭제</p>
+  </li>
+  <li>
+    <p>변수 제거</p>
+
+    <p><code class="highlighter-rouge">​del(L1)</code></p>
+  </li>
+  <li>
+    <p>모든 원소 제거 (빈 리스트)</p>
+
+    <p><code class="highlighter-rouge">L1 = []</code></p>
+  </li>
+</ol>
+
+<p>​</p>
+
+<p>​</p>
+
+<h2 id="맵">맵</h2>
+
+<p>Python에서는 기본적으로 각 원소별로 계산을 하는 벡터연산이 지원되지 않습니다. 그렇기 때문에 각 원소별로 연산을 처리하기 위해서는 map함수를 사용하면 됩니다.</p>
+
+<p>map 함수의 문법은 <code class="highlighter-rouge">map(함수, 변수)</code>인데 자신이 원하는 함수를 사용하기 위해서 함수 만들기에 대해 설명드리겠습니다.</p>
+
+<h3 id="함수-만들기">함수 만들기</h3>
+
+<ol>
+  <li>
+    <p>사용자 정의 함수 만들기</p>
+
+    <p>아래 코드에서 function 에는 함수 이름을 적고 괄호 안에는 사용할 변수를 지정 후 만드는 것으로, R에서 만들었던 그 사용자 정의 함수와 언어적인 차이를 제외하면 거의 비슷합니다.</p>
+  </li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+</code></pre></div></div>
+<p><br /></p>
+
+<p> &nbsp;&nbsp;&nbsp; 2. 람다(lambda) 함수 (간편 사용자 정의 함수)</p>
+
+<p>사용자 정의 함수보다 사용하기 편리한 <code class="highlighter-rouge">람다 함수</code>가 있습니다. lambda를 선언하고 들어갈 원소의 이름을 임의로 설정 후 <code class="highlighter-rouge">:</code> 뒤에는 앞에서 선정한 원소가 들어갔을 때 적용시킬 수식을 적으면 됩니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">-</span> <span class="err">리스트에</span> <span class="err">원소별로</span> <span class="err">연산</span>
+
+<span class="n">f1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mf">1.1</span>
+
+<span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span><span class="n">L1</span><span class="p">))</span></code></pre></figure>
+
+<p>​</p>
+
+<p>map 함수 사용시 주의할 점이 있는데 타입을 정해주지 않으면 결과값이 정상적으로 출력되지 않습니다. 위에서도 정상적인 결과값 출력을 위해 map에 list를 추가로 적었습니다.</p>
+
+<hr />
+
+<h2 id="시리즈">시리즈</h2>
+
+<p>시리즈(Series)는 리스트와 비슷한 1차원 형식의 데이터 구조로 모듈 pandas에 내장되어 있으며 기존 python의 리스트(list)보다 색인시 유리합니다. 그래서 list에서 원하는 자료를 찾고 싶을때 Series로 치환 후 색인, 그리고 다시 list로 재치환하는 경우도 있다고 합니다.</p>
+
+<p>||리스트|시리즈|</p>
+<ul>
+  <li>|-|-
+형태|L1 = [1,2,3,4,5]|s1 = Series([1,2,3,4,5])
+벡터 색인|<del>L1[[1, 3]]</del> |s1[[1,3]]
+.||1   2 <br />3   4
+조건 전달 및 색인|<del>L1[ L1 &gt; 2]</del>|s1[s1 &gt; 2]
+.||2   3 <br />3   4<br />4    5
+​</li>
+</ul>
+<center>리스트에서 안되는 색인이 가능한 시리즈</center>
+
+<p><br /></p>
+
+<h3 id="시리즈-불러오기">시리즈 불러오기</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">Series</span>
+<span class="err">​</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">​from 모듈명 import 함수명</code>의 방식으로 함수를 불러오면 함수를 사용할때마다 <code class="highlighter-rouge">모듈.</code>을 함수 앞에 붙이지 않아도 되어 코드가 간편해진다는 장점이 있습니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">s1</span> <span class="o">=</span> <span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]);</span>
+
+<span class="n">s1</span>
+<span class="n">Out</span> <span class="p">:</span>               
+
+<span class="mi">0</span> <span class="mi">1</span>
+<span class="mi">1</span> <span class="mi">2</span>
+<span class="mi">2</span> <span class="mi">3</span>
+<span class="mi">3</span> <span class="mi">4</span>
+<span class="mi">4</span> <span class="mi">5</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+<span class="err">​</span></code></pre></figure>
+
+<p>​</p>
+
+<p>출력 결과를 살펴보면 먼저 시리즈의 위치 값/데이터 값을 가르키고, dtype은 데이터 타입을 의미합니다.</p>
+
+<hr />
+
+<h2 id="튜플tuple">튜플(tuple)</h2>
+
+<p>튜플은 리스트와 동일한 1차원 자료구조로 서로 다른 데이터 타입 허용을 한다는 공통점이 있습니다. 하지만 원소의 개별적인 수정이 되지 않는다는 차이점이 있습니다. 그렇기 때문에 수정이 되면 안되는 참조용 자료 생성시 쓰이며, 수정 관련 외 나머지 특성은 리스트와 동일합니다.</p>
+
+<ol>
+  <li>생성</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">t1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">;</span> <span class="n">t1</span>
+<span class="n">Out</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="err">​</span></code></pre></figure>
+
+<hr />
+
+<h2 id="딕셔너리">딕셔너리</h2>
+
+<p>딕셔너리(Dictionary)는 [key - value] 구조라는 점에서 R의 리스트와 비슷합니다. Series와 Dataframe의 기본 구조가 되는 데이터 구조입니다.</p>
+
+<p>1. 생성</p>
+
+<p>딕셔너리 생성은 다음과 같이 중괄호 안에 <code class="highlighter-rouge">'key' : value</code> 방식으로 값들을 넣어주면 됩니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">d1</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
+<span class="err">​</span></code></pre></figure>
+
+<p>2. 색인</p>
+
+<p>딕셔너리에서의 색인은 key 를 입력하면 value를 찾아주는 방식입니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">d1</span><span class="p">[</span><span class="s">'a'</span><span class="p">]</span>   <span class="o">/</span>   <span class="n">d1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'a'</span><span class="p">)</span>
+<span class="n">Out</span> <span class="p">:</span> <span class="mi">1</span>
+<span class="err">​</span></code></pre></figure>
+
+<p>3. 수정</p>
+
+<p>딕셔너리에서는 key 값에 value를 넣어줌으로서 수정/추가가 가능합니다. 삭제 또한 key를 지정하여 del함수로 제거함으로서 가능합니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python">   <span class="n">d1</span><span class="p">[</span><span class="s">'b'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">22</span> <span class="p">;</span> <span class="n">d1</span>
+   <span class="n">Out</span> <span class="p">:</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">22</span><span class="p">}</span>
+
+   <span class="n">d1</span><span class="p">[</span><span class="s">'c'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>  <span class="p">;</span> <span class="n">d1</span>
+   <span class="n">Out</span> <span class="p">:</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+
+   <span class="k">del</span><span class="p">(</span><span class="n">d1</span><span class="p">[</span><span class="s">'c'</span><span class="p">])</span> <span class="p">;</span> <span class="n">d1</span>
+   <span class="n">Out</span> <span class="p">:</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">22</span><span class="p">}</span>
+<span class="err">​​</span></code></pre></figure>
+
+<p>​<br /></p>
+
+<hr />
+
+<p><br /></p>
+
+<h2 id="반복문">반복문</h2>
+
+<p>프로그래밍에서 특정 코드가 일정 범위내에서 반복하게 해주는 것을 <code class="highlighter-rouge">반복문(iteration)</code>이라고 합니다. 반복문 중에는 <code class="highlighter-rouge">for문</code>과 <code class="highlighter-rouge">while문</code>이 있습니다.</p>
+
+<h3 id="for문">for문</h3>
+
+<p>for i in range(start 값 ,end 값, 단위값) : 
+​
+지정한 범위 내에서 순서대로 i에 값을 입력하고 반복문 내에서 이를 일시적으로 변수로 사용합니다. 예를 들어 <code class="highlighter-rouge">for i in range(0,3):</code>라는 반복문이 있으면 다음 과정을 거치며 반복이 됩니다.</p>
+
+<ol>
+  <li>i에 0을 넣고 반복문 내에 있는 i에 0을 입력합니다.</li>
+  <li>반복문 내의 코드 실행이 끝나면 다시 처음으로 돌아가 i에 1을 넣고 반복문 내에 있는 i에 1을 입력합니다.</li>
+  <li>마찬가지로 코드 실행이 끝나면 다시 처음으로 돌아가 i에 2를 넣고 반복문 내에 있는 i에 2를 입력합니다.</li>
+  <li>코드 실행이 마치면 반복문이 끝납니다.</li>
+</ol>
+
+<p>예시를 보면서 다시 for문을 살펴봅시다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">2</span></code></pre></figure>
+
+<fieldset>
+    <p>- range 괄호 안에서 단위값은 생략이 가능(기본값 1)</p>
+    <p>- range() 자리에는 리스트를 넣을 수 있습니다. </p>
+    <p>&nbsp;&nbsp;for i in L1 : ... </p>
+
+</fieldset>
+<p>​</p>
+
+<h3 id="while문">while문</h3>
+
+<p><code class="highlighter-rouge">while 문</code>은 for 문과 다르게 초깃값을 설정하는 것이 중요합니다. 반복하는 범위를 처음에 정하는 것이 아니라 특정 조건을 만족할 때까지 반복문이 실행되기 때문에 조건에 들어가는 변수가 <code class="highlighter-rouge">끝맺을 수 있도록</code> 해주는 것이 중요합니다. 예를 들어 i가 False가 될 때 까지 while문을 실행하는 조건을 걸었는데 i가 True에서 변화가 없다면 끝없이 무한히 반복할 것 입니다.</p>
+
+<p>[예시] 1부터 10까지 출력</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">11</span> <span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="err">​</span></code></pre></figure>
+
+<h3 id="if문">if문</h3>
+
+<p><code class="highlighter-rouge">if/else 문</code>은 for, while문이 특정 조건에서만 실행하도록 합니다. 문법은 아래와 같습니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">_</span><span class="err">조건</span><span class="n">_</span> <span class="p">:</span>
+        <span class="o">...</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="o">....</span>
+<span class="err">​</span></code></pre></figure>
+
+<p>​</p>
+
+<h2 id="제어문">제어문</h2>
+
+<h3 id="break">break</h3>
+<p>: break가 속하는 for문을 중단합니다. 실행하는 실행문을 모두 중단하는 것이 아니라 for문 하나만 빠져나오는 것입니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'print!!'</span><span class="p">)</span>
+<span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="k">print</span><span class="err">!!</span></code></pre></figure>
+
+<center> i가 5보다 커진 이후 for문은 탈출했으나 마지막 print함수는 실행</center>
+
+<h3 id="continue">continue</h3>
+<p>: continue 아래의 일부 코드를 실행시키지 않고 바로 루프를 돌리게 합니다. break문보다 살짝 약하다고 생각하시면 됩니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="mi">2</span>
+<span class="mi">4</span>
+<span class="mi">6</span>
+<span class="mi">8</span></code></pre></figure>
+
+<center> 조건에 일치하지 않을 경우 다음 for문으로 이동</center>
+
+<h3 id="pass">pass</h3>
+<p>: 해당 조건에서 아무 일도 일어나지 않게 하기 위해 사용합니다. 에러가 날 때 에러 메시지를 출력하는 대신 어떠한 출력도 원하지 않을 경우 사용하기도 합니다.</p>
+
+<h3 id="리스트-내포-표현식">리스트 내포 표현식</h3>
+
+<ul>
+  <li>
+    <p>리스트 내포 표현식(List Comprehension)은 리스트가 벡터 연산이 안되는 점을 map함수보다도 간단한 문법으로 가능하게 합니다.</p>
+  </li>
+  <li>
+    <p>리스트 내부에 반복문/조건문의 축약형 형태 전달이 가능합니다.</p>
+  </li>
+  <li>
+    <p>또 하나 장점으로 같은 구문의 경우 for문에 비해 성능이 좋습니다.(속도가 빠릅니다.)</p>
+  </li>
+</ul>
+
+<p>표현식 문법</p>
+
+<ol>
+  <li>
+    <p>[리턴값 for i in 대상]</p>
+  </li>
+  <li>
+    <p>[리턴값 for i in 대상 if 조건]</p>
+  </li>
+  <li>
+    <p>[True시 리턴값 if 조건 else F리턴값 for i in 대상]</p>
+  </li>
+</ol>
+
+<p>아래 예시를 통해 리스트 내포 표현식을 정복해봅시다.</p>
+
+<p>예시1 ) L1 = [1,2,3,4,5]에서 10% 인상된 값 리턴</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>이름</th>
+      <th>문법</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>for문</td>
+      <td>L2 = [] <br />for i in range(0,len(L1)): <br />   L2.append(L1[i] * 1.1)</td>
+    </tr>
+    <tr>
+      <td>map</td>
+      <td>list(map(lambda x : x * 1.1, L1))</td>
+    </tr>
+    <tr>
+      <td>리스트 내포 표현식</td>
+      <td>[i * 1.1 for i in L1]</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>예제 2) 리스트 L1에서 3보다 작은 값만 출력</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>이름</th>
+      <th>문법</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>for문</td>
+      <td>L2 = [] <br />for i in L1:<br />    if i &lt; 3 :<br />        L2.append(i)</td>
+    </tr>
+    <tr>
+      <td>map</td>
+      <td>list(map(lambda x :<br />x if x &lt; 3 else None, L1))</td>
+    </tr>
+    <tr>
+      <td>리스트 내포 표현식</td>
+      <td>[i for i in L1 if i &lt; 3]</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>여기까지 기본적으로 사용하는 자료 구조와 반복문에 대해 알아보았습니다. 다음 포스트는 지역/전역 변수, 파일 입출력같은 개념까지 다루면서 Part 1을 마치며 Part 2부터는 numpy 모듈부터 다루도록 하겠습니다.</p>
+
+<p><br />
+<br /></p>
+
+<h2 id="다음-글">다음 글</h2>
+
+<ul>
+  <li>딥 카피</li>
+  <li>지역 변수 / 전역 변수</li>
+  <li>매개변수 전달방식</li>
+  <li>모듈 생성 및 패키지</li>
+  <li>파일 입/출력</li>
+</ul>
+
+<p><br />
+<br /></p>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=Python+%EC%9E%90%EB%A3%8C+%EA%B5%AC%EC%A1%B0+%281%29&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F19%2Fpython-3.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=Python+%EC%9E%90%EB%A3%8C+%EA%B5%AC%EC%A1%B0+%281%29&u=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F19%2Fpython-3.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F19%2Fpython-3.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=Python+%EC%9E%90%EB%A3%8C+%EA%B5%AC%EC%A1%B0+%281%29&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F19%2Fpython-3.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=Python+%EC%9E%90%EB%A3%8C+%EA%B5%AC%EC%A1%B0+%281%29&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F09%2F19%2Fpython-3.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/python/2020/09/19/python-3.html') + '&title=Python 자료 구조 (1)'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

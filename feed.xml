@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RWDR</title>
+    <description>A simple blog.
+</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 09 Oct 2020 07:24:05 +0900</pubDate>
+    <lastBuildDate>Fri, 09 Oct 2020 07:24:05 +0900</lastBuildDate>
+    <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>자료 구조 in R (2)</title>
+        <description>&lt;h2&gt;자료 구조&lt;/h2&gt; &lt;p&gt;(1)&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a style=&quot;color: gray&quot;&gt;스칼라&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a style=&quot;color: gray&quot;&gt;벡터&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a style=&quot;color: gray&quot;&gt;리스트&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;(2)&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#matrix&quot;&gt;행렬&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#array&quot;&gt;배열&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dataframe&quot;&gt;데이터 프레임&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr /&gt; &lt;h2 id=&quot;matrix&quot;&gt; 행렬(matrix) &lt;/h2&gt;...</description>
+        <pubDate>Wed, 07 Oct 2020 11:22:52 +0900</pubDate>
+        <link>http://localhost:4000/r/2020/10/07/r-structure-2.html</link>
+        <guid isPermaLink="true">http://localhost:4000/r/2020/10/07/r-structure-2.html</guid>
+        
+        
+        <category>r</category>
+        
+      </item>
+    
+      <item>
+        <title>자료 구조 in R (1)</title>
+        <description>&lt;h2&gt;자료 구조&lt;/h2&gt; &lt;p&gt;(1)&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#scalar&quot;&gt;스칼라&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#vector&quot;&gt;벡터&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#list&quot;&gt;리스트&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;(2)&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a style=&quot;color: gray&quot;&gt;행렬&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a style=&quot;color: gray&quot;&gt;배열&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a style=&quot;color: gray&quot;&gt;데이터 프레임&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr /&gt; &lt;h2 id=&quot;scalar&quot;&gt; 스칼라(scalar) &lt;/h2&gt;...</description>
+        <pubDate>Wed, 07 Oct 2020 11:22:52 +0900</pubDate>
+        <link>http://localhost:4000/r/2020/10/07/r-structure-1.html</link>
+        <guid isPermaLink="true">http://localhost:4000/r/2020/10/07/r-structure-1.html</guid>
+        
+        
+        <category>r</category>
+        
+      </item>
+    
+      <item>
+        <title>beautifulsoup을 이용한 웹 크롤링</title>
+        <description>&lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#scrap&quot;&gt;웹 스크레이핑과 크롤링&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#urllib&quot;&gt;urllib 이해하기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#allscr&quot;&gt;서울시 홈페이지 메인 가져오기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#bs4&quot;&gt;beautifulsoup 이해하기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#navscr&quot;&gt;네이버에서 가져오기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#daumns&quot;&gt;다음 뉴스 내용 가져오기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#prevatc&quot;&gt;안티 크롤링 방지&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr...</description>
+        <pubDate>Tue, 06 Oct 2020 12:20:54 +0900</pubDate>
+        <link>http://localhost:4000/python/2020/10/06/crawling.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/2020/10/06/crawling.html</guid>
+        
+        
+        <category>python</category>
+        
+      </item>
+    
+      <item>
+        <title>변수(Variables)</title>
+        <description>&lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#varobj&quot;&gt;변수?? 객체??&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#varallow&quot;&gt;변수 생성&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#varch&quot;&gt;형 변환 함수&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#varser&quot;&gt;변수 연속 생성&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#varsnd&quot;&gt;변수 확인 및 제거&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#nanull&quot;&gt;NA와 NULL&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#pmmd&quot;&gt;사칙 연산&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr /&gt; &lt;h2...</description>
+        <pubDate>Tue, 06 Oct 2020 11:22:52 +0900</pubDate>
+        <link>http://localhost:4000/r/2020/10/06/r-variable.html</link>
+        <guid isPermaLink="true">http://localhost:4000/r/2020/10/06/r-variable.html</guid>
+        
+        
+        <category>r</category>
+        
+      </item>
+    
+      <item>
+        <title>도커(Docker)</title>
+        <description>&lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#whatisdocker&quot;&gt;도커(Docker란?&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#docinst&quot;&gt;도커 설치하기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#vscode&quot;&gt;Visual Studio Code 설치하기&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#htudoc&quot;&gt;도커 사용하기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#miniconda&quot;&gt;도커에 Python 설치&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#contmk&quot;&gt;컨테이너 저장하기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#mount&quot;&gt;마운트&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr /&gt; &lt;h2...</description>
+        <pubDate>Mon, 05 Oct 2020 16:22:52 +0900</pubDate>
+        <link>http://localhost:4000/docker/2020/10/05/docker.html</link>
+        <guid isPermaLink="true">http://localhost:4000/docker/2020/10/05/docker.html</guid>
+        
+        
+        <category>docker</category>
+        
+      </item>
+    
+      <item>
+        <title>R 설치</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://www.r-project.org/Rlogo.png&quot; /&gt;&lt;/p&gt; &lt;p&gt;R은 컴퓨터에서 통계적인 작업을 하거나 시각화를 도와주는 프로그램입니다. 비싼 유료 프로그램인 SAS와 다르게 오픈소스이기 때문에 접근성과 교류 측면에서 좋습니다. SAS가 사기업에서의 사용량이 많기 때문에 무조건 특정 프로그램만...</description>
+        <pubDate>Mon, 05 Oct 2020 11:22:52 +0900</pubDate>
+        <link>http://localhost:4000/r/2020/10/05/r-setup.html</link>
+        <guid isPermaLink="true">http://localhost:4000/r/2020/10/05/r-setup.html</guid>
+        
+        
+        <category>r</category>
+        
+      </item>
+    
+      <item>
+        <title>정규 표현식, 더미 변수, 샘플링</title>
+        <description>&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#dfsamp&quot;&gt;1. 샘플링 함수&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dummy&quot;&gt;2. 더미 변수(dummy variables)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#regexp&quot;&gt;3. 정규 표현식(regexp)&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#compile&quot;&gt;1) compile&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#findall&quot;&gt;2) findall&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#strfindall&quot;&gt;3) str.findall&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;&lt;br...</description>
+        <pubDate>Sun, 04 Oct 2020 11:10:52 +0900</pubDate>
+        <link>http://localhost:4000/python/2020/10/04/python-regexp.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/2020/10/04/python-regexp.html</guid>
+        
+        
+        <category>python</category>
+        
+      </item>
+    
+      <item>
+        <title>pandas - 전처리 추가 내용 (2)</title>
+        <description>&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#dfcut&quot;&gt;1. 구간 분할(cut)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dfgr&quot;&gt;2. 그룹 메소드(groupby)&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#grapply&quot;&gt;1) 적용 메소드(apply)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#udgr&quot;&gt;2) 사용자 정의 그룹&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#transf&quot;&gt;3) 트랜스폼(transfrom)&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#datetime&quot;&gt;3. 날짜 모듈(datetime)&lt;/a&gt;...</description>
+        <pubDate>Sat, 03 Oct 2020 09:10:52 +0900</pubDate>
+        <link>http://localhost:4000/python/2020/10/03/python-df5.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/2020/10/03/python-df5.html</guid>
+        
+        
+        <category>python</category>
+        
+      </item>
+    
+      <item>
+        <title>pandas - 전처리 추가 내용</title>
+        <description>&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#dfstack&quot;&gt;1. 스택&amp;amp;언스택&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#unstack&quot;&gt;1) 언스택(unstack)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#stack&quot;&gt;2) 스택(stack)&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dfrank&quot;&gt;2. 순위(rank)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#merge&quot;&gt;3. 병합(merge)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#pivot&quot;&gt;4. 피벗 테이블(pivot)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#panstr&quot;&gt;5. str 모듈&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a...</description>
+        <pubDate>Mon, 28 Sep 2020 09:20:54 +0900</pubDate>
+        <link>http://localhost:4000/python/2020/09/28/python-df4.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/2020/09/28/python-df4.html</guid>
+        
+        
+        <category>python</category>
+        
+      </item>
+    
+      <item>
+        <title>pandas - DataFrame 예제</title>
+        <description>&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#dfq1&quot;&gt;문제 1 (색인 및 적용함수)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dfq2&quot;&gt;문제 2 (사용자 정의 함수 및 정렬 등)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dfq3&quot;&gt;문제 3 (멀티 인덱스)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dfq4&quot;&gt;문제 4 (멀티 인덱스 2)&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;...</description>
+        <pubDate>Sun, 27 Sep 2020 09:20:54 +0900</pubDate>
+        <link>http://localhost:4000/python/2020/09/27/python-df3.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/2020/09/27/python-df3.html</guid>
+        
+        
+        <category>python</category>
+        
+      </item>
+    
+  </channel>
+</rss>

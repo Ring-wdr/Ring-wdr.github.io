@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SQL - 기본 문법 (2)</title>
+  <meta name="description" content="목차">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="목차" />
+  <meta property="og:url" content="http://localhost:4000/sql/2020/09/16/sql-4.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="SQL - 기본 문법 (2)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SQL - 기본 문법 (2)">
+  <meta name="twitter:description" content="목차">
+  <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
+  <meta name="twitter:url" content="http://localhost:4000/sql/2020/09/16/sql-4.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/sql/2020/09/16/sql-4.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">SQL - 기본 문법 (2)</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">September 16, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/sql">Sql</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h2 id="목차">목차</h2>
+
+<h3 id="함수function">함수(FUNCTION)</h3>
+
+<p>입력된 input을 특성에 맞추어 output 을 출력합니다.</p>
+
+<ul>
+  <li><a href="#대소문자-치환">대소문자 치환</a></li>
+  <li><a href="#문자에서-원하는-위치의-글자-추출">문자에서 원하는 위치의 글자 추출</a></li>
+  <li><a href="#공백-제거">공백 제거</a></li>
+  <li><a href="#치환함수">특정 문자를 원하는 문자로 치환</a></li>
+  <li><a href="#숫자함수">반올림/modulo 등의 숫자함수</a></li>
+  <li><a href="#날짜함수">날짜 함수</a></li>
+  <li><a href="#형-변환-함수">데이터 형 변환 함수</a> 등</li>
+  <li><a href="#조건문">그 외</a></li>
+</ul>
+
+<p><br /></p>
+
+<hr />
+
+<h3 id="대소문자-치환">대소문자 치환</h3>
+
+<ul>
+  <li>INITCAP: 문장의 모든 단어의 첫 글자를 대문자로 치환</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">INITCAP</span><span class="p">(</span><span class="s1">'APPLE'</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">DUAL</span><span class="p">;</span></code></pre></figure>
+
+<p>=&gt; Apple</p>
+
+<p>​</p>
+<ul>
+  <li>UPPER, LOWER: 대(소)문자 치환</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">UPPER</span><span class="p">(</span><span class="s1">'Apple'</span><span class="p">),</span> <span class="k">lOWER</span><span class="p">(</span><span class="s1">'Apple'</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">DUAL</span><span class="p">;</span></code></pre></figure>
+
+<p>=&gt; APPLE / apple</p>
+
+<ul>
+  <li>length, lengthb (byte): 글자의 크기 출력</li>
+</ul>
+
+<p>​</p>
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">length</span><span class="p">(</span><span class="s1">'Apple'</span><span class="p">),</span> <span class="n">lengthb</span><span class="p">(</span><span class="s1">'Apple'</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">DUAL</span><span class="p">;</span></code></pre></figure>
+
+<p>=&gt; 둘다 5</p>
+
+<p>하지만 주의할 점이 있는데 한글은 1글자당 3byte를 잡아먹기 때문에 한글을 입력하는 경우 두 쿼리의 결과값이 달라진다.</p>
+
+<p>​</p>
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">length</span><span class="p">(</span><span class="s1">'한글 최고'</span><span class="p">),</span> <span class="n">lengthb</span><span class="p">(</span><span class="s1">'한글 최고'</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">DUAL</span><span class="p">;</span></code></pre></figure>
+
+<p>=&gt; 5 / 13</p>
+
+<p><br /></p>
+
+<h3 id="문자에서-원하는-위치의-글자-추출">문자에서 원하는 위치의 글자 추출</h3>
+
+<ul>
+  <li>SUBSTR(X, a, b) : 입력된 글자(X)에서 원하는 위치(a)부터 시작해서 원하는 갯수(b)만큼 출력</li>
+</ul>
+
+<p>​​</p>
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">SUBSTR</span><span class="p">(</span><span class="s1">'MONETARY'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">DUAL</span><span class="p">;</span></code></pre></figure>
+
+<p>=&gt; ONE</p>
+
+<p>주의사항 : 날짜 데이터 취급 시에 포맷(FORMAT)때문에 LIKE때도 주의해야하지만 SUBSTR을 사용할때도 주의를 해야합니다. 날짜 데이터는 하단 날짜함수에서 다루도록 하겠습니다.</p>
+
+<p><br /></p>
+
+<ul>
+  <li>INSTR(X, A, <code class="highlighter-rouge">start</code>, <code class="highlighter-rouge">end</code>) :</li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>x : 원본 문자열</td>
+      <td>A : 찾을 문자열</td>
+      <td><code class="highlighter-rouge">start : 시작 위치</code></td>
+      <td><code class="highlighter-rouge">end : 몇 번째인지</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="text-align: right"> 강조된 변수는 생략이 가능합니다. </div>
+
+<p>​​​</p>
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">INSTR</span><span class="p">(</span><span class="s1">'BANANA'</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">DUAL</span><span class="p">;</span></code></pre></figure>
+
+<p>=&gt; 6</p>
+
+<p>위의 쿼리에 경우는 <code class="highlighter-rouge">BANANA</code>에서 1번째 위치부터 탐색을 시작해서 3번째로 나온 A의 위치를 출력하는 것입니다.</p>
+
+<p>찾는 문자열이 없을 경우에는 0이 나오며, SUBSTR과 다르게 시작 위치가 음수(마이너스)일 경우 스캔 방향이 역순으로 바뀝니다.</p>
+
+<ul>
+  <li>
+    <p>pad함수 : byte수에 맞춰서 특정 문자열을 삽입하는 함수이다. 보통 글자 수가 정해진 형식에 맞출 때 사용한다.</p>
+
+    <p>r(l)pad(문자열 , byte 수, ‘문자열’)</p>
+  </li>
+</ul>
+
+<p>​​​</p>
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">rpad</span><span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="s1">'b'</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">DUAL</span><span class="p">;</span></code></pre></figure>
+
+<p>​
+=&gt; abbbb</p>
+
+<h3 id="공백-제거">공백 제거</h3>
+
+<ul>
+  <li>trim함수 : 글자 양 옆의 공백을 제거하는 함수</li>
+</ul>
+
+<p>기본 문법 : r(l)trim(문자열, 제거할 문자)</p>
+
+<p>모든 데이터가 완벽히 전처리가 되어있지 않다보니 글자에 <code class="highlighter-rouge">빈 칸( )</code>이 들어가는 경우가 현업에서는 빈번하게 발생하는데, 이로 인해 <code class="highlighter-rouge">'=' 연산자(equal)</code>로 검색이 안되는 경우가 발생합니다. 이때, trim 함수를 사용하여 불필요한 문자열이나 공백을 지우면 검색이 되는 경우가 있습니다. 따라서 원인불명으로 검색이 안되는 경우에 <code class="highlighter-rouge">trim</code>함수를 사용해보는 것을 추천합니다.</p>
+
+<p><a href="/assets/sql/oracle_19.png" data-lightbox="grammar">
+   <img src="/assets/sql/oracle_19.png" title="trim 사용 예시" />
+</a></p>
+
+<center>육안으로는 확인할 수 없는 빈 칸을 제거하는 trim</center>
+
+<p><br /></p>
+
+<h3 id="치환함수">치환함수</h3>
+
+<p>문자열 내의 글자를 다른 글자로 바꿔주는 함수로 REPLACE, TRANSLATE가 있습니다.</p>
+
+<ul>
+  <li>REPLACE : 특정 단어를 원하는 단어로 단어 단위로 치환하는 함수</li>
+</ul>
+
+<p>​​​</p>
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">REPLACE</span><span class="p">(</span><span class="s1">'ABCDE'</span><span class="p">,</span> <span class="s1">'ABC'</span><span class="p">,</span><span class="s1">'FF'</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">DUAL</span><span class="p">;</span></code></pre></figure>
+
+<p>​
+=&gt; ‘FFDE’</p>
+
+<p>‘ABC’를 ‘FF’로 통째로 바꿔버렸습니다.
+​</p>
+
+<ul>
+  <li>translate : 글자 단위로 치환하는 함수. 즉, 순서상 매칭되어있는 글자와 1대1 치환이 이루어집니다.</li>
+</ul>
+
+<p>백문이 불여일견이므로 예시를 통해 빠르게 보도록 하겠습니다.</p>
+
+<p>​​​</p>
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">TRANSLATE</span><span class="p">(</span><span class="s1">'ABCBA'</span><span class="p">,</span><span class="s1">'AB'</span><span class="p">,</span><span class="s1">'EF'</span><span class="p">)</span> 
+  <span class="k">FROM</span> <span class="n">DUAL</span><span class="p">;</span></code></pre></figure>
+
+<p>​
+=&gt; ‘EFCFE’</p>
+
+<p>위 예시를 보시면 ‘ABCBA’에서 ‘A’는 <code class="highlighter-rouge">'E'</code>로 바뀌고 ‘B’는 <code class="highlighter-rouge">'F'</code>로 바뀐 것을 볼 수 있습니다.
+​
+뒤에 오는 문자열이 앞의 문자열수보다 많아도 오류 발생은 하지 않으며 무시합니다.</p>
+
+<p>치환함수가 중요한 이유는 SQL 뿐만 아니라 SQL 이후에 다루게 될 R, Python에서도 사용가능하기 때문입니다. 물론 <a href="https://ko.wikipedia.org/wiki/%EC%A0%95%EA%B7%9C_%ED%91%9C%ED%98%84%EC%8B%9D">정규 표현식(Regular expression)</a>에 익숙하신 분들에게는 크게 문제 될 게 없어보입니다.</p>
+
+<p><br /></p>
+
+<h3 id="숫자함수">숫자함수</h3>
+
+<p>수학 용어에 대한 지식이 어느 정도 있어야 사용할 수 있고, 자세한 설명은 구글링을 통해 확인하시는 편이 정확하다고 생각하여 각 함수에 대한 설명은 따로 적지는 않았습니다.</p>
+
+<ul>
+  <li>
+    <p>ROUND(숫자,<code class="highlighter-rouge">자리수</code>) : 반올림</p>
+  </li>
+  <li>
+    <p>TRUNC(숫자,<code class="highlighter-rouge">자리수</code>) : 내림</p>
+  </li>
+  <li>
+    <p>MOD : 모듈로 함수</p>
+  </li>
+  <li>
+    <p>FLOOR : 입력값보다 작은 정수 중 최댓값</p>
+  </li>
+  <li>
+    <p>CEIL : 입력값보다 작은 정수 중 최댓값</p>
+  </li>
+  <li>
+    <p>ABS : 절댓값(absolute value)</p>
+  </li>
+  <li>
+    <p>SIGN : 양수면 1, 음수면 -1, 0일때는 0을 출력. 후에 조건문에 사용.</p>
+  </li>
+</ul>
+
+<p>​</p>
+
+<h3 id="날짜함수">날짜함수</h3>
+
+<ul>
+  <li>
+    <p>ROUND / TRUNC : 숫자함수에서처럼 사용 가능, 자리수에는 ‘YEAR’ 처럼 영어로 단위 표기</p>
+  </li>
+  <li>
+    <p>SYSDATE : 현재 날짜, 시간을 포맷에 맞춰서 출력</p>
+  </li>
+  <li>
+    <p>ADD_MONTHS(날짜,n) : n 개월 후의 날짜를 출력</p>
+  </li>
+  <li>
+    <p>MONTHS_BETWEEN : 두 날짜의 개월 수 차이 출력</p>
+  </li>
+  <li>
+    <p>NEXT_DAY : 바로 다음에 오는 지정한 요일의 날짜 출력</p>
+  </li>
+</ul>
+
+<p>​​​</p>
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">NEXT_DAY</span><span class="p">(</span><span class="n">SYSDATE</span><span class="p">,</span><span class="s1">'월'</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">DUAL</span><span class="p">;</span></code></pre></figure>
+
+<p>=&gt; 포스트 작성 일자가 2020-09-16(수)이기 때문에 다음에 오는 월요일의 날짜는 2020-09-21(월)이 되겠습니다.</p>
+
+<ul>
+  <li>LAST_DAY : 그 날짜를 포함하는 달의 마지막 날</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">LAST_DAY</span><span class="p">(</span><span class="n">SYSDATE</span><span class="p">,</span><span class="s1">'월'</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">DUAL</span><span class="p">;</span></code></pre></figure>
+
+<p>=&gt; 포스트 작성 일자가 2020-09-16(수)이기 때문에 9월의 마지막 날인 2020-09-30(수)이 되겠습니다.</p>
+
+<p><br /></p>
+
+<h3 id="형-변환-함수">형 변환 함수</h3>
+
+<blockquote>
+  <p>자료형(Data type)은 컴퓨터 기억 장치에 저장된 값, 객체의 표현, 해석, 구조를 설명하면서 자료형 체계 안의 데이터의 해석에 사용된다. 여러 종류의 자료형 체계들은 다양한 범위의 자료형 안전을 보증하며, 자료형 정보를 사용하여 데이터에 접근하고 데이터를 이용하는 컴퓨터 프로그램의 유효성을 확인한다. 자료형은 “프로그램을 실행하지 않고도 결정할 수 있는 프로그램의 특성”으로 정의할 수 있다.</p>
+
+  <p><cite>Programming Languages: Application and Interpretation, Shriram Krishnamurthi, Brown University</cite></p>
+</blockquote>
+
+<p><br /></p>
+
+<p>SQL에서는 컬럼 하나에 하나의 데이터 타입만 지원하고 데이터 타입이 다른 컬럼끼리 연산을 하다보면 오류가 발생할 수 있습니다. 이를 방지하기 위해 일시적으로 형을 변환시키는 함수가 있습니다.</p>
+
+<p><a href="https://blog.kakaocdn.net/dn/yb6Lr/btqBHyabLMF/FzKZRd50V4hevylQUMeOtk/img.png" data-lightbox="grammar">
+   <img src="https://blog.kakaocdn.net/dn/yb6Lr/btqBHyabLMF/FzKZRd50V4hevylQUMeOtk/img.png" title="데이터 형 변환" />
+</a></p>
+
+<ul>
+  <li>TO_CHAR : 숫자, 날짜 -&gt; 문자타입으로 변경</li>
+</ul>
+
+<p>숫자-&gt; 문자 : 천 단위 구분 기호 삽입, 달러 표시 등
+날짜-&gt; 문자</p>
+
+<ul>
+  <li>TO_NUMBER : 문자 -&gt; 숫자타입으로 변경</li>
+</ul>
+
+<p>아래에서 다룰 <code class="highlighter-rouge">묵시적 형 변환</code>이 일어나지 않습니다.</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="s1">'2020/09/11'</span> <span class="o">+</span> <span class="mi">100</span>
+  <span class="k">FROM</span> <span class="n">DUAL</span><span class="p">;</span></code></pre></figure>
+
+<p>=&gt; ORA-01722: invalid number</p>
+
+<p><br /></p>
+
+<ul>
+  <li>묵시적 형 변환 : SQL에서는 숫자로 바꿀 수 있는 문자에 한해서 연산시 자동으로 숫자로 바꿔줍니다.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="mi">1</span> <span class="o">+</span> <span class="s1">'1'</span>
+  <span class="k">FROM</span> <span class="n">DUAL</span><span class="p">;</span></code></pre></figure>
+
+<p>원래대로라면 <code class="highlighter-rouge">'1'</code>은 문자이기 때문에 <code class="highlighter-rouge">숫자 1</code>과 덧셈이 불가능합니다. 하지만 묵시적 형 변환으로 인해 자동으로 문자가 숫자로 바뀌면서 위 쿼리의 결과값은 <code class="highlighter-rouge">2</code>가 됩니다.</p>
+
+<p><a href="/assets/sql/oracle_20.png" data-lightbox="grammar">
+   <img src="/assets/sql/oracle_20.png" title="묵시적 형 변환 예시" />
+</a></p>
+
+<p>SQL에서는 묵시적 형 변환 덕분에 포맷에 크게 연연하지 않고 쿼리 조회가 가능합니다. 하지만 굳이 형 변환 함수를 공부하는 이유는 만약에 생길 오류를 방지하기 위함이고 다른 언어는 묵시적 형 변환을 허용하지 않는 경우가 많기 때문에 미리 묵시적 형 변환이 지원되지 않는 환경에 적응할 필요가 있기 때문입니다.</p>
+
+<p><br /></p>
+
+<h3 id="조건문">조건문</h3>
+
+<ul>
+  <li>NVL : NULL을 다른 값으로 치환하는 함수로 두 종류가 있습니다.</li>
+</ul>
+
+<p>NVL(데이터, NULL일 경우 출력값)</p>
+
+<p>NVL2 (데이터, NULL이 아닐 경우 출력값, NULL일 경우 출력값)</p>
+
+<p><br /></p>
+
+<p>하나의 컬럼에서는 하나의 데이터 타입만 취급하니 함수 사용시 이를 염두해 두시면 됩니다.</p>
+
+<p><br /></p>
+
+<ul>
+  <li>DECODE : SQL에서 지원하는 조건문 (1)</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">DECODE</span><span class="p">(</span><span class="err">원본</span><span class="p">,</span> <span class="err">조건</span><span class="mi">1</span><span class="p">,</span> <span class="err">치환</span><span class="mi">1</span><span class="p">,</span> <span class="err">조건</span><span class="mi">2</span><span class="p">,</span> <span class="err">치환</span><span class="mi">2</span><span class="p">,</span>   <span class="p">....</span>    <span class="p">,</span><span class="err">그</span> <span class="err">외</span> <span class="err">치환</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">DUAL</span><span class="p">;</span></code></pre></figure>
+
+<p>ORACLE에는 if문이 없어서 사용하는 함수로 equal 연산자만 사용 가능하고 대소비교가 불가능하다는 단점이 있습니다.</p>
+
+<p><br /></p>
+
+<ul>
+  <li>CASE : SQL에서 지원하는 조건문 (2)</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">case</span> <span class="k">when</span> <span class="err">조건</span><span class="mi">1</span> <span class="k">then</span> <span class="err">출력</span><span class="mi">1</span>
+            <span class="k">when</span> <span class="err">조건</span><span class="mi">2</span> <span class="k">then</span> <span class="err">출력</span><span class="mi">2</span>
+            <span class="p">...</span>
+            <span class="k">else</span> <span class="err">치환</span> <span class="k">end</span>
+  <span class="k">FROM</span> <span class="n">DUAL</span><span class="p">;</span></code></pre></figure>
+
+<p>DECODE에 비해 쿼리가 길어지지만 &gt;, &lt; 연산자를 사용할 수 있기 때문에 대소 비교가 가능하다는 장점이 있습니다.</p>
+
+<p>간혹 벌어지는 실수로 인해 CASE문이 실행되지 않는 경우가 있는데 ELSE 까지 작성 후 마지막에 END를 붙여주는 것을 잊지 맙시다.</p>
+
+<p><br /></p>
+
+<h3 id="다음-내용">다음 내용</h3>
+
+<p><code class="highlighter-rouge">GROUP BY</code>, <code class="highlighter-rouge">HAVING</code> 그리고 대망의 <code class="highlighter-rouge">JOIN</code>을 다루려고 합니다. <code class="highlighter-rouge">JOIN</code>은 테이블과 테이블끼리 엮는 작업이기 때문에 데이터 분석에 있어서 매우 중요한 기능입니다.</p>
+
+<ul>
+  <li>GROUP BY</li>
+  <li>HAVING (vs WHERE)</li>
+  <li>집합 연산자</li>
+  <li>JOIN</li>
+  <li>서브쿼리(Subqeury)</li>
+</ul>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=SQL+-+%EA%B8%B0%EB%B3%B8+%EB%AC%B8%EB%B2%95+%282%29&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F16%2Fsql-4.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=SQL+-+%EA%B8%B0%EB%B3%B8+%EB%AC%B8%EB%B2%95+%282%29&u=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F16%2Fsql-4.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F16%2Fsql-4.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=SQL+-+%EA%B8%B0%EB%B3%B8+%EB%AC%B8%EB%B2%95+%282%29&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F16%2Fsql-4.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=SQL+-+%EA%B8%B0%EB%B3%B8+%EB%AC%B8%EB%B2%95+%282%29&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F16%2Fsql-4.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/sql/2020/09/16/sql-4.html') + '&title=SQL - 기본 문법 (2)'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

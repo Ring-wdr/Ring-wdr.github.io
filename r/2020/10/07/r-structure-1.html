@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>자료 구조 in R (1)</title>
+  <meta name="description" content="자료 구조">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="자료 구조" />
+  <meta property="og:url" content="http://localhost:4000/r/2020/10/07/r-structure-1.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="자료 구조 in R (1)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000https://d33wubrfki0l68.cloudfront.net/62bcc8535a06077094ca3c29c383e37ad7334311/a263f/assets/img/logo.svg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="자료 구조 in R (1)">
+  <meta name="twitter:description" content="자료 구조">
+  <meta name="twitter:image" content="http://localhost:4000https://d33wubrfki0l68.cloudfront.net/62bcc8535a06077094ca3c29c383e37ad7334311/a263f/assets/img/logo.svg">
+  <meta name="twitter:url" content="http://localhost:4000/r/2020/10/07/r-structure-1.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/r/2020/10/07/r-structure-1.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(https://d33wubrfki0l68.cloudfront.net/62bcc8535a06077094ca3c29c383e37ad7334311/a263f/assets/img/logo.svg);">
+  <div class="scrim has-cover">
+    <header class="post-header">
+      <h1 class="title">자료 구조 in R (1)</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">October 7, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/r">R</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h2>자료 구조</h2>
+
+<p>(1)</p>
+
+<ul>
+  <li><a href="#scalar">스칼라</a></li>
+  <li><a href="#vector">벡터</a></li>
+  <li><a href="#list">리스트</a></li>
+</ul>
+
+<p>(2)</p>
+
+<ul>
+  <li><a style="color: gray">행렬</a></li>
+  <li><a style="color: gray">배열</a></li>
+  <li><a style="color: gray">데이터 프레임</a></li>
+</ul>
+
+<hr />
+
+<h2 id="scalar"> 스칼라(scalar) </h2>
+
+<p>스칼라는 하나의 값만 포함하는 변수를 말합니다. 이전 글에서 생성 및 변수 할당 등을 다뤘으니 이름만 알고 갑시다.</p>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="vector"> 벡터 (vector) </h2>
+
+<p>벡터(vector)는 1차원의 자료 구조로 하나의 데이터 타입만 허용합니다. 벡터를 생성하면서 데이터 타입 관련해서도 봅시다.</p>
+
+<ol>
+  <li>벡터의 생성</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">v1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">v1</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span><span class="n">v2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">v2</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"a"</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+</span><span class="n">v3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">v3</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">  </span><span class="m">1</span><span class="w">  </span><span class="m">2</span><span class="w">  </span><span class="m">3</span><span class="w">  </span><span class="m">4</span><span class="w">  </span><span class="m">5</span><span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">7</span><span class="w">  </span><span class="m">8</span><span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">10</span></code></pre></figure>
+
+<p>벡터 ​v2를 만드는 것을 보면 두 번째에 넣은 1이 앞에 넣은 ‘a’ 때문에 문자로 바뀐 것을 알 수 있습니다.</p>
+
+<p><br /></p>
+
+<ol>
+  <li>벡터의 확장</li>
+</ol>
+
+<p>c를 이용하면 벡터의 맨 앞자리나 뒷 자리에 추가가 가능합니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="o">&gt;</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="m">4</span><span class="p">)</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="n">v1</span><span class="p">)</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span></code></pre></figure>
+
+<p>그리고 append 함수를 쓰면 양 끝 외에 원하는 위치에 원소를 추가가 가능합니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">after</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">3</span></code></pre></figure>
+
+<p><br /></p>
+
+<ol>
+  <li>벡터의 연산</li>
+</ol>
+
+<p>3-1) 산술 연산</p>
+
+<p>R에서는 벡터끼리 연산을 할 때 각 원소끼리의 연산이 이루어집니다. 즉, Python과는 달리 연산자 만으로 간단하게 벡터 연산이 가능합니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w">
+
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v4</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">30</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v5</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">40</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v4</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">33</span><span class="w">
+</span><span class="c1"># 크기가 달라도 연산 가능</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v5</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">33</span><span class="w"> </span><span class="m">41</span><span class="w">
+</span><span class="n">경고메시지</span><span class="p">(</span><span class="n">들</span><span class="p">)</span><span class="o">:</span><span class="w"> 
+</span><span class="n">In</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v5</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">두</span><span class="w"> </span><span class="n">객체의</span><span class="w"> </span><span class="n">길이가</span><span class="w"> </span><span class="n">서로</span><span class="w"> </span><span class="n">배수관계에</span><span class="w"> </span><span class="n">있지</span><span class="w"> </span><span class="n">않습니다</span></code></pre></figure>
+
+<p>결과문을 보면 v5는 길이가 4인데 마지막 40에 1이 더해진 것을 볼 수 있습니다. 길이가 다른 벡터끼리 연산하는 경우 길이가 짧은 쪽의 원소를 반복시킴으로서 해결합니다. 이 경우에는 v1이 1, 2, 3 까지 모든 원소가 사용되었기 때문에 다시 첫 번째 원소인 1이 재사용된것입니다.</p>
+
+<p><br /></p>
+
+<p>3-2) 논리 연산</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># 1. and 연산자 : &amp;</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nb">T</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="kc">TRUE</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nb">F</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="kc">FALSE</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">F</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nb">F</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="kc">FALSE</span><span class="w">
+
+</span><span class="c1"># 2. or 연산자 : |</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">T</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nb">T</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="kc">TRUE</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">T</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nb">F</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="kc">TRUE</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">F</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nb">F</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="kc">FALSE</span><span class="w">
+
+</span><span class="c1"># 3. not 연산자 : !</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">v1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w">
+    </span><span class="n">a</span><span class="w">     </span><span class="n">b</span><span class="w">     </span><span class="n">c</span><span class="w"> 
+ </span><span class="kc">TRUE</span><span class="w"> </span><span class="kc">FALSE</span><span class="w"> </span><span class="kc">FALSE</span><span class="w"> 
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">!=</span><span class="m">1</span><span class="w">
+    </span><span class="n">a</span><span class="w">     </span><span class="n">b</span><span class="w">     </span><span class="n">c</span><span class="w"> 
+</span><span class="kc">FALSE</span><span class="w">  </span><span class="kc">TRUE</span><span class="w">  </span><span class="kc">TRUE</span><span class="w"> </span></code></pre></figure>
+
+<p><br /></p>
+
+<p>3-3) 집합 연산자</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">t1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">,</span><span class="s1">'d'</span><span class="p">)</span><span class="w">
+</span><span class="n">t2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'f'</span><span class="p">)</span><span class="w">
+</span><span class="n">t3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'f'</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># 1) 합집합 : union</span><span class="w">
+</span><span class="n">union</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">)</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"a"</span><span class="w"> </span><span class="s2">"b"</span><span class="w"> </span><span class="s2">"c"</span><span class="w"> </span><span class="s2">"d"</span><span class="w"> </span><span class="s2">"e"</span><span class="w"> </span><span class="s2">"f"</span><span class="w">
+
+</span><span class="c1"># 2) 교집합 : intersect</span><span class="w">
+</span><span class="n">intersect</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">)</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"a"</span><span class="w">
+
+</span><span class="c1"># 3) 차집합 : setdiff</span><span class="w">
+</span><span class="n">setdiff</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">)</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"b"</span><span class="w"> </span><span class="s2">"c"</span><span class="w"> </span><span class="s2">"d"</span><span class="w">
+
+</span><span class="c1"># 4) 동등비교 : identical, setequal</span><span class="w">
+</span><span class="c1"># identical : 구성하는 원소, 크기가 모두 같은지 확인</span><span class="w">
+</span><span class="n">identical</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="n">t3</span><span class="p">)</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="kc">FALSE</span><span class="w">
+
+</span><span class="c1"># setequal : 구성하는 원소가 같은지 확인(크기 상관x)</span><span class="w">
+</span><span class="n">setequal</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="n">t3</span><span class="p">)</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="kc">TRUE</span></code></pre></figure>
+
+<ol>
+  <li>백터의 색인 (indexing, 추출)</li>
+</ol>
+
+<p>벡터에서의 색인은 변수옆에 대괄호를 입력 후 원하는 위치값(인덱스)을 입력하면 됩니다. 대괄호 내에서 <code class="highlighter-rouge">콤마(,)</code>는 차원을 구분하기 때문에 색인 시에도 여러 원소를 출력하고 싶을 때는 c로 위치값들을 묶어줘야합니다.
+​
+4-1) 위치값(숫자)</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w">    
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">]</span><span class="w"> 
+</span><span class="n">Error</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">v1</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">incorrect</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">dimensions</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="p">[</span><span class="m">-1</span><span class="p">]</span><span class="w"> 
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span></code></pre></figure>
+
+<p>위치값으로 색인 시 주의해야 할 점이 있습니다. 대부분의 프로그래밍 언어들은 시작 위치값이 0인데 R의 경우 1부터 시작합니다. 그래서 2번째 값을 출력하고 싶을때는 v1[1]이 아니라 v1[2]가 됩니다.</p>
+
+<p><br /></p>
+
+<p>4-2) 인덱스 이름</p>
+
+<p>벡터에 각 원소별로 이름을 부여할 수 있습니다. 이름을 부여하면 위치값 대신에 이름을 입력하면 해당 위치의 값을 출력할 수 있습니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="o">&gt;</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="w">
+</span><span class="kc">NULL</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="w">
+</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">c</span><span class="w"> 
+</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> 
+
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">)]</span><span class="w">
+</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> 
+</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span></code></pre></figure>
+
+<p>4-3) 슬라이스 색인(연속추출)</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># 숫자 색인</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v5</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">20</span><span class="w">
+
+</span><span class="c1"># 이름으로 색인</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="p">[</span><span class="s1">'b'</span><span class="o">:</span><span class="s1">'c'</span><span class="p">]</span><span class="w">
+</span><span class="n">Error</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"b"</span><span class="o">:</span><span class="s2">"c"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">인자의</span><span class="w"> </span><span class="n">값이</span><span class="w"> </span><span class="kc">NA</span><span class="o">/</span><span class="kc">NaN</span><span class="w"> </span><span class="n">입니다.</span><span class="w">
+</span><span class="n">추가정보</span><span class="o">:</span><span class="w"> </span><span class="n">경고메시지</span><span class="p">(</span><span class="n">들</span><span class="p">)</span><span class="o">:</span><span class="w"> 
+</span><span class="m">1</span><span class="o">:</span><span class="w"> </span><span class="n">강제형변환에</span><span class="w"> </span><span class="n">의해</span><span class="w"> </span><span class="n">생성된</span><span class="w"> </span><span class="kc">NA</span><span class="w"> </span><span class="n">입니다</span><span class="w"> 
+</span><span class="m">2</span><span class="o">:</span><span class="w"> </span><span class="n">강제형변환에</span><span class="w"> </span><span class="n">의해</span><span class="w"> </span><span class="n">생성된</span><span class="w"> </span><span class="kc">NA</span><span class="w"> </span><span class="n">입니다</span></code></pre></figure>
+
+<p>슬라이스 색인에서도 인덱스 이름은 문자이기 떄문에 사용이 불가능합니다. 그리고 또 조심해야할 부분이 있는데 python의 경우 1:3일때 2번째부터 3번째까지를 의미하지만 R에서는 1번째부터 3번째까지를 의미합니다. 프로그래밍에 익숙한 사람은 R을 다룰 때 헷갈릴 수 있습니다.</p>
+
+<ol>
+  <li>벡터 수정</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">20</span><span class="p">;</span><span class="w"> </span><span class="n">v1</span><span class="w">
+ </span><span class="n">a</span><span class="w">  </span><span class="n">b</span><span class="w">  </span><span class="n">c</span><span class="w"> 
+ </span><span class="m">1</span><span class="w"> </span><span class="m">20</span><span class="w">  </span><span class="m">3</span><span class="w">
+ 
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v2</span><span class="p">[</span><span class="m">2</span><span class="o">:</span><span class="m">5</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="m">50</span><span class="p">,</span><span class="m">10</span><span class="p">);</span><span class="n">v2</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"a"</span><span class="w">  </span><span class="s2">"20"</span><span class="w"> </span><span class="s2">"30"</span><span class="w"> </span><span class="s2">"40"</span><span class="w"> </span><span class="s2">"50"</span><span class="w">
+
+</span><span class="c1"># [참고] 벡터의 원소에 NULL 할당 불가</span><span class="w">
+</span><span class="n">v1</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kc">NULL</span><span class="w">
+</span><span class="n">Error</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">v1</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kc">NULL</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">replacement</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">zero</span></code></pre></figure>
+
+<ol>
+  <li>벡터 크기 확인</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># 1차원인 벡터의 크기 확인</span><span class="w">
+</span><span class="nf">length</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># 행의 개수, 1차원일경우에는 원소의 갯수</span><span class="w">
+</span><span class="n">NROW</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="w"> </span></code></pre></figure>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="list"> 리스트(list)) </h2>
+
+<p>리스트(List)는 layer(층)을 가지는 자료 구조입니다. <code class="highlighter-rouge">key-value 구조</code>이며 value 내부는 벡터로 구성되어 있고, 동일한 데이터 타입만 가능합니다.</p>
+
+<p>1. 리스트 생성</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="o">&gt;</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="s1">'a'</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="s1">'b'</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="s1">'c'</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w">
+</span><span class="o">$</span><span class="n">a</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">1</span><span class="w">
+
+</span><span class="o">$</span><span class="n">b</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">2</span><span class="w">
+
+</span><span class="o">$</span><span class="n">c</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">3</span><span class="w">
+
+</span><span class="n">l2</span><span class="o">&lt;-</span><span class="nf">list</span><span class="p">(</span><span class="s1">'a'</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="s1">'b'</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">),</span><span class="w"> </span><span class="s1">'c'</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'a'</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">l2</span><span class="w">
+</span><span class="o">$</span><span class="n">a</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w">
+
+</span><span class="o">$</span><span class="n">b</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w">
+
+</span><span class="o">$</span><span class="n">c</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"a"</span></code></pre></figure>
+
+<p>​</p>
+
+<p>2. 색인</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># 키 색인, 벡터로 리턴</span><span class="w">
+</span><span class="n">l2</span><span class="o">$</span><span class="n">a</span><span class="w">  
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w">
+
+</span><span class="c1"># 리스트로 리턴</span><span class="w">
+</span><span class="n">l2</span><span class="p">[</span><span class="s1">'a'</span><span class="p">]</span><span class="w">
+</span><span class="o">$</span><span class="n">a</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w">
+
+</span><span class="c1"># 1층 추출, 리스트로 리턴</span><span class="w">
+</span><span class="n">l2</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">
+</span><span class="o">$</span><span class="n">a</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w">
+
+</span><span class="c1"># 1층 추출, 벡터로 리턴</span><span class="w">
+</span><span class="n">l2</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span><span class="w"> 
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span></code></pre></figure>
+
+<p>​</p>
+
+<p>3. 수정</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">#  key 추가</span><span class="w">
+</span><span class="n">l2</span><span class="o">$</span><span class="n">d</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">7</span><span class="p">);</span><span class="w"> </span><span class="n">l2</span><span class="w">
+</span><span class="o">$</span><span class="n">a</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w">
+
+</span><span class="o">$</span><span class="n">b</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w">
+
+</span><span class="o">$</span><span class="n">c</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"a"</span><span class="w">
+
+</span><span class="o">$</span><span class="n">d</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">7</span><span class="w">
+
+</span><span class="c1"># key 제거</span><span class="w">
+</span><span class="n">l2</span><span class="o">$</span><span class="n">d</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kc">NULL</span><span class="p">;</span><span class="w"> </span><span class="n">l2</span><span class="w">   
+</span><span class="o">$</span><span class="n">a</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w">
+
+</span><span class="o">$</span><span class="n">b</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w">
+
+</span><span class="o">$</span><span class="n">c</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"a"</span><span class="w">
+
+</span><span class="c1"># key 내용 수정</span><span class="w">
+</span><span class="n">l2</span><span class="o">$</span><span class="n">b</span><span class="p">[</span><span class="n">l2</span><span class="o">$</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">3</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">40</span><span class="p">;</span><span class="w"> </span><span class="m">2</span><span class="o">$</span><span class="n">b</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">40</span><span class="w">  </span><span class="m">4</span></code></pre></figure>
+
+<p>​</p>
+
+<p>​</p>
+
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=%EC%9E%90%EB%A3%8C+%EA%B5%AC%EC%A1%B0+in+R+%281%29&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F07%2Fr-structure-1.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=%EC%9E%90%EB%A3%8C+%EA%B5%AC%EC%A1%B0+in+R+%281%29&u=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F07%2Fr-structure-1.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F07%2Fr-structure-1.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=%EC%9E%90%EB%A3%8C+%EA%B5%AC%EC%A1%B0+in+R+%281%29&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F07%2Fr-structure-1.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=%EC%9E%90%EB%A3%8C+%EA%B5%AC%EC%A1%B0+in+R+%281%29&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F07%2Fr-structure-1.html&media=http://localhost:4000https://d33wubrfki0l68.cloudfront.net/62bcc8535a06077094ca3c29c383e37ad7334311/a263f/assets/img/logo.svg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/r/2020/10/07/r-structure-1.html') + '&title=자료 구조 in R (1)'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

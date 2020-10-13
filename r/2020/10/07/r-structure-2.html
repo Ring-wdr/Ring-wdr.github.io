@@ -140,6 +140,10 @@
 
 	
 
+	
+
+	
+
 
       </ul>
     </nav>
@@ -197,12 +201,69 @@
 
 <h2 id="matrix"> 행렬(matrix) </h2>
 
-<p>행렬은 이것을 의미합니다.</p>
+<p>1. 생성</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">matrix</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">9</span><span class="p">,</span><span class="w"> </span><span class="c1"># matrix 구성 데이터</span><span class="w">
+       </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w">   </span><span class="c1"># 행 수</span><span class="w">
+       </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w">   </span><span class="c1"># 컬럼 수</span><span class="w">
+       </span><span class="n">byrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">T</span><span class="p">)</span><span class="w">  </span><span class="c1"># 행 우선순위 여부(default F)</span><span class="w">
+
+     </span><span class="p">[,</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="p">[,</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="p">[,</span><span class="m">3</span><span class="p">]</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">,]</span><span class="w">    </span><span class="m">1</span><span class="w">    </span><span class="m">2</span><span class="w">    </span><span class="m">3</span><span class="w">
+</span><span class="p">[</span><span class="m">2</span><span class="p">,]</span><span class="w">    </span><span class="m">4</span><span class="w">    </span><span class="m">5</span><span class="w">    </span><span class="m">6</span><span class="w">
+</span><span class="p">[</span><span class="m">3</span><span class="p">,]</span><span class="w">    </span><span class="m">7</span><span class="w">    </span><span class="m">8</span><span class="w">    </span><span class="m">9</span></code></pre></figure>
+
+<p>2. 색인</p>
+
+<p>행렬 m1을 만들고 원하는 값을 검색해봅시다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">m1</span><span class="o">&lt;-</span><span class="n">matrix</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">9</span><span class="p">,</span><span class="w"> 
+        </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">);</span><span class="w"> </span><span class="n">m1</span><span class="w">
+     </span><span class="p">[,</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="p">[,</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="p">[,</span><span class="m">3</span><span class="p">]</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">,]</span><span class="w">    </span><span class="m">1</span><span class="w">    </span><span class="m">4</span><span class="w">    </span><span class="m">7</span><span class="w">
+</span><span class="p">[</span><span class="m">2</span><span class="p">,]</span><span class="w">    </span><span class="m">2</span><span class="w">    </span><span class="m">5</span><span class="w">    </span><span class="m">8</span><span class="w">
+</span><span class="p">[</span><span class="m">3</span><span class="p">,]</span><span class="w">    </span><span class="m">3</span><span class="w">    </span><span class="m">6</span><span class="w">    </span><span class="m">9</span><span class="w">
+
+</span><span class="c1"># 2번째 열 모두 출력</span><span class="w">
+</span><span class="n">m1</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="m">2</span><span class="p">]</span><span class="w">  </span><span class="c1"># row, col</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="w">
+
+</span><span class="c1"># 1번째 행 모두 출력</span><span class="w">
+</span><span class="n">m1</span><span class="p">[</span><span class="m">1</span><span class="p">,]</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">7</span><span class="w">
+
+</span><span class="c1"># 1, 3번째 행 및 2,3번째열 출력</span><span class="w">
+</span><span class="n">m1</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span><span class="w">
+     </span><span class="p">[,</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="p">[,</span><span class="m">2</span><span class="p">]</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">,]</span><span class="w">    </span><span class="m">4</span><span class="w">    </span><span class="m">7</span><span class="w">
+</span><span class="p">[</span><span class="m">2</span><span class="p">,]</span><span class="w">    </span><span class="m">6</span><span class="w">    </span><span class="m">9</span><span class="w">
+
+</span><span class="c1"># 2,3 번째 행 출력(슬라이싱)</span><span class="w">
+</span><span class="n">m1</span><span class="p">[,</span><span class="m">2</span><span class="o">:</span><span class="m">3</span><span class="p">]</span><span class="w">
+     </span><span class="p">[,</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="p">[,</span><span class="m">2</span><span class="p">]</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">,]</span><span class="w">    </span><span class="m">4</span><span class="w">    </span><span class="m">7</span><span class="w">
+</span><span class="p">[</span><span class="m">2</span><span class="p">,]</span><span class="w">    </span><span class="m">5</span><span class="w">    </span><span class="m">8</span><span class="w">
+</span><span class="p">[</span><span class="m">3</span><span class="p">,]</span><span class="w">    </span><span class="m">6</span><span class="w">    </span><span class="m">9</span></code></pre></figure>
 
 <p><br /></p>
 
 <hr />
 
+<h2 id="array"> 배열(array) </h2>
+
+<p>배열은 다차원 데이터 구조로, 동일한 데이터 타입으로 구성되어있습니다.</p>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="dataframe"> 데이터프레임(dataframe) </h2>
+
+<p>행과 열의 구조를 갖는 2차원 데이터 구조로 엑셀에서의 표, 데이터베이스에서의 테이블과 유사합니다. key(column) - value 구조를 갖습니다. ​벡터는 같은 타입의 문자만 들어가기 때문에 기존 데이터 프레임에 행 삽입시 데이터 타입이 바뀔수 있습니다.</p>
+
+<p>(+) R 4버전 이전에는 <code class="highlighter-rouge">stringAsFactors</code> 옵션을 건드리지 않으면 데이터프레임 생성시 문자 변수를 요인(factor)값으로 불러와 기존 값 외에 못 들어왔었는데 버전 상승에 따라 해당 옵션의 기본값이 FALSE로 바뀌어서 신경쓰지 않아도 됩니다.</p>
+
+<p>​</p>
 
 </article>
 
@@ -433,6 +494,10 @@
 
 	
 	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
 	
 
 	

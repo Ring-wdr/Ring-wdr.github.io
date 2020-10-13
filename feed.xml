@@ -6,9 +6,33 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 09 Oct 2020 07:28:34 +0900</pubDate>
-    <lastBuildDate>Fri, 09 Oct 2020 07:28:34 +0900</lastBuildDate>
+    <pubDate>Tue, 13 Oct 2020 23:13:08 +0900</pubDate>
+    <lastBuildDate>Tue, 13 Oct 2020 23:13:08 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>하둡 - 설치 및 싱글 노드 모드</title>
+        <description>&lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#hadoop&quot;&gt; hadoop &lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#prepare&quot;&gt; 실행을 위한 준비 &lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#hadooptoubuntu&quot;&gt; 우분투에 하둡 설치 &lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#singnode&quot;&gt; 싱글노드 생성&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&quot;prepare&quot;&gt;실행을 위한 준비&lt;/h2&gt; &lt;p&gt;먼저 가상 머신 &lt;a...</description>
+        <pubDate>Tue, 13 Oct 2020 05:25:52 +0900</pubDate>
+        <link>http://localhost:4000/hadoop/2020/10/13/hadoop-install-1.html</link>
+        <guid isPermaLink="true">http://localhost:4000/hadoop/2020/10/13/hadoop-install-1.html</guid>
+        
+        
+        <category>hadoop</category>
+        
+      </item>
+    
+      <item>
+        <title>selenium을 이용한 구글 이미지 가져오기</title>
+        <description>&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#selenium&quot;&gt;1. selenium&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#setndl&quot;&gt;2. 기본 환경을 위한 다운로드&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#virset&quot;&gt;2-1) 가상환경&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#pipsel&quot;&gt;2-2) selenium 설치&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#chdriver&quot;&gt;2-3) chrome driver 설치&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#compile&quot;&gt;1) compile&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#findall&quot;&gt;2)...</description>
+        <pubDate>Sat, 10 Oct 2020 11:10:52 +0900</pubDate>
+        <link>http://localhost:4000/python/2020/10/10/python-selenium-copy.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/2020/10/10/python-selenium-copy.html</guid>
+        
+        
+        <category>python</category>
+        
+      </item>
     
       <item>
         <title>자료 구조 in R (2)</title>
@@ -100,30 +124,6 @@
         <pubDate>Sat, 03 Oct 2020 09:10:52 +0900</pubDate>
         <link>http://localhost:4000/python/2020/10/03/python-df5.html</link>
         <guid isPermaLink="true">http://localhost:4000/python/2020/10/03/python-df5.html</guid>
-        
-        
-        <category>python</category>
-        
-      </item>
-    
-      <item>
-        <title>pandas - 전처리 추가 내용</title>
-        <description>&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#dfstack&quot;&gt;1. 스택&amp;amp;언스택&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#unstack&quot;&gt;1) 언스택(unstack)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#stack&quot;&gt;2) 스택(stack)&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dfrank&quot;&gt;2. 순위(rank)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#merge&quot;&gt;3. 병합(merge)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#pivot&quot;&gt;4. 피벗 테이블(pivot)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#panstr&quot;&gt;5. str 모듈&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a...</description>
-        <pubDate>Mon, 28 Sep 2020 09:20:54 +0900</pubDate>
-        <link>http://localhost:4000/python/2020/09/28/python-df4.html</link>
-        <guid isPermaLink="true">http://localhost:4000/python/2020/09/28/python-df4.html</guid>
-        
-        
-        <category>python</category>
-        
-      </item>
-    
-      <item>
-        <title>pandas - DataFrame 예제</title>
-        <description>&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#dfq1&quot;&gt;문제 1 (색인 및 적용함수)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dfq2&quot;&gt;문제 2 (사용자 정의 함수 및 정렬 등)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dfq3&quot;&gt;문제 3 (멀티 인덱스)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dfq4&quot;&gt;문제 4 (멀티 인덱스 2)&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;...</description>
-        <pubDate>Sun, 27 Sep 2020 09:20:54 +0900</pubDate>
-        <link>http://localhost:4000/python/2020/09/27/python-df3.html</link>
-        <guid isPermaLink="true">http://localhost:4000/python/2020/09/27/python-df3.html</guid>
         
         
         <category>python</category>

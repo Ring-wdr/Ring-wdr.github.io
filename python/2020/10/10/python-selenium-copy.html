@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>SQL - 기본 문법 (4) [작성중]</title>
+  <title>selenium을 이용한 구글 이미지 가져오기</title>
   <meta name="description" content="목차">
   
   <meta name="author" content="Manjoong Kim">
@@ -42,9 +42,9 @@
   
   <!-- Facebook OGP cards -->
   <meta property="og:description" content="목차" />
-  <meta property="og:url" content="http://localhost:4000/sql/2020/09/16/sql-6.html">
+  <meta property="og:url" content="http://localhost:4000/python/2020/10/10/python-selenium-copy.html">
   <meta property="og:site_name" content="RWDR" />
-  <meta property="og:title" content="SQL - 기본 문법 (4) [작성중]" />
+  <meta property="og:title" content="selenium을 이용한 구글 이미지 가져오기" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
   <meta property="og:image:type" content="image/png" />
@@ -55,17 +55,17 @@
   
   <!-- Twitter: card tags -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="SQL - 기본 문법 (4) [작성중]">
+  <meta name="twitter:title" content="selenium을 이용한 구글 이미지 가져오기">
   <meta name="twitter:description" content="목차">
   <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
-  <meta name="twitter:url" content="http://localhost:4000/sql/2020/09/16/sql-6.html">
+  <meta name="twitter:url" content="http://localhost:4000/python/2020/10/10/python-selenium-copy.html">
   
 
   
 
   <!-- Site styles -->
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/sql/2020/09/16/sql-6.html">
+  <link rel="canonical" href="http://localhost:4000/python/2020/10/10/python-selenium-copy.html">
 	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
 	
 	<!-- Tooltips -->
@@ -157,7 +157,7 @@
 <div class="post-header-container " >
   <div class="scrim ">
     <header class="post-header">
-      <h1 class="title">SQL - 기본 문법 (4) [작성중]</h1>
+      <h1 class="title">selenium을 이용한 구글 이미지 가져오기</h1>
       <p class="info">by <strong>Kim</strong></p>
     </header>
   </div>
@@ -172,11 +172,11 @@
  
 
 <section class="post-meta">
-  <div class="post-date">September 16, 2020</div>
+  <div class="post-date">October 10, 2020</div>
   <div class="post-categories">
   in 
     
-    <a href="/category/sql">Sql</a>
+    <a href="/category/python">Python</a>
     
   
   </div>
@@ -186,24 +186,86 @@
   <h2 id="목차">목차</h2>
 
 <ul>
-  <li>DDL</li>
-  <li>DML</li>
-  <li>TCL</li>
-  <li>Data Dictionary</li>
-  <li>Constraint</li>
-  <li>Sequence</li>
-  <li>권한 부여</li>
+  <li><a href="#selenium">1. selenium</a></li>
+  <li><a href="#setndl">2. 기본 환경을 위한 다운로드</a>
+    <ul>
+      <li><a href="#virset">2-1) 가상환경</a></li>
+      <li><a href="#pipsel">2-2) selenium 설치</a></li>
+      <li><a href="#chdriver">2-3) chrome driver 설치</a></li>
+      <li><a href="#compile">1) compile</a></li>
+      <li><a href="#findall">2) findall</a></li>
+      <li><a href="#strfindall">3) str.findall</a></li>
+    </ul>
+  </li>
 </ul>
 
 <p><br /></p>
 
 <hr />
 
-<h3 id="ddl">DDL</h3>
+<h2 id="selenium">1. selenium</h2>
+
+<p>셀레니움은 웹 브라우저를 코드 기반으로 실제 조작하는 방식으로 이용할 수 있는 python의 프레임워크입니다.</p>
+
+<p>다양한 브라우저(Chrome, Firefox 등), 다양한 언어(Java, Python, PHP 등)를 지원하는데 이 글에서는 크롬 기반으로 진행해보겠습니다.</p>
 
 <p><br /></p>
 
-<p>#</p>
+<hr />
+
+<h2 id="setndl">2. 기본 환경을 위한 다운로드</h2>
+
+<h3 id="dfsamp">2-1) 가상환경 설정</h3>
+
+<p>여러 버전의 Python을 실행하기 위해 가상환경 설정을 했는데 버전 하나로만 실행하시는 분들은 바로 <a href="#pipsel">아래 단계</a>로 넘어가면 됩니다.</p>
+
+<p><br /></p>
+
+<hr />
+
+<h3 id="pipsel">2-2 selenium 설치</h3>
+
+<p>가상 환경에서 <code class="highlighter-rouge">pip install selenium</code> 을 입력 후 실행하면 됩니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/be3foL/btqKv6JNUdi/45CGXlRkLOACkuK5VSksk1/img.png" alt="image" /></p>
+
+<p><br /></p>
+
+<hr />
+
+<h3 id="dfsamp">2-3) 크롬 드라이버 설치</h3>
+
+<p>구글에서 크롬 드라이버를 검색 후 <a href="https://chromedriver.chromium.org/downloads">홈페이지</a>)에 들어갑니다. 현재 사용하고 있는 크롬 브라우저의 버전을 확인 후 다운로드하면 됩니다. 현재 버전을 확인하려면 크롬 설정에 들어가서  <code class="highlighter-rouge">Chrome 정보</code>를 클릭해서 확인할 수 있습니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/bM5G9U/btqKvQf4ywY/KQKdRLusbmqOfRGRqbRv1K/img.png" alt="image" /></p>
+
+<p>버전 확인 후 다시 크롬 드라이버 홈페이지에서 자신의 버전과 맞는 링크를 클릭 후 다운로드 하시면 됩니다. 윈도우에서 실행할 것이기 때문에 저는 윈도우 버전을 받았습니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/ef3swp/btqKwrmBHiF/QAhBit2CUKgqaCmJucowzK/img.png" alt="image" /></p>
+
+<p><img src="https://blog.kakaocdn.net/dn/bOqqa7/btqKDaclpd3/I9gPo2mvEvlhKzqQ325V2k/img.png" alt="image" /></p>
+
+<p>zip 파일을 다운로드했으면 압축을 풀고 아까 만들었던 selenium 폴더로 exe 파일을 옮기면 모든 준비가 완료됩니다.</p>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="setndl">3. 이미지 크롤링 시도</h2>
+
+<p>셀레니움을 실행하기 위한 환경이 완성이 되었습니다. 이제 실행해보도록 합시다.</p>
+
+<h3 id="dfsamp">3-1 selenium 테스트</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+ 
+<span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://www.google.com'</span><span class="p">)</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></figure>
+
+<p>큰 이상이 없으면 크롬 브라우저가 실행되어 구글 메인화면이 나온 뒤 브라우저가 자동으로 종료되었을 것입니다.</p>
+
+<p>browser.get 안에 기존 주소 대신에 <a href="https://www.google.co.kr/imghp?hl=ko&amp;tab=wi&amp;ogbl">구글 이미지</a> 주소를 입력해봅시다.</p>
 
 </article>
 
@@ -222,7 +284,7 @@
   
     
     
-      <a href="//twitter.com/share?text=SQL+-+%EA%B8%B0%EB%B3%B8+%EB%AC%B8%EB%B2%95+%284%29+%5B%EC%9E%91%EC%84%B1%EC%A4%91%5D&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F16%2Fsql-6.html&via="
+      <a href="//twitter.com/share?text=selenium%EC%9D%84+%EC%9D%B4%EC%9A%A9%ED%95%9C+%EA%B5%AC%EA%B8%80+%EC%9D%B4%EB%AF%B8%EC%A7%80+%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F10%2F10%2Fpython-selenium-copy.html&via="
         onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
         <i class="fa fa-twitter-square fa-lg"></i>
       </a>
@@ -237,7 +299,7 @@
     
     
     
-      <a href="//www.facebook.com/sharer.php?t=SQL+-+%EA%B8%B0%EB%B3%B8+%EB%AC%B8%EB%B2%95+%284%29+%5B%EC%9E%91%EC%84%B1%EC%A4%91%5D&u=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F16%2Fsql-6.html"
+      <a href="//www.facebook.com/sharer.php?t=selenium%EC%9D%84+%EC%9D%B4%EC%9A%A9%ED%95%9C+%EA%B5%AC%EA%B8%80+%EC%9D%B4%EB%AF%B8%EC%A7%80+%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0&u=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F10%2F10%2Fpython-selenium-copy.html"
         onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
         <i class="fa fa-facebook-square fa-lg"></i>
       </a>
@@ -262,7 +324,7 @@
     
     
     
-      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F16%2Fsql-6.html"
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F10%2F10%2Fpython-selenium-copy.html"
         onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
         <i class="fa fa-linkedin-square fa-lg"></i>
       </a>
@@ -275,7 +337,7 @@
     
     
     
-      <a href="//plus.google.com/share?title=SQL+-+%EA%B8%B0%EB%B3%B8+%EB%AC%B8%EB%B2%95+%284%29+%5B%EC%9E%91%EC%84%B1%EC%A4%91%5D&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F16%2Fsql-6.html"
+      <a href="//plus.google.com/share?title=selenium%EC%9D%84+%EC%9D%B4%EC%9A%A9%ED%95%9C+%EA%B5%AC%EA%B8%80+%EC%9D%B4%EB%AF%B8%EC%A7%80+%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F10%2F10%2Fpython-selenium-copy.html"
         onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
         <i class="fa fa-google-plus-square fa-lg"></i>
       </a>
@@ -309,7 +371,7 @@
     
     
     
-      <a href="//www.pinterest.com/pin/create/button/?description=SQL+-+%EA%B8%B0%EB%B3%B8+%EB%AC%B8%EB%B2%95+%284%29+%5B%EC%9E%91%EC%84%B1%EC%A4%91%5D&url=http%3A%2F%2Flocalhost%3A4000%2Fsql%2F2020%2F09%2F16%2Fsql-6.html&media=http://localhost:4000/assets/header_image.jpg"
+      <a href="//www.pinterest.com/pin/create/button/?description=selenium%EC%9D%84+%EC%9D%B4%EC%9A%A9%ED%95%9C+%EA%B5%AC%EA%B8%80+%EC%9D%B4%EB%AF%B8%EC%A7%80+%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F10%2F10%2Fpython-selenium-copy.html&media=http://localhost:4000/assets/header_image.jpg"
         onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
         <i class="fa fa-pinterest-square fa-lg"></i>
       </a>
@@ -378,7 +440,7 @@
     
     
     
-      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/sql/2020/09/16/sql-6.html') + '&title=SQL - 기본 문법 (4) [작성중]'; return false">
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/python/2020/10/10/python-selenium-copy.html') + '&title=selenium을 이용한 구글 이미지 가져오기'; return false">
         <i class="fa fa-reddit-square fa-lg"></i>
       </a>
     

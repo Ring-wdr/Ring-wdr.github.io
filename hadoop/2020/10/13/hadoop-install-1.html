@@ -334,13 +334,13 @@ dns-nameservers 168.126.63.1<br />
 
 <h2 id="bashrc">bashrc 수정</h2>
 
-<p>bashrc를 수정하여 hadoop 명령어를 어느 위치에서도 실행가능하게 합니다.</p>
+<p>bashrc를 수정하여 hadoop 명령어를 모든 위치에서 실행가능하게 합니다.</p>
 
 <p>bashrc 파일 편집기로 열기</p>
 <p><font color="#FFFFFF"><span style="background-color:#000000;">sudo vim .bashrc</span></font></p>
 
 <details>
-<summary>복사할 내용(hadoop을 추가))</summary>
+<summary>복사할 내용(최하단에 추가))</summary>
 <p><font color="#FFFFFF"><span style="background-color:#000000;">
 export HADOOP_HOME=/usr/local/hadoop<br />
 export PATH=$PATH:$HADOOP_HOME/bin<br />

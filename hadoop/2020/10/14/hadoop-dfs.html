@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>하둡 - 완전 분산 모드</title>
+  <meta name="description" content="완전 분산 모드">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="완전 분산 모드" />
+  <meta property="og:url" content="http://localhost:4000/hadoop/2020/10/14/hadoop-dfs.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="하둡 - 완전 분산 모드" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="하둡 - 완전 분산 모드">
+  <meta name="twitter:description" content="완전 분산 모드">
+  <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
+  <meta name="twitter:url" content="http://localhost:4000/hadoop/2020/10/14/hadoop-dfs.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/hadoop/2020/10/14/hadoop-dfs.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">하둡 - 완전 분산 모드</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">October 14, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/hadoop">Hadoop</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h2>완전 분산 모드</h2>
+
+<p>이전 글에서 만든 싱글 노드는 실습용이었고, 실제로는 싱글 노드로는 사용하지 않고 분산으로 만들어 쓰는 것이 일반적입니다. 이번에는 다음의 스펙으로 분산 모드로 만들어보도록 하겠습니다.</p>
+
+<fieldset>
+    <p>공통 설치 파일</p>
+    <p>우분투 설치 : 랩 2GB, 하드디스크 30GB</p>
+    <p>기타 util 설치 : SSH, Vim</p>
+    <p>네트워크 설정 / 호스트 파일 수정</p>
+    <p>자바설치 : JDK 11.x</p>
+    <p>하둡설치 : 2.9.x</p>
+    <br />
+    <p>그룹 및 계정 생성</p>
+    <p>&nbsp;&nbsp;- group : Hadoop</p>
+    <p>&nbsp;&nbsp;- account : manager</p>
+    <p>하둡 폴더 소유자 변경</p>
+</fieldset>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Master</th>
+      <th style="text-align: center">Slave1</th>
+      <th style="text-align: center">Slave2</th>
+      <th style="text-align: center">Slave3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">(JobTracker,<br />NameNode)</td>
+      <td style="text-align: center">(SecondaryNameNode,<br />DataNode)</td>
+      <td style="text-align: center">(DataNode)</td>
+      <td style="text-align: center">(DataNode)</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2>하둡 초기화</h2>
+
+<p>완전 분산 모드로 바꾸기 위해 master에 namenode를, slave에 datanode를 두기 위해 master에서 datanode를 제거하였습니다.</p>
+
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+shop-dfs.sh<br />
+sudo rm -rf /usr/local/hadoop/hdfs/datanode/<br />
+sudo rm -rf /usr/local/hadoop/hdfs/namenode/*
+</span></font></p>
+
+<p>datanode가 master에서 지워졌는지 확인해보고 다음으로 넘어갑니다.</p>
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+ls /usr/local/hadoop/hdfs<br />
+&gt; namenode 
+</span></font></p>
+
+<hr />
+
+<h2>master 설정</h2>
+
+<p>슬레이브(slave)를 만들기 전에 마스터의 기본 설정을 합니다<a id="id">.</a></p>
+
+<p><br /></p>
+
+<p>host 파일 (/etc/hosts) : ip 대신에 이름으로 접속할 수 있도록 하는 파일. 아래 내용을 입력합시다.</p>
+
+<p>예시</p>
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+192.168.56.101 master<br />
+192.168.56.102 slave1<br />
+192.168.56.103 slave2<br />
+192.168.56.104 slave3
+</span></font></p>
+
+<p><br /></p>
+
+<dl>
+  <dt>core-site 수정</dt>
+  <dd>
+    <p>localhost로 된 부분을 master로 바꿉니다.</p>
+  </dd>
+</dl>
+
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+sudo vim /usr/local/hadoop/etc/hadoop/core-site.xml
+</span></font></p>
+
+<p><br /></p>
+
+<dl>
+  <dt>mapred-site 수정 (/etc/hosts)</dt>
+  <dd>
+    <p>localhost로 된 부분을 master로 바꿉니다.</p>
+  </dd>
+</dl>
+
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+sudo vim /usr/local/hadoop/etc/hadoop/mapred-site.xml
+</span></font></p>
+
+<p><br /></p>
+
+<dl>
+  <dt>하둡 설정파일 저장</dt>
+  <dd>
+    <p>지금까지 만든 하둡 설정을 저장합니다. /usr/local/hadoop 안에 있는 모든 파일을 hadoop.tar이라는 이름으로 압축합니다.</p>
+  </dd>
+</dl>
+
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+tar -cvf hadoop.tar /usr/local/hadoop
+</span></font></p>
+
+<p><br /></p>
+
+<dl>
+  <dt>프롬프트 이름 변경[hostname (/etc/hostname)]</dt>
+  <dd>
+    <p>vim 편집기로 접속 후 기존 값 대신에 master를 입력하고 종료합니다. 재시작 이후에 적용됩니다.</p>
+  </dd>
+</dl>
+
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+sudo vim /etc/hostname<br />
+sudo /bin/hostname -F /etc/hostname<br />
+sudo reboot
+</span></font></p>
+
+<p><br /></p>
+
+<hr />
+
+<h2>슬레이브 생성 및 설정하기</h2>
+
+<p>이전 글에서 우분투 설치 직후 내보내기로 만든 파일(.ova)을 가져오기를 통해 불러옵니다. putty에서의 접속을 위해 불러온 후 설정에서 네트워크 설정을 아래와 같이 바꿉니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/GE0gh/btqKMzRkAXn/jyCwdbCIeMWQ92eI3DCag1/img.png" alt="image" /></p>
+
+<p>접속후 ssh, vim, jdk를 설치합시다. <a href="#id">host 파일</a>도 바꿔줍니다.</p>
+
+<p>인터페이스 파일(/etc/network/interfaces): 슬레이브의 ip를 고정하기 위해 설정합니다. 기존에 있는 address에서 뒷자리만 수정 후 재부팅하면 적용됩니다.</p>
+
+<p>그룹 생성 및 사용자 등록후 우분투를 종료하고 내보내기로 ova파일 생성후 다시 불러오는 방식으로 동일한 슬레이브 3개를 만듭니다.</p>
+
+<p><br /></p>
+
+<hr />
+
+<h2>마스터 설정하기(2)</h2>
+
+<p>마스터로 다시 돌아와서 슬레이브의 이름을 적습니다.</p>
+
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+sudo vim /usr/local/hadoop/etc/slaves<br />
+<br />
+slave1<br />
+slave2<br />
+slave3
+</span></font></p>
+
+<p>hdfs-site 파일도 수정합니다.</p>
+
+<pre><font color="#FFFFFF"><span style="background-color:#000000;">
+&lt;configuration&gt;
+	&lt;property&gt;
+		&lt;name&gt;dfs.replication&lt;/name&gt;
+		&lt;value&gt;3&lt;/value&gt;
+	&lt;/property&gt;
+	&lt;property&gt;
+		&lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;
+		&lt;value&gt;file:/usr/local/hadoop/hdfs/namenode&lt;/value&gt;
+	&lt;/property&gt;
+	&lt;property&gt;
+		&lt;name&gt;dfs.http.address&lt;/name&gt;
+		&lt;value&gt;master:50070&lt;/value&gt;
+	&lt;/property&gt;
+	&lt;property&gt;
+		&lt;name&gt;dfs.secondary.http.address&lt;/name&gt;
+		&lt;value&gt;master:50090&lt;/value&gt;
+	&lt;/property&gt;
+&lt;/configuration&gt;
+</span></font>
+</pre>
+
+<dl>
+  <dt>slave에 인증키 배포</dt>
+  <dd>
+    <p>인증키를 배포하게 되면 master에서 slave 접속 시 비밀번호 입력하지 않아도 됩니다.</p>
+  </dd>
+</dl>
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+ssh-copy-id -i .ssh/id_rsa.pub manager@slave1
+</span></font></p>
+
+<p>슬레이브에 하둡 설정 배포</p>
+
+<p>위에서 압축한 hadoop.tar를 슬레이브로 보냅니다. 슬레이브마다 각각 압축을 해제 후 tar 파일을 지우는 명령어를 보냅니다. 슬레이브는 총 3개이므로 manager@slave 뒤 숫자만 바꾸셔서 하면 되겠습니다.</p>
+
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+scp hadoop.tar manager@slave1:/home/manager<br />
+ssh manager@slave1 "cd /home/manager;tar xf hadoop.tar;rm hadoop.tar"
+</span></font></p>
+
+<p>이번에는 각 슬레이브에 들어가서 하둡에 대한 폴더를 만들고 압축을 푼 폴더내용을 이동시키겠습니다. 마찬가지로 파일 이동 후 manager에 폴더 권한을 줍니다.</p>
+
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+sudo mkdir /usr/local/hadoop<br />
+cd usr/local/hadoop<br />
+sudo mv * /usr/local/hadoop/<br />
+sudo chown -R manager:hadoop /usr/local/hadoop/
+</span></font></p>
+
+<p>각 슬레이브의 .bashrc에서도 하둡 관련 export 내용을 맨 밑에 추가합니다.</p>
+
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+sudo vim .bashrc<br />
+<br />
+export HADOOP_HOME=/usr/local/hadoop<br />
+export PATH=$PATH:$HADOOP_HOME/bin<br />
+export PATH=$PATH:$HADOOP_HOME/sbin<br />
+export HADOOP_MAPRED_HOME=$HADOOP_HOME<br />
+export HADOOP_COMMON_HOME=$HADOOP_HOME<br />
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+</span></font></p>
+
+<p>그리고 datanode 폴더를 만들고 권한 부여 후 hdfs-site.xml를 수정합니다.</p>
+
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+sudo mkdir /usr/local/hadoop/hdfs/datanode<br />
+sudo chown -R manager:hadoop /usr/local/hadoop/hdfs/<br />
+sudo mv * /usr/local/hadoop/etc/hadoop/hdfs-site.xml<br />
+</span></font></p>
+
+<pre><font color="#FFFFFF"><span style="background-color:#000000;">
+&lt;configuration&gt;
+	&lt;property&gt;
+		&lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;
+		&lt;value&gt;file:/usr/local/hadoop/hdfs/datanode&lt;/value&gt;
+	&lt;/property&gt;
+&lt;/configuration&gt;
+</span></font>
+</pre>
+
+<p>분산 노드 실행</p>
+
+<p>이제 master로 돌아와서 아래 명령어들을 실행합니다.</p>
+
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+hadoop namenode -format<br />
+start-all.sh
+</span></font></p>
+
+<p>그 다음에 master와 slave1, 2, 3에서 jps를 실행합시다. 정상적으로 작동하면 기본적인 설정은 완료됩니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/SwcRs/btqKPUOAoaU/NIJXhzNBgu41TZNEjTgDnk/img.png" alt="image" /></p>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=%ED%95%98%EB%91%A1+-+%EC%99%84%EC%A0%84+%EB%B6%84%EC%82%B0+%EB%AA%A8%EB%93%9C&url=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F14%2Fhadoop-dfs.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=%ED%95%98%EB%91%A1+-+%EC%99%84%EC%A0%84+%EB%B6%84%EC%82%B0+%EB%AA%A8%EB%93%9C&u=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F14%2Fhadoop-dfs.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F14%2Fhadoop-dfs.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=%ED%95%98%EB%91%A1+-+%EC%99%84%EC%A0%84+%EB%B6%84%EC%82%B0+%EB%AA%A8%EB%93%9C&url=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F14%2Fhadoop-dfs.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=%ED%95%98%EB%91%A1+-+%EC%99%84%EC%A0%84+%EB%B6%84%EC%82%B0+%EB%AA%A8%EB%93%9C&url=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F14%2Fhadoop-dfs.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/hadoop/2020/10/14/hadoop-dfs.html') + '&title=하둡 - 완전 분산 모드'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

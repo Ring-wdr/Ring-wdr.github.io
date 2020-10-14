@@ -1,6 +1,14 @@
 [
     
      {
+       "title"    : "하둡 - 완전 분산 모드",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/hadoop/2020/10/14/hadoop-dfs.html",
+       "date"     : "2020-10-14 15:25:52 +0900"
+     } ,
+    
+     {
        "title"    : "하둡 - 설치 및 싱글 노드 모드",
        "category" : "",
        "tags"     : "",
@@ -12,7 +20,7 @@
        "title"    : "selenium을 이용한 구글 이미지 가져오기",
        "category" : "",
        "tags"     : "",
-       "url"      : "/python/2020/10/10/python-selenium-copy.html",
+       "url"      : "/python/2020/10/10/python-selenium.html",
        "date"     : "2020-10-10 11:10:52 +0900"
      } ,
     

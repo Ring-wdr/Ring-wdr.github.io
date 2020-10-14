@@ -6,9 +6,21 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 13 Oct 2020 23:13:08 +0900</pubDate>
-    <lastBuildDate>Tue, 13 Oct 2020 23:13:08 +0900</lastBuildDate>
+    <pubDate>Thu, 15 Oct 2020 01:26:43 +0900</pubDate>
+    <lastBuildDate>Thu, 15 Oct 2020 01:26:43 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>하둡 - 완전 분산 모드</title>
+        <description>&lt;h2&gt;완전 분산 모드&lt;/h2&gt; &lt;p&gt;이전 글에서 만든 싱글 노드는 실습용이었고, 실제로는 싱글 노드로는 사용하지 않고 분산으로 만들어 쓰는 것이 일반적입니다. 이번에는 다음의 스펙으로 분산 모드로 만들어보도록 하겠습니다.&lt;/p&gt; &lt;fieldset&gt; &lt;p&gt;공통 설치 파일&lt;/p&gt;...</description>
+        <pubDate>Wed, 14 Oct 2020 15:25:52 +0900</pubDate>
+        <link>http://localhost:4000/hadoop/2020/10/14/hadoop-dfs.html</link>
+        <guid isPermaLink="true">http://localhost:4000/hadoop/2020/10/14/hadoop-dfs.html</guid>
+        
+        
+        <category>hadoop</category>
+        
+      </item>
     
       <item>
         <title>하둡 - 설치 및 싱글 노드 모드</title>
@@ -26,8 +38,8 @@
         <title>selenium을 이용한 구글 이미지 가져오기</title>
         <description>&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#selenium&quot;&gt;1. selenium&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#setndl&quot;&gt;2. 기본 환경을 위한 다운로드&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#virset&quot;&gt;2-1) 가상환경&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#pipsel&quot;&gt;2-2) selenium 설치&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#chdriver&quot;&gt;2-3) chrome driver 설치&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#compile&quot;&gt;1) compile&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#findall&quot;&gt;2)...</description>
         <pubDate>Sat, 10 Oct 2020 11:10:52 +0900</pubDate>
-        <link>http://localhost:4000/python/2020/10/10/python-selenium-copy.html</link>
-        <guid isPermaLink="true">http://localhost:4000/python/2020/10/10/python-selenium-copy.html</guid>
+        <link>http://localhost:4000/python/2020/10/10/python-selenium.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/2020/10/10/python-selenium.html</guid>
         
         
         <category>python</category>
@@ -112,18 +124,6 @@
         <pubDate>Sun, 04 Oct 2020 11:10:52 +0900</pubDate>
         <link>http://localhost:4000/python/2020/10/04/python-regexp.html</link>
         <guid isPermaLink="true">http://localhost:4000/python/2020/10/04/python-regexp.html</guid>
-        
-        
-        <category>python</category>
-        
-      </item>
-    
-      <item>
-        <title>pandas - 전처리 추가 내용 (2)</title>
-        <description>&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#dfcut&quot;&gt;1. 구간 분할(cut)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dfgr&quot;&gt;2. 그룹 메소드(groupby)&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#grapply&quot;&gt;1) 적용 메소드(apply)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#udgr&quot;&gt;2) 사용자 정의 그룹&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#transf&quot;&gt;3) 트랜스폼(transfrom)&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#datetime&quot;&gt;3. 날짜 모듈(datetime)&lt;/a&gt;...</description>
-        <pubDate>Sat, 03 Oct 2020 09:10:52 +0900</pubDate>
-        <link>http://localhost:4000/python/2020/10/03/python-df5.html</link>
-        <guid isPermaLink="true">http://localhost:4000/python/2020/10/03/python-df5.html</guid>
         
         
         <category>python</category>

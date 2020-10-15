@@ -6,9 +6,21 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 15 Oct 2020 01:34:20 +0900</pubDate>
-    <lastBuildDate>Thu, 15 Oct 2020 01:34:20 +0900</lastBuildDate>
+    <pubDate>Thu, 15 Oct 2020 23:52:26 +0900</pubDate>
+    <lastBuildDate>Thu, 15 Oct 2020 23:52:26 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>mapreduce 맛보기</title>
+        <description>&lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#prepare&quot;&gt;준비 단계&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#mkmap&quot;&gt;mapper 만들기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#mkreduce&quot;&gt;reducer 만들기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#mkmain&quot;&gt;메인 클래스 만들기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#fshadoop&quot;&gt;WordCount 실행하기&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr /&gt; &lt;h2 id=&quot;prepare&quot;&gt;준비 단계&lt;/h2&gt; &lt;p&gt;리눅스 마스터에 있는 하둡 설정 관련 파일을...</description>
+        <pubDate>Thu, 15 Oct 2020 19:25:52 +0900</pubDate>
+        <link>http://localhost:4000/hadoop/2020/10/15/mapred-1.html</link>
+        <guid isPermaLink="true">http://localhost:4000/hadoop/2020/10/15/mapred-1.html</guid>
+        
+        
+        <category>hadoop</category>
+        
+      </item>
     
       <item>
         <title>하둡 - 완전 분산 모드</title>
@@ -24,7 +36,7 @@
     
       <item>
         <title>하둡 - 설치 및 싱글 노드 모드</title>
-        <description>&lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#hadoop&quot;&gt; hadoop &lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#prepare&quot;&gt; 실행을 위한 준비 &lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#hadooptoubuntu&quot;&gt; 우분투에 하둡 설치 &lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#singnode&quot;&gt; 싱글노드 생성&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&quot;prepare&quot;&gt;실행을 위한 준비&lt;/h2&gt; &lt;p&gt;먼저 가상 머신 &lt;a...</description>
+        <description>&lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#hadoop&quot;&gt; hadoop &lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#prepare&quot;&gt; 실행을 위한 준비 &lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#hadooptoubuntu&quot;&gt; 우분투에 하둡 설치 &lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#singnode&quot;&gt; 싱글노드 생성&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&quot;hadoop&quot;&gt;하둡&lt;/h2&gt; &lt;p&gt;하둡은 데이터 분산 처리를 위해 사용하는데...</description>
         <pubDate>Tue, 13 Oct 2020 05:25:52 +0900</pubDate>
         <link>http://localhost:4000/hadoop/2020/10/13/hadoop-install-1.html</link>
         <guid isPermaLink="true">http://localhost:4000/hadoop/2020/10/13/hadoop-install-1.html</guid>
@@ -115,18 +127,6 @@
         
         
         <category>r</category>
-        
-      </item>
-    
-      <item>
-        <title>정규 표현식, 더미 변수, 샘플링</title>
-        <description>&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#dfsamp&quot;&gt;1. 샘플링 함수&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dummy&quot;&gt;2. 더미 변수(dummy variables)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#regexp&quot;&gt;3. 정규 표현식(regexp)&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#compile&quot;&gt;1) compile&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#findall&quot;&gt;2) findall&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#strfindall&quot;&gt;3) str.findall&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt;&lt;br...</description>
-        <pubDate>Sun, 04 Oct 2020 11:10:52 +0900</pubDate>
-        <link>http://localhost:4000/python/2020/10/04/python-regexp.html</link>
-        <guid isPermaLink="true">http://localhost:4000/python/2020/10/04/python-regexp.html</guid>
-        
-        
-        <category>python</category>
         
       </item>
     

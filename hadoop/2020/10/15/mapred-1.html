@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>mapreduce 맛보기</title>
+  <meta name="description" content="  준비 단계  mapper 만들기  reducer 만들기  메인 클래스 만들기  WordCount 실행하기">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="  준비 단계  mapper 만들기  reducer 만들기  메인 클래스 만들기  WordCount 실행하기" />
+  <meta property="og:url" content="http://localhost:4000/hadoop/2020/10/15/mapred-1.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="mapreduce 맛보기" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="mapreduce 맛보기">
+  <meta name="twitter:description" content="  준비 단계  mapper 만들기  reducer 만들기  메인 클래스 만들기  WordCount 실행하기">
+  <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
+  <meta name="twitter:url" content="http://localhost:4000/hadoop/2020/10/15/mapred-1.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/hadoop/2020/10/15/mapred-1.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">mapreduce 맛보기</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">October 15, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/hadoop">Hadoop</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <ul>
+  <li><a href="#prepare">준비 단계</a></li>
+  <li><a href="#mkmap">mapper 만들기</a></li>
+  <li><a href="#mkreduce">reducer 만들기</a></li>
+  <li><a href="#mkmain">메인 클래스 만들기</a></li>
+  <li><a href="#fshadoop">WordCount 실행하기</a></li>
+</ul>
+
+<hr />
+
+<h2 id="prepare">준비 단계</h2>
+
+<p>리눅스 마스터에 있는 하둡 설정 관련 파일을 파일질라를 통해 윈도우로 가져옵니다.</p>
+
+<ol>
+  <li>
+    <p>hadoop-common-2.9.2.jar :</p>
+
+    <p>파일 위치 : /usr/local/hadoop/share/hadoop/common</p>
+  </li>
+  <li>
+    <p>hadoop-mapreduce-client-core-2.9.2.jar :</p>
+
+    <p>파일 위치 : /usr/local/hadoop/share/hadoop/mapreduce</p>
+  </li>
+</ol>
+
+<p>자바 파일(jar)을 기반으로 실행하기 때문에 자바 문법으로 작성해야합니다. 이클립스를 실행하고 WordCount라는 새 자바 프로젝트를 만듭니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/bk8DyY/btqK03X6V9o/ye8FuJ51jX97CfHKaKvKu1/img.png" alt="https://blog.kakaocdn.net/dn/bk8DyY/btqK03X6V9o/ye8FuJ51jX97CfHKaKvKu1/img.png" /></p>
+
+<p>새 자바 프로젝트를 만든 후 Properties(Alt+Enter)를 클릭하면 새 창이 뜨는데 <code class="highlighter-rouge">Java Build Path</code> - <code class="highlighter-rouge">Libraries</code> - <code class="highlighter-rouge">Add External JARs...</code> 로 가서 파일질라를 통해 가져온 하둡 jar 파일들을 불러옵니다. 불러온 후 <code class="highlighter-rouge">Apply and Close</code> 버튼을 누르면 라이브러리가 생성되어 하둡 기반의 스크립트 작성을 할 수 있습니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/vqY5Y/btqKXKMw8oU/oM6KB5yQmTksTqVkuZeuv0/img.png" alt="https://blog.kakaocdn.net/dn/vqY5Y/btqKXKMw8oU/oM6KB5yQmTksTqVkuZeuv0/img.png" /></p>
+
+<p>환경이 설정되었으면 src를 마우스 오른쪽 클릭하여 com.jin 이라는 package 를 만들고 그 안에 map 이라는 class를 만듭니다.</p>
+
+<hr />
+
+<h2 id="mkmap">mapper 만들기</h2>
+
+<p>map이라는 이름의 클래스를 만들고나서 extends로 MapReduceBase를, implements로 Mapper를 불러옵시다. ctrl + space_bar 를 이용하여 자동완성 기능을 적극 활용하면 import 작업과 오타방지를 쉽게 할 수 있습니다. 자동완성시 신경써야하는 부분이 있는데 자료형들은 다 org.apache.hadoop.io에 있는 것을 사용해야합니다. 같은 이름인데 다른 라이브러리의 메소드를 가져오게 되면 하둡 실행 시 에러가 발생합니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/TAPyE/btqKShROxeM/tvV8OGZTd0LI6Q8KT9o7yk/img.png" alt="https://blog.kakaocdn.net/dn/TAPyE/btqKShROxeM/tvV8OGZTd0LI6Q8KT9o7yk/img.png" /></p>
+
+<p><img src="https://blog.kakaocdn.net/dn/dUxMto/btqKTGDA2Bo/omwJdoEFUAE5M7I2p9XEgk/img.png" alt="https://blog.kakaocdn.net/dn/dUxMto/btqKTGDA2Bo/omwJdoEFUAE5M7I2p9XEgk/img.png" /></p>
+
+<p><img src="https://blog.kakaocdn.net/dn/btthe8/btqK03X7qdQ/KeR8dunITTJjrXwMw1LBX1/img.png" alt="https://blog.kakaocdn.net/dn/btthe8/btqK03X7qdQ/KeR8dunITTJjrXwMw1LBX1/img.png" /></p>
+
+<center>ctrl + space_bar 를 이용하도록 합시다.</center>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">jin</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.io.IntWritable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.io.LongWritable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.io.Text</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.MapReduceBase</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.Mapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.OutputCollector</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.Reporter</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Map</span> <span class="kd">extends</span> <span class="nc">MapReduceBase</span>
+<span class="kd">implements</span> <span class="nc">Mapper</span><span class="o">&lt;</span><span class="nc">LongWritable</span><span class="o">,</span> <span class="nc">Text</span><span class="o">,</span> <span class="nc">Text</span><span class="o">,</span> <span class="nc">IntWritable</span><span class="o">&gt;{</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">map</span><span class="o">(</span><span class="nc">LongWritable</span> <span class="n">key</span><span class="o">,</span> <span class="nc">Text</span> <span class="n">value</span><span class="o">,</span>
+			<span class="nc">OutputCollector</span><span class="o">&lt;</span><span class="nc">Text</span><span class="o">,</span> <span class="nc">IntWritable</span><span class="o">&gt;</span> <span class="n">output</span><span class="o">,</span> <span class="nc">Reporter</span> <span class="n">reporter</span><span class="o">)</span>
+			<span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+		
+		<span class="nc">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringTokenizer</span><span class="o">(</span><span class="n">value</span><span class="o">.</span><span class="na">toString</span><span class="o">().</span><span class="na">toLowerCase</span><span class="o">(),</span>
+        <span class="s">" {}|,./\"$%#():;?_\'-"</span><span class="o">);</span>
+		
+		<span class="c1">//st에 데이터가 존재한다면</span>
+		<span class="k">while</span> <span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">hasMoreTokens</span><span class="o">())</span> <span class="o">{</span>
+			<span class="nc">Text</span> <span class="n">outputkey</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Text</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			<span class="nc">IntWritable</span> <span class="n">outputValue</span><span class="o">=</span> <span class="k">new</span> <span class="nc">IntWritable</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+			<span class="n">output</span><span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="n">outputkey</span><span class="o">,</span> <span class="n">outputValue</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	
+
+<span class="o">}</span></code></pre></figure>
+
+<p>StringTokenizer : 문자열을 단어별로 분리하여 배열 형식으로 저장합니다.
+첫 번째 인자에 분리할 문자열을 입력하고 두 번째 인자에는 구분자를 ““안에 입력하면 되고 생략이 가능합니다.</p>
+
+<p>ex) value = “단어별로 나눈 데이터가”<br />st = “단어별로”, “나눈”, “데이터가”</p>
+
+<p>두 번째 인자에서 예를 들면 하이픈(-), 언더라인(_), 빈 칸()을 구분자로 하고 싶으면 “ _-“를 두 번째로 전달합니다.</p>
+
+<p>new StringTokenizer(String) 형식으로 인스턴스 생성 위의 내용은 생성자로 초기화하는 부분입니다.</p>
+
+<p>value : hadoop의 text 형식입니다.</p>
+
+<p>toString() : string으로 변환하는 메소드입니다.</p>
+
+<p>toLowerCase() : 모든 문자를 소문자로 바꿉니다.</p>
+
+<hr />
+
+<h2 id="mkreduce">reducer 만들기</h2>
+
+<p>mapper에서 보낸 데이터를 받아서 처리를 하는 reducer를 만듭니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/elq2n4/btqKYmYIiYA/hl6oWg2Tp2oZIVuQBlfcRK/img.png" alt="https://blog.kakaocdn.net/dn/elq2n4/btqKYmYIiYA/hl6oWg2Tp2oZIVuQBlfcRK/img.png" /></p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">jin</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.io.IntWritable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.io.Text</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.MapReduceBase</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.OutputCollector</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.Reducer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.Reporter</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Reduce</span> <span class="kd">extends</span> <span class="nc">MapReduceBase</span> <span class="kd">implements</span> <span class="nc">Reducer</span><span class="o">&lt;</span><span class="nc">Text</span><span class="o">,</span> <span class="nc">IntWritable</span><span class="o">,</span> <span class="nc">Text</span><span class="o">,</span> <span class="nc">IntWritable</span><span class="o">&gt;{</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">reduce</span><span class="o">(</span><span class="nc">Text</span> <span class="n">key</span><span class="o">,</span> <span class="nc">Iterator</span><span class="o">&lt;</span><span class="nc">IntWritable</span><span class="o">&gt;</span> <span class="n">values</span><span class="o">,</span>
+			<span class="nc">OutputCollector</span><span class="o">&lt;</span><span class="nc">Text</span><span class="o">,</span> <span class="nc">IntWritable</span><span class="o">&gt;</span> <span class="n">output</span><span class="o">,</span> <span class="nc">Reporter</span> <span class="n">reporter</span><span class="o">)</span>
+			<span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+		<span class="c1">// TODO Auto-generated method stub</span>
+		<span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		
+		<span class="k">while</span> <span class="o">(</span><span class="n">values</span><span class="o">.</span><span class="na">hasNext</span><span class="o">())</span> <span class="o">{</span>
+			<span class="n">cnt</span> <span class="o">=</span> <span class="n">cnt</span> <span class="o">+</span> <span class="n">values</span><span class="o">.</span><span class="na">next</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+		<span class="o">}</span>
+		<span class="n">output</span><span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="k">new</span> <span class="nc">IntWritable</span><span class="o">(</span><span class="n">cnt</span><span class="o">));</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<hr />
+
+<h2 id="mkmain">메인 클래스 만들기</h2>
+
+<p>지금까지의 진행과정을 하둡으로 보내서 처리를 도와주는 클래스입니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">jin</span><span class="o">;</span>
+
+
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.conf.Configured</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.fs.Path</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.io.IntWritable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.io.Text</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.FileInputFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.FileOutputFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.JobClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.JobConf</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.TextInputFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.TextOutputFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.util.Tool</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.util.ToolRunner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WordCount</span> <span class="kd">extends</span> <span class="nc">Configured</span> <span class="kd">implements</span> <span class="nc">Tool</span> <span class="o">{</span>
+	
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">run</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">arg0</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+		<span class="c1">//hadoop에서 실행할 파일 설정</span>
+		<span class="c1">//생성자의 인자로 main class를 전달</span>
+		<span class="nc">JobConf</span> <span class="n">conf</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JobConf</span><span class="o">(</span><span class="nc">WordCount</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="c1">//title 설정</span>
+		<span class="n">conf</span><span class="o">.</span><span class="na">setJobName</span><span class="o">(</span><span class="s">"wordcount"</span><span class="o">);</span>
+		<span class="c1">//출력 형식 지정</span>
+		<span class="c1">//reduce에서 전달되는 출력 key, value 자료형</span>
+		<span class="n">conf</span><span class="o">.</span><span class="na">setOutputKeyClass</span><span class="o">(</span><span class="nc">Text</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="n">conf</span><span class="o">.</span><span class="na">setOutputValueClass</span><span class="o">(</span><span class="nc">IntWritable</span><span class="o">.</span><span class="na">class</span><span class="o">);;</span>
+		<span class="c1">//mapper 연결</span>
+		<span class="n">conf</span><span class="o">.</span><span class="na">setMapperClass</span><span class="o">(</span><span class="nc">Map</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="c1">//reducer 연결</span>
+		<span class="n">conf</span><span class="o">.</span><span class="na">setReducerClass</span><span class="o">(</span><span class="nc">Reduce</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="c1">//입출력 클래스 지정</span>
+		<span class="n">conf</span><span class="o">.</span><span class="na">setInputFormat</span><span class="o">(</span><span class="nc">TextInputFormat</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="n">conf</span><span class="o">.</span><span class="na">setOutputFormat</span><span class="o">(</span><span class="nc">TextOutputFormat</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="c1">//하둡에서 입출력 경로 설정</span>
+		<span class="nc">FileInputFormat</span><span class="o">.</span><span class="na">setInputPaths</span><span class="o">(</span><span class="n">conf</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Path</span><span class="o">(</span><span class="n">arg0</span><span class="o">[</span><span class="mi">0</span><span class="o">]));</span>
+		<span class="nc">FileOutputFormat</span><span class="o">.</span><span class="na">setOutputPath</span><span class="o">(</span><span class="n">conf</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Path</span><span class="o">(</span><span class="n">arg0</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
+		<span class="c1">//설정 내용 적용</span>
+		<span class="nc">JobClient</span><span class="o">.</span><span class="na">runJob</span><span class="o">(</span><span class="n">conf</span><span class="o">);</span>
+		<span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+		<span class="c1">//run 멀티스레드를 실행시킴</span>
+		<span class="kt">int</span> <span class="n">exitcode</span> <span class="o">=</span> <span class="nc">ToolRunner</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="k">new</span> <span class="nc">WordCount</span><span class="o">(),</span> <span class="n">args</span><span class="o">);</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="n">exitcode</span><span class="o">);</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p>여기까지 만든 파일을 jar 형태로 export 합니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/Xfe8Z/btqKXiILo7B/PHLgbvRK3ozUQekCF73KKk/img.png" alt="https://blog.kakaocdn.net/dn/Xfe8Z/btqKXiILo7B/PHLgbvRK3ozUQekCF73KKk/img.png" /></p>
+
+<p>하둡에서 실행할 때 원본 소스는 필요없기 때문에 맨 윗칸만 선택후 jar 파일로 만들면 됩니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/39g8U/btqKYm4Zw3u/C9IDtKXhUrTBZQfwZVyafk/img.png" alt="https://blog.kakaocdn.net/dn/39g8U/btqKYm4Zw3u/C9IDtKXhUrTBZQfwZVyafk/img.png" /></p>
+
+<hr />
+
+<h2 id="fshadoop">WordCount 실행하기</h2>
+
+<p>하둡에 올라와 있는 파일 확인</p>
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+hadoop fs -ls /
+</span></font></p>
+
+<p>올라와 있는 파일 삭제</p>
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+hadoop fs -rm -r /input<br />
+hadoop fs -rm -r /output
+</span></font></p>
+
+<p>input 폴더 만들기</p>
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+hadoop fs -mkdir /input
+</span></font></p>
+
+<p>예시 텍스트 파일(CHANGES.txt)을 input폴더에 올리기</p>
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+hadoop fs -cat /input/CHANGES.txt
+</span></font></p>
+
+<p>WordCount.jar 실행</p>
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+hadoop jar WordCount.jar com.jin.WordCount /input /output
+</span></font></p>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=mapreduce+%EB%A7%9B%EB%B3%B4%EA%B8%B0&url=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F15%2Fmapred-1.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=mapreduce+%EB%A7%9B%EB%B3%B4%EA%B8%B0&u=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F15%2Fmapred-1.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F15%2Fmapred-1.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=mapreduce+%EB%A7%9B%EB%B3%B4%EA%B8%B0&url=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F15%2Fmapred-1.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=mapreduce+%EB%A7%9B%EB%B3%B4%EA%B8%B0&url=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F15%2Fmapred-1.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/hadoop/2020/10/15/mapred-1.html') + '&title=mapreduce 맛보기'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

@@ -1,6 +1,14 @@
 [
     
      {
+       "title"    : "mapreduce 맛보기",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/hadoop/2020/10/15/mapred-1.html",
+       "date"     : "2020-10-15 19:25:52 +0900"
+     } ,
+    
+     {
        "title"    : "하둡 - 완전 분산 모드",
        "category" : "",
        "tags"     : "",

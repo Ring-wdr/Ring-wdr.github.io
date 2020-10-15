@@ -342,7 +342,7 @@ slave2<br />
 slave3
 </span></font></p>
 
-<p>hdfs-site 파일도 수정합니다.</p>
+<p>hdfs-site 파일도 수정합니다. 마스터에 네임노드를, slave1에 세컨더리 노드를 주도록 설정하기 위해서입니다.</p>
 
 <pre><font color="#FFFFFF"><span style="background-color:#000000;">
 &lt;configuration&gt;
@@ -360,7 +360,7 @@ slave3
 	&lt;/property&gt;
 	&lt;property&gt;
 		&lt;name&gt;dfs.secondary.http.address&lt;/name&gt;
-		&lt;value&gt;master:50090&lt;/value&gt;
+		&lt;value&gt;slave1:50090&lt;/value&gt;
 	&lt;/property&gt;
 &lt;/configuration&gt;
 </span></font>
@@ -369,7 +369,7 @@ slave3
 <dl>
   <dt>slave에 인증키 배포</dt>
   <dd>
-    <p>인증키를 배포하게 되면 master에서 slave 접속 시 비밀번호 입력하지 않아도 됩니다.</p>
+    <p>인증키를 배포하게 되면 마스터에서 슬레이브에 접속 시 혹은 명령을 줄 때마다 비밀번호를 일일히 입력하지 않아도 됩니다.</p>
   </dd>
 </dl>
 <p><font color="#FFFFFF"><span style="background-color:#000000;">
@@ -436,7 +436,7 @@ start-all.sh
 
 <p>그 다음에 master와 slave1, 2, 3에서 jps를 실행합시다. 정상적으로 작동하면 기본적인 설정은 완료됩니다.</p>
 
-<p><img src="https://blog.kakaocdn.net/dn/SwcRs/btqKPUOAoaU/NIJXhzNBgu41TZNEjTgDnk/img.png" alt="image" /></p>
+<p><img src="https://blog.kakaocdn.net/dn/Faj7T/btqKTGcwC6Q/lpTzQ5w5hkogsngudyRe40/img.png" alt="image" /></p>
 
 </article>
 

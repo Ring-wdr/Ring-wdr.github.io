@@ -194,6 +194,14 @@
       <li><a href="#chdriver">2-3) chrome driver 설치</a></li>
     </ul>
   </li>
+  <li><a href="#imgcrawl">3. 이미지 크롤링 시작</a>
+    <ul>
+      <li><a href="#seltest">3-1) selenium 테스트</a></li>
+      <li><a href="#scdog">3-2) 구글에서 dog 이미지 검색</a></li>
+      <li><a href="#imgsav">3-3) 검색 후 이미지 저장</a></li>
+      <li><a href="#imgallsav">3-4) 모든 이미지 저장</a></li>
+    </ul>
+  </li>
 </ul>
 
 <p><br /></p>
@@ -202,9 +210,9 @@
 
 <h2 id="selenium">1. selenium</h2>
 
-<p>셀레니움은 웹 브라우저를 코드 기반으로 실제 조작하는 방식으로 이용할 수 있는 python의 프레임워크입니다.</p>
+<p>셀레니움은 웹 브라우저를 코드 기반으로 실제 조작하는 방식으로 이용할 수 있는 python의 프레임워크입니다. 사용 목적은 수작업으로 하는 이미지 저장을 코드 작성을 통해 자동화할 수 있기 때문입니다. 웹 브라우저를 통해 직접 접속하여 이미지를 수집하기 때문에 안티 크롤링에 대한 걱정 또한 없습니다.</p>
 
-<p>다양한 브라우저(Chrome, Firefox 등), 다양한 언어(Java, Python, PHP 등)를 지원하는데 이 글에서는 크롬 기반으로 진행해보겠습니다.</p>
+<p>다양한 브라우저(Chrome, Firefox 등), 다양한 언어(Java, Python, PHP 등)를 지원하는데 이 글에서는 크롬 기반으로 진행해보겠습니다. 웹 크롤링을 하기 위해서는 html의 구조에 대해서 익숙해야 쉽게 접근할 수 있으니 html에 대한 내용이 어려우신 분들은 html에 대한 추가적인 공부를 하는 것을 권장합니다.</p>
 
 <p><br /></p>
 
@@ -216,9 +224,17 @@
 
 <p>여러 버전의 Python을 실행하기 위해 가상환경 설정을 했는데 버전 하나로만 실행하시는 분들은 바로 <a href="#pipsel">아래 단계</a>로 넘어가면 됩니다.</p>
 
-<p><br /></p>
+<p>venv를 이용한 가상환경을 만들어봅니다. <code class="highlighter-rouge">python -m venv</code> 뒤에는 본인이 원하는 이름을 입력하면 됩니다.</p>
 
-<hr />
+<p>python -m venv selenium</p>
+
+<p>위 코드를 실행하면 selenium 이라는 폴더가 생성되면서 그 안에 가상 환경이 만들어집니다. 해당 폴더에 있는 Scripts 로 들어가서 activate를 실행하면 해당 가상 환경에서 python을 실행할 수 있습니다.</p>
+
+<p>cd selenium/Scripts</p>
+
+<p>activate</p>
+
+<p><br /></p>
 
 <h3 id="pipsel">2-2 selenium 설치</h3>
 
@@ -227,8 +243,6 @@
 <p><img src="https://blog.kakaocdn.net/dn/be3foL/btqKv6JNUdi/45CGXlRkLOACkuK5VSksk1/img.png" alt="image" /></p>
 
 <p><br /></p>
-
-<hr />
 
 <h3 id="dfsamp">2-3) 크롬 드라이버 설치</h3>
 
@@ -248,11 +262,11 @@
 
 <hr />
 
-<h2 id="setndl">3. 이미지 크롤링 시도</h2>
+<h2 id="imgcrawl">3. 이미지 크롤링 시도</h2>
 
 <p>셀레니움을 실행하기 위한 환경이 완성이 되었습니다. 이제 실행해보도록 합시다.</p>
 
-<h3 id="dfsamp">3-1 selenium 테스트</h3>
+<h3 id="seltest">3-1 selenium 테스트</h3>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
  
@@ -262,7 +276,113 @@
 
 <p>큰 이상이 없으면 크롬 브라우저가 실행되어 구글 메인화면이 나온 뒤 브라우저가 자동으로 종료되었을 것입니다.</p>
 
-<p>browser.get 안에 기존 주소 대신에 <a href="https://www.google.co.kr/imghp?hl=ko&amp;tab=wi&amp;ogbl">구글 이미지</a> 주소를 입력해봅시다.</p>
+<h3 id="scdog">3-2) 구글에서 dog 이미지 검색</h3>
+
+<p>browser.get 안에 기존 구글 주소 대신에 <a href="https://www.google.co.kr/imghp?hl=ko&amp;tab=wi&amp;ogbl">구글 이미지</a> 주소를 입력해봅시다. 키워드는 dog로 설정했습니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>
+
+<span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://www.google.co.kr/imghp?hl=ko&amp;tab=wi&amp;ogbl'</span><span class="p">)</span>
+<span class="n">keyword</span> <span class="o">=</span> <span class="s">"dog"</span>
+
+<span class="c1"># 이미지 검색
+</span><span class="n">ele</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_css_selector</span><span class="p">(</span><span class="s">".gLFyf.gsfi"</span><span class="p">)</span>
+<span class="n">ele</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+<span class="n">ele</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">Keys</span><span class="o">.</span><span class="n">RETURN</span><span class="p">)</span> 
+
+<span class="n">browser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></figure>
+
+<p>이번에는 키를 입력하는 모듈을 추가로 불러왔습니다. 코드의 실행 순서는 이렇습니다. 일단 구글 이미지 페이지에 들어가서 검색 창(css = “gLFyf.gsfi”)을 찾아서 그 안에 키워드인 “dog”를 입력 후 엔터버튼을 실행(Keys.RETURN)합니다. 위에서 html 구조에 대해 익숙해야 한다는 얘기를 했는데 이 과정에서 검색 창을 선택하는 작업과 관련이 있기 때문입니다.</p>
+
+<p>검색 창이 어떤 태그를 가지고 있는지 알아야 코드 실행만으로 자동으로 검색 창을 선택할 수 있습니다. 태그를 알아보기 위해 구글 이미지 화면에서 F12를 눌러봅니다. 그러면 오른쪽 화면에 개발자 모드가 열립니다. 개발자 모드 맨 위 왼쪽 버튼(<code class="highlighter-rouge">ctrl+shift+c</code>)를 누르고 검색 창 위에 커서를 갖다대면 아래 이미지처럼 해당 위치에 대한 정보가 출력됩니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/bjJBri/btqKxPG25r6/kSskZvkvY0HjUZxTkQMdi0/img.png" alt="https://blog.kakaocdn.net/dn/bjJBri/btqKxPG25r6/kSskZvkvY0HjUZxTkQMdi0/img.png" /></p>
+
+<h3 id="imgsav">3-3) 검색 후 이미지 저장</h3>
+
+<p>검색 후 나온 이미지들을 저장해보도록 합니다. 위와 마찬가지로 개발자 모드에서 이미지에 해당하는 태그를 찾고(css = “wXeWr.islib.nfEiy.mM5pbd”), 각 이미지에서 (css = “n3VNCb”) 이미지 링크(src = “이미지_링크”)를 얻은 후 해당 이미지를 저장하게 됩니다.</p>
+
+<p>잔렉으로 인해 코드가 실행되다가 꼬일 수 있으니 time 모듈을 불러와서 이미지를 불러오는 간격을 2초정도 설정했습니다.(time.sleep(2))</p>
+
+<p>이미지 저장시 파일 이름은 f string을 이용해 dog_숫자.jpg 형식으로 저장합니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://www.google.co.kr/imghp?hl=ko&amp;tab=wi&amp;ogbl'</span><span class="p">)</span>
+<span class="n">keyword</span> <span class="o">=</span> <span class="s">"dog"</span>
+
+<span class="n">ele</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_css_selector</span><span class="p">(</span><span class="s">".gLFyf.gsfi"</span><span class="p">)</span>
+<span class="n">ele</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+<span class="n">ele</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">Keys</span><span class="o">.</span><span class="n">RETURN</span><span class="p">)</span> 
+
+<span class="c1"># 이미지 저장
+</span><span class="n">images</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_elements_by_css_selector</span><span class="p">(</span><span class="s">".wXeWr.islib.nfEiy.mM5pbd"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">images</span><span class="p">)):</span>
+    <span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">imgUrl</span><span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_css_selector</span><span class="p">(</span><span class="s">".n3VNCb"</span><span class="p">)</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">"src"</span><span class="p">)</span>
+    <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">imgUrl</span><span class="p">,</span> <span class="n">f</span><span class="s">"{keyword}_{i}.jpg"</span><span class="p">)</span>
+
+<span class="n">browser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></figure>
+
+<h3 id="imgallsav">3-4) 검색 후 모든 이미지 저장</h3>
+
+<p>위에서 이미지 저장을 했을 때 50개밖에 저장되지 않은 것을 확인할 수 있습니다. 그 이유는 스크롤에 대한 것을 고려하지 않았기 때문입니다. 따라서 스크롤을 내리는 코드를 추가하여 dog를 검색했을 떄 구글에서 나오는 모든 이미지를 저장해보도록 수정했습니다. 3-3)에서의 코드에서 스크롤을 계속 내리고 <code class="highlighter-rouge">결과 더 보기</code>가 나오면 클릭하여 이미지를 계속 불러오고 해당 버튼이 더 이상 뜨지 않으면 페이지에 나타난 모든 이미지를 크롤링 한 후 브라우저가 종료됩니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'https://www.google.co.kr/imghp?hl=ko&amp;tab=wi&amp;ogbl'</span><span class="p">)</span>
+<span class="n">keyword</span> <span class="o">=</span> <span class="s">"dog"</span>
+
+<span class="n">ele</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_css_selector</span><span class="p">(</span><span class="s">".gLFyf.gsfi"</span><span class="p">)</span>
+<span class="n">ele</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">keyword</span><span class="p">)</span>
+<span class="n">ele</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">Keys</span><span class="o">.</span><span class="n">RETURN</span><span class="p">)</span>
+
+<span class="c1"># 스크롤 내리기
+</span>
+<span class="c1"># 스크롤 내린 후 멈추는 시간 
+</span><span class="n">SCROLL_PAUSE_SEC</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1"># 스크롤 높이 가져옴
+</span><span class="n">last_height</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s">"return document.body.scrollHeight"</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="c1"># 끝까지 스크롤 다운
+</span>    <span class="n">browser</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s">"window.scrollTo(0, document.body.scrollHeight);"</span><span class="p">)</span>
+
+    <span class="c1"># 1초 대기
+</span>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">SCROLL_PAUSE_SEC</span><span class="p">)</span>
+
+    <span class="c1"># 스크롤 다운 후 스크롤 높이 다시 가져옴
+</span>    <span class="n">new_height</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s">"return document.body.scrollHeight"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">new_height</span> <span class="o">==</span> <span class="n">last_height</span><span class="p">:</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s">"/html/body/div[2]/c-wiz/div[3]/div[1]/div/div/div/div/div[5]/input"</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="k">except</span> <span class="p">:</span>
+            <span class="k">break</span>
+    <span class="n">last_height</span> <span class="o">=</span> <span class="n">new_height</span>
+
+<span class="n">images</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_elements_by_css_selector</span><span class="p">(</span><span class="s">".wXeWr.islib.nfEiy.mM5pbd"</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">images</span><span class="p">)):</span>
+    <span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">imgUrl</span><span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_css_selector</span><span class="p">(</span><span class="s">".n3VNCb"</span><span class="p">)</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">"src"</span><span class="p">)</span>
+    <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">imgUrl</span><span class="p">,</span> <span class="n">f</span><span class="s">"{keyword}_{i}.jpg"</span><span class="p">)</span>
+
+<span class="n">browser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></figure>
+
 
 </article>
 

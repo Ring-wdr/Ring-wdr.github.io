@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>MapReduce 예제 - 항공 데이터</title>
+  <meta name="description" content="이 글에서는 항공 데이터를 이용하여 2005~2008년 사이에 항공사별 운행 지연 횟수와 지연 시간의 평균을 하둡을 이용하여 구해보도록 하겠습니다.">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="이 글에서는 항공 데이터를 이용하여 2005~2008년 사이에 항공사별 운행 지연 횟수와 지연 시간의 평균을 하둡을 이용하여 구해보도록 하겠습니다." />
+  <meta property="og:url" content="http://localhost:4000/hadoop/2020/10/22/hadoop-several.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="MapReduce 예제 - 항공 데이터" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="MapReduce 예제 - 항공 데이터">
+  <meta name="twitter:description" content="이 글에서는 항공 데이터를 이용하여 2005~2008년 사이에 항공사별 운행 지연 횟수와 지연 시간의 평균을 하둡을 이용하여 구해보도록 하겠습니다.">
+  <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
+  <meta name="twitter:url" content="http://localhost:4000/hadoop/2020/10/22/hadoop-several.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/hadoop/2020/10/22/hadoop-several.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">MapReduce 예제 - 항공 데이터</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">October 22, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/hadoop">Hadoop</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <p>이 글에서는 <a href="http://stat-computing.org/dataexpo/2009/the-data.html">항공 데이터</a>를 이용하여 2005~2008년 사이에 항공사별 운행 지연 횟수와 지연 시간의 평균을 하둡을 이용하여 구해보도록 하겠습니다.</p>
+
+<ul>
+  <li><a href="#parser">파싱 클래스 생성</a></li>
+  <li><a href="#map">mapper 생성</a></li>
+  <li><a href="#reduce">reducer 생성</a></li>
+  <li><a href="#main">메인 클래스 생성</a></li>
+  <li><a href="#input">하둡에 파일 입력</a></li>
+  <li><a href="#output">하둡 실행 및 출력</a></li>
+</ul>
+
+<hr />
+
+<p>먼저 하둡에서 실행할 jar파일을 만들기 위해 이클립스를 실행합니다.</p>
+
+<p><br /></p>
+
+<h2 id="parser">파싱 클래스 생성</h2>
+
+<p>하둡으로 입력한 csv의 내용을 맵퍼(mapper)에서 파싱할 클래스를 만듭니다. 이 예제에서는 입력받은 csv파일을 한 줄씩 받아서 항공사 코드 값(9번째 열), 지연 시간(25번째 열)만 전달받으면 되기 때문에 이 과정을 도와줄 클래스를 따로 만들었습니다.</p>
+
+<details>
+<summary>코드 보기</summary>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">jin</span><span class="o">.</span><span class="na">Ex10</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.io.Text</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AirlineParser</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="nc">UniqueCarrier</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="nc">CarrierDelay</span><span class="o">;</span>
+	
+	<span class="kd">final</span> <span class="kd">static</span> <span class="kt">int</span> <span class="no">SUSPENSIONSOFAIRLINE</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+	
+	<span class="kd">private</span> <span class="kt">int</span> <span class="nf">getDigitFromStr</span><span class="o">(</span><span class="nc">String</span> <span class="n">data</span><span class="o">,</span> <span class="kt">int</span> <span class="n">def</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="s">"NA"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">data</span><span class="o">))</span> <span class="k">return</span> <span class="n">def</span><span class="o">;</span>
+		<span class="k">return</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="nf">AirlineParser</span><span class="o">(</span><span class="nc">Text</span> <span class="n">txt</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">String</span> <span class="o">[]</span> <span class="n">airdata</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="na">toString</span><span class="o">().</span><span class="na">split</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
+		<span class="nc">UniqueCarrier</span> <span class="o">=</span> <span class="n">airdata</span><span class="o">[</span><span class="mi">8</span><span class="o">];</span>
+		
+		<span class="nc">CarrierDelay</span> <span class="o">=</span> <span class="n">getDigitFromStr</span><span class="o">(</span><span class="n">airdata</span><span class="o">[</span><span class="mi">24</span><span class="o">],</span> <span class="no">SUSPENSIONSOFAIRLINE</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="nc">Text</span> <span class="nf">getCarrier</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="k">new</span> <span class="nf">Text</span><span class="o">(</span><span class="nc">UniqueCarrier</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">getDelaytime</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nc">CarrierDelay</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+	
+<span class="o">}</span></code></pre></figure>
+
+
+</details>
+<p><br /></p>
+
+<h2 id="map">mapper 생성</h2>
+
+<p>위에서 만든 클래스를 활용하여 맵퍼를 구현합니다. 지연 시간이 0보다 큰 값들만 리듀서에 전달합니다.</p>
+
+<details>
+<summary>코드 보기</summary>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">jin</span><span class="o">.</span><span class="na">Ex10</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.io.IntWritable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.io.LongWritable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.io.Text</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.MapReduceBase</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.Mapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.OutputCollector</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.Reporter</span><span class="o">;</span>
+
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Map</span> <span class="kd">extends</span> <span class="nc">MapReduceBase</span> <span class="kd">implements</span> 
+<span class="nc">Mapper</span><span class="o">&lt;</span><span class="nc">LongWritable</span><span class="o">,</span> <span class="nc">Text</span><span class="o">,</span> <span class="nc">Text</span><span class="o">,</span> <span class="nc">IntWritable</span><span class="o">&gt;{</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">map</span><span class="o">(</span><span class="nc">LongWritable</span> <span class="n">key</span><span class="o">,</span> <span class="nc">Text</span> <span class="n">value</span><span class="o">,</span> 
+			<span class="nc">OutputCollector</span><span class="o">&lt;</span><span class="nc">Text</span><span class="o">,</span> <span class="nc">IntWritable</span><span class="o">&gt;</span> <span class="n">output</span><span class="o">,</span> 
+			<span class="nc">Reporter</span> <span class="n">reporter</span><span class="o">)</span>
+			<span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+		<span class="nc">AirlineParser</span> <span class="n">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AirlineParser</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
+		
+		<span class="k">if</span><span class="o">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">parser</span><span class="o">.</span><span class="na">getDelaytime</span><span class="o">())</span> <span class="o">{</span>
+			<span class="n">output</span><span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="k">new</span> <span class="nc">Text</span><span class="o">(</span><span class="n">parser</span><span class="o">.</span><span class="na">getCarrier</span><span class="o">())</span>	<span class="o">,</span> 
+			       <span class="k">new</span> <span class="nf">IntWritable</span><span class="o">(</span><span class="n">parser</span><span class="o">.</span><span class="na">getDelaytime</span><span class="o">()));</span>	
+
+		<span class="o">}</span>	
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+
+</details>
+<p><br /></p>
+
+<h2 id="reduce">reducer 생성</h2>
+
+<p>맵퍼에서 전달한 값을 처리하는 리듀서를 구현합니다.</p>
+
+<p>getTotalCnt는 지연 횟수와 지연 시간의 합을 구해주는 역할을 합니다. 둘을 구한 후 <code class="highlighter-rouge">"지연 시간의 합, 지연 횟수"</code>을 리턴합니다. 리턴받은 값을 이용하여 지연 시간의 합을 횟수로 나누어 평균을 구한 후 최종 단계로 보냅니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/Ygfpm/btqLqmEzDBK/IrXYW7DHtTtnKKYf9FpzX0/img.png" alt="image" /></p>
+
+<details>
+<summary>코드 보기</summary>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">jin</span><span class="o">.</span><span class="na">Ex10</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.io.IntWritable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.io.Text</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.MapReduceBase</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.OutputCollector</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.Reducer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.Reporter</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Reduce</span> <span class="kd">extends</span> <span class="nc">MapReduceBase</span> <span class="kd">implements</span> 
+<span class="nc">Reducer</span><span class="o">&lt;</span><span class="nc">Text</span><span class="o">,</span> <span class="nc">IntWritable</span><span class="o">,</span> <span class="nc">Text</span><span class="o">,</span> <span class="nc">Text</span><span class="o">&gt;{</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="nf">getTotalCnt</span><span class="o">(</span><span class="nc">Iterator</span><span class="o">&lt;</span><span class="nc">IntWritable</span><span class="o">&gt;</span> <span class="n">values</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span>
+		
+		<span class="k">while</span><span class="o">(</span><span class="n">values</span><span class="o">.</span><span class="na">hasNext</span><span class="o">())</span> <span class="o">{</span>
+			
+			<span class="n">cnt</span> <span class="o">++;</span> 
+			<span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">values</span><span class="o">.</span><span class="na">next</span><span class="o">().</span><span class="na">get</span><span class="o">();</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">sum</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">cnt</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">reduce</span><span class="o">(</span><span class="nc">Text</span> <span class="n">key</span><span class="o">,</span> <span class="nc">Iterator</span><span class="o">&lt;</span><span class="nc">IntWritable</span><span class="o">&gt;</span> <span class="n">values</span><span class="o">,</span> 
+			<span class="nc">OutputCollector</span><span class="o">&lt;</span><span class="nc">Text</span><span class="o">,</span> <span class="nc">Text</span><span class="o">&gt;</span> <span class="n">output</span><span class="o">,</span> 
+			<span class="nc">Reporter</span> <span class="n">reporter</span><span class="o">)</span>
+			<span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+		<span class="nc">String</span> <span class="n">sumCnt</span> <span class="o">=</span> <span class="n">getTotalCnt</span><span class="o">(</span><span class="n">values</span><span class="o">);</span>
+		<span class="nc">String</span> <span class="o">[]</span> <span class="n">data</span> <span class="o">=</span> <span class="n">sumCnt</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">data</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+		<span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">data</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+		<span class="kt">float</span> <span class="n">avg</span> <span class="o">=</span> <span class="o">(</span><span class="kt">float</span><span class="o">)</span><span class="n">sum</span><span class="o">/(</span><span class="kt">float</span><span class="o">)</span><span class="n">cnt</span><span class="o">;</span>
+
+		
+		<span class="n">output</span><span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Text</span><span class="o">(</span><span class="n">sum</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">avg</span><span class="o">));</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+
+</details>
+
+<p><br /></p>
+
+<h2 id="main">메인 클래스 생성</h2>
+
+<p>맵퍼와 리듀서를 전달받아 전체 프로세스를 진행하는 메인 클래스를 구현합니다.
+맵퍼에서 전달하는 형식&lt;Text, IntWritable&gt;과 리듀서에서 전달하는 형식&lt;Text, Text&gt;이 다르기 때문에 <code class="highlighter-rouge">setMapOutputKeyClass</code>, <code class="highlighter-rouge">setMapOutputValueClass</code> 를 반드시 입력해야합니다.</p>
+
+<details>
+<summary>코드 보기</summary>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">jin</span><span class="o">.</span><span class="na">Ex10</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.conf.Configured</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.fs.Path</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.io.IntWritable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.io.Text</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.FileInputFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.FileOutputFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.JobClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.JobConf</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.TextInputFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapred.TextOutputFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.util.Tool</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.util.ToolRunner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Value</span> <span class="kd">extends</span> <span class="nc">Configured</span> <span class="kd">implements</span> <span class="nc">Tool</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">exitCode</span> <span class="o">=</span> <span class="nc">ToolRunner</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="k">new</span> <span class="nc">Value</span><span class="o">(),</span> <span class="n">args</span><span class="o">);</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="n">exitCode</span><span class="o">);</span>
+	<span class="o">}</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">run</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">arg0</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+		<span class="nc">JobConf</span> <span class="n">conf</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JobConf</span><span class="o">(</span><span class="nc">Value</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		
+		<span class="n">conf</span><span class="o">.</span><span class="na">setJobName</span><span class="o">(</span><span class="s">"Value Test"</span><span class="o">);</span>
+		
+		<span class="n">conf</span><span class="o">.</span><span class="na">setMapOutputKeyClass</span><span class="o">(</span><span class="nc">Text</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="n">conf</span><span class="o">.</span><span class="na">setMapOutputValueClass</span><span class="o">(</span><span class="nc">IntWritable</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+				
+		<span class="n">conf</span><span class="o">.</span><span class="na">setOutputKeyClass</span><span class="o">(</span><span class="nc">Text</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="n">conf</span><span class="o">.</span><span class="na">setOutputValueClass</span><span class="o">(</span><span class="nc">Text</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		
+		<span class="n">conf</span><span class="o">.</span><span class="na">setMapperClass</span><span class="o">(</span><span class="nc">Map</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="n">conf</span><span class="o">.</span><span class="na">setReducerClass</span><span class="o">(</span><span class="nc">Reduce</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		
+		<span class="n">conf</span><span class="o">.</span><span class="na">setInputFormat</span><span class="o">(</span><span class="nc">TextInputFormat</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="n">conf</span><span class="o">.</span><span class="na">setOutputFormat</span><span class="o">(</span><span class="nc">TextOutputFormat</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="c1">// /airdata</span>
+		<span class="nc">FileInputFormat</span><span class="o">.</span><span class="na">setInputPaths</span><span class="o">(</span><span class="n">conf</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Path</span><span class="o">(</span><span class="n">arg0</span><span class="o">[</span><span class="mi">0</span><span class="o">]));</span>
+		<span class="c1">// /output</span>
+		<span class="nc">FileOutputFormat</span><span class="o">.</span><span class="na">setOutputPath</span><span class="o">(</span><span class="n">conf</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Path</span><span class="o">(</span><span class="n">arg0</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
+		
+		<span class="nc">JobClient</span><span class="o">.</span><span class="na">runJob</span><span class="o">(</span><span class="n">conf</span><span class="o">);</span>
+		<span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+
+</details>
+
+<p><br /></p>
+
+<p>여기까지 만든 후 jar형식으로 export하여 하둡으로 옮깁니다.</p>
+
+<hr />
+
+<h2 id="input">하둡에 파일 입력</h2>
+
+<p>input 폴더 만들기</p>
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+hadoop fs -mkdir /input
+</span></font></p>
+
+<p>input 폴더에 csv 입력</p>
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+hadoop fs -put /usr/local/hadoop/data/* /input
+</span></font></p>
+
+<p><br /></p>
+
+<h2 id="output">하둡 실행 및 출력</h2>
+
+<p>하둡 맵리듀스 실행</p>
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+hadoop jar Ex10.jar com.jin.Ex10.Value /input /output
+</span></font></p>
+
+<p>맵리듀스 결과 확인(ls로 파일 이름 확인 필수)</p>
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+hadoop fs -cat /output/part-00000
+</span></font></p>
+
+<p>결과 파일을 원하는 폴더로 이동</p>
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+hadoop fs -get /output/part-00000 /[원하는 위치]/[이름.확장자]
+</span></font></p>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=MapReduce+%EC%98%88%EC%A0%9C+-+%ED%95%AD%EA%B3%B5+%EB%8D%B0%EC%9D%B4%ED%84%B0&url=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F22%2Fhadoop-several.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=MapReduce+%EC%98%88%EC%A0%9C+-+%ED%95%AD%EA%B3%B5+%EB%8D%B0%EC%9D%B4%ED%84%B0&u=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F22%2Fhadoop-several.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F22%2Fhadoop-several.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=MapReduce+%EC%98%88%EC%A0%9C+-+%ED%95%AD%EA%B3%B5+%EB%8D%B0%EC%9D%B4%ED%84%B0&url=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F22%2Fhadoop-several.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=MapReduce+%EC%98%88%EC%A0%9C+-+%ED%95%AD%EA%B3%B5+%EB%8D%B0%EC%9D%B4%ED%84%B0&url=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F22%2Fhadoop-several.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/hadoop/2020/10/22/hadoop-several.html') + '&title=MapReduce 예제 - 항공 데이터'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>하둡 스트리밍 - Python으로 MapReduce</title>
+  <meta name="description" content="기존 자바로 작성된 jar 기반으로 하는 대신에 하둡 스트리밍을 이용하여 Python같은 스크립트 언어로 Mapper와 Reducer를 만들어서 실행합니다. 이번 글에서는 항공 데이터를 이용하여 년.월별 운항 횟수를 출력해보겠습니다.">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="기존 자바로 작성된 jar 기반으로 하는 대신에 하둡 스트리밍을 이용하여 Python같은 스크립트 언어로 Mapper와 Reducer를 만들어서 실행합니다. 이번 글에서는 항공 데이터를 이용하여 년.월별 운항 횟수를 출력해보겠습니다." />
+  <meta property="og:url" content="http://localhost:4000/hadoop/2020/10/24/hadoop-stream.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="하둡 스트리밍 - Python으로 MapReduce" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="하둡 스트리밍 - Python으로 MapReduce">
+  <meta name="twitter:description" content="기존 자바로 작성된 jar 기반으로 하는 대신에 하둡 스트리밍을 이용하여 Python같은 스크립트 언어로 Mapper와 Reducer를 만들어서 실행합니다. 이번 글에서는 항공 데이터를 이용하여 년.월별 운항 횟수를 출력해보겠습니다.">
+  <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
+  <meta name="twitter:url" content="http://localhost:4000/hadoop/2020/10/24/hadoop-stream.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/hadoop/2020/10/24/hadoop-stream.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">하둡 스트리밍 - Python으로 MapReduce</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">October 24, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/hadoop">Hadoop</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <p>기존 자바로 작성된 jar 기반으로 하는 대신에 하둡 스트리밍을 이용하여 Python같은 스크립트 언어로 Mapper와 Reducer를 만들어서 실행합니다. 이번 글에서는 항공 데이터를 이용하여 <code class="highlighter-rouge">년.월</code>별 운항 횟수를 출력해보겠습니다.</p>
+
+<ul>
+  <li><a href="#prepare">Python 위치 확인</a></li>
+  <li><a href="#map">mapper 생성</a></li>
+  <li><a href="#reduce">reducer 생성</a></li>
+  <li><a href="#output">하둡 실행 및 출력</a></li>
+</ul>
+
+<h2 id="prepare">Python 위치 확인</h2>
+
+<p>우선 리눅스에서 python의 위치를 확인해봅니다.</p>
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+which python<br />
+/usr/bin/python3
+</span></font></p>
+
+<p><br /></p>
+
+<h2 id="map">mapper 생성</h2>
+
+<p>Python의 위치를 확인 후 아래 스크립트를 mapper.py라는 이름으로 리눅스에 만듭니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1">#!/usr/bin/python3
+</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">","</span><span class="p">)</span>
+        <span class="n">outputkey</span><span class="o">=</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s">"."</span><span class="o">+</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">14</span> <span class="ow">and</span> <span class="n">columns</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">columns</span><span class="p">[</span><span class="mi">14</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">'{}</span><span class="se">\t</span><span class="s">{}'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">outputkey</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span></code></pre></figure>
+
+<p>실행할 파일 최상단에 #![프로그램 위치]를 입력하면 해당 프로그램을 기반으로 스크립트가 동작하게 됩니다.</p>
+
+<p>입력된 파일을 한 줄씩 읽어와 <code class="highlighter-rouge">,</code>를 구분자로 사용하여 나누고 1,2번째 원소를 이용해 <code class="highlighter-rouge">년.월</code>이라는 변수를 생성합니다.</p>
+
+<p>다음에는 도착 지연 시간이 양수인 경우 (<code class="highlighter-rouge">년.월</code>, <code class="highlighter-rouge">1</code>)을 출력합니다.</p>
+
+<p><br /></p>
+
+<h2 id="reduce">reducer 생성</h2>
+
+<p>다음으로 아래 스크립트를 reducer.py라는 이름으로 리눅스에 만듭니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1">#!/usr/bin/python3
+</span>
+<span class="n">inputkey</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">inputvalue</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">outputkey</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">outputvalue</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">)</span>
+    <span class="n">inputkey</span><span class="p">,</span> <span class="n">inputvalue</span> <span class="o">=</span> <span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">outputkey</span> <span class="o">==</span> <span class="n">inputkey</span><span class="p">:</span>
+        <span class="n">outputvalue</span><span class="o">+=</span><span class="n">inputvalue</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">outputkey</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'{}</span><span class="se">\t</span><span class="s">{}'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">outputkey</span><span class="p">,</span> <span class="n">outputvalue</span><span class="p">))</span>
+        <span class="n">outputkey</span> <span class="o">=</span> <span class="n">inputkey</span>
+        <span class="n">outputvalue</span> <span class="o">=</span> <span class="n">inputvalue</span>
+<span class="k">if</span> <span class="n">outputkey</span> <span class="o">==</span> <span class="n">inputkey</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">'{inputkey}</span><span class="se">\t</span><span class="s">{outputvalue}'</span><span class="p">)</span></code></pre></figure>
+
+<p>mapper에서 (<code class="highlighter-rouge">년.월</code>, <code class="highlighter-rouge">1</code>)을 받게 되는데 key값에 <code class="highlighter-rouge">년.월</code>을, value에 숫자를 줍니다. 같은 key에 대해서 횟수를 추가하며 key가 바뀔 때마다 년.월에 대한 횟수를 출력하게 됩니다.</p>
+
+<h2 id="output">하둡 실행 생성</h2>
+
+<p>Python 스크립트를 다 작성했으면 명령어를 통해 하둡을 실행합니다.</p>
+
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+manager@master:/usr/local/hadoop/code$ hadoop jar ../share/hadoop/tools/lib/hadoop-streaming-2.9.2.jar -input /airdata/2008.csv -output /pyoutput2 -mapper mapper.py -reducer reducer.py
+</span></font></p>
+
+<p><br /></p>
+
+<p>명령어의 문법 설명은 이렇습니다.</p>
+
+<p>hadoop jar ../share/hadoop/tools/lib/hadoop-streaming-2.9.2.jar -input [입력할 파일 위치] -output [결과 파일이 저장될 위치] -mapper [mapper 파일] -reducer [reducer 파일]</p>
+
+<p><br /></p>
+
+<p>명령어 실행 완료 후 파일 내용을 확인해봅니다.</p>
+
+<p><font color="#FFFFFF"><span style="background-color:#000000;">
+hadoop fs -cat /pyoutput2/part-00000<br />
+2008.1  279427<br />
+2008.10 183582<br />
+2008.11 181506<br />
+2008.12 280493<br />
+2008.2  278902<br />
+2008.3  294556<br />
+2008.4  256142<br />
+2008.5  254673<br />
+2008.6  295897<br />
+2008.7  264630<br />
+2008.8  239737<br />
+2008.9  169959
+</span></font></p>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=%ED%95%98%EB%91%A1+%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D+-+Python%EC%9C%BC%EB%A1%9C+MapReduce&url=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F24%2Fhadoop-stream.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=%ED%95%98%EB%91%A1+%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D+-+Python%EC%9C%BC%EB%A1%9C+MapReduce&u=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F24%2Fhadoop-stream.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F24%2Fhadoop-stream.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=%ED%95%98%EB%91%A1+%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D+-+Python%EC%9C%BC%EB%A1%9C+MapReduce&url=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F24%2Fhadoop-stream.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=%ED%95%98%EB%91%A1+%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D+-+Python%EC%9C%BC%EB%A1%9C+MapReduce&url=http%3A%2F%2Flocalhost%3A4000%2Fhadoop%2F2020%2F10%2F24%2Fhadoop-stream.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/hadoop/2020/10/24/hadoop-stream.html') + '&title=하둡 스트리밍 - Python으로 MapReduce'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

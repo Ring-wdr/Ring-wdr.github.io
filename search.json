@@ -1,6 +1,22 @@
 [
     
      {
+       "title"    : "하둡 스트리밍 - Python으로 MapReduce",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/hadoop/2020/10/24/hadoop-stream.html",
+       "date"     : "2020-10-24 04:25:52 +0900"
+     } ,
+    
+     {
+       "title"    : "MapReduce 예제 - 항공 데이터",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/hadoop/2020/10/22/hadoop-several.html",
+       "date"     : "2020-10-22 04:25:52 +0900"
+     } ,
+    
+     {
        "title"    : "mapreduce 맛보기",
        "category" : "",
        "tags"     : "",

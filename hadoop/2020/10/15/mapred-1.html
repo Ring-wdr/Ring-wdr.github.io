@@ -144,6 +144,8 @@
 
 	
 
+	
+
 
       </ul>
     </nav>
@@ -409,7 +411,7 @@ hadoop fs -mkdir /input
 
 <p>예시 텍스트 파일(CHANGES.txt)을 input폴더에 올리기</p>
 <p><font color="#FFFFFF"><span style="background-color:#000000;">
-hadoop fs -cat /input/CHANGES.txt
+hadoop fs -put CHANGES.txt /input
 </span></font></p>
 
 <p>WordCount.jar 실행</p>
@@ -646,6 +648,8 @@ hadoop jar WordCount.jar com.jin.WordCount /input /output
 
 	
 	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
 	
 
 	

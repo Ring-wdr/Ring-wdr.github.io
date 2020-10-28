@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>R로 공공데이터 가져오기</title>
+  <meta name="description" content="이번에는 XML라이브러리를 이용하여 서울시 공공데이터를 불러온 후 저장하는 글입니다.">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="이번에는 XML라이브러리를 이용하여 서울시 공공데이터를 불러온 후 저장하는 글입니다." />
+  <meta property="og:url" content="http://localhost:4000/r/2020/10/28/r-public-data.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="R로 공공데이터 가져오기" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="R로 공공데이터 가져오기">
+  <meta name="twitter:description" content="이번에는 XML라이브러리를 이용하여 서울시 공공데이터를 불러온 후 저장하는 글입니다.">
+  <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
+  <meta name="twitter:url" content="http://localhost:4000/r/2020/10/28/r-public-data.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/r/2020/10/28/r-public-data.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">R로 공공데이터 가져오기</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">October 28, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/r">R</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <p>이번에는 <code class="highlighter-rouge">XML</code>라이브러리를 이용하여 서울시 공공데이터를 불러온 후 저장하는 글입니다.</p>
+
+<ul>
+  <li><a href="#authkey">로그인 및 인증키 생성</a></li>
+  <li><a href="#crawling">공공데이터 가져오기</a></li>
+  <li><a href="#save">공공데이터 csv로 저장하기</a></li>
+</ul>
+
+<hr />
+
+<h2 id="authkey">로그인 및 인증키 생성</h2>
+
+<p><a href="http://data.seoul.go.kr/">서울 열린데이터 광장</a>에 들어가서 로그인을 합니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/slaME/btqLXSb4Pg9/3xY68x8AF8JOrqTooZ3nWK/img.png" alt="https://blog.kakaocdn.net/dn/slaME/btqLXSb4Pg9/3xY68x8AF8JOrqTooZ3nWK/img.png" /></p>
+
+<p><br /></p>
+
+<p>다음 원하는 데이터셋을 찾으러 <code class="highlighter-rouge">공공데이터</code> - <code class="highlighter-rouge">데이터셋</code> 을 누릅니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/bfsPp6/btqLYMo7pXq/0fA7Rb8IKag1fpNpczi2t0/img.png" alt="https://blog.kakaocdn.net/dn/bfsPp6/btqLYMo7pXq/0fA7Rb8IKag1fpNpczi2t0/img.png" /></p>
+
+<p><br /></p>
+
+<p>원하는 데이터를 찾은 후 해당 페이지로 들어갑니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/mYaHb/btqL1n3t7yP/6LAehkFi2nEAkINEun4KpK/img.png" alt="https://blog.kakaocdn.net/dn/mYaHb/btqL1n3t7yP/6LAehkFi2nEAkINEun4KpK/img.png" /></p>
+
+<p><br /></p>
+
+<p>스크롤을 살짝 내려면 아래 페이지를 볼 수 있는데 <code class="highlighter-rouge">Open API</code> - <code class="highlighter-rouge">인증키 신청</code>으로 들어갑니다. 공공데이터는 인증키 없이도 csv 형식의 파일을 가져올 수 있는 경우도 있지만 인증키 신청을 통해 권한을 인증키를 받은 후에 접근 가능한 경우도 있습니다. 실제로 제가 팀 프로젝트를 할 때는 공공데이터 수집 시 인증키 발급 없이 진행하기도 했습니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/IsG9R/btqLXSouxDA/ZQ2Ci3bFin8b1O0uR35jk0/img.png" alt="https://blog.kakaocdn.net/dn/IsG9R/btqLXSouxDA/ZQ2Ci3bFin8b1O0uR35jk0/img.png" /></p>
+
+<p><br /></p>
+
+<p>인증키 신청 페이지로 넘어갔으면 필수항목에 모두 내용을 기재해야하는데 본인의 사용목적을 적당히 첨가하여 신청서를 제출합니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/ISUci/btqLW8SEN97/tiS2Oo1vuIFf9eLH7fFk1K/img.png" alt="https://blog.kakaocdn.net/dn/ISUci/btqLW8SEN97/tiS2Oo1vuIFf9eLH7fFk1K/img.png" /></p>
+
+<p><img src="https://blog.kakaocdn.net/dn/nzG9Y/btqLYM9suMe/chhzQKLkJjXTvVbn5TYASk/img.png" alt="https://blog.kakaocdn.net/dn/nzG9Y/btqLYM9suMe/chhzQKLkJjXTvVbn5TYASk/img.png" /></p>
+
+<center>발급 완료</center>
+
+<p><br /></p>
+
+<p>공공데이터를 가져오기 위해 인증키 코드를 복사합니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/cFiyDx/btqLZI7REpR/dzNKUojngoiZK29TqQdtOk/img.png" alt="https://blog.kakaocdn.net/dn/cFiyDx/btqLZI7REpR/dzNKUojngoiZK29TqQdtOk/img.png" /></p>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="crawling">공공데이터 가져오기</h2>
+
+<p>이제 R 프로그램으로 공공데이터를 가져오도록 하겠습니다. XML 라이브러리를 불러오기 위해 패키지 설치를 먼저 진행합니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># XML 설치 및 로드</span><span class="w">
+</span><span class="n">install.packages</span><span class="p">(</span><span class="s2">"XML"</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">XML</span><span class="p">)</span></code></pre></figure>
+
+<p>다음으로는 아까 발급받은 인증키와 URL을 이용하여 공공데이터를 가져옵니다. 8088까지가 메인 주소이며  <code class="highlighter-rouge">/</code>이후는 옵션 값을 입력합니다. sample에는 아까 발급받은 인증키를 입력하고 xml 형식이기 떄문에 타입은 xml입니다. 아까 선택한 데이터셋을 참고하여 서비스 명을 채우고 다음에 오는 숫자 두 개는 각각 데이터 행 시작번호와 끝번호입니다. 즉, 공공데이터 홈페이지에 적혀있는 <code class="highlighter-rouge">/1/5</code>는 <code class="highlighter-rouge">1행부터 5행까지</code> 라는 뜻이 되겠습니다.</p>
+
+<p>형식에 맞춰 텍스트를 만든 후 xmlParse 함수를 이용하여 공공데이터를 가져옵니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">#api_url을 통해 웹에 접속하여 XML 파일 다운로드 및 파싱</span><span class="w">
+</span><span class="c1">#http://openapi.seoul.go.kr:8088/sample/xml/ListPublicReservationCulture/1/5/%EC%BD%98%EC%84%9C%ED%8A%B8</span><span class="w">
+</span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"http://openapi.seoul.go.kr:8088"</span><span class="w">
+</span><span class="n">auth_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"본인_인증키"</span><span class="w">
+</span><span class="c1"># sample 제거</span><span class="w">
+</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'xml'</span><span class="w">
+</span><span class="n">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'ListPublicReservationCulture'</span><span class="w">
+</span><span class="n">startindex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'1'</span><span class="w">
+</span><span class="n">endindex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'50'</span><span class="w">
+</span><span class="n">api_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">paste</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">auth_key</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">service</span><span class="p">,</span><span class="w"> </span><span class="n">startindex</span><span class="p">,</span><span class="w"> </span><span class="n">endindex</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'/'</span><span class="p">)</span><span class="w">
+</span><span class="n">parsedXml</span><span class="w"> </span><span class="o">&lt;-</span><span class="n">xmlParse</span><span class="p">(</span><span class="n">api_url</span><span class="p">)</span></code></pre></figure>
+
+<p>다음으로는 방금 가져온 공공데이터를 데이터프레임 형식으로 전환합니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># XML구조에서 &lt;row&gt;...&lt;/row&gt; 안의 데이터 얻기</span><span class="w">
+</span><span class="n">rowXml</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">getNodeSet</span><span class="p">(</span><span class="n">parsedXml</span><span class="p">,</span><span class="w"> </span><span class="s2">"//row"</span><span class="p">)</span><span class="w">
+
+</span><span class="c1">#xml을 dataFrame으로 변경</span><span class="w">
+</span><span class="n">api_data</span><span class="w"> </span><span class="o">&lt;-</span><span class="n">xmlToDataFrame</span><span class="p">(</span><span class="n">rowXml</span><span class="p">,</span><span class="w"> </span><span class="n">stringsAsFactors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">F</span><span class="p">)</span><span class="w">
+
+</span><span class="c1">#구조 확인</span><span class="w">
+</span><span class="n">str</span><span class="p">(</span><span class="n">api_data</span><span class="p">)</span><span class="w">
+
+</span><span class="c1">#테이블 확인</span><span class="w">
+</span><span class="n">View</span><span class="p">(</span><span class="n">api_data</span><span class="p">)</span></code></pre></figure>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="save">공공데이터 csv로 저장하기</h2>
+
+<p>불러온 데이터를 “서울시문화행사공공서비스예약정보.csv”라는 이름으로 저장합니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">write.table</span><span class="p">(</span><span class="n">partData</span><span class="p">,</span><span class="w">
+            </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"서울시문화행사공공서비스예약정보.csv"</span><span class="p">,</span><span class="w">
+            </span><span class="n">append</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">quote</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">","</span><span class="p">,</span><span class="w">
+            </span><span class="n">eol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"\n"</span><span class="p">,</span><span class="w"> </span><span class="n">na</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"NA"</span><span class="p">,</span><span class="n">col.names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">T</span><span class="p">,</span><span class="w"> </span><span class="n">row.names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">F</span><span class="p">)</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3>옵션 설명</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>인자 이름</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>x</td>
+      <td>저장할 객체</td>
+    </tr>
+    <tr>
+      <td>file</td>
+      <td>저장할 파일</td>
+    </tr>
+    <tr>
+      <td>append</td>
+      <td>기존 파일에 추가할지 여부</td>
+    </tr>
+    <tr>
+      <td>quote</td>
+      <td>쌍따옴표를 표시할지 여부(기본값 TRUE)</td>
+    </tr>
+    <tr>
+      <td>sep, eol, na</td>
+      <td>구분자, 줄바꿈 표시, 잘못된 문자 표기</td>
+    </tr>
+    <tr>
+      <td>row.names</td>
+      <td>행(row), 열(col)의 이름 저장 여부(기본값 FALSE)</td>
+    </tr>
+    <tr>
+      <td>qmethod</td>
+      <td>인용부호를 escape()또는 double(“)표기 설정</td>
+    </tr>
+    <tr>
+      <td>fileEncoding</td>
+      <td>인코딩 설정</td>
+    </tr>
+  </tbody>
+</table>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=R%EB%A1%9C+%EA%B3%B5%EA%B3%B5%EB%8D%B0%EC%9D%B4%ED%84%B0+%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F28%2Fr-public-data.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=R%EB%A1%9C+%EA%B3%B5%EA%B3%B5%EB%8D%B0%EC%9D%B4%ED%84%B0+%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0&u=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F28%2Fr-public-data.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F28%2Fr-public-data.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=R%EB%A1%9C+%EA%B3%B5%EA%B3%B5%EB%8D%B0%EC%9D%B4%ED%84%B0+%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F28%2Fr-public-data.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=R%EB%A1%9C+%EA%B3%B5%EA%B3%B5%EB%8D%B0%EC%9D%B4%ED%84%B0+%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F10%2F28%2Fr-public-data.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/r/2020/10/28/r-public-data.html') + '&title=R로 공공데이터 가져오기'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

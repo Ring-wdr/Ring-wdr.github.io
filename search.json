@@ -1,6 +1,14 @@
 [
     
      {
+       "title"    : "R로 공공데이터 가져오기",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/r/2020/10/28/r-public-data.html",
+       "date"     : "2020-10-28 17:20:52 +0900"
+     } ,
+    
+     {
        "title"    : "하둡 스트리밍 - Python으로 MapReduce",
        "category" : "",
        "tags"     : "",

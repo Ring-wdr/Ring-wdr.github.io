@@ -6,9 +6,21 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 25 Oct 2020 23:16:51 +0900</pubDate>
-    <lastBuildDate>Sun, 25 Oct 2020 23:16:51 +0900</lastBuildDate>
+    <pubDate>Wed, 28 Oct 2020 21:30:25 +0900</pubDate>
+    <lastBuildDate>Wed, 28 Oct 2020 21:30:25 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>R로 공공데이터 가져오기</title>
+        <description>&lt;p&gt;이번에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;XML&lt;/code&gt;라이브러리를 이용하여 서울시 공공데이터를 불러온 후 저장하는 글입니다.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#authkey&quot;&gt;로그인 및 인증키 생성&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#crawling&quot;&gt;공공데이터 가져오기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#save&quot;&gt;공공데이터 csv로 저장하기&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr /&gt; &lt;h2 id=&quot;authkey&quot;&gt;로그인 및 인증키...</description>
+        <pubDate>Wed, 28 Oct 2020 17:20:52 +0900</pubDate>
+        <link>http://localhost:4000/r/2020/10/28/r-public-data.html</link>
+        <guid isPermaLink="true">http://localhost:4000/r/2020/10/28/r-public-data.html</guid>
+        
+        
+        <category>r</category>
+        
+      </item>
     
       <item>
         <title>하둡 스트리밍 - Python으로 MapReduce</title>
@@ -115,18 +127,6 @@
         
         
         <category>python</category>
-        
-      </item>
-    
-      <item>
-        <title>변수(Variables)</title>
-        <description>&lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#varobj&quot;&gt;변수?? 객체??&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#varallow&quot;&gt;변수 생성&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#varch&quot;&gt;형 변환 함수&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#varser&quot;&gt;변수 연속 생성&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#varsnd&quot;&gt;변수 확인 및 제거&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#nanull&quot;&gt;NA와 NULL&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#pmmd&quot;&gt;사칙 연산&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr /&gt; &lt;h2...</description>
-        <pubDate>Tue, 06 Oct 2020 11:22:52 +0900</pubDate>
-        <link>http://localhost:4000/r/2020/10/06/r-variable.html</link>
-        <guid isPermaLink="true">http://localhost:4000/r/2020/10/06/r-variable.html</guid>
-        
-        
-        <category>r</category>
         
       </item>
     

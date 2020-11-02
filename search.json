@@ -1,6 +1,14 @@
 [
     
      {
+       "title"    : "R - ggplot2",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/r/2020/11/02/r-ggplot.html",
+       "date"     : "2020-11-02 09:20:52 +0900"
+     } ,
+    
+     {
        "title"    : "R로 공공데이터 가져오기",
        "category" : "",
        "tags"     : "",

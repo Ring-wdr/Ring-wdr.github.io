@@ -6,9 +6,21 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 28 Oct 2020 21:30:25 +0900</pubDate>
-    <lastBuildDate>Wed, 28 Oct 2020 21:30:25 +0900</lastBuildDate>
+    <pubDate>Mon, 02 Nov 2020 12:32:02 +0900</pubDate>
+    <lastBuildDate>Mon, 02 Nov 2020 12:32:02 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>R - ggplot2</title>
+        <description>&lt;p&gt;유명한 시각화 라이브러리 &lt;code class=&quot;highlighter-rouge&quot;&gt;ggplot2&lt;/code&gt;를 이용하여 시각화를 진행해보겠습니다.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#vis_1&quot;&gt;시각화 연습&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#vis_2&quot;&gt;막대그래프&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#vis_3&quot;&gt;빈도 막대그래프&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#vis_4&quot;&gt;(+)제조사별 평균 연비&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr /&gt; &lt;h2 id=&quot;vis_1&quot;&gt;시각화 연습&lt;/h2&gt; &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot;...</description>
+        <pubDate>Mon, 02 Nov 2020 09:20:52 +0900</pubDate>
+        <link>http://localhost:4000/r/2020/11/02/r-ggplot.html</link>
+        <guid isPermaLink="true">http://localhost:4000/r/2020/11/02/r-ggplot.html</guid>
+        
+        
+        <category>r</category>
+        
+      </item>
     
       <item>
         <title>R로 공공데이터 가져오기</title>
@@ -115,18 +127,6 @@
         
         
         <category>r</category>
-        
-      </item>
-    
-      <item>
-        <title>beautifulsoup을 이용한 웹 크롤링</title>
-        <description>&lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#scrap&quot;&gt;웹 스크레이핑과 크롤링&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#urllib&quot;&gt;urllib 이해하기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#allscr&quot;&gt;서울시 홈페이지 메인 가져오기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#bs4&quot;&gt;beautifulsoup 이해하기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#navscr&quot;&gt;네이버에서 가져오기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#daumns&quot;&gt;다음 뉴스 내용 가져오기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#prevatc&quot;&gt;안티 크롤링 방지&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr...</description>
-        <pubDate>Tue, 06 Oct 2020 12:20:54 +0900</pubDate>
-        <link>http://localhost:4000/python/2020/10/06/crawling.html</link>
-        <guid isPermaLink="true">http://localhost:4000/python/2020/10/06/crawling.html</guid>
-        
-        
-        <category>python</category>
         
       </item>
     

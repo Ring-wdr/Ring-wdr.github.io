@@ -425,9 +425,10 @@
 <span class="n">end</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s">'2019-12-31'</span><span class="p">)</span>
 
 <span class="c1">#테이블 생성
-</span><span class="n">products</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">({</span><span class="s">'product_id'</span><span class="p">:[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">)],</span>
+</span><span class="n">products</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span>
+                     <span class="p">{</span><span class="s">'product_id'</span><span class="p">:[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">)],</span>
                       <span class="s">'product_release'</span><span class="p">:</span> <span class="n">random_dates</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">500</span><span class="p">),</span>
-                      <span class="s">'price'</span><span class="p">:[</span><span class="n">f</span><span class="s">'{random.randrange(23,230)}00'</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">]</span>
+                      <span class="s">'price'</span><span class="p">:[</span><span class="n">f</span><span class="s">'{random.randrange(23,230)}00'</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">)]</span>
                      <span class="p">}</span>
                     <span class="p">)</span>
 

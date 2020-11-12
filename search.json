@@ -1,6 +1,14 @@
 [
     
      {
+       "title"    : "더미 데이터 생성",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/python/2020/11/12/python-dumdata.html",
+       "date"     : "2020-11-12 05:10:52 +0900"
+     } ,
+    
+     {
        "title"    : "R - ggplot2",
        "category" : "",
        "tags"     : "",

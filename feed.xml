@@ -6,9 +6,21 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 02 Nov 2020 12:32:02 +0900</pubDate>
-    <lastBuildDate>Mon, 02 Nov 2020 12:32:02 +0900</lastBuildDate>
+    <pubDate>Thu, 12 Nov 2020 11:24:23 +0900</pubDate>
+    <lastBuildDate>Thu, 12 Nov 2020 11:24:23 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>더미 데이터 생성</title>
+        <description>&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#grammar&quot;&gt;0. 쇼핑몰 설정 주 사용 함수&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#cust&quot;&gt;1. 고객 테이블(customer))&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#product&quot;&gt;2. 상품 테이블(product)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#order&quot;&gt;3. 주문 테이블(order)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#orderitem&quot;&gt;4. 주문한 상품 테이블(order_item)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#prepr&quot;&gt;5. 전처리(preprocess)&lt;/a&gt;&lt;/li&gt;...</description>
+        <pubDate>Thu, 12 Nov 2020 05:10:52 +0900</pubDate>
+        <link>http://localhost:4000/python/2020/11/12/python-dumdata.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/2020/11/12/python-dumdata.html</guid>
+        
+        
+        <category>python</category>
+        
+      </item>
     
       <item>
         <title>R - ggplot2</title>
@@ -112,18 +124,6 @@
         <pubDate>Wed, 07 Oct 2020 11:22:52 +0900</pubDate>
         <link>http://localhost:4000/r/2020/10/07/r-structure-2.html</link>
         <guid isPermaLink="true">http://localhost:4000/r/2020/10/07/r-structure-2.html</guid>
-        
-        
-        <category>r</category>
-        
-      </item>
-    
-      <item>
-        <title>자료 구조 in R (1)</title>
-        <description>&lt;h2&gt;자료 구조&lt;/h2&gt; &lt;p&gt;(1)&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#scalar&quot;&gt;스칼라&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#vector&quot;&gt;벡터&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#list&quot;&gt;리스트&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;(2)&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a style=&quot;color: gray&quot;&gt;행렬&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a style=&quot;color: gray&quot;&gt;배열&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a style=&quot;color: gray&quot;&gt;데이터 프레임&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr /&gt; &lt;h2 id=&quot;scalar&quot;&gt; 스칼라(scalar) &lt;/h2&gt;...</description>
-        <pubDate>Wed, 07 Oct 2020 11:22:52 +0900</pubDate>
-        <link>http://localhost:4000/r/2020/10/07/r-structure-1.html</link>
-        <guid isPermaLink="true">http://localhost:4000/r/2020/10/07/r-structure-1.html</guid>
         
         
         <category>r</category>

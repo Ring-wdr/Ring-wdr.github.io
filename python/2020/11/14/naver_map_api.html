@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>네이버 API를 이용한 지오코딩(Geocoding)</title>
+  <meta name="description" content="목차">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="목차" />
+  <meta property="og:url" content="http://localhost:4000/python/2020/11/14/naver_map_api.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="네이버 API를 이용한 지오코딩(Geocoding)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="네이버 API를 이용한 지오코딩(Geocoding)">
+  <meta name="twitter:description" content="목차">
+  <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
+  <meta name="twitter:url" content="http://localhost:4000/python/2020/11/14/naver_map_api.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/python/2020/11/14/naver_map_api.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">네이버 API를 이용한 지오코딩(Geocoding)</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">November 14, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/python">Python</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h2 id="목차">목차</h2>
+
+<ul>
+  <li><a href="#geocoding">0. Geocoding이란?</a></li>
+  <li><a href="#navercp">1. 네이버 클라우드 플랫폼</a>
+    <ul>
+      <li><a href="#getkey">인증키 발급</a></li>
+    </ul>
+  </li>
+  <li><a href="#getmapinfo">2. Geocoding 실행</a></li>
+</ul>
+
+<p>제가 운영중인 네이버 블로그에서 가장 질문이 많은 글이라 다시 정리해서 올려보았습니다.
+해당 글을 작성하게 된 배경은 아파트 실거래가 예측 프로젝트 진행 중 아파트의 가격과 각종 편의시설 및 주요 시설들의 관계(예 : 역세권)를 거리 기반으로 엮기 위해서 위도, 경도 좌표가 필요했습니다.</p>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="geocoding">0. Geocoding이란?</h2>
+
+<p>지오코딩(geocoding)은 주소를 위도, 경도로 바꾸는 작업입니다.</p>
+
+<p>이 글에서는 도로명주소를 순서대로 입력하면 해당 주소의 정보를 json형태로 받아서 정보 내에서 위도와 경도 데이터만 뽑아서 저장하는 코드를 다루고 있습니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/l8qX0/btqNpGnfzXF/6S4YD65MAZTecQb4GNFWK1/img.png" alt="https://blog.kakaocdn.net/dn/l8qX0/btqNpGnfzXF/6S4YD65MAZTecQb4GNFWK1/img.png" /></p>
+<center>지오코딩 진행과정</center>
+
+<p><br /></p>
+
+<p>각종 지오코딩 프로그램, 구글 API, KAKAO MAP API도 있지만 속도 문제 및 비용 문제로 인해 네이버의 지도 API를 사용하게 되었습니다. KAKAO MAP API에 대해 일 30만회 무료기 때문에 횟수 측면에서 더 낫다는 질문 댓글이 있었는데 실제 프로젝트 진행중에 카카오쪽을 이용했을 때 지오코딩 횟수가 1만회가 넘어가는 순간 이유를 모른채 끊기는 경우가 발생하여 포기하게 되었습니다.</p>
+
+<p>네이버 지도 API는 네이버 클라우드 플랫폼에서 사용권한을 얻을 수 있습니다.</p>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="navercp">1. 네이버 클라우드 플랫폼(NAVER Cloud Platform)</h2>
+
+<p><img src="https://blog.kakaocdn.net/dn/FXGKS/btqNqdLRPmW/wXBeGi4csaudH6KieY7z4k/img.png" alt="https://blog.kakaocdn.net/dn/FXGKS/btqNqdLRPmW/wXBeGi4csaudH6KieY7z4k/img.png" /></p>
+
+<p>네이버 클라우드 플랫폼은 네이버에서 제공하는 서비스로 저장소, 데이터 분석, 데이터베이스 등 다양한 IT 서비스들이 있습니다. 서비스들 중 지도 API를 사용할건데 월 300만건 무료 사용이 가능하기 때문에 개인 프로젝트시에 활용하기 좋습니다. 공공데이터를 받을 때 인증키를 발급받아야 했던것처럼 네이버에서도 인증키를 발급받아야하기 때문에 <a href="https://www.ncloud.com/">홈페이지</a>로 들어가보도록 하겠습니다.</p>
+
+<p><br /></p>
+
+<h3 id="getkey">인증키 발급</h3>
+
+<p><img src="https://blog.kakaocdn.net/dn/phKa7/btqNpfQSsaZ/SP7mLYGJjEESihKcXX8mcK/img.png" alt="https://blog.kakaocdn.net/dn/phKa7/btqNpfQSsaZ/SP7mLYGJjEESihKcXX8mcK/img.png" /></p>
+
+<p>네이버 클라우드 플랫폼 메인 화면입니다. 여기서 맨 오른쪽 Console 버튼을 눌러서 이동합니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/cWYCKD/btqNthsX9l4/ax9kFySTJSf4piY2tBkDEk/img.png" alt="https://blog.kakaocdn.net/dn/cWYCKD/btqNthsX9l4/ax9kFySTJSf4piY2tBkDEk/img.png" /></p>
+
+<p>현재 본인이 이용중인 서비스들을 등록하고 확인할 수 있는 콘솔 페이지입니다. 좌측 배너에 있는 <code class="highlighter-rouge">Product &amp; Services</code>를 누르면 뜨는 창에서 <code class="highlighter-rouge">AI·NAVER API</code>를 누릅시다. AWS에서는 원하는 서비스를 검색창에서 검색해서 찾아볼 수 있어 직관적이었는데 이 부분이 아쉽네요.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/SywgZ/btqNqeqt1Qz/De5kLY5G8ckfwAkQKxn3wk/img.png" alt="https://blog.kakaocdn.net/dn/SywgZ/btqNqeqt1Qz/De5kLY5G8ckfwAkQKxn3wk/img.png" /></p>
+
+<p>키 발급을 받기 위해 <code class="highlighter-rouge">Application 등록 버튼</code>을 눌러줍시다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/c1IQ7B/btqNpHmaayF/LRHWVSmtUKiYUqNhJHJv5K/img.png" alt="https://blog.kakaocdn.net/dn/c1IQ7B/btqNpHmaayF/LRHWVSmtUKiYUqNhJHJv5K/img.png" /></p>
+
+<p>실제 애플리케이션에 사용할 것은 아니기 때문에 임의의 값을 입력해주고 Service 선택에서 <code class="highlighter-rouge">Geocoding</code>을 선택해주시고 등록을 하시면 됩니다. 등록 후 인증 정보 버튼을 누르면 아래와 같은 창을 볼 수 있는데 ID와 Secret에 있는 텍스트를 저장해둡시다. 이 값들을 이용해 네이버 API에 접속하여 정보를 얻어올 수 있습니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/qoMiP/btqNqdykymP/PLvgpq2UlzMYyNqURk1aR1/img.png" alt="https://blog.kakaocdn.net/dn/qoMiP/btqNqdykymP/PLvgpq2UlzMYyNqURk1aR1/img.png" /></p>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="getmapinfo">2. Geocoding 실행</h2>
+
+<p>Python으로 위도 경도를 받는 코드는 <a href="https://blog.naver.com/rising_n_falling/221596375078">다른 분의 블로그</a>에서 참고를 하였습니다. 도움을 많이 받은 글이기 때문에 글씨를 클릭하면 바로 보실 수 있습니다.</p>
+
+<p>이 블로그에 있는 코드를 그대로 실행했을 때 주소를 못 찾는 경우 에러 처리가 제대로 되지 않아서 문제가 되는 부분만 수정하여 python 스크립트를 올립니다.</p>
+
+<p>예제 파일을 따로 첨부하지 않았으며 코드를 각자 사용환경에 맞춰 바꿀 필요가 있기 때문에 python에 익숙하지 않으신 분들은 사용하기 어려울 수 있습니다.</p>
+
+<p>​</p>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1">#사용 라이브러리
+</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+<span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">parse</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">Request</span>
+<span class="kn">from</span> <span class="nn">urllib.error</span> <span class="kn">import</span> <span class="n">HTTPError</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">json</span></code></pre></figure>
+
+<p>​</p>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c1">#naver map api key
+</span><span class="n">client_id</span> <span class="o">=</span> <span class="s">'아이디'</span><span class="p">;</span>    <span class="c1"># 본인이 할당받은 ID 입력
+</span><span class="n">client_pw</span> <span class="o">=</span> <span class="s">'비밀번호'</span><span class="p">;</span>    <span class="c1"># 본인이 할당받은 Secret 입력
+</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s">'https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query='</span>
+
+<span class="c1"># 주소 목록 파일 (.csv)
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'파일명.csv'</span><span class="p">)</span>
+<span class="c1"># 주소 목록 파일 (.xlsx)
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s">'파일명.xlsx'</span><span class="p">)</span>
+
+<span class="c1"># 네이버 지도 API 이용해서 위경도 찾기
+</span><span class="n">geo_coordi</span> <span class="o">=</span> <span class="p">[]</span>     
+<span class="k">for</span> <span class="n">add</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s">'도로명주소'</span><span class="p">]:</span>
+    <span class="n">add_urlenc</span> <span class="o">=</span> <span class="n">parse</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>  
+    <span class="n">url</span> <span class="o">=</span> <span class="n">api_url</span> <span class="o">+</span> <span class="n">add_urlenc</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">request</span><span class="o">.</span><span class="n">add_header</span><span class="p">(</span><span class="s">'X-NCP-APIGW-API-KEY-ID'</span><span class="p">,</span> <span class="n">client_id</span><span class="p">)</span>
+    <span class="n">request</span><span class="o">.</span><span class="n">add_header</span><span class="p">(</span><span class="s">'X-NCP-APIGW-API-KEY'</span><span class="p">,</span> <span class="n">client_pw</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">HTTPError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'HTTP Error!'</span><span class="p">)</span>
+        <span class="n">latitude</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">longitude</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">rescode</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">getcode</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">rescode</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="n">response_body</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+            <span class="n">response_body</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response_body</span><span class="p">)</span>   <span class="c1"># json
+</span>            <span class="k">if</span> <span class="n">response_body</span><span class="p">[</span><span class="s">'addresses'</span><span class="p">]</span> <span class="o">==</span> <span class="p">[]</span> <span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">"'result' not exist!"</span><span class="p">)</span>
+                <span class="n">latitude</span> <span class="o">=</span> <span class="bp">None</span>
+                <span class="n">longitude</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">latitude</span> <span class="o">=</span> <span class="n">response_body</span><span class="p">[</span><span class="s">'addresses'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">'y'</span><span class="p">]</span>
+                <span class="n">longitude</span> <span class="o">=</span> <span class="n">response_body</span><span class="p">[</span><span class="s">'addresses'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">'x'</span><span class="p">]</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">"Success!"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'Response error code : </span><span class="si">%</span><span class="s">d'</span> <span class="o">%</span> <span class="n">rescode</span><span class="p">)</span>
+            <span class="n">latitude</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="n">longitude</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="n">geo_coordi</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">])</span>
+
+
+<span class="n">np_geo_coordi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">geo_coordi</span><span class="p">)</span>
+<span class="n">pd_geo_coordi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">"도로명"</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s">'도로명주소'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                              <span class="s">"위도"</span><span class="p">:</span> <span class="n">np_geo_coordi</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+                              <span class="s">"경도"</span><span class="p">:</span> <span class="n">np_geo_coordi</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]})</span>
+
+<span class="n">pd_geo_coordi</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'파일명.csv'</span><span class="p">)</span></code></pre></figure>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=%EB%84%A4%EC%9D%B4%EB%B2%84+API%EB%A5%BC+%EC%9D%B4%EC%9A%A9%ED%95%9C+%EC%A7%80%EC%98%A4%EC%BD%94%EB%94%A9%28Geocoding%29&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F11%2F14%2Fnaver_map_api.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=%EB%84%A4%EC%9D%B4%EB%B2%84+API%EB%A5%BC+%EC%9D%B4%EC%9A%A9%ED%95%9C+%EC%A7%80%EC%98%A4%EC%BD%94%EB%94%A9%28Geocoding%29&u=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F11%2F14%2Fnaver_map_api.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F11%2F14%2Fnaver_map_api.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=%EB%84%A4%EC%9D%B4%EB%B2%84+API%EB%A5%BC+%EC%9D%B4%EC%9A%A9%ED%95%9C+%EC%A7%80%EC%98%A4%EC%BD%94%EB%94%A9%28Geocoding%29&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F11%2F14%2Fnaver_map_api.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=%EB%84%A4%EC%9D%B4%EB%B2%84+API%EB%A5%BC+%EC%9D%B4%EC%9A%A9%ED%95%9C+%EC%A7%80%EC%98%A4%EC%BD%94%EB%94%A9%28Geocoding%29&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2020%2F11%2F14%2Fnaver_map_api.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/python/2020/11/14/naver_map_api.html') + '&title=네이버 API를 이용한 지오코딩(Geocoding)'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

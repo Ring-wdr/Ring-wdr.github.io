@@ -6,9 +6,21 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 12 Nov 2020 11:33:36 +0900</pubDate>
-    <lastBuildDate>Thu, 12 Nov 2020 11:33:36 +0900</lastBuildDate>
+    <pubDate>Sat, 14 Nov 2020 16:30:01 +0900</pubDate>
+    <lastBuildDate>Sat, 14 Nov 2020 16:30:01 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>네이버 API를 이용한 지오코딩(Geocoding)</title>
+        <description>&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#geocoding&quot;&gt;0. Geocoding이란?&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#navercp&quot;&gt;1. 네이버 클라우드 플랫폼&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#getkey&quot;&gt;인증키 발급&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#getmapinfo&quot;&gt;2. Geocoding 실행&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;제가 운영중인 네이버 블로그에서 가장 질문이 많은 글이라...</description>
+        <pubDate>Sat, 14 Nov 2020 12:10:52 +0900</pubDate>
+        <link>http://localhost:4000/python/2020/11/14/naver_map_api.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/2020/11/14/naver_map_api.html</guid>
+        
+        
+        <category>python</category>
+        
+      </item>
     
       <item>
         <title>더미 데이터 생성</title>
@@ -115,18 +127,6 @@
         
         
         <category>python</category>
-        
-      </item>
-    
-      <item>
-        <title>자료 구조 in R (2)</title>
-        <description>&lt;h2&gt;자료 구조&lt;/h2&gt; &lt;p&gt;(1)&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a style=&quot;color: gray&quot;&gt;스칼라&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a style=&quot;color: gray&quot;&gt;벡터&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a style=&quot;color: gray&quot;&gt;리스트&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;(2)&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#matrix&quot;&gt;행렬&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#array&quot;&gt;배열&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dataframe&quot;&gt;데이터 프레임&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr /&gt; &lt;h2 id=&quot;matrix&quot;&gt; 행렬(matrix) &lt;/h2&gt;...</description>
-        <pubDate>Wed, 07 Oct 2020 11:22:52 +0900</pubDate>
-        <link>http://localhost:4000/r/2020/10/07/r-structure-2.html</link>
-        <guid isPermaLink="true">http://localhost:4000/r/2020/10/07/r-structure-2.html</guid>
-        
-        
-        <category>r</category>
         
       </item>
     

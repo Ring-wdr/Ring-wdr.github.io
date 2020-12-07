@@ -1,6 +1,22 @@
 [
     
      {
+       "title"    : "R - stringr",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/r/2020/12/07/stringr.html",
+       "date"     : "2020-12-07 12:20:52 +0900"
+     } ,
+    
+     {
+       "title"    : "AWS- EC2, S3, EMR(작성중)",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/hadoop/2020/11/30/aws.html",
+       "date"     : "2020-11-30 17:20:52 +0900"
+     } ,
+    
+     {
        "title"    : "네이버 API를 이용한 지오코딩(Geocoding)",
        "category" : "",
        "tags"     : "",

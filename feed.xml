@@ -6,9 +6,33 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 14 Nov 2020 16:30:01 +0900</pubDate>
-    <lastBuildDate>Sat, 14 Nov 2020 16:30:01 +0900</lastBuildDate>
+    <pubDate>Tue, 08 Dec 2020 00:39:12 +0900</pubDate>
+    <lastBuildDate>Tue, 08 Dec 2020 00:39:12 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>R - stringr</title>
+        <description>&lt;p&gt;문자 편집 패키지 &lt;code class=&quot;highlighter-rouge&quot;&gt;stringr&lt;/code&gt;를 이용하여 문자 데이터를 편집해보겠습니다.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#stringr&quot;&gt;stringr 패키지&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#detect&quot;&gt;str_detect&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#count&quot;&gt;str_count&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#combine&quot;&gt;str_c&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#length&quot;&gt;str_length&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#locate&quot;&gt;str_locate&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#length&quot;&gt;str_length&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#substr&quot;&gt;str_sub&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#replace&quot;&gt;str_replace&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a...</description>
+        <pubDate>Mon, 07 Dec 2020 12:20:52 +0900</pubDate>
+        <link>http://localhost:4000/r/2020/12/07/stringr.html</link>
+        <guid isPermaLink="true">http://localhost:4000/r/2020/12/07/stringr.html</guid>
+        
+        
+        <category>r</category>
+        
+      </item>
+    
+      <item>
+        <title>AWS- EC2, S3, EMR(작성중)</title>
+        <description>&lt;p&gt;Amazon Web Services(AWS)는 전 세계적으로 분포한 데이터 센터에서 175개가 넘는 완벽한 기능의 서비스를 제공하는, 세계적으로 가장 포괄적이며, 널리 채택되고 있는 클라우드 플랫폼입니다. 빠르게 성장하는 스타트업, 가장 큰 규모의 엔터프라이즈, 주요...</description>
+        <pubDate>Mon, 30 Nov 2020 17:20:52 +0900</pubDate>
+        <link>http://localhost:4000/hadoop/2020/11/30/aws.html</link>
+        <guid isPermaLink="true">http://localhost:4000/hadoop/2020/11/30/aws.html</guid>
+        
+        
+        <category>hadoop</category>
+        
+      </item>
     
       <item>
         <title>네이버 API를 이용한 지오코딩(Geocoding)</title>
@@ -103,30 +127,6 @@
         
         
         <category>hadoop</category>
-        
-      </item>
-    
-      <item>
-        <title>하둡 - 설치 및 싱글 노드 모드</title>
-        <description>&lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#hadoop&quot;&gt; hadoop &lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#prepare&quot;&gt; 실행을 위한 준비 &lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#hadooptoubuntu&quot;&gt; 우분투에 하둡 설치 &lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#singnode&quot;&gt; 싱글노드 생성&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&quot;hadoop&quot;&gt;하둡&lt;/h2&gt; &lt;p&gt;하둡은 데이터 분산 처리를 위해 사용하는데...</description>
-        <pubDate>Tue, 13 Oct 2020 05:25:52 +0900</pubDate>
-        <link>http://localhost:4000/hadoop/2020/10/13/hadoop-install-1.html</link>
-        <guid isPermaLink="true">http://localhost:4000/hadoop/2020/10/13/hadoop-install-1.html</guid>
-        
-        
-        <category>hadoop</category>
-        
-      </item>
-    
-      <item>
-        <title>selenium을 이용한 구글 이미지 가져오기</title>
-        <description>&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#selenium&quot;&gt;1. selenium&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#setndl&quot;&gt;2. 기본 환경을 위한 다운로드&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#virset&quot;&gt;2-1) 가상환경&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#pipsel&quot;&gt;2-2) selenium 설치&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#chdriver&quot;&gt;2-3) chrome driver 설치&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#imgcrawl&quot;&gt;3. 이미지...</description>
-        <pubDate>Sat, 10 Oct 2020 11:10:52 +0900</pubDate>
-        <link>http://localhost:4000/python/2020/10/10/python-selenium.html</link>
-        <guid isPermaLink="true">http://localhost:4000/python/2020/10/10/python-selenium.html</guid>
-        
-        
-        <category>python</category>
         
       </item>
     

@@ -6,9 +6,21 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 08 Dec 2020 00:39:12 +0900</pubDate>
-    <lastBuildDate>Tue, 08 Dec 2020 00:39:12 +0900</lastBuildDate>
+    <pubDate>Wed, 09 Dec 2020 22:41:54 +0900</pubDate>
+    <lastBuildDate>Wed, 09 Dec 2020 22:41:54 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>R - reshape2</title>
+        <description>&lt;p&gt;데이터 구조 변경 패키지 &lt;code class=&quot;highlighter-rouge&quot;&gt;reshape2&lt;/code&gt;를 이용하여 데이터 구조를 바꾸어보겠습니다. 여기서 말하는 데이터 구조는 데이터 타입(data type)을 말하는 것이 아니라 wide data, long data를 의미합니다.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#datastr&quot;&gt;데이터 구조&lt;/a&gt; &lt;ul&gt;...</description>
+        <pubDate>Wed, 09 Dec 2020 12:20:52 +0900</pubDate>
+        <link>http://localhost:4000/r/2020/12/09/reshape.html</link>
+        <guid isPermaLink="true">http://localhost:4000/r/2020/12/09/reshape.html</guid>
+        
+        
+        <category>r</category>
+        
+      </item>
     
       <item>
         <title>R - stringr</title>
@@ -112,18 +124,6 @@
         <pubDate>Thu, 15 Oct 2020 19:25:52 +0900</pubDate>
         <link>http://localhost:4000/hadoop/2020/10/15/mapred-1.html</link>
         <guid isPermaLink="true">http://localhost:4000/hadoop/2020/10/15/mapred-1.html</guid>
-        
-        
-        <category>hadoop</category>
-        
-      </item>
-    
-      <item>
-        <title>하둡 - 완전 분산 모드</title>
-        <description>&lt;h2&gt;완전 분산 모드&lt;/h2&gt; &lt;p&gt;이전 글에서 만든 싱글 노드는 실습용이었고, 실제로는 싱글 노드로는 사용하지 않고 분산으로 만들어 쓰는 것이 일반적입니다. 이번에는 다음의 스펙으로 분산 모드로 만들어보도록 하겠습니다.&lt;/p&gt; &lt;fieldset&gt; &lt;p&gt;공통 설치 파일&lt;/p&gt;...</description>
-        <pubDate>Wed, 14 Oct 2020 15:25:52 +0900</pubDate>
-        <link>http://localhost:4000/hadoop/2020/10/14/hadoop-dfs.html</link>
-        <guid isPermaLink="true">http://localhost:4000/hadoop/2020/10/14/hadoop-dfs.html</guid>
         
         
         <category>hadoop</category>

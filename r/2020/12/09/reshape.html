@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>R - reshape2</title>
+  <meta name="description" content="데이터 구조 변경 패키지 reshape2를 이용하여 데이터 구조를 바꾸어보겠습니다. 여기서 말하는 데이터 구조는 데이터 타입(data type)을 말하는 것이 아니라 wide data, long data를 의미합니다.">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="데이터 구조 변경 패키지 reshape2를 이용하여 데이터 구조를 바꾸어보겠습니다. 여기서 말하는 데이터 구조는 데이터 타입(data type)을 말하는 것이 아니라 wide data, long data를 의미합니다." />
+  <meta property="og:url" content="http://localhost:4000/r/2020/12/09/reshape.html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="R - reshape2" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="R - reshape2">
+  <meta name="twitter:description" content="데이터 구조 변경 패키지 reshape2를 이용하여 데이터 구조를 바꾸어보겠습니다. 여기서 말하는 데이터 구조는 데이터 타입(data type)을 말하는 것이 아니라 wide data, long data를 의미합니다.">
+  <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
+  <meta name="twitter:url" content="http://localhost:4000/r/2020/12/09/reshape.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/r/2020/12/09/reshape.html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">R - reshape2</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">December 9, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/r">R</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <p>데이터 구조 변경 패키지 <code class="highlighter-rouge">reshape2</code>를 이용하여 데이터 구조를 바꾸어보겠습니다. 여기서 말하는 데이터 구조는 데이터 타입(data type)을 말하는 것이 아니라 wide data, long data를 의미합니다.</p>
+
+<ul>
+  <li><a href="#datastr">데이터 구조</a>
+    <ul>
+      <li><a href="#wdata">wide data</a></li>
+      <li><a href="#ldata">long data</a></li>
+    </ul>
+  </li>
+  <li><a href="#defaultfunc">기본 내장 함수</a>
+    <ul>
+      <li><a href="#stack">stack 함수</a></li>
+      <li><a href="#unstack">unstack 함수</a></li>
+    </ul>
+  </li>
+  <li><a href="#reshape">reshape2 패키지</a>
+    <ul>
+      <li><a href="#melt">melt 함수</a></li>
+      <li><a href="#cast">dcast 함수</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="datastr">데이터 구조</h2>
+
+<h3 id="wdata">wide data</h3>
+
+<p>Wide data는 교차 테이블 형식으로 되어있으며 행별, 컬럼별 그룹연산 수행이 가능합니다. 조인이 불가능한 형식이기 때문에 DB에서 선호하는 형식은 아닙니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="n">X1</span><span class="w"> </span><span class="n">X2</span><span class="w"> </span><span class="n">X3</span><span class="w">
+</span><span class="m">1</span><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">18</span><span class="w">
+</span><span class="m">2</span><span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">19</span><span class="w">
+</span><span class="m">3</span><span class="w">    </span><span class="n">c</span><span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">20</span><span class="w">
+</span><span class="m">4</span><span class="w">    </span><span class="n">d</span><span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">21</span></code></pre></figure>
+
+<h3 id="ldata">long data</h3>
+
+<p>long data는 DB에서 선호하는 방식의 형식으로 새로운 데이터(관찰대상)에 대한 추가가 비교적 wide data에 비해 쉽습니다. GROUP BY, JOIN 연산이 가능합니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="w">   </span><span class="n">name</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">value</span><span class="w">
+</span><span class="m">1</span><span class="w">     </span><span class="n">a</span><span class="w">       </span><span class="n">X1</span><span class="w">    </span><span class="m">10</span><span class="w">
+</span><span class="m">2</span><span class="w">     </span><span class="n">b</span><span class="w">       </span><span class="n">X1</span><span class="w">    </span><span class="m">11</span><span class="w">
+</span><span class="m">3</span><span class="w">     </span><span class="n">c</span><span class="w">       </span><span class="n">X1</span><span class="w">    </span><span class="m">12</span><span class="w">
+</span><span class="m">4</span><span class="w">     </span><span class="n">d</span><span class="w">       </span><span class="n">X1</span><span class="w">    </span><span class="m">13</span><span class="w">
+</span><span class="m">5</span><span class="w">     </span><span class="n">a</span><span class="w">       </span><span class="n">X2</span><span class="w">    </span><span class="m">14</span><span class="w">
+</span><span class="m">6</span><span class="w">     </span><span class="n">b</span><span class="w">       </span><span class="n">X2</span><span class="w">    </span><span class="m">15</span><span class="w">
+</span><span class="m">7</span><span class="w">     </span><span class="n">c</span><span class="w">       </span><span class="n">X2</span><span class="w">    </span><span class="m">16</span><span class="w">
+</span><span class="m">8</span><span class="w">     </span><span class="n">d</span><span class="w">       </span><span class="n">X2</span><span class="w">    </span><span class="m">17</span><span class="w">
+</span><span class="m">9</span><span class="w">     </span><span class="n">a</span><span class="w">       </span><span class="n">X3</span><span class="w">    </span><span class="m">18</span><span class="w">
+</span><span class="m">10</span><span class="w">    </span><span class="n">b</span><span class="w">       </span><span class="n">X3</span><span class="w">    </span><span class="m">19</span><span class="w">
+</span><span class="m">11</span><span class="w">    </span><span class="n">c</span><span class="w">       </span><span class="n">X3</span><span class="w">    </span><span class="m">20</span><span class="w">
+</span><span class="m">12</span><span class="w">    </span><span class="n">d</span><span class="w">       </span><span class="n">X3</span><span class="w">    </span><span class="m">21</span></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="defaultfunc">기본 내장 함수</h2>
+
+<p>wide data와 long data에 대해 알아보았으니 다음으로는 wide에서 long 혹은 long에서 wide로 바꾸는 함수들에 대해 설명드리려고 합니다.</p>
+
+<h3 id="stack">stack 함수</h3>
+
+<p>wide data를 long data로 바꿔주는 함수입니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">stack</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="unstack">unstack 함수</h3>
+
+<p>stack의 반대되는 함수로 long data를 wide data로 바꿔주는 함수입니다. unstack 함수의 단점은 행렬 이름에 필요한 행을 가져올 수 없다는 것입니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">unstack</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">formula</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="https://blog.kakaocdn.net/dn/Us05g/btqPFTqVe5M/6yduQIE0oUQUbV7vOBieik/img.png" alt="https://blog.kakaocdn.net/dn/Us05g/btqPFTqVe5M/6yduQIE0oUQUbV7vOBieik/img.png" /></p>
+
+<hr />
+
+<h2 id="reshape">reshape2 패키지</h2>
+
+<p>wide에서 long 혹은 long에서 wide로 바꾸는 기본 함수들보다 더 기능이 다양한 함수를 포함하고 있는 reshape2 패키지를 설치해봅니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">install.package</span><span class="p">(</span><span class="s1">'reshape2'</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">reshape2</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="melt">melt 함수</h3>
+
+<p>wide data를 long data로 바꿔주는 함수입니다. stack과 비슷하지만 고정할 컬럼과 stack을 진행할 컬럼을 정할 수 있습니다. value의 이름과 ind의 이름 또한 인자값 입력으로 설정할 수 있습니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">melt</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w">         </span><span class="c1"># 데이터 이름</span><span class="w">
+     </span><span class="n">id.vars</span><span class="p">,</span><span class="w">      </span><span class="c1"># 고정 컬럼</span><span class="w">
+     </span><span class="n">measuer.vars</span><span class="p">,</span><span class="w"> </span><span class="c1"># 쌓을 컬럼, 생략하는 경우 고정 컬럼을 제외한 모든 행 stack</span><span class="w">
+     </span><span class="n">value.name</span><span class="p">,</span><span class="w">   </span><span class="c1"># value 컬럼명</span><span class="w">
+     </span><span class="n">variable.name</span><span class="p">)</span><span class="c1"># ind 컬럼명</span></code></pre></figure>
+
+<h3 id="cast">dcast 함수</h3>
+
+<p>dcast 함수는 long data를 wide data로 바꿔주는 함수로 unstack보다 기능이 많이 있습니다. 비슷한 기능을 가진 함수로 acast도 있습니다만 둘의 차이점은 반환하는 데이터 구조에 차이가 있습니다. dcast는 데이터프레임 형식으로 반환하며 acast는 행렬 형태로 반환합니다.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dcast</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w">    </span><span class="c1"># 데이터 프레임</span><span class="w">
+      </span><span class="n">formula</span><span class="p">,</span><span class="w"> </span><span class="c1"># 행 고정, 컬럼 고정</span><span class="w">
+      </span><span class="n">fun.aggregate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="c1"># 요약 함수</span><span class="w">
+      </span><span class="n">value.var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="c1"># value 컬럼</span></code></pre></figure>
+
+<p>fun.aggregate를 입력하지 않으면 고정 자료들이 겹치는 경우 기본적으로 갯수(length)가 나옵니다. value.var 값을 생략하면 가장 오른쪽에 있는 행렬을 value.var로 이용하게 됩니다.</p>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=R+-+reshape2&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F12%2F09%2Freshape.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=R+-+reshape2&u=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F12%2F09%2Freshape.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F12%2F09%2Freshape.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=R+-+reshape2&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F12%2F09%2Freshape.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=R+-+reshape2&url=http%3A%2F%2Flocalhost%3A4000%2Fr%2F2020%2F12%2F09%2Freshape.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/r/2020/12/09/reshape.html') + '&title=R - reshape2'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

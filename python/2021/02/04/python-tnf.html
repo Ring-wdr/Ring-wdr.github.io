@@ -6,9 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>RWDR - page 6</title>
-  <meta name="description" content="A simple blog.
-">
+  <title>boolean 미세 팁</title>
+  <meta name="description" content="True, False 는 논리형 데이터로 python에서 type 함수로 확인할 경우에 bool이라고 뜹니다. 그런데 bool 타입 뒤에 + 0 를 붙이면 True는 1, False는 0으로 바뀌게 됩니다.물론 int 함수로 형 전환을 해도 숫자로 바꿀 수 있습니다.">
   
   <meta name="author" content="Manjoong Kim">
   <meta name="copyright" content="&copy; Manjoong Kim 2021">
@@ -42,11 +41,10 @@
 
   
   <!-- Facebook OGP cards -->
-  <meta property="og:description" content="A simple blog.
-" />
-  <meta property="og:url" content="http://localhost:4000/page/6/index.html">
+  <meta property="og:description" content="True, False 는 논리형 데이터로 python에서 type 함수로 확인할 경우에 bool이라고 뜹니다. 그런데 bool 타입 뒤에 + 0 를 붙이면 True는 1, False는 0으로 바뀌게 됩니다.물론 int 함수로 형 전환을 해도 숫자로 바꿀 수 있습니다." />
+  <meta property="og:url" content="http://localhost:4000/python/2021/02/04/python-tnf.html">
   <meta property="og:site_name" content="RWDR" />
-  <meta property="og:title" content="RWDR - page 6" />
+  <meta property="og:title" content="boolean 미세 팁" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
   <meta property="og:image:type" content="image/png" />
@@ -57,18 +55,17 @@
   
   <!-- Twitter: card tags -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="RWDR - page 6">
-  <meta name="twitter:description" content="A simple blog.
-">
+  <meta name="twitter:title" content="boolean 미세 팁">
+  <meta name="twitter:description" content="True, False 는 논리형 데이터로 python에서 type 함수로 확인할 경우에 bool이라고 뜹니다. 그런데 bool 타입 뒤에 + 0 를 붙이면 True는 1, False는 0으로 바뀌게 됩니다.물론 int 함수로 형 전환을 해도 숫자로 바꿀 수 있습니다.">
   <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
-  <meta name="twitter:url" content="http://localhost:4000/page/6/index.html">
+  <meta name="twitter:url" content="http://localhost:4000/python/2021/02/04/python-tnf.html">
   
 
   
 
   <!-- Site styles -->
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/page/6/">
+  <link rel="canonical" href="http://localhost:4000/python/2021/02/04/python-tnf.html">
 	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
 	
 	<!-- Tooltips -->
@@ -159,153 +156,256 @@
 
 
     <div class="page-content">
-        <div class="home">
+        <div class="post">
 
-<div class="site-header-container has-cover" style="background-image: url(/assets/header_image.jpg);">
-  <div class="scrim has-cover">
-    <header class="site-header">
-      <h1 class="title">RWDR</h1>
-      <p class="subtitle">데이터 분석 학습 일지</p>
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">boolean 미세 팁</h1>
+      <p class="info">by <strong>Kim</strong></p>
     </header>
   </div>
 </div>
 
 <div class="wrapper">
-<ul class="post-list">
-  
-  <li>
-    <h2>
-      <a class="post-link" href="/python/2020/09/24/python-7.html">pandas - DataFrame</a>
-    </h2>
-    <section class="post-excerpt" itemprop="description">
-      <p>목차 데이터 프레임 (DataFrame) (필독)프로필 만들기 1. 생성 2. 기본 메소드 3. 인덱스 4. 색인 5. 제거 6. 구조 수정 7. 산술 연산 8. 인덱스 변경(reindex) 9. 정렬 데이터 프레임에 익숙해지기 위해서는 데이터 프레임을 다루는 실습문제를 많이 풀어보는 것을 권장합니다. 다루는 내용이 많아 총 3번에 나눠 작성할 예정이며 따라서 이번...</p>
-    </section>
-    <section class="post-meta">
-      <div class="post-date">September 24, 2020</div>
-      <div class="post-categories">
-      in 
-        
-        <a href="/category/python">Python</a>
-        
-      
-      </div>
-    </section>
-  </li>
-  
-  <hr>
-  
-  
-  <li>
-    <h2>
-      <a class="post-link" href="/python/2020/09/22/python-6.html">pandas - Series</a>
-    </h2>
-    <section class="post-excerpt" itemprop="description">
-      <p>목차 pandas 시리즈 (Series) 1. 생성 2. 연산 3. 색인 4. 기타 메소드 5. 인덱스 6. NA 찾기 pandas pandas는 시리즈(Series)와 데이터프레임(DataFrame) 같은 자료 구조를 내장하고 있으며 이들에 대한 생성 및 전처리에 필요한 기본 함수들이 내장된 모듈입니다. NA에 대한 연산이 쉽고 빠르게 되어 있으며 산술연산에 대해도 벡터연산이 가능합니다. 하지만, 문자열...</p>
-    </section>
-    <section class="post-meta">
-      <div class="post-date">September 22, 2020</div>
-      <div class="post-categories">
-      in 
-        
-        <a href="/category/python">Python</a>
-        
-      
-      </div>
-    </section>
-  </li>
-  
-  <hr>
-  
-  
-  <li>
-    <h2>
-      <a class="post-link" href="/python/2020/09/21/python-5.html">numpy</a>
-    </h2>
-    <section class="post-excerpt" itemprop="description">
-      <p>목차 numpy 배열(array) Broadcast Transpose(전치) asarray(얕은 복사) astype(형 변환) 배열에 대한 산술연산 누적 산술연산 최대 최솟값 조건 색인(boolean indexing) 집합 연산자 NaN Part 2에서는 본격적으로 numpy와 pandas 등 데이터 분석 모델에 직접 넣을 데이터 셋을 다룰 것입니다. numpy numpy는 다차원 배열 생성 및 연산을 위한 패키지(모듈)로 딥러닝에 많이 쓰이는 자료...</p>
-    </section>
-    <section class="post-meta">
-      <div class="post-date">September 21, 2020</div>
-      <div class="post-categories">
-      in 
-        
-        <a href="/category/python">Python</a>
-        
-      
-      </div>
-    </section>
-  </li>
-  
-  <hr>
-  
-  
-  <li>
-    <h2>
-      <a class="post-link" href="/python/2020/09/20/python-4.html">Python 자료 구조 (2)</a>
-    </h2>
-    <section class="post-excerpt" itemprop="description">
-      <p>목차 딥 카피(Deep Copy) 지역 변수 및 전역 변수 매개변수 전달방식 모듈 생성 및 패키지 파일 입출력 내용이 많아 두 글에 나눠서 작성하게 되었습니다. 복사본 생성시 모르면 자칫 혼란이 올 수 있는 딥 카피부터 시작해서 파일 입/출력하는 방법까지 다루고 자료 구조에 대한 글을 마치도록 하겠습니다. 다음 글 부터는 numpy와 pandas...</p>
-    </section>
-    <section class="post-meta">
-      <div class="post-date">September 20, 2020</div>
-      <div class="post-categories">
-      in 
-        
-        <a href="/category/python">Python</a>
-        
-      
-      </div>
-    </section>
-  </li>
-  
-  <hr>
-  
-  
-  <li>
-    <h2>
-      <a class="post-link" href="/python/2020/09/19/python-3.html">Python 자료 구조 (1)</a>
-    </h2>
-    <section class="post-excerpt" itemprop="description">
-      <p>목차 자료 구조 list map 함수 만들기 Series tuple dictionary 반복(제어)문 for while if 제어문 break continue pass 리스트 내포 표현식(List Comprehension) 이번 장에서 다루는 자료 구조는 굉장히 중요한 내용입니다. 자료 구조에 따라 쓸 수 있는 메서드와 함수가 다르기 때문에 후에 진행할 데이터 전처리 하는데 있어서 자료 구조에 대해 지식이...</p>
-    </section>
-    <section class="post-meta">
-      <div class="post-date">September 19, 2020</div>
-      <div class="post-categories">
-      in 
-        
-        <a href="/category/python">Python</a>
-        
-      
-      </div>
-    </section>
-  </li>
-  
-  
-</ul>
 
-<nav class="pagination" role="navigation">
-	<p>
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">February 4, 2021</div>
+  <div class="post-categories">
+  in 
     
-			
-			<a class="newer-posts" href="/page/7/">
-				<span class="fa-stack fa-lg">
-					<i class="fa fa-square fa-stack-2x"></i>
-					<i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-				</span>
-			</a>
-			
-		
-		<span class="page-number">Page 6 of 8</span>
-		
-		<a class="newer-posts" href="/page/7/">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-square fa-stack-2x"></i>
-        <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
-		
-	</p>
-</nav>
+    <a href="/category/python">Python</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <p>True, False 는 논리형 데이터로 python에서 type 함수로 확인할 경우에 bool이라고 뜹니다. 그런데 bool 타입 뒤에 + 0 를 붙이면 True는 1, False는 0으로 바뀌게 됩니다.
+물론 int 함수로 형 전환을 해도 숫자로 바꿀 수 있습니다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="bp">True</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="bp">True</span>
+
+<span class="bp">False</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="bp">False</span>
+
+<span class="bp">True</span> <span class="o">+</span> <span class="mi">0</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="mi">1</span>
+
+<span class="bp">False</span> <span class="o">+</span> <span class="mi">0</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="mi">0</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="nb">bool</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="nb">bool</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="bp">True</span> <span class="o">+</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="nb">int</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="bp">False</span> <span class="o">+</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="nb">int</span></code></pre></figure>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=boolean+%EB%AF%B8%EC%84%B8+%ED%8C%81&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2021%2F02%2F04%2Fpython-tnf.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=boolean+%EB%AF%B8%EC%84%B8+%ED%8C%81&u=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2021%2F02%2F04%2Fpython-tnf.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2021%2F02%2F04%2Fpython-tnf.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=boolean+%EB%AF%B8%EC%84%B8+%ED%8C%81&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2021%2F02%2F04%2Fpython-tnf.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=boolean+%EB%AF%B8%EC%84%B8+%ED%8C%81&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2021%2F02%2F04%2Fpython-tnf.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/python/2021/02/04/python-tnf.html') + '&title=boolean 미세 팁'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
 
 </div>
 </div>
@@ -504,8 +604,8 @@ $(document).ready(function() {
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
   ga('create', 'G-LYEK3M0XH1', 'auto');
   ga('send', 'pageview', {
-    'page': '/page/6/index.html',
-    'title': 'RWDR - page 6'
+    'page': '/python/2021/02/04/python-tnf.html',
+    'title': 'boolean 미세 팁'
   });
 </script>
 

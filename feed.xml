@@ -6,9 +6,21 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 11 Dec 2020 15:56:19 +0900</pubDate>
-    <lastBuildDate>Fri, 11 Dec 2020 15:56:19 +0900</lastBuildDate>
+    <pubDate>Fri, 05 Feb 2021 10:47:05 +0900</pubDate>
+    <lastBuildDate>Fri, 05 Feb 2021 10:47:05 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>boolean 미세 팁</title>
+        <description>&lt;p&gt;True, False 는 논리형 데이터로 python에서 type 함수로 확인할 경우에 bool이라고 뜹니다. 그런데 bool 타입 뒤에 + 0 를 붙이면 True는 1, False는 0으로 바뀌게 됩니다. 물론 int 함수로 형...</description>
+        <pubDate>Thu, 04 Feb 2021 12:20:52 +0900</pubDate>
+        <link>http://localhost:4000/python/2021/02/04/python-tnf.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/2021/02/04/python-tnf.html</guid>
+        
+        
+        <category>python</category>
+        
+      </item>
     
       <item>
         <title>R - reshape2</title>
@@ -112,18 +124,6 @@
         <pubDate>Thu, 22 Oct 2020 04:25:52 +0900</pubDate>
         <link>http://localhost:4000/hadoop/2020/10/22/hadoop-several.html</link>
         <guid isPermaLink="true">http://localhost:4000/hadoop/2020/10/22/hadoop-several.html</guid>
-        
-        
-        <category>hadoop</category>
-        
-      </item>
-    
-      <item>
-        <title>mapreduce 맛보기</title>
-        <description>&lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#prepare&quot;&gt;준비 단계&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#mkmap&quot;&gt;mapper 만들기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#mkreduce&quot;&gt;reducer 만들기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#mkmain&quot;&gt;메인 클래스 만들기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#fshadoop&quot;&gt;WordCount 실행하기&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr /&gt; &lt;h2 id=&quot;prepare&quot;&gt;준비 단계&lt;/h2&gt; &lt;p&gt;리눅스 마스터에 있는 하둡 설정 관련 파일을...</description>
-        <pubDate>Thu, 15 Oct 2020 19:25:52 +0900</pubDate>
-        <link>http://localhost:4000/hadoop/2020/10/15/mapred-1.html</link>
-        <guid isPermaLink="true">http://localhost:4000/hadoop/2020/10/15/mapred-1.html</guid>
         
         
         <category>hadoop</category>

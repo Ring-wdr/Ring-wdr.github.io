@@ -1,6 +1,14 @@
 [
     
      {
+       "title"    : "boolean 미세 팁",
+       "category" : "",
+       "tags"     : "",
+       "url"      : "/python/2021/02/04/python-tnf.html",
+       "date"     : "2021-02-04 12:20:52 +0900"
+     } ,
+    
+     {
        "title"    : "R - reshape2",
        "category" : "",
        "tags"     : "",

@@ -6,9 +6,33 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 05 Feb 2021 10:47:05 +0900</pubDate>
-    <lastBuildDate>Fri, 05 Feb 2021 10:47:05 +0900</lastBuildDate>
+    <pubDate>Mon, 10 May 2021 23:35:50 +0900</pubDate>
+    <lastBuildDate>Mon, 10 May 2021 23:35:50 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>JAVA (2) - 작성 중</title>
+        <description>&lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#operator&quot;&gt;연산자&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#arithops&quot;&gt;산술 연산자&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#unary&quot;&gt;단항 연산자&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#prepost&quot;&gt;전위/후위 연산자&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#plmi&quot;&gt;부호 연산자&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#bool&quot;&gt;논리 연산자&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#booldeny&quot;&gt;논리부정 연산자&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#shiftops&quot;&gt;쉬프트 연산자&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#relops&quot;&gt;비교 연산자&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#assiops&quot;&gt;대입...</description>
+        <pubDate>Mon, 10 May 2021 12:20:52 +0900</pubDate>
+        <link>http://localhost:4000/java/2021/05/10/java(2).html</link>
+        <guid isPermaLink="true">http://localhost:4000/java/2021/05/10/java(2).html</guid>
+        
+        
+        <category>java</category>
+        
+      </item>
+    
+      <item>
+        <title>JAVA (1)</title>
+        <description>&lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#java&quot;&gt;JAVA&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#jdk&quot;&gt;JDK 설치&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#ldata&quot;&gt;eclipse 설치&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#datatype&quot;&gt;변수의 타입&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#int&quot;&gt;정수&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#float&quot;&gt;실수&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#char&quot;&gt;문자&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#boolean&quot;&gt;논리형&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#print&quot;&gt;출력문&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a...</description>
+        <pubDate>Fri, 07 May 2021 12:20:52 +0900</pubDate>
+        <link>http://localhost:4000/java/2021/05/07/java.html</link>
+        <guid isPermaLink="true">http://localhost:4000/java/2021/05/07/java.html</guid>
+        
+        
+        <category>java</category>
+        
+      </item>
     
       <item>
         <title>boolean 미세 팁</title>
@@ -19,6 +43,18 @@
         
         
         <category>python</category>
+        
+      </item>
+    
+      <item>
+        <title>R - reshape2</title>
+        <description>&lt;p&gt;데이터 구조 변경 패키지 &lt;code class=&quot;highlighter-rouge&quot;&gt;reshape2&lt;/code&gt;를 이용하여 데이터 구조를 바꾸어보겠습니다. 여기서 말하는 데이터 구조는 데이터 타입(data type)을 말하는 것이 아니라 wide data, long data를 의미합니다.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#datastr&quot;&gt;데이터 구조&lt;/a&gt; &lt;ul&gt;...</description>
+        <pubDate>Wed, 09 Dec 2020 12:20:52 +0900</pubDate>
+        <link>http://localhost:4000/r/2020/12/09/naturalsort.html</link>
+        <guid isPermaLink="true">http://localhost:4000/r/2020/12/09/naturalsort.html</guid>
+        
+        
+        <category>r</category>
         
       </item>
     
@@ -91,42 +127,6 @@
         
         
         <category>r</category>
-        
-      </item>
-    
-      <item>
-        <title>R로 공공데이터 가져오기</title>
-        <description>&lt;p&gt;이번에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;XML&lt;/code&gt;라이브러리를 이용하여 서울시 공공데이터를 불러온 후 저장하는 글입니다.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#authkey&quot;&gt;로그인 및 인증키 생성&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#crawling&quot;&gt;공공데이터 가져오기&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#save&quot;&gt;공공데이터 csv로 저장하기&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr /&gt; &lt;h2 id=&quot;authkey&quot;&gt;로그인 및 인증키...</description>
-        <pubDate>Wed, 28 Oct 2020 17:20:52 +0900</pubDate>
-        <link>http://localhost:4000/r/2020/10/28/r-public-data.html</link>
-        <guid isPermaLink="true">http://localhost:4000/r/2020/10/28/r-public-data.html</guid>
-        
-        
-        <category>r</category>
-        
-      </item>
-    
-      <item>
-        <title>하둡 스트리밍 - Python으로 MapReduce</title>
-        <description>&lt;p&gt;기존 자바로 작성된 jar 기반으로 하는 대신에 하둡 스트리밍을 이용하여 Python같은 스크립트 언어로 Mapper와 Reducer를 만들어서 실행합니다. 이번 글에서는 항공 데이터를 이용하여 &lt;code class=&quot;highlighter-rouge&quot;&gt;년.월&lt;/code&gt;별 운항 횟수를 출력해보겠습니다.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#prepare&quot;&gt;Python...</description>
-        <pubDate>Sat, 24 Oct 2020 04:25:52 +0900</pubDate>
-        <link>http://localhost:4000/hadoop/2020/10/24/hadoop-stream.html</link>
-        <guid isPermaLink="true">http://localhost:4000/hadoop/2020/10/24/hadoop-stream.html</guid>
-        
-        
-        <category>hadoop</category>
-        
-      </item>
-    
-      <item>
-        <title>MapReduce 예제 - 항공 데이터</title>
-        <description>&lt;p&gt;이 글에서는 &lt;a href=&quot;http://stat-computing.org/dataexpo/2009/the-data.html&quot;&gt;항공 데이터&lt;/a&gt;를 이용하여 2005~2008년 사이에 항공사별 운행 지연 횟수와 지연 시간의 평균을 하둡을 이용하여 구해보도록 하겠습니다.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#parser&quot;&gt;파싱 클래스 생성&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#map&quot;&gt;mapper 생성&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#reduce&quot;&gt;reducer 생성&lt;/a&gt;&lt;/li&gt;...</description>
-        <pubDate>Thu, 22 Oct 2020 04:25:52 +0900</pubDate>
-        <link>http://localhost:4000/hadoop/2020/10/22/hadoop-several.html</link>
-        <guid isPermaLink="true">http://localhost:4000/hadoop/2020/10/22/hadoop-several.html</guid>
-        
-        
-        <category>hadoop</category>
         
       </item>
     

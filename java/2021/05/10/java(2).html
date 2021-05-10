@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>JAVA (2) - 작성 중</title>
+  <meta name="description" content="  연산자          산술 연산자      단항 연산자      전위/후위 연산자      부호 연산자      논리 연산자      논리부정 연산자      쉬프트 연산자      비교 연산자      대입 연산자      삼항 연산자      *비트 연산자      ">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2021">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="  연산자          산술 연산자      단항 연산자      전위/후위 연산자      부호 연산자      논리 연산자      논리부정 연산자      쉬프트 연산자      비교 연산자      대입 연산자      삼항 연산자      *비트 연산자      " />
+  <meta property="og:url" content="http://localhost:4000/java/2021/05/10/java(2).html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="JAVA (2) - 작성 중" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="JAVA (2) - 작성 중">
+  <meta name="twitter:description" content="  연산자          산술 연산자      단항 연산자      전위/후위 연산자      부호 연산자      논리 연산자      논리부정 연산자      쉬프트 연산자      비교 연산자      대입 연산자      삼항 연산자      *비트 연산자      ">
+  <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
+  <meta name="twitter:url" content="http://localhost:4000/java/2021/05/10/java(2).html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/java/2021/05/10/java(2).html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">JAVA (2) - 작성 중</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">May 10, 2021</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/java">Java</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <ul>
+  <li><a href="#operator">연산자</a>
+    <ul>
+      <li><a href="#arithops">산술 연산자</a></li>
+      <li><a href="#unary">단항 연산자</a></li>
+      <li><a href="#prepost">전위/후위 연산자</a></li>
+      <li><a href="#plmi">부호 연산자</a></li>
+      <li><a href="#bool">논리 연산자</a></li>
+      <li><a href="#booldeny">논리부정 연산자</a></li>
+      <li><a href="#shiftops">쉬프트 연산자</a></li>
+      <li><a href="#relops">비교 연산자</a></li>
+      <li><a href="#assiops">대입 연산자</a></li>
+      <li><a href="#terops">삼항 연산자</a></li>
+      <li><a href="#bitops">*비트 연산자</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="operator">연산자</h2>
+
+<p>연산자란 어떤 기능을 수행하는 기호로 단항, 다항, 논리, 대입 연산자 등이 있다.</p>
+
+<h3 id="arithops">산술 연산자</h3>
+
+<p>산술 연산자에는 사칙 연산과 나머지 연산자가 있다. 사칙 연산 중 나누기를 할 때 주의할 점은 int 형끼리 연산시 int만 출력하기 때문에 소숫점까지 보기 위해서는 앞의 형을 double이나 float으로 변환해야한다. 두 변수를 피연산자로 사용시 둘다 바꾸지 않고도 하나만 바꿔도 자동으로 형 변환이 이루어진다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex01</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="c1">// 사칙 연산 </span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">3</span><span class="o">+</span><span class="mi">5</span><span class="o">);</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">3</span><span class="o">-</span><span class="mi">5</span><span class="o">);</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">3</span><span class="o">*</span><span class="mi">5</span><span class="o">);</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">5</span><span class="o">);</span>
+		
+		<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span> <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+		<span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="o">;</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="n">j</span><span class="o">;</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">j</span><span class="o">;</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="n">j</span><span class="o">;</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="n">j</span><span class="o">;</span> <span class="c1">//% 나머지</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+		
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">3</span><span class="o">);</span>
+		<span class="c1">// 4byte 4byte연산 =&gt; 4byte 실수 연산</span>
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="kt">double</span><span class="o">)</span><span class="mi">5</span><span class="o">/</span><span class="mi">3</span><span class="o">);</span> <span class="c1">//8byte 형 변환</span>
+		<span class="c1">// 10101010 10101010 8 n 4</span>
+		<span class="c1">// 00000000	01010101 8 n 8 강제 형변환이 됨</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p>문자 타입도 더하기 연산이 가능한데 변수 저장시에 아스키 코드 표에 의해 숫자형태로 저장되기 때문에 정수연산을 하므로 4byte 연산을 하게 된다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex01</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">char</span> <span class="n">ch</span> <span class="o">=</span> <span class="sc">'A'</span><span class="o">;</span> <span class="c1">// ASC 상 65 </span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch</span><span class="o">);</span>
+    <span class="c1">//A</span>
+		
+    <span class="kt">char</span> <span class="n">ch1</span> <span class="o">=</span> <span class="sc">'A'</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// 65 + 1 = 66</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch1</span><span class="o">);</span>
+		<span class="c1">//B</span>
+
+    <span class="kt">char</span> <span class="n">ch2</span><span class="o">;</span>
+		<span class="n">ch2</span> <span class="o">=</span> <span class="sc">'A'</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch2</span><span class="o">);</span>
+		<span class="c1">//B</span>
+
+    <span class="kt">char</span> <span class="n">ch3</span> <span class="o">=</span> <span class="sc">'A'</span><span class="o">;</span><span class="c1">// char은 2byte</span>
+		<span class="kt">int</span> <span class="n">ch4</span> <span class="o">=</span> <span class="n">ch3</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// 'A' + 1</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ch4</span><span class="o">);</span>
+    <span class="c1">//66</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="kt">char</span><span class="o">)</span><span class="n">ch4</span><span class="o">);</span>
+    <span class="c1">//ch3 = ch3 + (char)1; 는 불가능한 코드</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="prepost">전위/후위 증감 연산자</h3>
+
+<p>증감 연산자는 피연산자를 1씩 증가하거나 감소시키는 연산자로 전위 연산자는 실행 직후 연산이 되고 후위 연산자는 실행 직후가 아닌 나중에 연산이 이루어집니다. 실행 시점의 차이인데 아래 코드를 통해 확인해봅시다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex04</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+		<span class="n">i</span><span class="o">--;</span> <span class="c1">// 후위</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span><span class="c1">//9</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"-----"</span><span class="o">);</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">--);</span>
+		
+
+    <span class="c1">//후위</span>
+		<span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">j</span><span class="o">--);</span>
+		<span class="c1">//System.out.println(j);</span>
+		<span class="c1">// j = j - 1;</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+		
+    <span class="c1">//전위</span>
+		<span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(--</span><span class="n">j</span><span class="o">);</span> <span class="c1">//</span>
+		<span class="c1">// j = j - 1;</span>
+		<span class="c1">// System.out.println(j);</span>
+	<span class="o">}</span>
+ 
+<span class="o">}</span></code></pre></figure>
+
+<p>전위 연산자는 연산 직후 바로 반영이 되기 때문에 이해하기가 쉽습니다. 그러나 후위 연산자의 경우 위 코드에서 확인할 수 있듯이 int i의 경우 i–; 이후 i를 출력했을 때 9가 나옵니다. 그런데 i–를 출력하면 1이 감소하여 8이 나오는 것이 아니라 9가 그대로 출력이 됩니다. 즉 전위 연산자 사용 후 출력을 하면 연산이 된 결과가 출력이 되고, 후위 연산자를 사용후 출력을 하면 기존 값을 출력하고 출력 이후에 연산이 이루어집니다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/c7lR9m/btq4EdHmhJS/U0UMuZskvUBAQZAmf5jcC1/img.png" alt="https://blog.kakaocdn.net/dn/c7lR9m/btq4EdHmhJS/U0UMuZskvUBAQZAmf5jcC1/img.png" /></p>
+
+<center>i = i + 1; result = i + j;
+
+j = j - 1;// j = 10 - 1 = 9
+
+순으로 연산이 이루어집니다.</center>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span><span class="c1">//11</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">j</span><span class="o">);</span><span class="c1">//9</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span><span class="c1">//21</span></code></pre></figure>
+
+<p>result의 경우는 변수 선언시 j가 변하지 않은 상태이기 때문에 11 + 10이 되어 21을 저장하게 됩니다.</p>
+
+<p><br /></p>
+
+<h3 id="plmi">부호 연산자</h3>
+
+<p>부호 연산자<code class="highlighter-rouge">(+,-)</code>는 부호를 결정하는 연산자로 <code class="highlighter-rouge">+</code>의 경우 피연산자에 <code class="highlighter-rouge">1</code>을 곱하고 <code class="highlighter-rouge">-</code>의 경우 <code class="highlighter-rouge">-1</code>을 곱합니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex01</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span> <span class="c1">//10</span>
+	    	<span class="n">i</span> <span class="o">=</span> <span class="o">+</span><span class="n">i</span><span class="o">;</span>
+	    	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span> <span class="c1">//10</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="n">i</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span> <span class="c1">//-10</span>
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="bool">논리 연산자</h3>
+
+<p>논리 연산자는 주어진 논리식을 통해 boolean 값을 반환하는 연산자입니다.</p>
+
+<p>AND연산자 (&amp;&amp;) : 모두 true인 경우 true</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>OR연산자 (</td>
+      <td> </td>
+      <td>) : 하나라도 true인 경우 true</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>x</th>
+      <th>y</th>
+      <th>x¦¦y</th>
+      <th>x&amp;&amp;y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>true</td>
+      <td>true</td>
+      <td>true</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>true</td>
+      <td>false</td>
+      <td>true</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>false</td>
+      <td>true</td>
+      <td>true</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>false</td>
+      <td>false</td>
+      <td>false</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h3 id="booldeny">논리부정 연산자</h3>
+
+<p>논리부정 연산자는 boolean타입의 피연산자를 true는 false로, false는 true로 바꾸는 연산자입니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex01</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">boolean</span> <span class="n">power</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(!</span><span class="n">power</span><span class="o">);</span> <span class="c1">// false</span>
+        <span class="n">power</span> <span class="o">=</span> <span class="o">!</span><span class="n">power</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(!</span><span class="n">power</span><span class="o">);</span> <span class="c1">// true</span>
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="shiftops">쉬프트 연산자</h3>
+
+<p>쉬프트 연산자는 2의 제곱으로 곱하거나 나눈 결과를 반환하는 연산자로 곱셈, 나눗셈 연산자보다 빠릅니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex01</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="o">);</span> <span class="c1">// 10에 2^3 = 8을 곱함</span>
+        <span class="c1">// 80</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="o">);</span> <span class="c1">// 10을 4로 나눔.</span>
+        <span class="c1">//2</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="relops">비교 연산자</h3>
+
+<p>비교 연산자는 피연산자를 같은 타입으로 변환한 후 비교하는 연산자로 boolean 값을 반환합니다. 모든 자료형에 사용할 수 있지만 참조형에는 ==와 !=만 사용이 가능합니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>수식</th>
+      <th style="text-align: left">연산 결과</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>x &gt; y</td>
+      <td style="text-align: left">x가 y보다 클 때 true, 그 외에는 false</td>
+    </tr>
+    <tr>
+      <td>x &lt; y</td>
+      <td style="text-align: left">x가 y보다 작을 때 true, 그 외에는 false</td>
+    </tr>
+    <tr>
+      <td>x &gt;= y</td>
+      <td style="text-align: left">x가 y보다 크거나 같을 때 true, 그 외에는 false</td>
+    </tr>
+    <tr>
+      <td>x &lt;= y</td>
+      <td style="text-align: left">x가 y보다 작거나 같을 때 true, 그 외에는 false</td>
+    </tr>
+    <tr>
+      <td>x == y</td>
+      <td style="text-align: left">x가 y와 같을 때 true, 그 외에는 false</td>
+    </tr>
+    <tr>
+      <td>x != y</td>
+      <td style="text-align: left">x가 y와 다를 때 true, 그 외에는 false</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex01</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+		    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
+		    <span class="kt">boolean</span> <span class="n">b</span> <span class="o">=</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span><span class="o">;</span>
+		    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
+        <span class="c1">//false</span>
+		    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span><span class="o">);</span>
+        <span class="c1">//false</span>
+
+        <span class="n">b</span> <span class="o">=</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"i == j : "</span> <span class="o">+</span> <span class="n">b</span><span class="o">);</span>
+        <span class="c1">//false</span>
+
+        <span class="kt">float</span> <span class="n">f</span> <span class="o">=</span> <span class="mf">20.1f</span><span class="o">;</span> <span class="c1">// 4byte</span>
+     	  <span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">20.1</span><span class="o">;</span> <span class="c1">// 8byte</span>
+	    	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"f == d :"</span> <span class="o">+</span> <span class="o">(</span><span class="n">f</span> <span class="o">==</span> <span class="n">d</span><span class="o">));</span>
+		    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(.</span><span class="mi">1</span> <span class="o">+</span> <span class="o">.</span><span class="mi">1</span> <span class="o">+</span> <span class="o">.</span><span class="mi">1</span> <span class="o">==</span> <span class="o">.</span><span class="mi">3</span><span class="o">);</span>
+
+
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p>실수 비교 연산시 주의할 점이 있는데 소숫점 아래가 10진 소수가 아닌 이진 소수로 근사값으로 기록되기 때문에 의도치 않은 오류가 발생할 수 있습니다. 위 코드에서도 볼 수 있다시피 float형태의 20.1과 double의 20.1과 저장하는 방식이 다르기 때문에 둘에게 동등비교 연산을 했을 때 false를 반환합니다. 또, 0.1 + 0.1 + 0.1이 0.3인것은 산술적으로 상식적인 결과지만 자바에서 위 결과를 실행할 경우 false를 반환합니다.</p>
+
+<p><br /></p>
+
+<h3 id="assiops">대입 연산자</h3>
+
+<p>대입 연산자는 변수에 값을 대입할 때 사용하는 이항 연산자이며 오른쪽에서 왼쪽으로 진행합니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>대입 연산자</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>=</td>
+      <td>오른쪽 값을 왼쪽에 대입</td>
+    </tr>
+    <tr>
+      <td>+=</td>
+      <td>오른쪽 값을 왼쪽에 더한 값을 대입</td>
+    </tr>
+    <tr>
+      <td>-=</td>
+      <td>오른쪽 값을 왼쪽에 뺀 값을 대입</td>
+    </tr>
+    <tr>
+      <td>*=</td>
+      <td>오른쪽 값을 왼쪽에 곱한 값을 대입</td>
+    </tr>
+    <tr>
+      <td>/=</td>
+      <td>오른쪽 값을 왼쪽에 나눈 값을 대입</td>
+    </tr>
+    <tr>
+      <td>%=</td>
+      <td>오른쪽 값을 왼쪽에 나누고 나머지 값을 대입</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex11</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+		<span class="n">i</span> <span class="o">+=</span> <span class="mi">3</span><span class="o">;</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+		<span class="n">i</span> <span class="o">-=</span> <span class="mi">2</span><span class="o">;</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="terops">삼항 연산자</h3>
+
+<p>삼항 연산자는 자바에서 유일하게 피연산자를 세 개나 가지는 조건 연산자로 물음표(?) 앞의 <code class="highlighter-rouge">조건식</code>에 따라 결괏값이 참(true)이면 <code class="highlighter-rouge">반환값1</code>을 반환하고, 결괏값이 거짓(false)이면 <code class="highlighter-rouge">반환값2</code>를 반환합니다.</p>
+
+<table>
+  <caption>문법</caption>
+    <tr>
+     <td>조건식 ? 반환값1 : 반환값2</td>
+    </tr>
+</table>
+
+<p><br /></p>
+<hr />
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex11</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span><span class="o">[]</span> <span class="n">scores</span> <span class="o">=</span> <span class="o">{</span><span class="mi">65</span><span class="o">,</span><span class="mi">75</span><span class="o">,</span><span class="mi">70</span><span class="o">,</span><span class="mi">85</span><span class="o">,</span><span class="mi">80</span><span class="o">,</span><span class="mi">90</span><span class="o">};</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">score</span> <span class="o">:</span> <span class="n">scores</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">String</span> <span class="n">grade</span> <span class="o">=</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span> <span class="o">?</span> <span class="s">"A"</span> <span class="o">:</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">80</span> <span class="o">?</span> <span class="s">"B"</span> <span class="o">:</span> <span class="n">score</span> <span class="o">&gt;=</span><span class="mi">70</span> <span class="o">?</span> <span class="s">"C"</span> <span class="o">:</span> <span class="s">""</span><span class="o">;</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">grade</span><span class="o">);</span>
+		<span class="o">}</span>
+    <span class="o">/*</span>
+     <span class="o">*</span><span class="no">C</span>
+     <span class="o">*</span><span class="no">C</span>
+     <span class="o">*</span><span class="no">B</span>
+     <span class="o">*</span><span class="no">B</span>
+     <span class="o">*</span><span class="no">A</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<h3 id="bitops">* 비트 연산자</h3>
+
+<p>비교 연산자는 피연산자를 비트 단위로 연산합니다. <code class="highlighter-rouge">&amp;, |, ^</code>이 있으며 각각의 설명은 아래와 같습니다. 알고리즘 공부하는 경우 알아두면 좋습니다.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>OR 연산자(</td>
+      <td>) : 둘 중 하나가 1이면 1입니다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>AND 연산자(&amp;) : 둘 다 1이여야 1입니다.</p>
+
+<p>XOR 연산자(^) : 둘이 서로 다를 때 1입니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>x</th>
+      <th>y</th>
+      <th>x¦y</th>
+      <th>x&amp;y</th>
+      <th>x^y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>예제</caption>
+  <tr>
+    <td>식</td>
+    <td>2진수</td>
+    <td>10진수</td>
+  </tr>
+  
+  <tr>
+    <td>3 | 5 = 7</td>
+    <td>
+      <table>
+        <tr></tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+        <tr></tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>        
+      </table>
+      <table>
+      <tr></tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>        
+      </table>
+    </td>
+    <td> 3 <br /> 5 <br />---<br /> 7</td>
+  </tr>
+  
+  <tr>
+    <td>3 &amp; 5 = 1</td>
+    <td>
+      <table>
+        <tr> </tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+        <tr> </tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>        
+      </table>
+      <table>
+      <tr></tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>        
+      </table>
+    </td>
+    <td> 3 <br /> 5 <br />---<br /> 1</td>
+  </tr>
+  <tr>
+    <td>3 ^ 5 = 6</td>
+    <td>
+      <table>
+        <tr> </tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+        <tr> </tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>        
+      </table>
+      <table>
+      <tr></tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>        
+      </table>
+    </td>
+    <td> 3 <br /> 5 <br />---<br /> 6</td>
+  </tr>
+
+</table>
+
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=JAVA+%282%29+-+%EC%9E%91%EC%84%B1+%EC%A4%91&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F10%2Fjava%282%29.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=JAVA+%282%29+-+%EC%9E%91%EC%84%B1+%EC%A4%91&u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F10%2Fjava%282%29.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F10%2Fjava%282%29.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=JAVA+%282%29+-+%EC%9E%91%EC%84%B1+%EC%A4%91&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F10%2Fjava%282%29.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=JAVA+%282%29+-+%EC%9E%91%EC%84%B1+%EC%A4%91&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F10%2Fjava%282%29.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/java/2021/05/10/java(2).html') + '&title=JAVA (2) - 작성 중'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'G-LYEK3M0XH1', 'auto');
+  ga('send', 'pageview', {
+    'page': '/java/2021/05/10/java(2).html',
+    'title': 'JAVA (2) - 작성 중'
+  });
+</script>
+
+
+
+  </body>
+
+</html>

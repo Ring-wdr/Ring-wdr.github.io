@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>JAVA (3) - 작성 중</title>
+  <meta name="description" content="  스캐너  조건문          if문      중첩 if문      switch문      중첩 switch문      * 랜덤 함수        반복문          for문      여기까지 작성되었습니다.      중첩 for문      while문      중첩 wh...">
+  
+  <meta name="author" content="Manjoong Kim">
+  <meta name="copyright" content="&copy; Manjoong Kim 2021">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="  스캐너  조건문          if문      중첩 if문      switch문      중첩 switch문      * 랜덤 함수        반복문          for문      여기까지 작성되었습니다.      중첩 for문      while문      중첩 wh..." />
+  <meta property="og:url" content="http://localhost:4000/java/2021/05/10/java(3).html">
+  <meta property="og:site_name" content="RWDR" />
+  <meta property="og:title" content="JAVA (3) - 작성 중" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="JAVA (3) - 작성 중">
+  <meta name="twitter:description" content="  스캐너  조건문          if문      중첩 if문      switch문      중첩 switch문      * 랜덤 함수        반복문          for문      여기까지 작성되었습니다.      중첩 for문      while문      중첩 wh...">
+  <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
+  <meta name="twitter:url" content="http://localhost:4000/java/2021/05/10/java(3).html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/java/2021/05/10/java(3).html">
+	<link rel="alternate" type="application/rss+xml" title="RWDR" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/RWDR.png" alt="RWDR">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">JAVA (3) - 작성 중</h1>
+      <p class="info">by <strong>Kim</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">May 10, 2021</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/java">Java</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <ul>
+  <li><a href="#scanner">스캐너</a></li>
+  <li><a href="#option">조건문</a>
+    <ul>
+      <li><a href="#if">if문</a></li>
+      <li><a href="#dupif">중첩 if문</a></li>
+      <li><a href="#switch">switch문</a></li>
+      <li><a href="#dupswitch">중첩 switch문</a></li>
+      <li><a href="#random">* 랜덤 함수</a></li>
+    </ul>
+  </li>
+  <li><a href="#rep">반복문</a>
+    <ul>
+      <li><a href="#for">for문</a></li>
+      <li>여기까지 작성되었습니다.</li>
+      <li><a href="#dupfor">중첩 for문</a></li>
+      <li><a href="#while">while문</a></li>
+      <li><a href="#dupwhile">중첩 while문</a></li>
+      <li><a href="#dowhile">do-while문</a></li>
+      <li><a href="#control">제어문</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="scanner">스캐너</h2>
+
+<p>자바에서 키보드 입력값을 받는 스캐너 클래스가 있습니다. 정수, 실수, 문자열을 받아올 수 있습니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span></code></pre></figure>
+
+<p><img src="https://blog.kakaocdn.net/dn/dkfIIE/btq4Hw1XPOy/EA20DLk8lWIGpnebSKzo81/img.png" alt="https://blog.kakaocdn.net/dn/dkfIIE/btq4Hw1XPOy/EA20DLk8lWIGpnebSKzo81/img.png" /></p>
+
+<center>자동 완성(sc 입력 후 ctrl + enter)후 Scanner 클릭</center>
+
+<p>예시를 통해서 스캐너에 익숙해져 봅시다. 분모, 분자를 입력 후 나눈 값을 출력하는 코드입니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+    	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"분자가 될 숫자값을 입력하시오 : "</span><span class="o">);</span>
+    	<span class="kt">int</span> <span class="n">i1</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+    	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"분모가 될 숫자값을 입력하시오 : 	"</span><span class="o">);</span>
+    	<span class="kt">int</span> <span class="n">i2</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+    	<span class="k">while</span> <span class="o">(</span><span class="n">i2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+    		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"0이 아닌 값을 입력해주세요"</span><span class="o">);</span>
+    		<span class="n">i2</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+    	<span class="o">}</span> 
+    	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="kt">double</span><span class="o">)</span><span class="n">i1</span> <span class="o">/</span> <span class="n">i2</span><span class="o">);</span></code></pre></figure>
+
+<h2 id="option">조건문</h2>
+
+<p>선택하고자 할 때 사용하는 문이다. 자바에서 조건문은 if와 switch문 두 가지 뿐입니다. 대부분의 상황에서 if문을 사용하며, 경우의 수가 많은 경우 switch를 사용하기도 합니다. 모든 switch문은 if문으로 변경이 가능하지만, if문은 switch문으로 변경할 수 없는 경우가 많습니다.</p>
+
+<h3 id="if">if 문</h3>
+
+<p>if 문은 조건식의 결과가 true일 때 실행되는 조건문입니다. if문의 조건을 만족하지 못하는 경우 실행되지 않습니다. 당연히 조건식의 결과는 boolean이어야 합니다.</p>
+
+<p>if문은 <code class="highlighter-rouge">if</code>, <code class="highlighter-rouge">if-else</code>, <code class="highlighter-rouge">if-else if</code>의 세가지의 형태가 있습니다. 조건식 만족시 수행될 문장이 한 줄 일 때는 중괄호 없이 코드를 입력해도 실행이 됩니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex01</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">money</span> <span class="o">=</span> <span class="mi">25000</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">money</span> <span class="o">&gt;=</span> <span class="mi">20000</span><span class="o">)</span> <span class="o">{</span><span class="c1">//true</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"택시 ㄱㄱ"</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"조건문 끝나서 실행"</span><span class="o">);</span>
+		
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"============="</span><span class="o">);</span>
+		<span class="n">money</span> <span class="o">=</span> <span class="mi">19500</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">money</span> <span class="o">&gt;=</span> <span class="mi">20000</span><span class="o">)</span> <span class="o">{</span><span class="c1">//false</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"택시 ㄱㄱ"</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"조건문 끝나서 실행"</span><span class="o">);</span>
+		<span class="c1">//if 조건 맞지 않는 경우 실행되지 않는다.	</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+<span class="c1">//		택시 ㄱㄱ</span>
+<span class="c1">//		조건문 끝나서 실행</span>
+<span class="c1">//		=============</span>
+<span class="c1">//		조건문 끝나서 실행</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex02</span> <span class="o">{</span> 
+    <span class="kt">int</span><span class="o">[]</span> <span class="n">scores</span> <span class="o">=</span> <span class="o">{</span><span class="mi">95</span><span class="o">,</span><span class="mi">65</span><span class="o">,</span><span class="mi">70</span><span class="o">,</span><span class="mi">90</span><span class="o">,</span><span class="mi">85</span><span class="o">};</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">score</span> <span class="o">:</span> <span class="n">scores</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">score</span> <span class="o">&gt;=</span><span class="mi">90</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="sc">'A'</span><span class="o">);</span>
+			<span class="o">}</span>
+			<span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="sc">'B'</span><span class="o">);</span>
+			<span class="o">}</span>
+			<span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="sc">'C'</span><span class="o">);</span>
+			<span class="o">}</span>
+			<span class="k">else</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"fail"</span><span class="o">);</span>
+		<span class="o">}</span>
+<span class="c1">//		A</span>
+<span class="c1">//		fail</span>
+<span class="c1">//		C</span>
+<span class="c1">//		A</span>
+<span class="c1">//		B  </span>
+<span class="o">}</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="dupif">중첩 if문</h3>
+
+<p>중첩 if문은 if문 안에 또 다른 if문을 중첩해서 넣을 수 있습니다. 중첩의 제한은 없습니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex03</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span><span class="o">[]</span> <span class="n">scores</span> <span class="o">=</span> <span class="o">{</span><span class="mi">100</span><span class="o">,</span> <span class="mi">95</span><span class="o">,</span> <span class="mi">90</span><span class="o">,</span> <span class="mi">80</span><span class="o">,</span> <span class="mi">98</span><span class="o">,</span> <span class="mi">99</span><span class="o">};</span>
+		<span class="nc">String</span><span class="o">[]</span> <span class="n">grade</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[</span><span class="mi">6</span><span class="o">];</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">6</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(</span> <span class="n">scores</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;=</span><span class="mi">90</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">grade</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="s">"A"</span><span class="o">;</span>
+				<span class="k">if</span> <span class="o">(</span><span class="n">scores</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="mi">98</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">grade</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+=</span> <span class="s">"+"</span><span class="o">;</span>
+				<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">scores</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;</span> <span class="mi">94</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">grade</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+=</span> <span class="s">"-"</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+			<span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">scores</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">grade</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="s">"B"</span><span class="o">;</span>
+				<span class="k">if</span> <span class="o">(</span><span class="n">scores</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="mi">88</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">grade</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+=</span> <span class="s">"+"</span><span class="o">;</span>
+				<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">scores</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;</span> <span class="mi">84</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">grade</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+=</span> <span class="s">"-"</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+				
+			<span class="k">else</span> <span class="n">grade</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="s">"C"</span><span class="o">;</span> 		
+		<span class="o">}</span>
+
+		<span class="k">for</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span> <span class="o">:</span> <span class="n">grade</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>점수에 따라 학점을 부여하는 코드입니다. 코드를 순서대로 설명하면, 90점 이상에 A를, 80점 이상에 B를 그리고 나머지 학생에게 C를 뿌리는 코드입니다. 여기에 중첩 if문을 추가하여 A학점 중 98점 이상이면 +를 추가하고 94점 미만에게는 -를 추가합니다. B학점에도 마찬가지로 +와 -를 부여합니다.</p>
+
+<p><br /></p>
+
+<h3 id="switch">switch문</h3>
+
+<p>if문의 조건식과 달리, 조건식의 계산결과가 int타입의 정수와 문자열만 가능한 조건문으로 조건식의 계산결과가 일치하는 case문으로 이동 후 break문을 만날 때까지 문장들을 수행합니다. 일치하는 case문의 값이 없는 경우 default문으로 이동합니다(생략가능).</p>
+
+<p>A부터 D까지 학점부여 하는 코드를 switch로 구현해보았습니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex06</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span><span class="o">[]</span> <span class="n">scores</span> <span class="o">=</span> <span class="o">{</span><span class="mi">100</span><span class="o">,</span> <span class="mi">95</span><span class="o">,</span> <span class="mi">67</span><span class="o">,</span> <span class="mi">82</span><span class="o">,</span> <span class="mi">80</span><span class="o">};</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">score</span> <span class="o">:</span> <span class="n">scores</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">switch</span> <span class="o">(</span><span class="n">score</span> <span class="o">/</span> <span class="mi">10</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">case</span> <span class="mi">9</span><span class="o">:</span>
+		<span class="k">case</span> <span class="mi">10</span><span class="o">:</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"A"</span><span class="o">);</span>
+			<span class="k">break</span><span class="o">;</span>
+		<span class="k">case</span> <span class="mi">8</span><span class="o">:</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"B"</span><span class="o">);</span>
+			<span class="k">break</span><span class="o">;</span>
+		<span class="k">case</span> <span class="mi">7</span><span class="o">:</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"C"</span><span class="o">);</span>
+			<span class="k">break</span><span class="o">;</span>
+		<span class="k">default</span><span class="o">:</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"D"</span><span class="o">);</span>
+			<span class="k">break</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="dupswitch">중첩 swtich문</h3>
+
+<p>if문 처럼 switch문도 중첩으로 거의 제한없이 사용할 수 있습니다. switch문안에 if문을 사용하는 것도 가능합니다. 아래에는 A, A+, … , C까지 학점 부여하는 코드를 if, switch를 섞어서 구현해보았습니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex06</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span><span class="o">[]</span> <span class="n">scores</span> <span class="o">=</span> <span class="o">{</span><span class="mi">100</span><span class="o">,</span> <span class="mi">95</span><span class="o">,</span> <span class="mi">67</span><span class="o">,</span> <span class="mi">82</span><span class="o">,</span> <span class="mi">80</span><span class="o">};</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">score</span> <span class="o">:</span> <span class="n">scores</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">switch</span> <span class="o">(</span><span class="n">score</span> <span class="o">/</span> <span class="mi">10</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">case</span> <span class="mi">9</span><span class="o">:</span>
+		<span class="k">case</span> <span class="mi">10</span><span class="o">:</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"A"</span><span class="o">);</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">98</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"+"</span><span class="o">);;</span>
+			<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">score</span> <span class="o">&lt;</span> <span class="mi">94</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"-"</span><span class="o">);;</span>
+			<span class="o">}</span> <span class="k">else</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+			<span class="k">break</span><span class="o">;</span>
+		<span class="k">case</span> <span class="mi">8</span><span class="o">:</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"B"</span><span class="o">);</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">88</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"+"</span><span class="o">);;</span>
+			<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">score</span> <span class="o">&lt;</span> <span class="mi">84</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"-"</span><span class="o">);;</span>
+			<span class="o">}</span> <span class="k">else</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+			<span class="k">break</span><span class="o">;</span>
+		<span class="k">default</span><span class="o">:</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"C"</span><span class="o">);</span>
+			<span class="k">break</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="random">Math.random(랜덤 함수)</h3>
+
+<p>Math 클래스에 정의된 난수 발생함수로 (0, 1) 범위의 double값을 반홥합니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()</span></code></pre></figure>
+
+<hr />
+
+<h2 id="rep">반복문</h2>
+
+<p>반복문(iteration statements)이란 프로그램 내에서 똑같은 명령문을 정한 횟수만큼 반복하여 수행하도록 제어하는 명령문으로 프로그램 내에서 반복적인 형태가 많기 때문에 가장 많이 사용되는 제어문 중 하나입니다.</p>
+
+<ol>
+  <li>
+    <p>for 문</p>
+  </li>
+  <li>
+    <p>while 문</p>
+  </li>
+  <li>
+    <p>do-while 문</p>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h3 id="for">for문</h3>
+
+<p>for문은 초기식, 조건식, 증감식을 모두 가지고 있는 반복문입니다. 진행 순서는 초기식, 조건식, 중괄호 안 실행문, 증감식 순입니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex09</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">//구구단 3</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"3 x %d = %d \n"</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">3</span><span class="o">);</span>
+		<span class="o">}</span>
+
+    <span class="c1">// 구구단 5</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">+=</span><span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"5 x %d = %d \n"</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">5</span><span class="o">);</span>
+		<span class="o">}</span>
+		
+    <span class="c1">// 1부터 100까지 합</span>
+		<span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">101</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">sum</span> <span class="o">+=</span> <span class="n">i</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sum</span><span class="o">);</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p>구구단 3부터 보면, 정수 i가 1부터 시작하며 i가 10이하이기 때문에 계속 진행합니다. 그리고 실행문이 실행되고 증감식으로 가서 i가 1이 증가합니다. 증가했지만 조건식의 조건에 맞기 때문에 다시 실행문으로 갑니다. 실행 이후 증감식으로 가서 다시 i가 1 증가하고 이 과정이 i가 10이 될 때 까지 반복됩니다. i가 10이 된 다음에는 조건식에 맞지 않기 때문에 for문이 종료됩니다.</p>
+
+<p>(+) 좋은 방법은 아니지만 for문을 구현할 때 꼭 소괄호 안에 식을 적지 않는 경우도 있습니다. 아래 코드에서 확인할 수 있습니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex11</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">i</span><span class="o">;</span>
+		<span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">11</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+		<span class="o">}</span>
+		
+		<span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// 1</span>
+		<span class="k">for</span> <span class="o">(;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">11</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span><span class="c1">//2 //4</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">j</span><span class="o">);</span><span class="c1">//3</span>
+		<span class="o">}</span>
+		<span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>    <span class="c1">// 1</span>
+		<span class="k">for</span> <span class="o">(</span> <span class="o">;</span> <span class="o">;</span> <span class="o">)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">z</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">)</span> <span class="k">break</span><span class="o">;</span>     <span class="c1">//2</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">z</span><span class="o">);</span><span class="c1">//3</span>
+			<span class="n">z</span><span class="o">++;</span> <span class="c1">//4</span>
+		<span class="o">}</span>
+			
+		
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+</article>
+
+<a href="#top">맨 위로</a>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=JAVA+%283%29+-+%EC%9E%91%EC%84%B1+%EC%A4%91&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F10%2Fjava%283%29.html&via="
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=JAVA+%283%29+-+%EC%9E%91%EC%84%B1+%EC%A4%91&u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F10%2Fjava%283%29.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F10%2Fjava%283%29.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=JAVA+%283%29+-+%EC%9E%91%EC%84%B1+%EC%A4%91&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F10%2Fjava%283%29.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+      <a href="//www.pinterest.com/pin/create/button/?description=JAVA+%283%29+-+%EC%9E%91%EC%84%B1+%EC%A4%91&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F10%2Fjava%283%29.html&media=http://localhost:4000/assets/header_image.jpg"
+        onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
+        <i class="fa fa-pinterest-square fa-lg"></i>
+      </a>
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/java/2021/05/10/java(3).html') + '&title=JAVA (3) - 작성 중'; return false">
+        <i class="fa fa-reddit-square fa-lg"></i>
+      </a>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">RWDR</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/search/">Search</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Plan</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:enne123@naver.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">enne123@naver.com</span>
+          </a>
+        </li>
+
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://github.com/Ring-wdr" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Ring-wdr</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li>
+            <a href="https://www.instagram.com/kim.manjoong" title="Follow me on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="username">kim.manjoong</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">A simple blog.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'G-LYEK3M0XH1', 'auto');
+  ga('send', 'pageview', {
+    'page': '/java/2021/05/10/java(3).html',
+    'title': 'JAVA (3) - 작성 중'
+  });
+</script>
+
+
+
+  </body>
+
+</html>

@@ -6,13 +6,25 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 11 May 2021 22:05:32 +0900</pubDate>
-    <lastBuildDate>Tue, 11 May 2021 22:05:32 +0900</lastBuildDate>
+    <pubDate>Wed, 12 May 2021 23:42:42 +0900</pubDate>
+    <lastBuildDate>Wed, 12 May 2021 23:42:42 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
     
       <item>
+        <title>JAVA (4) - 배열</title>
+        <description>&lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#array&quot;&gt;배열&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#create&quot;&gt;선언과 생성&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#init&quot;&gt;초기화&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dimarray&quot;&gt;다차원 배열&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr /&gt; &lt;h2 id=&quot;array&quot;&gt;배열&lt;/h2&gt; &lt;p&gt;배열이란 같은 유형의 값을 하나의 묶어서 저장하는 것으로 많은 양의 값을...</description>
+        <pubDate>Wed, 12 May 2021 12:20:52 +0900</pubDate>
+        <link>http://localhost:4000/java/2021/05/12/java(4).html</link>
+        <guid isPermaLink="true">http://localhost:4000/java/2021/05/12/java(4).html</guid>
+        
+        
+        <category>java</category>
+        
+      </item>
+    
+      <item>
         <title>JAVA (3) - 작성 중</title>
-        <description>&lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#scanner&quot;&gt;스캐너&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#option&quot;&gt;조건문&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#if&quot;&gt;if문&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dupif&quot;&gt;중첩 if문&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#switch&quot;&gt;switch문&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dupswitch&quot;&gt;중첩 switch문&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#random&quot;&gt;* 랜덤 함수&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#rep&quot;&gt;반복문&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#for&quot;&gt;for문&lt;/a&gt;&lt;/li&gt; &lt;li&gt;여기까지 작성되었습니다.&lt;/li&gt; &lt;li&gt;&lt;a...</description>
+        <description>&lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#scanner&quot;&gt;스캐너&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#option&quot;&gt;조건문&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#if&quot;&gt;if문&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dupif&quot;&gt;중첩 if문&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#switch&quot;&gt;switch문&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dupswitch&quot;&gt;중첩 switch문&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#random&quot;&gt;* 랜덤 함수&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#rep&quot;&gt;반복문&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#for&quot;&gt;for문&lt;/a&gt;&lt;/li&gt; &lt;li&gt;금요일 업데이트 예정&lt;/li&gt;...</description>
         <pubDate>Mon, 10 May 2021 15:20:52 +0900</pubDate>
         <link>http://localhost:4000/java/2021/05/10/java(3).html</link>
         <guid isPermaLink="true">http://localhost:4000/java/2021/05/10/java(3).html</guid>
@@ -112,18 +124,6 @@
         <pubDate>Sat, 14 Nov 2020 12:10:52 +0900</pubDate>
         <link>http://localhost:4000/python/2020/11/14/naver_map_api.html</link>
         <guid isPermaLink="true">http://localhost:4000/python/2020/11/14/naver_map_api.html</guid>
-        
-        
-        <category>python</category>
-        
-      </item>
-    
-      <item>
-        <title>더미 데이터 생성</title>
-        <description>&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#grammar&quot;&gt;0. 쇼핑몰 설정 주 사용 함수&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#cust&quot;&gt;1. 고객 테이블(customer))&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#product&quot;&gt;2. 상품 테이블(product)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#order&quot;&gt;3. 주문 테이블(order)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#orderitem&quot;&gt;4. 주문한 상품 테이블(order_item)&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#prepr&quot;&gt;5. 전처리(preprocess)&lt;/a&gt;&lt;/li&gt;...</description>
-        <pubDate>Thu, 12 Nov 2020 05:10:52 +0900</pubDate>
-        <link>http://localhost:4000/python/2020/11/12/python-dumdata.html</link>
-        <guid isPermaLink="true">http://localhost:4000/python/2020/11/12/python-dumdata.html</guid>
         
         
         <category>python</category>

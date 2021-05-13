@@ -6,9 +6,21 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 12 May 2021 23:42:42 +0900</pubDate>
-    <lastBuildDate>Wed, 12 May 2021 23:42:42 +0900</lastBuildDate>
+    <pubDate>Thu, 13 May 2021 22:11:36 +0900</pubDate>
+    <lastBuildDate>Thu, 13 May 2021 22:11:36 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>JAVA HW(1) - 로또 생성기</title>
+        <description>&lt;p&gt;인터넷을 뒤져보지 않고 고민해서 만들었는데, 코드를 구현해보고 답지를 찾아보니 아쉬움이 많이 듭니다. 그래도 족적을 남기기 위해서 글 작성합니다.&lt;/p&gt; &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.Arrays&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt;...</description>
+        <pubDate>Thu, 13 May 2021 12:20:52 +0900</pubDate>
+        <link>http://localhost:4000/java/2021/05/13/java_hw(1).html</link>
+        <guid isPermaLink="true">http://localhost:4000/java/2021/05/13/java_hw(1).html</guid>
+        
+        
+        <category>java</category>
+        
+      </item>
     
       <item>
         <title>JAVA (4) - 배열</title>
@@ -25,9 +37,9 @@
       <item>
         <title>JAVA (3) - 작성 중</title>
         <description>&lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#scanner&quot;&gt;스캐너&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#option&quot;&gt;조건문&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#if&quot;&gt;if문&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dupif&quot;&gt;중첩 if문&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#switch&quot;&gt;switch문&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#dupswitch&quot;&gt;중첩 switch문&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#random&quot;&gt;* 랜덤 함수&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#rep&quot;&gt;반복문&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#for&quot;&gt;for문&lt;/a&gt;&lt;/li&gt; &lt;li&gt;금요일 업데이트 예정&lt;/li&gt;...</description>
-        <pubDate>Mon, 10 May 2021 15:20:52 +0900</pubDate>
-        <link>http://localhost:4000/java/2021/05/10/java(3).html</link>
-        <guid isPermaLink="true">http://localhost:4000/java/2021/05/10/java(3).html</guid>
+        <pubDate>Tue, 11 May 2021 15:20:52 +0900</pubDate>
+        <link>http://localhost:4000/java/2021/05/11/java(3).html</link>
+        <guid isPermaLink="true">http://localhost:4000/java/2021/05/11/java(3).html</guid>
         
         
         <category>java</category>
@@ -115,18 +127,6 @@
         
         
         <category>hadoop</category>
-        
-      </item>
-    
-      <item>
-        <title>네이버 API를 이용한 지오코딩(Geocoding)</title>
-        <description>&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#geocoding&quot;&gt;0. Geocoding이란?&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#navercp&quot;&gt;1. 네이버 클라우드 플랫폼&lt;/a&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;#getkey&quot;&gt;인증키 발급&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#getmapinfo&quot;&gt;2. Geocoding 실행&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;제가 운영중인 네이버 블로그에서 가장 질문이 많은 글이라...</description>
-        <pubDate>Sat, 14 Nov 2020 12:10:52 +0900</pubDate>
-        <link>http://localhost:4000/python/2020/11/14/naver_map_api.html</link>
-        <guid isPermaLink="true">http://localhost:4000/python/2020/11/14/naver_map_api.html</guid>
-        
-        
-        <category>python</category>
         
       </item>
     

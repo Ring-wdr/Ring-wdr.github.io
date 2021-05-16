@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>JAVA (3) - 작성 중</title>
-  <meta name="description" content="  스캐너  조건문          if문      중첩 if문      switch문      중첩 switch문      * 랜덤 함수        반복문          for문      금요일 업데이트 예정      ">
+  <title>JAVA (3) - 조건/반복문</title>
+  <meta name="description" content="  스캐너  조건문          if문      중첩 if문      switch문      중첩 switch문      * 랜덤 함수        반복문          for문      중첩 for문      while문      중첩 while문      do-while문...">
   
   <meta name="author" content="Manjoong Kim">
   <meta name="copyright" content="&copy; Manjoong Kim 2021">
@@ -41,10 +41,10 @@
 
   
   <!-- Facebook OGP cards -->
-  <meta property="og:description" content="  스캐너  조건문          if문      중첩 if문      switch문      중첩 switch문      * 랜덤 함수        반복문          for문      금요일 업데이트 예정      " />
+  <meta property="og:description" content="  스캐너  조건문          if문      중첩 if문      switch문      중첩 switch문      * 랜덤 함수        반복문          for문      중첩 for문      while문      중첩 while문      do-while문..." />
   <meta property="og:url" content="http://localhost:4000/java/2021/05/11/java(3).html">
   <meta property="og:site_name" content="RWDR" />
-  <meta property="og:title" content="JAVA (3) - 작성 중" />
+  <meta property="og:title" content="JAVA (3) - 조건/반복문" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="http://localhost:4000/assets/RWDR.png" />
   <meta property="og:image:type" content="image/png" />
@@ -55,8 +55,8 @@
   
   <!-- Twitter: card tags -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="JAVA (3) - 작성 중">
-  <meta name="twitter:description" content="  스캐너  조건문          if문      중첩 if문      switch문      중첩 switch문      * 랜덤 함수        반복문          for문      금요일 업데이트 예정      ">
+  <meta name="twitter:title" content="JAVA (3) - 조건/반복문">
+  <meta name="twitter:description" content="  스캐너  조건문          if문      중첩 if문      switch문      중첩 switch문      * 랜덤 함수        반복문          for문      중첩 for문      while문      중첩 while문      do-while문...">
   <meta name="twitter:image" content="http://localhost:4000/assets/RWDR.png">
   <meta name="twitter:url" content="http://localhost:4000/java/2021/05/11/java(3).html">
   
@@ -165,7 +165,7 @@
 <div class="post-header-container " >
   <div class="scrim ">
     <header class="post-header">
-      <h1 class="title">JAVA (3) - 작성 중</h1>
+      <h1 class="title">JAVA (3) - 조건/반복문</h1>
       <p class="info">by <strong>Kim</strong></p>
     </header>
   </div>
@@ -205,7 +205,11 @@
   <li><a href="#rep">반복문</a>
     <ul>
       <li><a href="#for">for문</a></li>
-      <li>금요일 업데이트 예정</li>
+      <li><a href="#dupfor">중첩 for문</a></li>
+      <li><a href="#while">while문</a></li>
+      <li><a href="#dupwhile">중첩 while문</a></li>
+      <li><a href="#dowhile">do-while문</a></li>
+      <li><a href="#control">제어문</a></li>
     </ul>
   </li>
 </ul>
@@ -460,7 +464,7 @@
 
 <p>(+) 좋은 방법은 아니지만 for문을 구현할 때 꼭 소괄호 안에 식을 적지 않는 경우도 있습니다. 아래 코드에서 확인할 수 있습니다.</p>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex11</span> <span class="o">{</span>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex10</span> <span class="o">{</span>
 
 	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 		<span class="kt">int</span> <span class="n">i</span><span class="o">;</span>
@@ -484,6 +488,164 @@
 
 <span class="o">}</span></code></pre></figure>
 
+<p><br /></p>
+
+<h3 id="dupfor">중첩 for문</h3>
+
+<p>for문도 조건문과 마찬가지로 중첩으로 사용할 수 있습니다. 뿐만 아니라 조건문과 반복문은 제한 없이 중첩 사용이 가능합니다. 이를 이용하여 구구단을 출력하는 코드를 봅시다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex11</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">j</span><span class="o">++){</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%d x %d = %d "</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">,</span> <span class="n">i</span> <span class="o">*</span> <span class="n">j</span><span class="o">);</span>
+				<span class="k">switch</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+				<span class="k">case</span> <span class="mi">4</span><span class="o">:</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span> <span class="k">break</span><span class="o">;</span>
+				<span class="k">case</span> <span class="mi">9</span><span class="o">:</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+						<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"========================="</span><span class="o">);</span>
+						<span class="k">break</span><span class="o">;</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p>정수 i는 2에서부터 9까지, j는 1에서 9까지 반복되며 가독성을 위해 j가 5, 9일때 줄 변경 문장을 삽입하였습니다.</p>
+
+<p>다음으로는 처음에 설명드린 스캐너를 이용해서 이용자가 시작단과 곱하는 수의 시작과 끝을 정하는 구구단 코드입니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex11_1</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">do</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"한번은 실행된다."</span><span class="o">);</span>
+		<span class="o">}</span> <span class="k">while</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+		
+		<span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"시작단 입력 : "</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">startDan</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"마지막 단 입력 : "</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">endDan</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"시작 곱 : "</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">startGop</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"마지막 곱 : "</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">endGop</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+		
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">dan</span> <span class="o">=</span> <span class="n">startDan</span><span class="o">;</span> <span class="n">dan</span> <span class="o">&lt;=</span><span class="n">endDan</span><span class="o">;</span> <span class="n">dan</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">gop</span> <span class="o">=</span> <span class="n">startGop</span><span class="o">;</span> <span class="n">gop</span> <span class="o">&lt;=</span><span class="n">endGop</span><span class="o">;</span> <span class="n">gop</span><span class="o">++)</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dan</span><span class="o">+</span><span class="s">"*"</span><span class="o">+</span><span class="n">gop</span><span class="o">+</span><span class="s">"="</span><span class="o">+</span><span class="n">dan</span><span class="o">*</span><span class="n">gop</span><span class="o">);</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="while">while문</h3>
+
+<p>for과 다른 반복문으로 조건식이 true일 경우 계속 블럭 안 문장을 실행시킵니다. 따라서, 조건을 잘못 지정하면(조건식이 항상 true일때) 무한 반복이 될 수 도 있습니다. 간단한 예제로 10부터 1씩 줄어드는 출력문을 봅시다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex12</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+		<span class="k">while</span><span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">--);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p>while 문이 반복될 때 마다, i는 1씩 감소하다가 i가 0보다 작아지면서 <code class="highlighter-rouge">i&gt;=0</code> 조건식을 만족하지 못하게 되어 반복문을 탈출하게 됩니다.</p>
+
+<p><br /></p>
+
+<h3 id="dupwhile">중첩 while문</h3>
+
+<p>while 문 역시 for문 처럼 중첩이 가능합니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex13</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+		<span class="k">while</span><span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+			<span class="k">while</span><span class="o">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="s">"x"</span> <span class="o">+</span> <span class="n">j</span> <span class="o">+</span> <span class="s">"="</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">j</span><span class="o">);</span>
+				<span class="k">switch</span><span class="o">(</span><span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+				<span class="k">case</span> <span class="mi">9</span><span class="o">:</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"========================="</span><span class="o">);</span>
+						<span class="k">break</span><span class="o">;</span>
+				<span class="o">}</span>
+				<span class="n">j</span><span class="o">++;</span>
+			<span class="o">}</span>
+			<span class="n">i</span><span class="o">++;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p><br /></p>
+
+<h3 id="dowhile">do-while문</h3>
+
+<p>while문의 변형으로 블럭 안 문장을 먼저 실행한 다음 조건식을 계산합니다. 따라서 어떤 조건식이 오더라도 최소 1번 이상 실행이 됩니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex14</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">do</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"한번은 실행된다."</span><span class="o">);</span>
+		<span class="o">}</span> <span class="k">while</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p>일반적인 while문인 경우 조건식이 false일 때 전혀 실행되지 않고 반복문이 종료되지만 do-while문의 경우는 문장의 실행이 먼저이기 때문에 실행이 일단 되고나서 조건식으로 넘어갑니다.</p>
+
+<p><br /></p>
+
+<h3 id="control">제어문</h3>
+
+<p>제어문은 반복문의 반복(loop)를의 제어하는 문장으로 일반적인 루프의 흐름을 사용자가 직접 제어할 수 있도록 도와줍니다. break, continue 등이 있습니다.</p>
+
+<ol>
+  <li>
+    <p>break : 나 그만 둘래.</p>
+
+    <p>break문은 자신이 포함된 하나의 조건, 반복문을 빠져 나오게 하는 제어문입니다.</p>
+  </li>
+  <li>
+    <p>continue : 이번만 쉴래.</p>
+
+    <p>continue문은 반복문을 한 번 띄어넘게 하는 제어문으로 continue 이후의 문장들은 수행되지 않습니다.</p>
+  </li>
+</ol>
+
+<p>초심자들은 break와 continue가 서로 어떻게 다른지 이해하지 못 할 수도 있습니다만, break의 경우 for문 자체가 종료되기 때문에 반복문 안의 문장들이 더 이상 수행되지 않게 하지만, continue의 경우 해당 단계만 넘어가고 for문이 바로 종료되지는 않는다는 차이가 있습니다. 둘을 비교하는 코드를 통해 차이점을 확인해봅시다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex15</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="o">)</span> <span class="k">break</span><span class="o">;</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+		<span class="o">}</span>
+		
+		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">j</span> <span class="o">==</span> <span class="mi">3</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p>위의 break가 들어간 for문에 경우에는 1, 2까지 출력이 되고 i가 3이 된 시점에서 for문이 강제로 종료가 됩니다. 하지만 continue가 들어간 for문에서는 j가 3이 된 시점만 넘기고 4 또한 출력하고 5가 된 순간 조건식을 만족하지 않아 종료가 됩니다.</p>
+
 </article>
 
 <a href="#top">맨 위로</a>
@@ -501,7 +663,7 @@
   
     
     
-      <a href="//twitter.com/share?text=JAVA+%283%29+-+%EC%9E%91%EC%84%B1+%EC%A4%91&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F11%2Fjava%283%29.html&via="
+      <a href="//twitter.com/share?text=JAVA+%283%29+-+%EC%A1%B0%EA%B1%B4%2F%EB%B0%98%EB%B3%B5%EB%AC%B8&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F11%2Fjava%283%29.html&via="
         onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
         <i class="fa fa-twitter-square fa-lg"></i>
       </a>
@@ -516,7 +678,7 @@
     
     
     
-      <a href="//www.facebook.com/sharer.php?t=JAVA+%283%29+-+%EC%9E%91%EC%84%B1+%EC%A4%91&u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F11%2Fjava%283%29.html"
+      <a href="//www.facebook.com/sharer.php?t=JAVA+%283%29+-+%EC%A1%B0%EA%B1%B4%2F%EB%B0%98%EB%B3%B5%EB%AC%B8&u=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F11%2Fjava%283%29.html"
         onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
         <i class="fa fa-facebook-square fa-lg"></i>
       </a>
@@ -554,7 +716,7 @@
     
     
     
-      <a href="//plus.google.com/share?title=JAVA+%283%29+-+%EC%9E%91%EC%84%B1+%EC%A4%91&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F11%2Fjava%283%29.html"
+      <a href="//plus.google.com/share?title=JAVA+%283%29+-+%EC%A1%B0%EA%B1%B4%2F%EB%B0%98%EB%B3%B5%EB%AC%B8&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F11%2Fjava%283%29.html"
         onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
         <i class="fa fa-google-plus-square fa-lg"></i>
       </a>
@@ -588,7 +750,7 @@
     
     
     
-      <a href="//www.pinterest.com/pin/create/button/?description=JAVA+%283%29+-+%EC%9E%91%EC%84%B1+%EC%A4%91&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F11%2Fjava%283%29.html&media=http://localhost:4000/assets/header_image.jpg"
+      <a href="//www.pinterest.com/pin/create/button/?description=JAVA+%283%29+-+%EC%A1%B0%EA%B1%B4%2F%EB%B0%98%EB%B3%B5%EB%AC%B8&url=http%3A%2F%2Flocalhost%3A4000%2Fjava%2F2021%2F05%2F11%2Fjava%283%29.html&media=http://localhost:4000/assets/header_image.jpg"
         onclick="window.open(this.href, 'pinterest-share', 'width=550,height=255');return false;">
         <i class="fa fa-pinterest-square fa-lg"></i>
       </a>
@@ -657,7 +819,7 @@
     
     
     
-      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/java/2021/05/11/java(3).html') + '&title=JAVA (3) - 작성 중'; return false">
+      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('http://localhost:4000/java/2021/05/11/java(3).html') + '&title=JAVA (3) - 조건/반복문'; return false">
         <i class="fa fa-reddit-square fa-lg"></i>
       </a>
     
@@ -879,7 +1041,7 @@ $(document).ready(function() {
   ga('create', 'G-LYEK3M0XH1', 'auto');
   ga('send', 'pageview', {
     'page': '/java/2021/05/11/java(3).html',
-    'title': 'JAVA (3) - 작성 중'
+    'title': 'JAVA (3) - 조건/반복문'
   });
 </script>
 

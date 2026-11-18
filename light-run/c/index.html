@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>라이트런 코스</title>
+<!--
+  라이트런 코스 링크 안내 페이지(light-run 저장소 site/light-run/c/index.html이 원본, docs/PLAN.md §2-6-2).
+  공유용 앱이 깔려 있고 앱 링크 인증이 되면 이 페이지 대신 앱이 바로 열린다. 이 페이지는 앱이 없거나
+  메신저 내장 브라우저처럼 앱 링크를 따르지 않는 곳에서 열렸을 때만 보인다.
+  코스 내용은 주소의 # 뒤에만 있고 서버로 가지 않는다. 이 페이지도 어디에도 보내지 않는다(외부 스크립트·분석 도구 없음).
+-->
+<style>
+  :root { color-scheme: light; --ink: #0d1b3a; --sub: #5b6475; --bg: #f5f8fd; --card: #fff; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.6 system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  main { max-width: 480px; margin: 0 auto; padding: 32px 16px; }
+  h1 { font-size: 22px; margin: 0 0 8px; }
+  p { margin: 0 0 12px; color: var(--sub); }
+  .card { background: var(--card); border-radius: 16px; padding: 20px 16px; margin-top: 20px; }
+  .open { display: block; text-align: center; background: var(--ink); color: #fff; text-decoration: none;
+    font-weight: 800; font-size: 18px; padding: 16px; border-radius: 999px; margin: 20px 0 12px; }
+  ol { padding-left: 20px; margin: 0; color: var(--sub); }
+  li { margin-bottom: 6px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <h1>라이트런 코스</h1>
+  <p id="lead">누군가 라이트런 코스를 보냈어요.</p>
+
+  <div id="has-course" hidden>
+    <a id="open" class="open" href="#">라이트런에서 열기</a>
+    <p>앱에서 코스를 미리 보고 "내 코스에 추가"를 눌러야 추가돼요.</p>
+  </div>
+
+  <div id="no-course" hidden>
+    <p>코스 링크가 잘못됐거나 잘렸어요. 보낸 사람에게 링크를 다시 받아 주세요.</p>
+  </div>
+
+  <div class="card">
+    <p><strong>버튼을 눌러도 앱이 열리지 않으면</strong></p>
+    <ol>
+      <li>라이트런 앱(Android)이 있어야 열 수 있어요. 앱이 없다면 보낸 사람에게 설치 방법을 물어보세요.</li>
+      <li>메신저 안에서 열었다면 ··· 메뉴의 "다른 브라우저로 열기"로 Chrome 등에서 다시 열어 보세요.</li>
+    </ol>
+  </div>
+</main>
+<script>
+  // 코스 내용 = # 뒤의 base64url 글자. 모양만 확인하고(앱이 다시 엄격하게 확인한다) 앱 링크로 넘긴다
+  (function () {
+    var payload = location.hash.slice(1);
+    var ok = /^[A-Za-z0-9_-]{4,4000}$/.test(payload);
+    document.getElementById(ok ? 'has-course' : 'no-course').hidden = false;
+    if (ok) document.getElementById('open').href = 'lightrun://course#' + payload;
+    else document.getElementById('lead').textContent = '라이트런 코스 링크예요.';
+  })();
+</script>
+</body>
+</html>

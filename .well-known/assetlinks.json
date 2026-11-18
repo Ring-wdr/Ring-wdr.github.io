@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.ringwdr.lightrun",
+      "sha256_cert_fingerprints": ["0C:D1:CE:65:21:F2:1B:14:C6:5C:86:84:11:4E:6F:0A:09:B4:F5:C8:1B:B6:97:A0:E2:D8:C3:02:4E:A3:D4:8F"]
+    }
+  }
+]
